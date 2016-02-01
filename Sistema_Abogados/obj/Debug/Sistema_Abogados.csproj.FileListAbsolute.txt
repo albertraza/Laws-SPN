@@ -1,0 +1,4 @@
+C:\FactoriadeProyectos\Sistema-oficina-abogados\Sistema_Abogados\Sistema_Abogados\bin\Debug\Sistema_Abogados.exe.config
+C:\FactoriadeProyectos\Sistema-oficina-abogados\Sistema_Abogados\Sistema_Abogados\obj\Debug\Sistema_Abogados.csprojResolveAssemblyReference.cache
+C:\FactoriadeProyectos\Sistema-oficina-abogados\Sistema_Abogados\Sistema_Abogados\obj\Debug\Sistema_Abogados.Properties.Resources.resources
+C:\FactoriadeProyectos\Sistema-oficina-abogados\Sistema_Abogados\Sistema_Abogados\obj\Debug\Sistema_Abogados.csproj.GenerateResource.Cache
