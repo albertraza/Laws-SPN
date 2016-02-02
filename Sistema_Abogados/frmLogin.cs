@@ -41,6 +41,17 @@ namespace Sistema_Abogados
             else
             {
                 // If all texBoxes are filled.
+                if (usuarios.checkUser(txtName.Text, txtPasswrd.Text))
+                {
+                    MessageBox.Show("Aceptado", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Nombre de usuario o contraseña incorrecto", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtName.Clear();
+                    txtPasswrd.Clear();
+                    txtName.Focus();
+                }
             }
         }
     }
