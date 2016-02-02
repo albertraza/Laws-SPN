@@ -114,6 +114,7 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.txtPasswrd);
             this.Controls.Add(this.txtName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmLogin";
             this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
