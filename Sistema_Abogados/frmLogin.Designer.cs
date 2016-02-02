@@ -45,6 +45,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(113, 20);
             this.txtName.TabIndex = 0;
+            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtName_KeyPress);
             // 
             // txtPasswrd
             // 
@@ -53,6 +54,7 @@
             this.txtPasswrd.PasswordChar = '*';
             this.txtPasswrd.Size = new System.Drawing.Size(113, 20);
             this.txtPasswrd.TabIndex = 1;
+            this.txtPasswrd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPasswrd_KeyPress);
             // 
             // lblName
             // 

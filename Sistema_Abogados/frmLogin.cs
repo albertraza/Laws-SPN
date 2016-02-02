@@ -54,5 +54,46 @@ namespace Sistema_Abogados
                 }
             }
         }
+
+        private void txtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                txtPasswrd.Focus();
+            }
+        }
+
+        private void txtPasswrd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                // If texBoxes are Empty Show some messages.
+                if (txtName.Text == string.Empty)
+                {
+                    MessageBox.Show("Nombre de usuario vacio, digite uno valido", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtName.Focus();
+                }
+                else if (txtPasswrd.Text == string.Empty)
+                {
+                    MessageBox.Show("Contraseña vacia, digite una contraseña valida", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtPasswrd.Focus();
+                }
+                else
+                {
+                    // If all texBoxes are filled.
+                    if (usuarios.checkUser(txtName.Text, txtPasswrd.Text))
+                    {
+                        MessageBox.Show("Aceptado", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nombre de usuario o contraseña incorrecto", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtName.Clear();
+                        txtPasswrd.Clear();
+                        txtName.Focus();
+                    }
+                }
+            }
+        }
     }
 }
