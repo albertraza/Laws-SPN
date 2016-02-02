@@ -4,6 +4,7 @@ C:\FactoriadeProyectos\Sistema-oficina-abogados\Sistema_Abogados\Sistema_Abogado
 C:\FactoriadeProyectos\Sistema-oficina-abogados\Sistema_Abogados\Sistema_Abogados\obj\Debug\Sistema_Abogados.csproj.GenerateResource.Cache
 C:\FactoriadeProyectos\Sistema-oficina-abogados\Sistema_Abogados\Sistema_Abogados\bin\Debug\Sistema_Abogados.exe
 C:\FactoriadeProyectos\Sistema-oficina-abogados\Sistema_Abogados\Sistema_Abogados\bin\Debug\Sistema_Abogados.pdb
-C:\FactoriadeProyectos\Sistema-oficina-abogados\Sistema_Abogados\Sistema_Abogados\obj\Debug\Sistema_Abogados.Form1.resources
 C:\FactoriadeProyectos\Sistema-oficina-abogados\Sistema_Abogados\Sistema_Abogados\obj\Debug\Sistema_Abogados.exe
 C:\FactoriadeProyectos\Sistema-oficina-abogados\Sistema_Abogados\Sistema_Abogados\obj\Debug\Sistema_Abogados.pdb
+C:\FactoriadeProyectos\Sistema-oficina-abogados\Sistema_Abogados\Sistema_Abogados\obj\Debug\Sistema_Abogados.frmSplash.resources
+C:\FactoriadeProyectos\Sistema-oficina-abogados\Sistema_Abogados\Sistema_Abogados\obj\Debug\Sistema_Abogados.frmLogin.resources

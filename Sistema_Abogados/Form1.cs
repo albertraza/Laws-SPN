@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Sistema_Abogados
 {
-    public partial class Form1 : Form
+    public partial class frmSplash : Form
     {
-        public Form1()
+        public frmSplash()
         {
             InitializeComponent();
         }
@@ -22,10 +22,25 @@ namespace Sistema_Abogados
             try
             {
                 DBcomun.getConnection();
+                timer1.Start();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        int c = 1;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            c++;
+            lblMessage.Text = "Cargando sistema, espere por favor ... " + " ";
+            string m = c.ToString();
+            lblMessage.Text = lblMessage.Text + " " + m + "%";
+            pbProgress.Value = c;
+            if (c == 100)
+            {
+                timer1.Stop();
             }
         }
     }
