@@ -28,44 +28,94 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtPasswrd = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
+            this.lblPasswrd = new System.Windows.Forms.Label();
+            this.pbImage = new System.Windows.Forms.PictureBox();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtName
             // 
-            this.textBox1.Location = new System.Drawing.Point(256, 72);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(143, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtName.Location = new System.Drawing.Point(256, 72);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(113, 20);
+            this.txtName.TabIndex = 0;
             // 
-            // textBox2
+            // txtPasswrd
             // 
-            this.textBox2.Location = new System.Drawing.Point(256, 121);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(143, 20);
-            this.textBox2.TabIndex = 1;
+            this.txtPasswrd.Location = new System.Drawing.Point(256, 121);
+            this.txtPasswrd.Name = "txtPasswrd";
+            this.txtPasswrd.PasswordChar = '*';
+            this.txtPasswrd.Size = new System.Drawing.Size(113, 20);
+            this.txtPasswrd.TabIndex = 1;
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
             this.lblName.Location = new System.Drawing.Point(201, 75);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(35, 13);
+            this.lblName.Size = new System.Drawing.Size(47, 13);
             this.lblName.TabIndex = 2;
-            this.lblName.Text = "label1";
+            this.lblName.Text = "Nombre:";
+            // 
+            // lblPasswrd
+            // 
+            this.lblPasswrd.AutoSize = true;
+            this.lblPasswrd.Location = new System.Drawing.Point(184, 124);
+            this.lblPasswrd.Name = "lblPasswrd";
+            this.lblPasswrd.Size = new System.Drawing.Size(64, 13);
+            this.lblPasswrd.TabIndex = 3;
+            this.lblPasswrd.Text = "Contraseña:";
+            // 
+            // pbImage
+            // 
+            this.pbImage.Image = ((System.Drawing.Image)(resources.GetObject("pbImage.Image")));
+            this.pbImage.Location = new System.Drawing.Point(20, 26);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(158, 174);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImage.TabIndex = 4;
+            this.pbImage.TabStop = false;
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.Location = new System.Drawing.Point(41, 253);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(91, 23);
+            this.btnLogin.TabIndex = 5;
+            this.btnLogin.Text = "Aceptar";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(268, 253);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(91, 23);
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(501, 301);
+            this.ClientSize = new System.Drawing.Size(408, 301);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.pbImage);
+            this.Controls.Add(this.lblPasswrd);
             this.Controls.Add(this.lblName);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPasswrd);
+            this.Controls.Add(this.txtName);
             this.Name = "frmLogin";
             this.Text = "Login";
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -73,8 +123,12 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtPasswrd;
         private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblPasswrd;
+        private System.Windows.Forms.PictureBox pbImage;
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

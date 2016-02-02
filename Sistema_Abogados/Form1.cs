@@ -41,6 +41,8 @@ namespace Sistema_Abogados
             if (c == 100)
             {
                 timer1.Stop();
+                this.Hide();
+                new frmLogin().Show();
             }
         }
     }
