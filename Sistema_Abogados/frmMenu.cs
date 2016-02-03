@@ -16,5 +16,13 @@ namespace Sistema_Abogados
         {
             InitializeComponent();
         }
+
+        private void salirDelSistemaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Seguro que desea salir del sistema?", "Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
     }
 }
