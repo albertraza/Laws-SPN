@@ -36,6 +36,8 @@
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirDelSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gbLessFive = new System.Windows.Forms.GroupBox();
+            this.gbLastCases = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +84,7 @@
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.acercaDeToolStripMenuItem.Text = "Acerca de";
             // 
             // salirToolStripMenuItem
@@ -100,11 +102,33 @@
             this.salirDelSistemaToolStripMenuItem.Text = "Salir del Sistema";
             this.salirDelSistemaToolStripMenuItem.Click += new System.EventHandler(this.salirDelSistemaToolStripMenuItem_Click);
             // 
+            // gbLessFive
+            // 
+            this.gbLessFive.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbLessFive.Location = new System.Drawing.Point(687, 36);
+            this.gbLessFive.Name = "gbLessFive";
+            this.gbLessFive.Size = new System.Drawing.Size(376, 201);
+            this.gbLessFive.TabIndex = 1;
+            this.gbLessFive.TabStop = false;
+            this.gbLessFive.Text = "En menos de 5 Dias";
+            // 
+            // gbLastCases
+            // 
+            this.gbLastCases.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbLastCases.Location = new System.Drawing.Point(687, 243);
+            this.gbLastCases.Name = "gbLastCases";
+            this.gbLastCases.Size = new System.Drawing.Size(376, 229);
+            this.gbLastCases.TabIndex = 2;
+            this.gbLastCases.TabStop = false;
+            this.gbLastCases.Text = "Ultimos Casos";
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1075, 498);
+            this.Controls.Add(this.gbLastCases);
+            this.Controls.Add(this.gbLessFive);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMenu";
@@ -126,5 +150,7 @@
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirDelSistemaToolStripMenuItem;
+        private System.Windows.Forms.GroupBox gbLessFive;
+        private System.Windows.Forms.GroupBox gbLastCases;
     }
 }

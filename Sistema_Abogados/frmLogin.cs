@@ -19,6 +19,7 @@ namespace Sistema_Abogados
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            // if button cancelar is presses the following piece of code is executed.
             if (MessageBox.Show("Seguro que desea salir?", "Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
                 Application.Exit();

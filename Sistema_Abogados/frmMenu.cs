@@ -19,6 +19,7 @@ namespace Sistema_Abogados
 
         private void salirDelSistemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // when menu Salir del sistema is clicked this piece of code is executed.
             if (MessageBox.Show("Seguro que desea salir del sistema?", "Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
                 Application.Exit();
