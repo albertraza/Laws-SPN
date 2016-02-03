@@ -43,7 +43,8 @@ namespace Sistema_Abogados
                 // If all texBoxes are filled.
                 if (usuarios.checkUser(txtName.Text, txtPasswrd.Text))
                 {
-                    MessageBox.Show("Aceptado", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    new frmMenu().Show();
+                    this.Hide();
                 }
                 else
                 {
@@ -83,7 +84,8 @@ namespace Sistema_Abogados
                     // If all texBoxes are filled.
                     if (usuarios.checkUser(txtName.Text, txtPasswrd.Text))
                     {
-                        MessageBox.Show("Aceptado", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        new frmMenu().Show();
+                        this.Hide();
                     }
                     else
                     {
