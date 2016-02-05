@@ -113,5 +113,31 @@ namespace Sistema_Abogados
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            // TextBoxes verification for enabling the button Login.
+            if (txtName.Text == string.Empty || txtPasswrd.Text == string.Empty)
+            {
+                btnLogin.Enabled = false;
+            }
+            else
+            {
+                btnLogin.Enabled = true;
+            }
+        }
+
+        private void txtPasswrd_TextChanged(object sender, EventArgs e)
+        {
+            // TextBoxes verification for enabling the button Login.
+            if (txtName.Text == string.Empty || txtPasswrd.Text == string.Empty)
+            {
+                btnLogin.Enabled = false;
+            }
+            else
+            {
+                btnLogin.Enabled = true;
+            }
+        }
     }
 }
