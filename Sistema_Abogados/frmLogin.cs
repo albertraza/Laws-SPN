@@ -98,5 +98,20 @@ namespace Sistema_Abogados
                 }
             }
         }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            // test if the connection is correct before initialize the components.
+            try
+            {
+                DBcomun.getConnection();
+                // also enabled false the login button.
+                btnLogin.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
