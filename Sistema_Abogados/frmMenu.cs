@@ -25,5 +25,12 @@ namespace Sistema_Abogados
                 Application.Exit();
             }
         }
+
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+            // updating form properties for better desing.
+            this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            this.StartPosition = FormStartPosition.CenterScreen;
+        }
     }
 }
