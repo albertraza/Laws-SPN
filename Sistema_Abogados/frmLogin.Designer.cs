@@ -41,7 +41,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(256, 72);
+            this.txtName.Location = new System.Drawing.Point(254, 72);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(113, 20);
             this.txtName.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             // txtPasswrd
             // 
-            this.txtPasswrd.Location = new System.Drawing.Point(256, 121);
+            this.txtPasswrd.Location = new System.Drawing.Point(254, 121);
             this.txtPasswrd.Name = "txtPasswrd";
             this.txtPasswrd.PasswordChar = '*';
             this.txtPasswrd.Size = new System.Drawing.Size(113, 20);
@@ -61,7 +61,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(201, 75);
+            this.lblName.Location = new System.Drawing.Point(193, 75);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(47, 13);
             this.lblName.TabIndex = 2;
