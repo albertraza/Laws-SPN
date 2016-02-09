@@ -32,5 +32,11 @@ namespace Sistema_Abogados
             this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
             this.StartPosition = FormStartPosition.CenterScreen;
         }
+
+        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // add frmAbout call when clicked.
+            new frmAbout().ShowDialog();
+        }
     }
 }
