@@ -19,6 +19,7 @@ namespace Sistema_Abogados
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            new frmMenu().Show();
             Close();
         }
     }

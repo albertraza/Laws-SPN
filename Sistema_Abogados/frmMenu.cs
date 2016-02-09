@@ -36,6 +36,7 @@ namespace Sistema_Abogados
         private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // add frmAbout call when clicked.
+            Hide();
             new frmAbout().ShowDialog();
         }
     }
