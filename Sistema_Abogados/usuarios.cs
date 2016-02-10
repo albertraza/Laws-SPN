@@ -12,16 +12,18 @@ namespace Sistema_Abogados
         // create getter for saving users values
         public string id { get; set; }
         public string nombre { get; set; }
+        public string nivel { get; set; }
         public string image { get; set; }
 
         // set up some constructs for making base objets
         public usuarios() { }
 
-        public usuarios(string pid, string pname, string pimage)
+        public usuarios(string pid, string pname, string pimage, string pnivel)
         {
             id = pid;
             nombre = pname;
             image = pimage;
+            nivel = pnivel;
         }
         /// <summary>
         /// end constructs estructure
@@ -62,6 +64,28 @@ namespace Sistema_Abogados
                 con.Close();
             }
             return re;
+        }
+        // method which loads all users.
+        public static List<usuarios> listAllUsers()
+        {
+            List<usuarios> list = new List<usuarios>();
+            using(SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand("SELECT * FROM users", con);
+                SqlDataReader re = comand.ExecuteReader();
+                while (re.Read())
+                {
+                    usuarios u = new usuarios();
+                    u.id = re["ID"].ToString();
+                    u.nombre = re["name"].ToString();
+                    u.nivel = re["nivel"].ToString();
+                    u.image = re["picture"].ToString();
+
+                    list.Add(u);
+                }
+                con.Close();
+            }
+            return list;
         }
     }
 }
