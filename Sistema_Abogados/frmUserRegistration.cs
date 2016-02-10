@@ -43,8 +43,8 @@ namespace Sistema_Abogados
             InitializeComponent();
         }
         // string variable where file path will be stored.
-        private string To;
-        private string From;
+        private string To = null;
+        private string From = null;
 
         // when seleccionar imagen is clicked
         private void btnSelectImage_Click(object sender, EventArgs e)
@@ -155,6 +155,8 @@ namespace Sistema_Abogados
                         {
                             MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             File.Copy(From, To, true);
+                            From = null;
+                            To = null;
                             Clear();
                         }
                         else
