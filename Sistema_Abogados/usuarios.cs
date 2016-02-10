@@ -12,14 +12,16 @@ namespace Sistema_Abogados
         // create getter for saving users values
         public string id { get; set; }
         public string nombre { get; set; }
+        public string image { get; set; }
 
         // set up some constructs for making base objets
         public usuarios() { }
 
-        public usuarios(string pid, string pname)
+        public usuarios(string pid, string pname, string pimage)
         {
-            this.id = pid;
-            this.nombre = pname;
+            id = pid;
+            nombre = pname;
+            image = pimage;
         }
         /// <summary>
         /// end constructs estructure
