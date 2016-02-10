@@ -26,6 +26,9 @@ namespace Sistema_Abogados
         /// </summary>
         /// <param name="pU"></param>
         /// <returns></returns>
+        /// 
+        //method for login interface.
+
         public static bool checkUser(string name, string passwrd)
         {
             bool r = false;
@@ -44,6 +47,19 @@ namespace Sistema_Abogados
                 con.Close();
             }
             return r;
+        }
+
+        // method for registering new users with picture included.
+        public static int registerUser(string name, string password, string imageFilePath, string nivel)
+        {
+            int re = -1;
+            using(SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("insert into users (name, passwrd, nivel, picture) values ('{0}', '{1}', '{2}', '{3}')", name, password, nivel, imageFilePath), con);
+                re = comand.ExecuteNonQuery();
+                con.Close();
+            }
+            return re;
         }
     }
 }
