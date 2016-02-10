@@ -170,6 +170,7 @@
             this.lblBackto.TabIndex = 13;
             this.lblBackto.TabStop = true;
             this.lblBackto.Text = "Regresar al Menu";
+            this.lblBackto.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblBackto_LinkClicked);
             // 
             // frmUserRegistration
             // 

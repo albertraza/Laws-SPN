@@ -179,5 +179,14 @@ namespace Sistema_Abogados
                 }
             }
         }
+
+        private void lblBackto_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // show a message box for asking if form will be closed.
+            if (MessageBox.Show("Esta seguro que desea salir?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Close();
+            }
+        }
     }
 }
