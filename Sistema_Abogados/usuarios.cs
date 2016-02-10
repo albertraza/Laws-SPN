@@ -87,5 +87,27 @@ namespace Sistema_Abogados
             }
             return list;
         }
+        // search engine for all users.
+        public static List<usuarios> SearchEngineUsers(string id, string name, string level, string passwrd)
+        {
+            List<usuarios> list = new List<usuarios>();
+            using(SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand(string.Format(""), con);
+                SqlDataReader re = comand.ExecuteReader();
+                while (re.Read())
+                {
+                    usuarios u = new usuarios();
+                    u.id = re["ID"].ToString();
+                    u.nombre = re["name"].ToString();
+                    u.nivel = re["nivel"].ToString();
+                    u.image = re["picture"].ToString();
+
+                    list.Add(u);
+                }
+                con.Close();
+            }
+            return list;
+        }
     }
 }
