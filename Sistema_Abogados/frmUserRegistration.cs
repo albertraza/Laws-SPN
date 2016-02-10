@@ -84,5 +84,15 @@ namespace Sistema_Abogados
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // when Cancelar button is clicked.
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            // show a message box for asking if form will be closed.
+            if(MessageBox.Show("Esta seguro que desea salir?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Close();
+            }
+        }
     }
 }
