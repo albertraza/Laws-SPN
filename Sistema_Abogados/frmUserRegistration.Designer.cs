@@ -33,9 +33,9 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.lblPasswordVerification = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtPasswordVerification = new System.Windows.Forms.TextBox();
             this.cbUserLevel = new System.Windows.Forms.ComboBox();
             this.lblUserLevel = new System.Windows.Forms.Label();
             this.btnRegister = new System.Windows.Forms.Button();
@@ -62,6 +62,7 @@
             this.btnSelectImage.TabIndex = 1;
             this.btnSelectImage.Text = "Seleccionar Imagen";
             this.btnSelectImage.UseVisualStyleBackColor = true;
+            this.btnSelectImage.Click += new System.EventHandler(this.btnSelectImage_Click);
             // 
             // txtName
             // 
@@ -88,13 +89,13 @@
             this.lblPassword.TabIndex = 5;
             this.lblPassword.Text = "Contraseña:";
             // 
-            // textBox1
+            // txtPassword
             // 
-            this.textBox1.Location = new System.Drawing.Point(373, 105);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
+            this.txtPassword.Location = new System.Drawing.Point(373, 105);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(100, 20);
+            this.txtPassword.TabIndex = 4;
             // 
             // lblPasswordVerification
             // 
@@ -105,13 +106,13 @@
             this.lblPasswordVerification.TabIndex = 7;
             this.lblPasswordVerification.Text = "Repetir Contraseña:";
             // 
-            // textBox2
+            // txtPasswordVerification
             // 
-            this.textBox2.Location = new System.Drawing.Point(373, 150);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 6;
+            this.txtPasswordVerification.Location = new System.Drawing.Point(373, 150);
+            this.txtPasswordVerification.Name = "txtPasswordVerification";
+            this.txtPasswordVerification.PasswordChar = '*';
+            this.txtPasswordVerification.Size = new System.Drawing.Size(100, 20);
+            this.txtPasswordVerification.TabIndex = 6;
             // 
             // cbUserLevel
             // 
@@ -179,9 +180,9 @@
             this.Controls.Add(this.lblUserLevel);
             this.Controls.Add(this.cbUserLevel);
             this.Controls.Add(this.lblPasswordVerification);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtPasswordVerification);
             this.Controls.Add(this.lblPassword);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.btnSelectImage);
@@ -203,9 +204,9 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label lblPasswordVerification;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPasswordVerification;
         private System.Windows.Forms.ComboBox cbUserLevel;
         private System.Windows.Forms.Label lblUserLevel;
         private System.Windows.Forms.Button btnRegister;
