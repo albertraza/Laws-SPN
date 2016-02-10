@@ -44,6 +44,7 @@ namespace Sistema_Abogados
         }
         // string variable where file path will be stored.
         private string To;
+        private string From;
 
         // when seleccionar imagen is clicked
         private void btnSelectImage_Click(object sender, EventArgs e)
@@ -59,6 +60,7 @@ namespace Sistema_Abogados
             }
             // create file path where the images are going to be copied.
             To = @"C:\FactoriadeProyectos\sistema-oficina-abogados\images\" + Path.GetFileName(opnfl.FileName);
+            From = opnfl.FileName;
             // create try from using the image.
             try
             {
@@ -109,6 +111,70 @@ namespace Sistema_Abogados
             if(MessageBox.Show("Esta seguro que desea salir?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Close();
+            }
+        }
+
+        // when Registrar button is clicked.
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            // text boxes validation.
+            if(txtName.Text == string.Empty)
+            {
+                MessageBox.Show("El Nombre de Usuario esta vacio", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtName.Focus();
+            }
+            else if(txtPassword.Text == string.Empty)
+            {
+                MessageBox.Show("La Contraseña del Usuario esta vacia", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPassword.Focus();
+            }
+            else if(txtPasswordVerification.Text == string.Empty)
+            {
+                MessageBox.Show("No se ha completado la repeticion de la contraseña", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPasswordVerification.Focus();
+            }
+            else if(cbUserLevel.Text == string.Empty)
+            {
+                MessageBox.Show("Seleccione un nivel de usuario", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbUserLevel.Focus();
+            }
+            else if(To == null)
+            {
+                MessageBox.Show("No se ha seleccionado una imagen para registrar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                btnSelectImage.Focus();
+            }
+            else
+            {
+                // if all texboxes are fully filled validate the password.
+                if(txtPassword.Text == txtPasswordVerification.Text)
+                {
+                    // if validation is performed true.
+                    try
+                    {
+                        if (usuarios.registerUser(txtName.Text, txtPassword.Text, To, cbUserLevel.Text) > 0)
+                        {
+                            MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            File.Copy(From, To, true);
+                            Clear();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo registrar, Intentelo nuevamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    // if validation is performed false.
+                    MessageBox.Show("Las contraseñas no coinciden, digitelas nuevamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtPassword.Clear();
+                    txtPasswordVerification.Clear();
+                    txtPassword.Focus();
+                }
             }
         }
     }
