@@ -39,5 +39,10 @@ namespace Sistema_Abogados
             Hide();
             new frmAbout().ShowDialog();
         }
+
+        private void registrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmUserRegistration().Show();
+        }
     }
 }
