@@ -29,6 +29,7 @@ namespace Sistema_Abogados
         }
         // string variable where file path will be stored.
         private string To;
+
         // when seleccionar imagen is clicked
         private void btnSelectImage_Click(object sender, EventArgs e)
         {
@@ -55,11 +56,28 @@ namespace Sistema_Abogados
             }
         }
 
+        // when Limpiar button is clicked.
         private void btnClear_Click(object sender, EventArgs e)
         {
             try
             {
+                // call the clear method to be executed.
                 Clear();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // when Main Form is loaded.
+        private void frmUserRegistration_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                // have the default image to be shown in the picture box.
+                pbImage.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
+                txtName.Focus();
             }
             catch(Exception ex)
             {
