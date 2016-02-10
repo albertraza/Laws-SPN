@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Data.SqlClient;
 
 namespace Sistema_Abogados
 {
@@ -22,6 +23,20 @@ namespace Sistema_Abogados
             cbUserLevel.Text = "";
             txtName.Focus();
             pbImage.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
+        }
+        // method for loading all user levels on the combobox.
+        private void LoadLevels()
+        {
+            using (SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand("SELECT levels FROM UserLevel", con);
+                SqlDataReader re = comand.ExecuteReader();
+                while (re.Read())
+                {
+                    cbUserLevel.Items.Add(re["levels"]);
+                }
+                con.Close();
+            }
         }
         public frmUserRegistration()
         {
@@ -78,6 +93,8 @@ namespace Sistema_Abogados
                 // have the default image to be shown in the picture box.
                 pbImage.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
                 txtName.Focus();
+                // call the LoadLevels method for populating the combobox.
+                LoadLevels();
             }
             catch(Exception ex)
             {
