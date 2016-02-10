@@ -21,6 +21,7 @@ namespace Sistema_Abogados
             txtPasswordVerification.Text = "";
             cbUserLevel.Text = "";
             txtName.Focus();
+            pbImage.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
         }
         public frmUserRegistration()
         {
@@ -47,6 +48,18 @@ namespace Sistema_Abogados
             {
                 // for watching the image on  the form.
                 pbImage.Image = Image.FromFile(opnfl.FileName);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clear();
             }
             catch(Exception ex)
             {
