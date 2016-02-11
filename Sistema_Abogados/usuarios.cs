@@ -127,5 +127,27 @@ namespace Sistema_Abogados
             }
             return u;
         }
+        // getting users ID.
+        public static string getUserID(string name)
+        {
+            string r = null;
+            using (SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("SELECT * FROM users WHERE name = '{0}'", name), con);
+                SqlDataReader re = comand.ExecuteReader();
+                if (re.HasRows)
+                {
+                    while (re.Read())
+                    {
+                        r = re["ID"].ToString();
+                    }
+                }
+                else {
+                    r = null;
+                }
+                con.Close();
+            }
+            return r;
+        }
     }
 }
