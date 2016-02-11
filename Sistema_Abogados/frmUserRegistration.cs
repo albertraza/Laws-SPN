@@ -151,17 +151,29 @@ namespace Sistema_Abogados
                     // if validation is performed true.
                     try
                     {
-                        if (usuarios.registerUser(txtName.Text, txtPassword.Text, To, cbUserLevel.Text) > 0)
+                        // validate Nombre to verify if it is registered.
+                        if (usuarios.getUserID(txtName.Text) == null)
                         {
-                            MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            File.Copy(From, To, true);
-                            From = null;
-                            To = null;
-                            Clear();
+                            // if not user can be created.
+                            if (usuarios.registerUser(txtName.Text, txtPassword.Text, To, cbUserLevel.Text) > 0)
+                            {
+                                MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                File.Copy(From, To, true);
+                                From = null;
+                                To = null;
+                                Clear();
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se pudo registrar, Intentelo nuevamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("No se pudo registrar, Intentelo nuevamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            // if so name has to be change for creating the user.
+                            MessageBox.Show("Ya el nombre de usuario existe, Digite uno diferente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtName.Focus();
+                            txtName.Clear();
                         }
                     }
                     catch (Exception ex)
