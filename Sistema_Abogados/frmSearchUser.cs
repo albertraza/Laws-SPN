@@ -123,5 +123,19 @@ namespace Sistema_Abogados
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnView_Click(object sender, EventArgs e)
+        {
+            if(dgvUsersTable.SelectedRows.Count == 1)
+            {
+                frmShowUser us = new frmShowUser();
+                us.getID = dgvUsersTable.CurrentRow.Cells[0].Value.ToString();
+                us.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un Usuario de la tabla", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace Sistema_Abogados
         {
             InitializeComponent();
         }
-
+        // when form is loaded.
         private void frmShowUser_Load(object sender, EventArgs e)
         {
             if (ID != null)
@@ -33,7 +33,16 @@ namespace Sistema_Abogados
                     // load the user object from the database.
                     usuarios u = usuarios.getUser(ID);
                     // load the image for the object.
-                    pbImage.Image = Image.FromFile(u.image);
+                    try {
+                        // try and cacth the exception if there's no filepath on the database.
+                        pbImage.Image = Image.FromFile(u.image);
+                    }
+                    catch (Exception)
+                    {
+                        // if there's no path on the database replace the image for the default image.
+                        MessageBox.Show("No se ha registrado una imagen", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        pbImage.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
+                    }
                     // **** //
                     // then load the labels with the object info.
                     lblID.Text = u.id;
@@ -57,6 +66,11 @@ namespace Sistema_Abogados
                     MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+        // when link label is clicked.
+        private void lblBack_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Close();
         }
     }
 }

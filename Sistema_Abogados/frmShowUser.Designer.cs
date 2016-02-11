@@ -32,6 +32,7 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblType = new System.Windows.Forms.Label();
             this.lblID = new System.Windows.Forms.Label();
+            this.lblBack = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,11 +72,23 @@
             this.lblID.TabIndex = 3;
             this.lblID.Text = "ID";
             // 
+            // lblBack
+            // 
+            this.lblBack.AutoSize = true;
+            this.lblBack.Location = new System.Drawing.Point(301, 349);
+            this.lblBack.Name = "lblBack";
+            this.lblBack.Size = new System.Drawing.Size(31, 13);
+            this.lblBack.TabIndex = 4;
+            this.lblBack.TabStop = true;
+            this.lblBack.Text = "Atras";
+            this.lblBack.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblBack_LinkClicked);
+            // 
             // frmShowUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(344, 371);
+            this.Controls.Add(this.lblBack);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.lblName);
@@ -97,5 +110,6 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.LinkLabel lblBack;
     }
 }

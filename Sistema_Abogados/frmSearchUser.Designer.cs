@@ -39,6 +39,7 @@
             this.cbType = new System.Windows.Forms.ComboBox();
             this.lblType = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
+            this.btnView = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsersTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -135,11 +136,22 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // btnView
+            // 
+            this.btnView.Location = new System.Drawing.Point(399, 113);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(75, 23);
+            this.btnView.TabIndex = 11;
+            this.btnView.Text = "Ver Usuario";
+            this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
+            // 
             // frmSearchUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(514, 473);
+            this.Controls.Add(this.btnView);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.cbType);
@@ -175,5 +187,6 @@
         private System.Windows.Forms.ComboBox cbType;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnView;
     }
 }
