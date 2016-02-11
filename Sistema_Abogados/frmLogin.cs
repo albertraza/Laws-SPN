@@ -16,7 +16,7 @@ namespace Sistema_Abogados
         {
             InitializeComponent();
         }
-
+        // when Cancelar button is clicked.
         private void btnCancel_Click(object sender, EventArgs e)
         {
             // if button cancelar is presses the following piece of code is executed.
@@ -25,7 +25,7 @@ namespace Sistema_Abogados
                 Application.Exit();
             }
         }
-
+        // when aceptar button is clicked.
         private void btnLogin_Click(object sender, EventArgs e)
         {
             // If texBoxes are Empty Show some messages.
@@ -56,17 +56,19 @@ namespace Sistema_Abogados
                 }
             }
         }
-
+        // when a key is pressed in Nombre input.
         private void txtName_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // if enter key is pressed.
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 txtPasswrd.Focus();
             }
         }
-
+        // when a key is pressed when Contraseña is focus.
         private void txtPasswrd_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // if enter key is pressed.
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 // If texBoxes are Empty Show some messages.
@@ -98,7 +100,7 @@ namespace Sistema_Abogados
                 }
             }
         }
-
+        // when form is load.
         private void frmLogin_Load(object sender, EventArgs e)
         {
             // test if the connection is correct before initialize the components.
@@ -113,7 +115,7 @@ namespace Sistema_Abogados
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        // when typing in the input Nombre.
         private void txtName_TextChanged(object sender, EventArgs e)
         {
             // TextBoxes verification for enabling the button Login.
@@ -138,7 +140,7 @@ namespace Sistema_Abogados
                 }
             }
         }
-
+        // when typing in the input Contraseña.
         private void txtPasswrd_TextChanged(object sender, EventArgs e)
         {
             // TextBoxes verification for enabling the button Login.
