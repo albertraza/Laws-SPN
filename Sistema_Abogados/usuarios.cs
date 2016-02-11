@@ -25,6 +25,7 @@ namespace Sistema_Abogados
             image = pimage;
             nivel = pnivel;
         }
+        // end construct //
         /// <summary>
         /// end constructs estructure
         /// </summary>
@@ -108,6 +109,25 @@ namespace Sistema_Abogados
                 con.Close();
             }
             return list;
+        }
+        // getting user object from database
+        public static usuarios getUser(string id)
+        {
+            usuarios u = new usuarios();
+            using(SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("SELECT * FROM users where ID = {0}", id), con);
+                SqlDataReader re = comand.ExecuteReader();
+                while (re.Read())
+                {
+                    u.id = re["ID"].ToString();
+                    u.nombre = re["name"].ToString();
+                    u.nivel = re["nivel"].ToString();
+                    u.image = re["picture"].ToString();
+                }
+                con.Close();
+            }
+            return u;
         }
     }
 }
