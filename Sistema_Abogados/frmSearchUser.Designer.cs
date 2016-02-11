@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvUsersTable = new System.Windows.Forms.DataGridView();
             this.lblID = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtID = new System.Windows.Forms.TextBox();
@@ -38,16 +38,16 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.cbType = new System.Windows.Forms.ComboBox();
             this.lblType = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsersTable)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvUsersTable
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 161);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(490, 300);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvUsersTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsersTable.Location = new System.Drawing.Point(12, 161);
+            this.dgvUsersTable.Name = "dgvUsersTable";
+            this.dgvUsersTable.Size = new System.Drawing.Size(490, 300);
+            this.dgvUsersTable.TabIndex = 0;
             // 
             // lblID
             // 
@@ -66,6 +66,7 @@
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Buscar";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtID
             // 
@@ -137,13 +138,13 @@
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.lblID);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvUsersTable);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmSearchUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta de Usuarios";
             this.Load += new System.EventHandler(this.frmSearchUser_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsersTable)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,7 +152,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvUsersTable;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtID;

@@ -32,12 +32,67 @@ namespace Sistema_Abogados
             InitializeComponent();
         }
 
+        // when form is loaded.
         private void frmSearchUser_Load(object sender, EventArgs e)
         {
             try
             {
                 // executing method loadUsertypes for populating the combobox.
                 loadUserTypes();
+                // executing method for loading all users on the table.
+                dgvUsersTable.DataSource = usuarios.listAllUsers();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // when Buscar button is clicked.
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string id, name, level, password;
+            // validate Id input.
+            if(txtID.Text == string.Empty)
+            {
+                id = "";
+            }
+            else
+            {
+                id = txtID.Text;
+            }
+            // validate Name input.
+            if(txtName.Text == string.Empty)
+            {
+                name = "";
+            }
+            else
+            {
+                name = txtName.Text;
+            }
+            // validate password input.
+            if(txtPassword.Text == string.Empty)
+            {
+                password = "";
+            }
+            else
+            {
+                password = txtPassword.Text;
+            }
+            // validate type input.
+            if(cbType.Text == string.Empty)
+            {
+                level = "";
+            }
+            else
+            {
+                level = cbType.Text;
+            }
+
+            // executing the search engine.
+            try
+            {
+                dgvUsersTable.DataSource = usuarios.SearchEngineUsers(id, name, level, password);
             }
             catch(Exception ex)
             {
