@@ -27,6 +27,16 @@ namespace Sistema_Abogados
                 con.Close();
             }
         }
+        // method for cleaning all inputs and table.
+        private void clearInputs()
+        {
+            txtID.Clear();
+            txtName.Clear();
+            txtPassword.Clear();
+            txtID.Focus();
+            cbType.Text = "";
+            dgvUsersTable.DataSource = usuarios.listAllUsers();
+        }
         public frmSearchUser()
         {
             InitializeComponent();
@@ -41,6 +51,8 @@ namespace Sistema_Abogados
                 loadUserTypes();
                 // executing method for loading all users on the table.
                 dgvUsersTable.DataSource = usuarios.listAllUsers();
+                // focus the Id input.
+                txtID.Focus();
             }
             catch(Exception ex)
             {
@@ -93,6 +105,18 @@ namespace Sistema_Abogados
             try
             {
                 dgvUsersTable.DataSource = usuarios.SearchEngineUsers(id, name, level, password);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                clearInputs();
             }
             catch(Exception ex)
             {

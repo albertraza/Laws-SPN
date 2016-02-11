@@ -38,6 +38,7 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.cbType = new System.Windows.Forms.ComboBox();
             this.lblType = new System.Windows.Forms.Label();
+            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsersTable)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,11 +125,22 @@
             this.lblType.TabIndex = 9;
             this.lblType.Text = "Tipo:";
             // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(399, 69);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 10;
+            this.btnClear.Text = "Limpiar";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // frmSearchUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(514, 473);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.cbType);
             this.Controls.Add(this.txtPassword);
@@ -162,5 +174,6 @@
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.ComboBox cbType;
         private System.Windows.Forms.Label lblType;
+        private System.Windows.Forms.Button btnClear;
     }
 }
