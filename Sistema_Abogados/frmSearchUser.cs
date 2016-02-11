@@ -111,7 +111,7 @@ namespace Sistema_Abogados
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        // when Limpiar button is clicked.
         private void btnClear_Click(object sender, EventArgs e)
         {
             try
@@ -123,7 +123,7 @@ namespace Sistema_Abogados
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        // ven Ver button is clicked.
         private void btnView_Click(object sender, EventArgs e)
         {
             if(dgvUsersTable.SelectedRows.Count == 1)

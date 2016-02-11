@@ -17,7 +17,6 @@ namespace Sistema_Abogados
 
         // set up some constructs for making base objets
         public usuarios() { }
-
         public usuarios(string pid, string pname, string pimage, string pnivel)
         {
             id = pid;
@@ -33,7 +32,6 @@ namespace Sistema_Abogados
         /// <returns></returns>
         /// 
         //method for login interface.
-
         public static bool checkUser(string name, string passwrd)
         {
             bool r = false;
@@ -53,7 +51,6 @@ namespace Sistema_Abogados
             }
             return r;
         }
-
         // method for registering new users with picture included.
         public static int registerUser(string name, string password, string imageFilePath, string nivel)
         {
