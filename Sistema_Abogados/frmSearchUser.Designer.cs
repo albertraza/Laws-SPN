@@ -48,7 +48,7 @@
             this.dgvUsersTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsersTable.Location = new System.Drawing.Point(12, 161);
             this.dgvUsersTable.Name = "dgvUsersTable";
-            this.dgvUsersTable.Size = new System.Drawing.Size(490, 300);
+            this.dgvUsersTable.Size = new System.Drawing.Size(449, 300);
             this.dgvUsersTable.TabIndex = 0;
             // 
             // lblID
@@ -62,7 +62,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(399, 25);
+            this.btnSearch.Location = new System.Drawing.Point(386, 26);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 23);
             this.btnSearch.TabIndex = 2;
@@ -128,7 +128,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(399, 69);
+            this.btnClear.Location = new System.Drawing.Point(386, 70);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 10;
@@ -138,7 +138,7 @@
             // 
             // btnView
             // 
-            this.btnView.Location = new System.Drawing.Point(399, 113);
+            this.btnView.Location = new System.Drawing.Point(386, 114);
             this.btnView.Name = "btnView";
             this.btnView.Size = new System.Drawing.Size(75, 23);
             this.btnView.TabIndex = 11;
@@ -150,7 +150,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(514, 473);
+            this.ClientSize = new System.Drawing.Size(478, 473);
             this.Controls.Add(this.btnView);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.lblType);
