@@ -125,6 +125,18 @@ namespace Sistema_Abogados
             {
                 btnLogin.Enabled = true;
             }
+            // if Nombre input is getting filled
+            if (txtName.Text != string.Empty)
+            {
+                try
+                {
+                    pbImage.Image = Image.FromFile(usuarios.getUser(usuarios.getUserID(txtName.Text)).image);
+                }
+                catch (Exception)
+                {
+                    // leave thsi empty as it won't be use.
+                }
+            }
         }
 
         private void txtPasswrd_TextChanged(object sender, EventArgs e)
