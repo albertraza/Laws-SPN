@@ -71,7 +71,7 @@ namespace Sistema_Abogados
             List<clientes> list = new List<clientes>();
             using(SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand("select * from csutomers", con);
+                SqlCommand comand = new SqlCommand("select * from customers", con);
                 SqlDataReader re = comand.ExecuteReader();
                 while (re.Read())
                 {
