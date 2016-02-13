@@ -13,6 +13,9 @@ namespace Sistema_Abogados
 {
     public partial class frmCustomerRegistration : Form
     {
+        // variable for validating Radiobuttons.
+        private bool result;
+        // variables for storing filepaths.
         private string From, To;
         // method for cleaning the inputs
         private void clearInputs()
@@ -82,22 +85,38 @@ namespace Sistema_Abogados
                 if(rbDemandado.Checked)
                 {
                     c.Status = "Demandado";
+                    // result true due a radio button is checked
+                    result = true;
+                }
+                else if(rbDemandante.Checked == true)
+                {
+                    c.Status = "Demandante";
+                    // result true due a radio button is checked
+                    result = true;
                 }
                 else
                 {
-                    c.Status = "Demandante";
+                    // result set to false because any of the radio buttons are checked.
+                    result = false;
+                    MessageBox.Show("No se ha seleccionado el Status del Cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 // make a try cacth extatement.
                 try {
-                    // execute method for registering users.
-                    if (clientes.customerRegistration(c, To) > 0)
+                    // validate result value.
+                    if (result)
                     {
-                        MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        clearInputs();
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se pudo registrar el Cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        // if result is true. all inputs are filled.
+                        // execute method for registering users.
+                        if (clientes.customerRegistration(c, To) > 0)
+                        {
+                            MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            File.Copy(From, To, true);
+                            clearInputs();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo registrar el Cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
                 }
                 catch(Exception ex)
@@ -131,13 +150,13 @@ namespace Sistema_Abogados
             OpenFileDialog open = new OpenFileDialog();
             open.ShowDialog();
             // verify the file path.
-            if (!Directory.Exists(@"C:\FactoriadeProyectos\sistema-oficina-abogados\images"))
+            if (!Directory.Exists(@"C:\FactoriadeProyectos\sistema-oficina-abogados\Images"))
             {
                 // if the file path does not exist try to create the directory.
-                Directory.CreateDirectory(@"C:\FactoriadeProyectos\sistema-oficina-abogados\images");
+                Directory.CreateDirectory(@"C:\FactoriadeProyectos\sistema-oficina-abogados\Images");
             }
             // create the filepath where the pictures are going to be saved.
-            To = @"C:\FactoriadeProyectos\sistema - oficina - abogados\images" + Path.GetFileName(open.FileName);
+            To = @"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\" + Path.GetFileName(open.FileName);
             // get the filepath for saving the source filepath.
             From = open.FileName;
 

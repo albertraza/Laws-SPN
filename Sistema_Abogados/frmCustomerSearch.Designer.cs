@@ -167,6 +167,7 @@
             this.btnShow.TabIndex = 13;
             this.btnShow.Text = "Ver Cliente";
             this.btnShow.UseVisualStyleBackColor = true;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // txtUserID
             // 

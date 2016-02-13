@@ -117,5 +117,22 @@ namespace Sistema_Abogados
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        // when Ver Cliente is clicked.
+        private void btnShow_Click(object sender, EventArgs e)
+        {
+            // validate and take values from data grid view.
+            if(dgvClientes.SelectedRows.Count == 1)
+            {
+                // declare a from object.
+                frmShowCustomers c = new frmShowCustomers();
+                // assig the values and save then on the form getter data.
+                c.getID = dgvClientes.CurrentRow.Cells[0].Value.ToString();
+                c.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No se ha seleccionado un cliente de la tabla", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

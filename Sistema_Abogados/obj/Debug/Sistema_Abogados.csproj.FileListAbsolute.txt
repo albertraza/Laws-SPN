@@ -15,3 +15,4 @@ C:\FactoriadeProyectos\Sistema-oficina-abogados\Sistema_Abogados\Sistema_Abogado
 C:\FactoriadeProyectos\Sistema-oficina-abogados\Sistema_Abogados\Sistema_Abogados\obj\Debug\Sistema_Abogados.frmShowUser.resources
 C:\FactoriadeProyectos\Sistema-oficina-abogados\Sistema_Abogados\Sistema_Abogados\obj\Debug\Sistema_Abogados.frmCustomerRegistration.resources
 C:\FactoriadeProyectos\Sistema-oficina-abogados\Sistema_Abogados\Sistema_Abogados\obj\Debug\Sistema_Abogados.frmCustomerSearch.resources
+C:\FactoriadeProyectos\Sistema-oficina-abogados\Sistema_Abogados\Sistema_Abogados\obj\Debug\Sistema_Abogados.frmShowCustomers.resources

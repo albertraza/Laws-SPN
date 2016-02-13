@@ -14,6 +14,7 @@ namespace Sistema_Abogados
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Cedula { get; set; }
+        public string Image { get; set; }
         public string Status { get; set; }
         public string Fecha_Registro { get; set; }
 
@@ -80,6 +81,7 @@ namespace Sistema_Abogados
                     pClientes.Nombre = re["name"].ToString();
                     pClientes.Apellido = re["lastname"].ToString();
                     pClientes.Cedula = re["idcard"].ToString();
+                    pClientes.Image = re.GetString(5);
                     pClientes.Status = re["estatus"].ToString();
                     pClientes.Fecha_Registro = re["registerdate"].ToString();
 
@@ -105,6 +107,7 @@ namespace Sistema_Abogados
                     pClientes.Nombre = re["name"].ToString();
                     pClientes.Apellido = re["lastname"].ToString();
                     pClientes.Cedula = re["idcard"].ToString();
+                    pClientes.Image = re.GetString(5);
                     pClientes.Status = re["estatus"].ToString();
                     pClientes.Fecha_Registro = re["registerdate"].ToString();
 
@@ -113,6 +116,28 @@ namespace Sistema_Abogados
                 con.Close();
             }
             return list;
+        }
+        // method for getting customers data.
+        public static clientes getCustomerObject(string ID)
+        {
+            clientes pClientes = new clientes();
+            using(SqlConnection con  = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("SELECT * FROM customers WHERE ID = '{0}'", ID), con);
+                SqlDataReader re = comand.ExecuteReader();
+                while (re.Read())
+                {
+                    pClientes.ID = re["ID"].ToString();
+                    pClientes.Nombre = re["name"].ToString();
+                    pClientes.Apellido = re["lastname"].ToString();
+                    pClientes.Cedula = re["idcard"].ToString();
+                    pClientes.Image = re.GetString(5);
+                    pClientes.Status = re["estatus"].ToString();
+                    pClientes.Fecha_Registro = re["registerdate"].ToString();
+                }
+                con.Close();
+            }
+            return pClientes;
         }
     }
 }
