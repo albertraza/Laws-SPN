@@ -54,5 +54,10 @@ namespace Sistema_Abogados
         {
             new frmCustomerRegistration().Show();
         }
+
+        private void clientesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            new frmCustomerSearch().Show();
+        }
     }
 }
