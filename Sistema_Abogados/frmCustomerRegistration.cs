@@ -77,7 +77,6 @@ namespace Sistema_Abogados
                 c.Nombre = txtName.Text;
                 c.Apellido = txtLastName.Text;
                 c.Cedula = txtID.Text;
-                c.Image = To;
                 c.Fecha_Registro = DateTime.Now.Date.ToString("MM/dd/yyyy");
                 // verify if Client Status
                 if(rbDemandado.Checked)
@@ -91,7 +90,7 @@ namespace Sistema_Abogados
                 // make a try cacth extatement.
                 try {
                     // execute method for registering users.
-                    if (clientes.customerRegistration(c) > 0)
+                    if (clientes.customerRegistration(c, To) > 0)
                     {
                         MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         clearInputs();
