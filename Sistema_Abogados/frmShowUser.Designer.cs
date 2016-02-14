@@ -38,7 +38,7 @@
             // 
             // pbImage
             // 
-            this.pbImage.Location = new System.Drawing.Point(73, 12);
+            this.pbImage.Location = new System.Drawing.Point(63, 12);
             this.pbImage.Name = "pbImage";
             this.pbImage.Size = new System.Drawing.Size(198, 205);
             this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -48,27 +48,30 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(155, 274);
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(135, 276);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(35, 13);
+            this.lblName.Size = new System.Drawing.Size(55, 20);
             this.lblName.TabIndex = 1;
             this.lblName.Text = "Name";
             // 
             // lblType
             // 
             this.lblType.AutoSize = true;
-            this.lblType.Location = new System.Drawing.Point(157, 308);
+            this.lblType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblType.Location = new System.Drawing.Point(139, 310);
             this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(31, 13);
+            this.lblType.Size = new System.Drawing.Size(47, 20);
             this.lblType.TabIndex = 2;
             this.lblType.Text = "Type";
             // 
             // lblID
             // 
             this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(163, 241);
+            this.lblID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.Location = new System.Drawing.Point(148, 243);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(18, 13);
+            this.lblID.Size = new System.Drawing.Size(28, 20);
             this.lblID.TabIndex = 3;
             this.lblID.Text = "ID";
             // 

@@ -45,9 +45,9 @@ namespace Sistema_Abogados
                     }
                     // **** //
                     // then load the labels with the object info.
-                    lblID.Text = u.id;
-                    lblName.Text = u.nombre;
-                    lblType.Text = u.nivel;
+                    lblID.Text = "ID: " + u.id;
+                    lblName.Text = "Nombre: " + u.nombre;
+                    lblType.Text = "Tipo: " + u.nivel;
                 }
                 catch (Exception ex)
                 {
