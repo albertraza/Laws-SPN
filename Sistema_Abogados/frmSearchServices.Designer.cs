@@ -166,6 +166,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Coral;
             this.ClientSize = new System.Drawing.Size(714, 449);
             this.Controls.Add(this.btnShow_service);
             this.Controls.Add(this.btnClear);
@@ -181,7 +182,9 @@
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.dgvServices);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmSearchServices";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta de Servicios";
             this.Load += new System.EventHandler(this.frmSearchServices_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvServices)).EndInit();
