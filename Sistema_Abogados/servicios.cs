@@ -88,5 +88,25 @@ namespace Sistema_Abogados
             }
             return list;
         }
+        // method for getting service info from database.
+        public static servicios getServiceInfo(string ID)
+        {
+            servicios pServicios = new servicios();
+            using(SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("SELECT * FROM services WHERE ID = {0}", ID), con);
+                SqlDataReader re = comand.ExecuteReader();
+                while (re.Read())
+                {
+                    pServicios.ID = re["ID"].ToString();
+                    pServicios.Servicio = re["cService"].ToString();
+                    pServicios.Descripcion = re["explanation"].ToString();
+                    pServicios.Precio = re["price"].ToString();
+                    pServicios.Abono = re["pre_bono"].ToString();
+                }
+                con.Close();
+            }
+            return pServicios;
+        }
     }
 }
