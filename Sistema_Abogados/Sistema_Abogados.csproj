@@ -111,6 +111,12 @@
     <Compile Include="frmShowCustomers.Designer.cs">
       <DependentUpon>frmShowCustomers.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmShowService.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShowService.Designer.cs">
+      <DependentUpon>frmShowService.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmShowUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmShowCustomers.resx">
       <DependentUpon>frmShowCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShowService.resx">
+      <DependentUpon>frmShowService.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmShowUser.resx">
       <DependentUpon>frmShowUser.cs</DependentUpon>

@@ -113,5 +113,22 @@ namespace Sistema_Abogados
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        // when Ver Servicio is pressed.
+        private void btnShow_service_Click(object sender, EventArgs e)
+        {
+            // verify if some services are selected from the table.
+            if(dgvServices.SelectedRows.Count == 1)
+            {
+                // if there's a row selected.
+                frmShowService pShow = new frmShowService();
+                pShow.getID = dgvServices.CurrentRow.Cells[0].Value.ToString();
+                pShow.ShowDialog();
+            }
+            else
+            {
+                // but if there is not a row selected advise to select one.
+                MessageBox.Show("No se ha seleccionado un Servicio de la tabla", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

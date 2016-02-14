@@ -161,6 +161,7 @@
             this.btnShow_service.TabIndex = 13;
             this.btnShow_service.Text = "Ver Servicio";
             this.btnShow_service.UseVisualStyleBackColor = true;
+            this.btnShow_service.Click += new System.EventHandler(this.btnShow_service_Click);
             // 
             // frmSearchServices
             // 
