@@ -52,9 +52,9 @@
             // 
             this.txtPasswrd.Location = new System.Drawing.Point(254, 121);
             this.txtPasswrd.Name = "txtPasswrd";
-            this.txtPasswrd.PasswordChar = '*';
             this.txtPasswrd.Size = new System.Drawing.Size(113, 20);
             this.txtPasswrd.TabIndex = 1;
+            this.txtPasswrd.UseSystemPasswordChar = true;
             this.txtPasswrd.TextChanged += new System.EventHandler(this.txtPasswrd_TextChanged);
             this.txtPasswrd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPasswrd_KeyPress);
             // 

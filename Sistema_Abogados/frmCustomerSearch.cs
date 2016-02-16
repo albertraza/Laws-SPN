@@ -82,7 +82,7 @@ namespace Sistema_Abogados
             }
             if (dtpRegisterDate.Value.Date != DateTime.Today.Date)
             {
-                registerdate = dtpRegisterDate.Value.Date.ToString("MM/dd/yyyy");
+                registerdate = dtpRegisterDate.Value.Date.ToString();
             }
             else
             {
