@@ -12,6 +12,8 @@ namespace Sistema_Abogados
 {
     public partial class frmLogin : Form
     {
+        // variable for counting the times has beeen failed.
+        int number = 0;
         public frmLogin()
         {
             InitializeComponent();
@@ -42,17 +44,29 @@ namespace Sistema_Abogados
             else
             {
                 // If all texBoxes are filled.
-                if (usuarios.checkUser(txtName.Text, txtPasswrd.Text))
-                {
-                    new frmMenu().Show();
-                    this.Hide();
+                try {
+                    if (usuarios.checkUser(txtName.Text, txtPasswrd.Text))
+                    {
+                        new frmMenu().Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nombre de usuario o contraseña incorrecto", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtName.Clear();
+                        txtPasswrd.Clear();
+                        txtName.Focus();
+                        number++;
+                    }
+                    if (number == 3)
+                    {
+                        MessageBox.Show("Se ha Excedido el Numero de veces a intentar, El programa se cerrara", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        Application.Exit();
+                    }
                 }
-                else
+                catch(Exception ex)
                 {
-                    MessageBox.Show("Nombre de usuario o contraseña incorrecto", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtName.Clear();
-                    txtPasswrd.Clear();
-                    txtName.Focus();
+                    MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -85,17 +99,29 @@ namespace Sistema_Abogados
                 else
                 {
                     // If all texBoxes are filled.
-                    if (usuarios.checkUser(txtName.Text, txtPasswrd.Text))
-                    {
-                        new frmMenu().Show();
-                        this.Hide();
+                    try {
+                        if (usuarios.checkUser(txtName.Text, txtPasswrd.Text))
+                        {
+                            new frmMenu().Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Nombre de usuario o contraseña incorrecto", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtName.Clear();
+                            txtPasswrd.Clear();
+                            txtName.Focus();
+                            number++;
+                        }
+                        if (number == 3)
+                        {
+                            MessageBox.Show("Se ha Excedido el Numero de veces a intentar, El programa se cerrara", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            Application.Exit();
+                        }
                     }
-                    else
+                    catch(Exception ex)
                     {
-                        MessageBox.Show("Nombre de usuario o contraseña incorrecto", "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        txtName.Clear();
-                        txtPasswrd.Clear();
-                        txtName.Focus();
+                        MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -136,7 +162,7 @@ namespace Sistema_Abogados
                 }
                 catch (Exception)
                 {
-                    // leave thsi empty as it won't be use.
+                    pbImage.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\IMAGENES\Images21.jpg");
                 }
             }
         }
