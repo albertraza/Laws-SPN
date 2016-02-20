@@ -14,13 +14,20 @@ namespace Sistema_Abogados
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Cedula { get; set; }
-        public string Image { get; set; }
         public string Status { get; set; }
         public string Fecha_Registro { get; set; }
+        public string Direccion { get; set; }
+        public string Sector { get; set; }
+        public string Telefono { get; set; }
+        public string Celular { get; set; }
+        public string E_Mail { get; set; }
+        public string Ocupacion { get; set; }
+        public string Image { get; set; }
 
         // creating constructs for building objects.
         public clientes() { }
-        public clientes(string pid, string pnombre, string papellido, string pcedula, string pstatus, string pfecha)
+        public clientes(string pid, string pnombre, string papellido, string pcedula, string pstatus, string pfecha, string pDireccion,
+            string pSector, string pTelefono, string pCelular, string pEmail, string pOcupacion)
         {
             ID = pid;
             Nombre = pnombre;
@@ -36,8 +43,8 @@ namespace Sistema_Abogados
             int r = -1;
             using(SqlConnection con  = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("INSERT INTO customers (name, lastname, idcard, estatus, picture, registerdate) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')",
-                    pClientes.Nombre, pClientes.Apellido, pClientes.Cedula, pClientes.Status, image, pClientes.Fecha_Registro), con);
+                SqlCommand comand = new SqlCommand(string.Format("INSERT INTO customers (name, lastname, idcard, estatus, picture, registerdate, cAddress, City, Phone, Cellphone, email, ocupation) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}')",
+                    pClientes.Nombre, pClientes.Apellido, pClientes.Cedula, pClientes.Status, image, pClientes.Fecha_Registro, pClientes.Direccion, pClientes.Sector, pClientes.Telefono, pClientes.Celular, pClientes.E_Mail, pClientes.Ocupacion), con);
                 r = comand.ExecuteNonQuery();
                 con.Close();
             }
@@ -84,6 +91,12 @@ namespace Sistema_Abogados
                     pClientes.Image = re.GetString(5);
                     pClientes.Status = re["estatus"].ToString();
                     pClientes.Fecha_Registro = re["registerdate"].ToString();
+                    pClientes.Direccion = re["cAddress"].ToString();
+                    pClientes.E_Mail = re["email"].ToString();
+                    pClientes.Ocupacion = re["ocupation"].ToString();
+                    pClientes.Sector = re["City"].ToString();
+                    pClientes.Telefono = re["Phone"].ToString();
+                    pClientes.Celular = re["Cellphone"].ToString();
 
                     list.Add(pClientes);
                 }
@@ -110,6 +123,13 @@ namespace Sistema_Abogados
                     pClientes.Image = re.GetString(5);
                     pClientes.Status = re["estatus"].ToString();
                     pClientes.Fecha_Registro = re["registerdate"].ToString();
+                    pClientes.Fecha_Registro = re["registerdate"].ToString();
+                    pClientes.Direccion = re["cAddress"].ToString();
+                    pClientes.E_Mail = re["email"].ToString();
+                    pClientes.Ocupacion = re["ocupation"].ToString();
+                    pClientes.Sector = re["City"].ToString();
+                    pClientes.Telefono = re["Phone"].ToString();
+                    pClientes.Celular = re["Cellphone"].ToString();
 
                     list.Add(pClientes);
                 }
@@ -134,6 +154,13 @@ namespace Sistema_Abogados
                     pClientes.Image = re.GetString(5);
                     pClientes.Status = re["estatus"].ToString();
                     pClientes.Fecha_Registro = re["registerdate"].ToString();
+                    pClientes.Fecha_Registro = re["registerdate"].ToString();
+                    pClientes.Direccion = re["cAddress"].ToString();
+                    pClientes.E_Mail = re["email"].ToString();
+                    pClientes.Ocupacion = re["ocupation"].ToString();
+                    pClientes.Sector = re["City"].ToString();
+                    pClientes.Telefono = re["Phone"].ToString();
+                    pClientes.Celular = re["Cellphone"].ToString();
                 }
                 con.Close();
             }
