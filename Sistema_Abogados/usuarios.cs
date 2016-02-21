@@ -52,12 +52,12 @@ namespace Sistema_Abogados
             return r;
         }
         // method for registering new users with picture included.
-        public static int registerUser(string name, string password, string imageFilePath, string nivel)
+        public static int registerUser(string name, string password, string imageFilePath, string nivelID)
         {
             int re = -1;
             using(SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("insert into users (name, passwrd, nivel, picture) values ('{0}', '{1}', '{2}', '{3}')", name, password, nivel, imageFilePath), con);
+                SqlCommand comand = new SqlCommand(string.Format("insert into users (name, passwrd, userLevelID, picture) values ('{0}', '{1}', '{2}', '{3}')", name, password, nivelID, imageFilePath), con);
                 re = comand.ExecuteNonQuery();
                 con.Close();
             }
@@ -69,14 +69,14 @@ namespace Sistema_Abogados
             List<usuarios> list = new List<usuarios>();
             using(SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand("SELECT * FROM users", con);
+                SqlCommand comand = new SqlCommand("SELECT users.ID, users.name, users.passwrd, users.picture, UserLevel.levels FROM users INNER JOIN UserLevel ON users.userLevelID = UserLevel.id", con);
                 SqlDataReader re = comand.ExecuteReader();
                 while (re.Read())
                 {
                     usuarios u = new usuarios();
                     u.id = re["ID"].ToString();
                     u.nombre = re["name"].ToString();
-                    u.nivel = re["nivel"].ToString();
+                    u.nivel = re["levels"].ToString();
                     u.image = re["picture"].ToString();
 
                     list.Add(u);
@@ -114,13 +114,13 @@ namespace Sistema_Abogados
             usuarios u = new usuarios();
             using(SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("SELECT * FROM users where ID = {0}", id), con);
+                SqlCommand comand = new SqlCommand(string.Format("SELECT users.ID, users.name, users.passwrd, users.picture, UserLevel.levels FROM users INNER JOIN UserLevel ON users.userLevelID = UserLevel.id WHERE users.ID = '{0}'", id), con);
                 SqlDataReader re = comand.ExecuteReader();
                 while (re.Read())
                 {
                     u.id = re["ID"].ToString();
                     u.nombre = re["name"].ToString();
-                    u.nivel = re["nivel"].ToString();
+                    u.nivel = re["levels"].ToString();
                     u.image = re["picture"].ToString();
                 }
                 con.Close();
@@ -143,6 +143,26 @@ namespace Sistema_Abogados
                     }
                 }
                 else {
+                    r = null;
+                }
+                con.Close();
+            }
+            return r;
+        }
+        public static string getUserLevelID(string UserLevel)
+        {
+            string r = null;
+            using(SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("SELECT id FROM userLevel WHERE levels = '{0}'", UserLevel), con);
+                SqlDataReader re = comand.ExecuteReader();
+                if (re.HasRows)
+                {
+                    re.Close();
+                    r = comand.ExecuteScalar().ToString();
+                }
+                else
+                {
                     r = null;
                 }
                 con.Close();
