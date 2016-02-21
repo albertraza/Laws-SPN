@@ -155,7 +155,7 @@ namespace Sistema_Abogados
                         if (usuarios.getUserID(txtName.Text) == null)
                         {
                             // if not user can be created.
-                            if (usuarios.registerUser(txtName.Text, txtPassword.Text, To, cbUserLevel.Text) > 0)
+                            if (usuarios.registerUser(txtName.Text, txtPassword.Text, To, usuarios.getUserLevelID(cbUserLevel.Text)) > 0)
                             {
                                 MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 File.Copy(From, To, true);
