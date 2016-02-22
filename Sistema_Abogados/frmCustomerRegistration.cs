@@ -159,11 +159,20 @@ namespace Sistema_Abogados
                     c.Apellido = txtLastName.Text;
                     c.Fecha_Registro = DateTime.Now.Date.ToString("MM/dd/yyyy");
                     c.Ocupacion = txtOcupation.Text;
-                    c.Sector = cbSector.Text;
                     c.Telefono = txtPhone.Text;
                     c.Celular = txtCellphone.Text;
                     c.Direccion = txtAddress.Text;
                     c.E_Mail = txtEmail.Text;
+                    // get Sector ID
+                    try
+                    {
+                        // execute method for getting CityID.
+                        c.Sector = sectores.getCityID(cbSector.Text);
+                    }
+                    catch(Exception ex)
+                    {
+                            MessageBox.Show(ex.Message, "Sectores", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                     // verify which document will be used.
                     if (rbCedula.Checked)
                     {
