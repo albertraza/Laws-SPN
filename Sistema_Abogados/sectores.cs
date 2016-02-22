@@ -57,5 +57,27 @@ namespace Sistema_Abogados
             }
             return r;
         }
+        // method for getting Cities ID.
+        public static string getCityID(string City)
+        {
+            string r = null;
+            using(SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("SELECT ID FROM Cities"), con);
+                SqlDataReader re = comand.ExecuteReader();
+                if (re.HasRows)
+                {
+                    re.Close();
+                    r = comand.ExecuteScalar().ToString();
+                }
+                else
+                {
+                    r = null;
+                    re.Close();
+                }
+                con.Close();
+            }
+            return r;
+        }
     }
 }
