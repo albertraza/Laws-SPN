@@ -43,7 +43,7 @@ namespace Sistema_Abogados
             int r = -1;
             using(SqlConnection con  = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("INSERT INTO customers (name, lastname, idcard, estatus, picture, registerdate, cAddress, City, Phone, Cellphone, email, ocupation) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}')",
+                SqlCommand comand = new SqlCommand(string.Format("INSERT INTO customers (name, lastname, idcard, estatus, picture, registerdate, cAddress, CityID, Phone, Cellphone, email, ocupation) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}')",
                     pClientes.Nombre, pClientes.Apellido, pClientes.Cedula, pClientes.Status, image, pClientes.Fecha_Registro, pClientes.Direccion, pClientes.Sector, pClientes.Telefono, pClientes.Celular, pClientes.E_Mail, pClientes.Ocupacion), con);
                 r = comand.ExecuteNonQuery();
                 con.Close();
@@ -79,7 +79,7 @@ namespace Sistema_Abogados
             List<clientes> list = new List<clientes>();
             using(SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand("select * from customers", con);
+                SqlCommand comand = new SqlCommand("SELECT * FROM customers INNER JOIN Cities ON customers.CityID = Cities.ID", con);
                 SqlDataReader re = comand.ExecuteReader();
                 while (re.Read())
                 {
@@ -110,7 +110,7 @@ namespace Sistema_Abogados
             List<clientes> list = new List<clientes>();
             using(SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("SELECT * FROM customers WHERE ID LIKE '{0}%' AND name LIKE '{1}%' AND lastname LIKE '{2}%' AND idcard LIKE '{3}%' AND estatus LIKE '{4}%' AND registerdate LIKE '{5}%' ",
+                SqlCommand comand = new SqlCommand(string.Format("SELECT * FROM customers INNER JOIN Cities ON customers.CityID = Cities.ID WHERE ID LIKE '{0}%' AND name LIKE '{1}%' AND lastname LIKE '{2}%' AND idcard LIKE '{3}%' AND estatus LIKE '{4}%' AND registerdate LIKE '{5}%' ",
                     ID, name, lastName, cedula, status, registerDate), con);
                 SqlDataReader re = comand.ExecuteReader();
                 while (re.Read())
@@ -143,7 +143,7 @@ namespace Sistema_Abogados
             clientes pClientes = new clientes();
             using(SqlConnection con  = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("SELECT * FROM customers WHERE ID = '{0}'", ID), con);
+                SqlCommand comand = new SqlCommand(string.Format("SELECT * FROM customers INNER JOIN Cities ON customers.CityID = Cities.ID WHERE customers.ID = '{0}'", ID), con);
                 SqlDataReader re = comand.ExecuteReader();
                 while (re.Read())
                 {
