@@ -270,7 +270,7 @@ namespace Sistema_Abogados
             // make appear the label for saving changes.
             lblSave.Visible = true;
             // enable false this label.
-            this.Enabled = false;
+            lblNew.Enabled = false;
         }
         // when Guardar label is clicked.
         private void lblSave_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -295,6 +295,7 @@ namespace Sistema_Abogados
                             MessageBox.Show("Sector Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             cbSector.DropDownStyle = ComboBoxStyle.DropDownList;
                             listCities();
+                            lblNew.Enabled = true;
                         }
                         else
                         {
