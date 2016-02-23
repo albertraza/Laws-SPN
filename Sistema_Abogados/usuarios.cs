@@ -91,7 +91,7 @@ namespace Sistema_Abogados
             List<usuarios> list = new List<usuarios>();
             using(SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("select * from users where ID like '{0}%' and name like '{1}%' and passwrd like '{2}%' and nivel like '{3}%'",
+                SqlCommand comand = new SqlCommand(string.Format("SELECT users.ID, users.name, users.passwrd, users.picture, UserLevel.levels FROM users INNER JOIN UserLevel ON users.userLevelID = UserLevel.id where users.ID like '{0}%' and name like '{1}%' and passwrd like '{2}%' and levels like '{3}%'",
                     id, name, passwrd, level), con);
                 SqlDataReader re = comand.ExecuteReader();
                 while (re.Read())
@@ -99,7 +99,7 @@ namespace Sistema_Abogados
                     usuarios u = new usuarios();
                     u.id = re["ID"].ToString();
                     u.nombre = re["name"].ToString();
-                    u.nivel = re["nivel"].ToString();
+                    u.nivel = re["levels"].ToString();
                     u.image = re["picture"].ToString();
 
                     list.Add(u);
