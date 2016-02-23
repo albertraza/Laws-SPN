@@ -60,6 +60,7 @@
             this.gbInformacionGeneral = new System.Windows.Forms.GroupBox();
             this.lblSave = new System.Windows.Forms.LinkLabel();
             this.lblNew = new System.Windows.Forms.LinkLabel();
+            this.rbNone = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.gbStatus.SuspendLayout();
             this.gbDocument.SuspendLayout();
@@ -80,26 +81,27 @@
             this.btnSelectImage.Location = new System.Drawing.Point(604, 306);
             this.btnSelectImage.Name = "btnSelectImage";
             this.btnSelectImage.Size = new System.Drawing.Size(117, 23);
-            this.btnSelectImage.TabIndex = 4;
+            this.btnSelectImage.TabIndex = 0;
             this.btnSelectImage.Text = "Seleccionar Imagen";
             this.btnSelectImage.UseVisualStyleBackColor = true;
             this.btnSelectImage.Click += new System.EventHandler(this.btnSelectImage_Click);
             // 
             // gbStatus
             // 
+            this.gbStatus.Controls.Add(this.rbNone);
             this.gbStatus.Controls.Add(this.rbDemandado);
             this.gbStatus.Controls.Add(this.rbDemandante);
-            this.gbStatus.Location = new System.Drawing.Point(532, 348);
+            this.gbStatus.Location = new System.Drawing.Point(532, 335);
             this.gbStatus.Name = "gbStatus";
             this.gbStatus.Size = new System.Drawing.Size(257, 62);
-            this.gbStatus.TabIndex = 5;
+            this.gbStatus.TabIndex = 2;
             this.gbStatus.TabStop = false;
             this.gbStatus.Text = "Status";
             // 
             // rbDemandado
             // 
             this.rbDemandado.AutoSize = true;
-            this.rbDemandado.Location = new System.Drawing.Point(158, 30);
+            this.rbDemandado.Location = new System.Drawing.Point(98, 30);
             this.rbDemandado.Name = "rbDemandado";
             this.rbDemandado.Size = new System.Drawing.Size(83, 17);
             this.rbDemandado.TabIndex = 1;
@@ -110,7 +112,7 @@
             // rbDemandante
             // 
             this.rbDemandante.AutoSize = true;
-            this.rbDemandante.Location = new System.Drawing.Point(19, 30);
+            this.rbDemandante.Location = new System.Drawing.Point(6, 30);
             this.rbDemandante.Name = "rbDemandante";
             this.rbDemandante.Size = new System.Drawing.Size(86, 17);
             this.rbDemandante.TabIndex = 0;
@@ -155,7 +157,7 @@
             this.btnSave.Location = new System.Drawing.Point(26, 387);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 1;
+            this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Registrar";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -165,7 +167,7 @@
             this.btnClear.Location = new System.Drawing.Point(163, 387);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 2;
+            this.btnClear.TabIndex = 4;
             this.btnClear.Text = "Limpiar";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -175,7 +177,7 @@
             this.btnCancel.Location = new System.Drawing.Point(296, 387);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 3;
+            this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -264,7 +266,7 @@
             this.txtPhone.Mask = "(999) 000-0000";
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(100, 20);
-            this.txtPhone.TabIndex = 5;
+            this.txtPhone.TabIndex = 6;
             // 
             // txtCellphone
             // 
@@ -272,7 +274,7 @@
             this.txtCellphone.Mask = "(999) 000-0000";
             this.txtCellphone.Name = "txtCellphone";
             this.txtCellphone.Size = new System.Drawing.Size(100, 20);
-            this.txtCellphone.TabIndex = 6;
+            this.txtCellphone.TabIndex = 7;
             // 
             // lblCellphone
             // 
@@ -288,7 +290,7 @@
             this.txtEmail.Location = new System.Drawing.Point(89, 266);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(157, 20);
-            this.txtEmail.TabIndex = 7;
+            this.txtEmail.TabIndex = 8;
             // 
             // lblEmail
             // 
@@ -322,7 +324,7 @@
             this.txtOcupation.Location = new System.Drawing.Point(339, 269);
             this.txtOcupation.Name = "txtOcupation";
             this.txtOcupation.Size = new System.Drawing.Size(108, 20);
-            this.txtOcupation.TabIndex = 8;
+            this.txtOcupation.TabIndex = 9;
             // 
             // lblOcupation
             // 
@@ -378,10 +380,21 @@
             this.lblNew.Location = new System.Drawing.Point(398, 195);
             this.lblNew.Name = "lblNew";
             this.lblNew.Size = new System.Drawing.Size(39, 13);
-            this.lblNew.TabIndex = 6;
+            this.lblNew.TabIndex = 5;
             this.lblNew.TabStop = true;
             this.lblNew.Text = "Nuevo";
             this.lblNew.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblNew_LinkClicked);
+            // 
+            // rbNone
+            // 
+            this.rbNone.AutoSize = true;
+            this.rbNone.Location = new System.Drawing.Point(187, 30);
+            this.rbNone.Name = "rbNone";
+            this.rbNone.Size = new System.Drawing.Size(57, 17);
+            this.rbNone.TabIndex = 6;
+            this.rbNone.TabStop = true;
+            this.rbNone.Text = "Cliente";
+            this.rbNone.UseVisualStyleBackColor = true;
             // 
             // frmCustomerRegistration
             // 
@@ -446,5 +459,6 @@
         private System.Windows.Forms.GroupBox gbInformacionGeneral;
         private System.Windows.Forms.LinkLabel lblNew;
         private System.Windows.Forms.LinkLabel lblSave;
+        private System.Windows.Forms.RadioButton rbNone;
     }
 }

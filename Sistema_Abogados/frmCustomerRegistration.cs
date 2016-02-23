@@ -195,6 +195,11 @@ namespace Sistema_Abogados
                         // result true due a radio button is checked
                         result = true;
                     }
+                    else if (rbNone.Checked)
+                    {
+                        c.Status = "Cliente";
+                        result = true;
+                    }
                     else
                     {
                         // result set to false because any of the radio buttons are checked.
@@ -296,6 +301,7 @@ namespace Sistema_Abogados
                             cbSector.DropDownStyle = ComboBoxStyle.DropDownList;
                             listCities();
                             lblNew.Enabled = true;
+                            lblSave.Visible = false;
                         }
                         else
                         {
