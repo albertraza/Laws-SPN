@@ -58,8 +58,8 @@
             this.txtOcupation = new System.Windows.Forms.TextBox();
             this.lblOcupation = new System.Windows.Forms.Label();
             this.gbInformacionGeneral = new System.Windows.Forms.GroupBox();
-            this.lblNew = new System.Windows.Forms.LinkLabel();
             this.lblSave = new System.Windows.Forms.LinkLabel();
+            this.lblNew = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             this.gbStatus.SuspendLayout();
             this.gbDocument.SuspendLayout();
@@ -361,17 +361,6 @@
             this.gbInformacionGeneral.TabStop = false;
             this.gbInformacionGeneral.Text = "Informacion General";
             // 
-            // lblNew
-            // 
-            this.lblNew.AutoSize = true;
-            this.lblNew.Location = new System.Drawing.Point(398, 195);
-            this.lblNew.Name = "lblNew";
-            this.lblNew.Size = new System.Drawing.Size(39, 13);
-            this.lblNew.TabIndex = 6;
-            this.lblNew.TabStop = true;
-            this.lblNew.Text = "Nuevo";
-            this.lblNew.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblNew_LinkClicked);
-            // 
             // lblSave
             // 
             this.lblSave.AutoSize = true;
@@ -382,6 +371,17 @@
             this.lblSave.TabStop = true;
             this.lblSave.Text = "Guardar";
             this.lblSave.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblSave_LinkClicked);
+            // 
+            // lblNew
+            // 
+            this.lblNew.AutoSize = true;
+            this.lblNew.Location = new System.Drawing.Point(398, 195);
+            this.lblNew.Name = "lblNew";
+            this.lblNew.Size = new System.Drawing.Size(39, 13);
+            this.lblNew.TabIndex = 6;
+            this.lblNew.TabStop = true;
+            this.lblNew.Text = "Nuevo";
+            this.lblNew.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblNew_LinkClicked);
             // 
             // frmCustomerRegistration
             // 
@@ -399,7 +399,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmCustomerRegistration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Registro de Usuarios";
+            this.Text = "Registro de Clientes";
             this.Load += new System.EventHandler(this.frmCustomerRegistration_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             this.gbStatus.ResumeLayout(false);
