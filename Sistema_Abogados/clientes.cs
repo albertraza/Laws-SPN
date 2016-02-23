@@ -110,7 +110,7 @@ namespace Sistema_Abogados
             List<clientes> list = new List<clientes>();
             using(SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("SELECT * FROM customers INNER JOIN Cities ON customers.CityID = Cities.ID WHERE ID LIKE '{0}%' AND name LIKE '{1}%' AND lastname LIKE '{2}%' AND idcard LIKE '{3}%' AND estatus LIKE '{4}%' AND registerdate LIKE '{5}%' ",
+                SqlCommand comand = new SqlCommand(string.Format("SELECT * FROM customers INNER JOIN Cities ON customers.CityID = Cities.ID WHERE customers.ID LIKE '{0}%' AND name LIKE '{1}%' AND lastname LIKE '{2}%' AND idcard LIKE '{3}%' AND estatus LIKE '{4}%' AND registerdate LIKE '{5}%' ",
                     ID, name, lastName, cedula, status, registerDate), con);
                 SqlDataReader re = comand.ExecuteReader();
                 while (re.Read())
