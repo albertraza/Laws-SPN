@@ -39,6 +39,7 @@
             this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.serviciosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +47,11 @@
             this.salirDelSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbLessFive = new System.Windows.Forms.GroupBox();
             this.gbLastCases = new System.Windows.Forms.GroupBox();
-            this.serviciosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.casosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.arquilerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.divorciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ventaDeBienesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accidentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +65,7 @@
             this.salirToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1075, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(967, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -69,7 +74,8 @@
             this.mantenimientoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usuariosToolStripMenuItem,
             this.clientesToolStripMenuItem,
-            this.serviciosToolStripMenuItem});
+            this.serviciosToolStripMenuItem,
+            this.casosToolStripMenuItem});
             this.mantenimientoToolStripMenuItem.Name = "mantenimientoToolStripMenuItem";
             this.mantenimientoToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
             this.mantenimientoToolStripMenuItem.Text = "Mantenimiento";
@@ -79,7 +85,7 @@
             this.usuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrarToolStripMenuItem});
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // registrarToolStripMenuItem
@@ -94,7 +100,7 @@
             this.clientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registroToolStripMenuItem});
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             // 
             // registroToolStripMenuItem
@@ -109,7 +115,7 @@
             this.serviciosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registroToolStripMenuItem1});
             this.serviciosToolStripMenuItem.Name = "serviciosToolStripMenuItem";
-            this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.serviciosToolStripMenuItem.Text = "Servicios";
             // 
             // registroToolStripMenuItem1
@@ -132,16 +138,23 @@
             // usuariosToolStripMenuItem1
             // 
             this.usuariosToolStripMenuItem1.Name = "usuariosToolStripMenuItem1";
-            this.usuariosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.usuariosToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
             this.usuariosToolStripMenuItem1.Text = "Usuarios";
             this.usuariosToolStripMenuItem1.Click += new System.EventHandler(this.usuariosToolStripMenuItem1_Click);
             // 
             // clientesToolStripMenuItem1
             // 
             this.clientesToolStripMenuItem1.Name = "clientesToolStripMenuItem1";
-            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
             this.clientesToolStripMenuItem1.Text = "Clientes";
             this.clientesToolStripMenuItem1.Click += new System.EventHandler(this.clientesToolStripMenuItem1_Click);
+            // 
+            // serviciosToolStripMenuItem1
+            // 
+            this.serviciosToolStripMenuItem1.Name = "serviciosToolStripMenuItem1";
+            this.serviciosToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
+            this.serviciosToolStripMenuItem1.Text = "Servicios";
+            this.serviciosToolStripMenuItem1.Click += new System.EventHandler(this.serviciosToolStripMenuItem1_Click);
             // 
             // reportesToolStripMenuItem
             // 
@@ -182,7 +195,7 @@
             // gbLessFive
             // 
             this.gbLessFive.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbLessFive.Location = new System.Drawing.Point(687, 36);
+            this.gbLessFive.Location = new System.Drawing.Point(580, 36);
             this.gbLessFive.Name = "gbLessFive";
             this.gbLessFive.Size = new System.Drawing.Size(376, 201);
             this.gbLessFive.TabIndex = 1;
@@ -192,26 +205,54 @@
             // gbLastCases
             // 
             this.gbLastCases.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbLastCases.Location = new System.Drawing.Point(687, 243);
+            this.gbLastCases.Location = new System.Drawing.Point(580, 243);
             this.gbLastCases.Name = "gbLastCases";
             this.gbLastCases.Size = new System.Drawing.Size(376, 229);
             this.gbLastCases.TabIndex = 2;
             this.gbLastCases.TabStop = false;
             this.gbLastCases.Text = "Ultimos Casos";
             // 
-            // serviciosToolStripMenuItem1
+            // casosToolStripMenuItem
             // 
-            this.serviciosToolStripMenuItem1.Name = "serviciosToolStripMenuItem1";
-            this.serviciosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.serviciosToolStripMenuItem1.Text = "Servicios";
-            this.serviciosToolStripMenuItem1.Click += new System.EventHandler(this.serviciosToolStripMenuItem1_Click);
+            this.casosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.arquilerToolStripMenuItem,
+            this.divorciosToolStripMenuItem,
+            this.ventaDeBienesToolStripMenuItem,
+            this.accidentesToolStripMenuItem});
+            this.casosToolStripMenuItem.Name = "casosToolStripMenuItem";
+            this.casosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.casosToolStripMenuItem.Text = "Casos";
+            // 
+            // arquilerToolStripMenuItem
+            // 
+            this.arquilerToolStripMenuItem.Name = "arquilerToolStripMenuItem";
+            this.arquilerToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.arquilerToolStripMenuItem.Text = "Alquiler";
+            // 
+            // divorciosToolStripMenuItem
+            // 
+            this.divorciosToolStripMenuItem.Name = "divorciosToolStripMenuItem";
+            this.divorciosToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.divorciosToolStripMenuItem.Text = "Divorcios";
+            // 
+            // ventaDeBienesToolStripMenuItem
+            // 
+            this.ventaDeBienesToolStripMenuItem.Name = "ventaDeBienesToolStripMenuItem";
+            this.ventaDeBienesToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.ventaDeBienesToolStripMenuItem.Text = "Venta de Bienes";
+            // 
+            // accidentesToolStripMenuItem
+            // 
+            this.accidentesToolStripMenuItem.Name = "accidentesToolStripMenuItem";
+            this.accidentesToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.accidentesToolStripMenuItem.Text = "Accidentes";
             // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Coral;
-            this.ClientSize = new System.Drawing.Size(1075, 498);
+            this.BackColor = System.Drawing.Color.DarkKhaki;
+            this.ClientSize = new System.Drawing.Size(967, 498);
             this.Controls.Add(this.gbLastCases);
             this.Controls.Add(this.gbLessFive);
             this.Controls.Add(this.menuStrip1);
@@ -248,5 +289,10 @@
         private System.Windows.Forms.ToolStripMenuItem serviciosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registroToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem serviciosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem casosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem arquilerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem divorciosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ventaDeBienesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem accidentesToolStripMenuItem;
     }
 }

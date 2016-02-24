@@ -14,8 +14,6 @@ namespace Sistema_Abogados
 {
     public partial class frmCustomerRegistration : Form
     {
-        // variable for validating Radiobuttons.
-        private bool result;
         // variables for storing filepaths.
         private string From, To;
         // method for cleaning the inputs
@@ -25,8 +23,6 @@ namespace Sistema_Abogados
             txtLastName.Clear();
             txtName.Clear();
             txtName.Focus();
-            rbDemandado.Checked = false;
-            rbDemandante.Checked = false;
             pbImage.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
             txtAddress.Clear();
             txtCellphone.Clear();
@@ -37,7 +33,23 @@ namespace Sistema_Abogados
             rbCedula.Checked = true;
             txtID.Focus();
             listCities();
+            listStatus();
             lblSave.Visible = false;
+        }
+        // method for listing all Status.
+        private void listStatus()
+        {
+            cbstatus.Items.Clear();
+            using(SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand("SELECT * FROM customerStatus", con);
+                SqlDataReader re = comand.ExecuteReader();
+                while (re.Read())
+                {
+                    cbstatus.Items.Add(re["status"]);
+                }
+                con.Close();
+            }
         }
         // method for listing all cities.
         private void listCities()
@@ -163,11 +175,13 @@ namespace Sistema_Abogados
                     c.Celular = txtCellphone.Text;
                     c.Direccion = txtAddress.Text;
                     c.E_Mail = txtEmail.Text;
-                    // get Sector ID
+                    // get Sector and Status ID
                     try
                     {
                         // execute method for getting CityID.
-                        c.Sector = sectores.getCityID(cbSector.Text);
+                        c.Sector = sectores.getCityID(cbSector.SelectedItem.ToString());
+                        // execute method for getting Status ID.
+                        c.Status = clientes.getStatusID(cbstatus.SelectedItem.ToString());
                     }
                     catch(Exception ex)
                     {
@@ -182,48 +196,21 @@ namespace Sistema_Abogados
                     {
                         if (txtPassport.Text != string.Empty) c.Cedula = txtPassport.Text;
                     }
-                    // verify if Client Status
-                    if (rbDemandado.Checked)
-                    {
-                        c.Status = "Demandado";
-                        // result true due a radio button is checked
-                        result = true;
-                    }
-                    else if (rbDemandante.Checked == true)
-                    {
-                        c.Status = "Demandante";
-                        // result true due a radio button is checked
-                        result = true;
-                    }
-                    else if (rbNone.Checked)
-                    {
-                        c.Status = "Cliente";
-                        result = true;
-                    }
-                    else
-                    {
-                        // result set to false because any of the radio buttons are checked.
-                        result = false;
-                        MessageBox.Show("No se ha seleccionado el Status del Cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
                     // make a try cacth extatement.
                     try
                     {
                         // validate result value.
-                        if (result)
+                        // if result is true. all inputs are filled.
+                        // execute method for registering users.
+                        if (clientes.customerRegistration(c, To) > 0)
                         {
-                            // if result is true. all inputs are filled.
-                            // execute method for registering users.
-                            if (clientes.customerRegistration(c, To) > 0)
-                            {
-                                MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                File.Copy(From, To, true);
-                                clearInputs();
-                            }
-                            else
-                            {
-                                MessageBox.Show("No se pudo registrar el Cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            }
+                            MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            File.Copy(From, To, true);
+                            clearInputs();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo registrar el Cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                     catch (Exception ex)

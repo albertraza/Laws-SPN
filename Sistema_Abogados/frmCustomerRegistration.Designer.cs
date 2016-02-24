@@ -30,9 +30,6 @@
         {
             this.pbImage = new System.Windows.Forms.PictureBox();
             this.btnSelectImage = new System.Windows.Forms.Button();
-            this.gbStatus = new System.Windows.Forms.GroupBox();
-            this.rbDemandado = new System.Windows.Forms.RadioButton();
-            this.rbDemandante = new System.Windows.Forms.RadioButton();
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
@@ -58,11 +55,11 @@
             this.txtOcupation = new System.Windows.Forms.TextBox();
             this.lblOcupation = new System.Windows.Forms.Label();
             this.gbInformacionGeneral = new System.Windows.Forms.GroupBox();
+            this.cbstatus = new System.Windows.Forms.ComboBox();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.lblSave = new System.Windows.Forms.LinkLabel();
             this.lblNew = new System.Windows.Forms.LinkLabel();
-            this.rbNone = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
-            this.gbStatus.SuspendLayout();
             this.gbDocument.SuspendLayout();
             this.gbInformacionGeneral.SuspendLayout();
             this.SuspendLayout();
@@ -85,40 +82,6 @@
             this.btnSelectImage.Text = "Seleccionar Imagen";
             this.btnSelectImage.UseVisualStyleBackColor = true;
             this.btnSelectImage.Click += new System.EventHandler(this.btnSelectImage_Click);
-            // 
-            // gbStatus
-            // 
-            this.gbStatus.Controls.Add(this.rbNone);
-            this.gbStatus.Controls.Add(this.rbDemandado);
-            this.gbStatus.Controls.Add(this.rbDemandante);
-            this.gbStatus.Location = new System.Drawing.Point(532, 335);
-            this.gbStatus.Name = "gbStatus";
-            this.gbStatus.Size = new System.Drawing.Size(257, 62);
-            this.gbStatus.TabIndex = 2;
-            this.gbStatus.TabStop = false;
-            this.gbStatus.Text = "Status";
-            // 
-            // rbDemandado
-            // 
-            this.rbDemandado.AutoSize = true;
-            this.rbDemandado.Location = new System.Drawing.Point(98, 30);
-            this.rbDemandado.Name = "rbDemandado";
-            this.rbDemandado.Size = new System.Drawing.Size(83, 17);
-            this.rbDemandado.TabIndex = 1;
-            this.rbDemandado.TabStop = true;
-            this.rbDemandado.Text = "Demandado";
-            this.rbDemandado.UseVisualStyleBackColor = true;
-            // 
-            // rbDemandante
-            // 
-            this.rbDemandante.AutoSize = true;
-            this.rbDemandante.Location = new System.Drawing.Point(6, 30);
-            this.rbDemandante.Name = "rbDemandante";
-            this.rbDemandante.Size = new System.Drawing.Size(86, 17);
-            this.rbDemandante.TabIndex = 0;
-            this.rbDemandante.TabStop = true;
-            this.rbDemandante.Text = "Demandante";
-            this.rbDemandante.UseVisualStyleBackColor = true;
             // 
             // lblName
             // 
@@ -337,6 +300,8 @@
             // 
             // gbInformacionGeneral
             // 
+            this.gbInformacionGeneral.Controls.Add(this.cbstatus);
+            this.gbInformacionGeneral.Controls.Add(this.lblStatus);
             this.gbInformacionGeneral.Controls.Add(this.lblSave);
             this.gbInformacionGeneral.Controls.Add(this.lblNew);
             this.gbInformacionGeneral.Controls.Add(this.gbDocument);
@@ -358,10 +323,28 @@
             this.gbInformacionGeneral.Controls.Add(this.txtPhone);
             this.gbInformacionGeneral.Location = new System.Drawing.Point(26, 23);
             this.gbInformacionGeneral.Name = "gbInformacionGeneral";
-            this.gbInformacionGeneral.Size = new System.Drawing.Size(487, 333);
+            this.gbInformacionGeneral.Size = new System.Drawing.Size(487, 358);
             this.gbInformacionGeneral.TabIndex = 0;
             this.gbInformacionGeneral.TabStop = false;
             this.gbInformacionGeneral.Text = "Informacion General";
+            // 
+            // cbstatus
+            // 
+            this.cbstatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbstatus.FormattingEnabled = true;
+            this.cbstatus.Location = new System.Drawing.Point(88, 305);
+            this.cbstatus.Name = "cbstatus";
+            this.cbstatus.Size = new System.Drawing.Size(121, 21);
+            this.cbstatus.TabIndex = 28;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(47, 308);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(40, 13);
+            this.lblStatus.TabIndex = 29;
+            this.lblStatus.Text = "Status:";
             // 
             // lblSave
             // 
@@ -385,28 +368,16 @@
             this.lblNew.Text = "Nuevo";
             this.lblNew.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblNew_LinkClicked);
             // 
-            // rbNone
-            // 
-            this.rbNone.AutoSize = true;
-            this.rbNone.Location = new System.Drawing.Point(187, 30);
-            this.rbNone.Name = "rbNone";
-            this.rbNone.Size = new System.Drawing.Size(57, 17);
-            this.rbNone.TabIndex = 6;
-            this.rbNone.TabStop = true;
-            this.rbNone.Text = "Cliente";
-            this.rbNone.UseVisualStyleBackColor = true;
-            // 
             // frmCustomerRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Coral;
+            this.BackColor = System.Drawing.Color.DarkKhaki;
             this.ClientSize = new System.Drawing.Size(816, 428);
             this.Controls.Add(this.gbInformacionGeneral);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.gbStatus);
             this.Controls.Add(this.btnSelectImage);
             this.Controls.Add(this.pbImage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -415,8 +386,6 @@
             this.Text = "Registro de Clientes";
             this.Load += new System.EventHandler(this.frmCustomerRegistration_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
-            this.gbStatus.ResumeLayout(false);
-            this.gbStatus.PerformLayout();
             this.gbDocument.ResumeLayout(false);
             this.gbDocument.PerformLayout();
             this.gbInformacionGeneral.ResumeLayout(false);
@@ -429,9 +398,6 @@
 
         private System.Windows.Forms.PictureBox pbImage;
         private System.Windows.Forms.Button btnSelectImage;
-        private System.Windows.Forms.GroupBox gbStatus;
-        private System.Windows.Forms.RadioButton rbDemandado;
-        private System.Windows.Forms.RadioButton rbDemandante;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtLastName;
@@ -459,6 +425,7 @@
         private System.Windows.Forms.GroupBox gbInformacionGeneral;
         private System.Windows.Forms.LinkLabel lblNew;
         private System.Windows.Forms.LinkLabel lblSave;
-        private System.Windows.Forms.RadioButton rbNone;
+        private System.Windows.Forms.ComboBox cbstatus;
+        private System.Windows.Forms.Label lblStatus;
     }
 }
