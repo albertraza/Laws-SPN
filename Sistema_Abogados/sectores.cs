@@ -63,7 +63,7 @@ namespace Sistema_Abogados
             string r = null;
             using(SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("SELECT ID FROM Cities"), con);
+                SqlCommand comand = new SqlCommand(string.Format("SELECT ID FROM Cities WHERE City = '{0}'", City), con);
                 SqlDataReader re = comand.ExecuteReader();
                 if (re.HasRows)
                 {
