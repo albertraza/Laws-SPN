@@ -36,6 +36,11 @@
             this.registroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.casosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.arquilerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.divorciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ventaDeBienesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.accidentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,12 +52,13 @@
             this.salirDelSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbLessFive = new System.Windows.Forms.GroupBox();
             this.gbLastCases = new System.Windows.Forms.GroupBox();
-            this.casosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.arquilerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.divorciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ventaDeBienesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.accidentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgvLessThan5 = new System.Windows.Forms.DataGridView();
+            this.dgvLastOpened = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
+            this.gbLessFive.SuspendLayout();
+            this.gbLastCases.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLessThan5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLastOpened)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -125,6 +131,42 @@
             this.registroToolStripMenuItem1.Text = "Registro";
             this.registroToolStripMenuItem1.Click += new System.EventHandler(this.registroToolStripMenuItem1_Click);
             // 
+            // casosToolStripMenuItem
+            // 
+            this.casosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.arquilerToolStripMenuItem,
+            this.divorciosToolStripMenuItem,
+            this.ventaDeBienesToolStripMenuItem,
+            this.accidentesToolStripMenuItem});
+            this.casosToolStripMenuItem.Name = "casosToolStripMenuItem";
+            this.casosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.casosToolStripMenuItem.Text = "Casos";
+            // 
+            // arquilerToolStripMenuItem
+            // 
+            this.arquilerToolStripMenuItem.Name = "arquilerToolStripMenuItem";
+            this.arquilerToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.arquilerToolStripMenuItem.Text = "Alquiler";
+            this.arquilerToolStripMenuItem.Click += new System.EventHandler(this.arquilerToolStripMenuItem_Click);
+            // 
+            // divorciosToolStripMenuItem
+            // 
+            this.divorciosToolStripMenuItem.Name = "divorciosToolStripMenuItem";
+            this.divorciosToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.divorciosToolStripMenuItem.Text = "Divorcios";
+            // 
+            // ventaDeBienesToolStripMenuItem
+            // 
+            this.ventaDeBienesToolStripMenuItem.Name = "ventaDeBienesToolStripMenuItem";
+            this.ventaDeBienesToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.ventaDeBienesToolStripMenuItem.Text = "Venta de Bienes";
+            // 
+            // accidentesToolStripMenuItem
+            // 
+            this.accidentesToolStripMenuItem.Name = "accidentesToolStripMenuItem";
+            this.accidentesToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.accidentesToolStripMenuItem.Text = "Accidentes";
+            // 
             // consultaToolStripMenuItem
             // 
             this.consultaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -194,6 +236,7 @@
             // 
             // gbLessFive
             // 
+            this.gbLessFive.Controls.Add(this.dgvLessThan5);
             this.gbLessFive.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbLessFive.Location = new System.Drawing.Point(580, 36);
             this.gbLessFive.Name = "gbLessFive";
@@ -204,6 +247,7 @@
             // 
             // gbLastCases
             // 
+            this.gbLastCases.Controls.Add(this.dgvLastOpened);
             this.gbLastCases.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbLastCases.Location = new System.Drawing.Point(580, 243);
             this.gbLastCases.Name = "gbLastCases";
@@ -212,40 +256,21 @@
             this.gbLastCases.TabStop = false;
             this.gbLastCases.Text = "Ultimos Casos";
             // 
-            // casosToolStripMenuItem
+            // dgvLessThan5
             // 
-            this.casosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.arquilerToolStripMenuItem,
-            this.divorciosToolStripMenuItem,
-            this.ventaDeBienesToolStripMenuItem,
-            this.accidentesToolStripMenuItem});
-            this.casosToolStripMenuItem.Name = "casosToolStripMenuItem";
-            this.casosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.casosToolStripMenuItem.Text = "Casos";
+            this.dgvLessThan5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLessThan5.Location = new System.Drawing.Point(7, 20);
+            this.dgvLessThan5.Name = "dgvLessThan5";
+            this.dgvLessThan5.Size = new System.Drawing.Size(363, 175);
+            this.dgvLessThan5.TabIndex = 0;
             // 
-            // arquilerToolStripMenuItem
+            // dgvLastOpened
             // 
-            this.arquilerToolStripMenuItem.Name = "arquilerToolStripMenuItem";
-            this.arquilerToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.arquilerToolStripMenuItem.Text = "Alquiler";
-            // 
-            // divorciosToolStripMenuItem
-            // 
-            this.divorciosToolStripMenuItem.Name = "divorciosToolStripMenuItem";
-            this.divorciosToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.divorciosToolStripMenuItem.Text = "Divorcios";
-            // 
-            // ventaDeBienesToolStripMenuItem
-            // 
-            this.ventaDeBienesToolStripMenuItem.Name = "ventaDeBienesToolStripMenuItem";
-            this.ventaDeBienesToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.ventaDeBienesToolStripMenuItem.Text = "Venta de Bienes";
-            // 
-            // accidentesToolStripMenuItem
-            // 
-            this.accidentesToolStripMenuItem.Name = "accidentesToolStripMenuItem";
-            this.accidentesToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.accidentesToolStripMenuItem.Text = "Accidentes";
+            this.dgvLastOpened.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLastOpened.Location = new System.Drawing.Point(7, 19);
+            this.dgvLastOpened.Name = "dgvLastOpened";
+            this.dgvLastOpened.Size = new System.Drawing.Size(363, 204);
+            this.dgvLastOpened.TabIndex = 1;
             // 
             // frmMenu
             // 
@@ -263,6 +288,10 @@
             this.Load += new System.EventHandler(this.frmMenu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.gbLessFive.ResumeLayout(false);
+            this.gbLastCases.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLessThan5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLastOpened)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,5 +323,7 @@
         private System.Windows.Forms.ToolStripMenuItem divorciosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ventaDeBienesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem accidentesToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dgvLessThan5;
+        private System.Windows.Forms.DataGridView dgvLastOpened;
     }
 }

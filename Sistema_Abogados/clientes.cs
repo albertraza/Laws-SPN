@@ -110,7 +110,7 @@ namespace Sistema_Abogados
             List<clientes> list = new List<clientes>();
             using(SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("SELECT * FROM customers INNER JOIN Cities ON customers.CityID = Cities.ID INNER JOIN CustomerStatus ON CustomerStatus.ID = customers.StatusId WHERE customers.ID LIKE '{0}%' AND name LIKE '{1}%' AND lastname LIKE '{2}%' AND idcard LIKE '{3}%' AND estatus LIKE '{4}%' AND registerdate LIKE '{5}%' ",
+                SqlCommand comand = new SqlCommand(string.Format("SELECT * FROM customers INNER JOIN Cities ON customers.CityID = Cities.ID INNER JOIN CustomerStatus ON CustomerStatus.ID = customers.StatusId WHERE customers.ID LIKE '{0}%' AND name LIKE '{1}%' AND lastname LIKE '{2}%' AND idcard LIKE '{3}%' AND status LIKE '{4}%' AND registerdate LIKE '{5}%' ",
                     ID, name, lastName, cedula, status, registerDate), con);
                 SqlDataReader re = comand.ExecuteReader();
                 while (re.Read())
@@ -145,22 +145,29 @@ namespace Sistema_Abogados
             {
                 SqlCommand comand = new SqlCommand(string.Format("SELECT * FROM customers INNER JOIN Cities ON customers.CityID = Cities.ID INNER JOIN CustomerStatus ON CustomerStatus.ID = customers.StatusId WHERE customers.ID = '{0}'", ID), con);
                 SqlDataReader re = comand.ExecuteReader();
-                while (re.Read())
+                if (re.HasRows)
                 {
-                    pClientes.ID = re["ID"].ToString();
-                    pClientes.Nombre = re["name"].ToString();
-                    pClientes.Apellido = re["lastname"].ToString();
-                    pClientes.Cedula = re["idcard"].ToString();
-                    pClientes.Image = re.GetString(5);
-                    pClientes.Status = re["Status"].ToString();
-                    pClientes.Fecha_Registro = re["registerdate"].ToString();
-                    pClientes.Fecha_Registro = re["registerdate"].ToString();
-                    pClientes.Direccion = re["cAddress"].ToString();
-                    pClientes.E_Mail = re["email"].ToString();
-                    pClientes.Ocupacion = re["ocupation"].ToString();
-                    pClientes.Sector = re["City"].ToString();
-                    pClientes.Telefono = re["Phone"].ToString();
-                    pClientes.Celular = re["Cellphone"].ToString();
+                    while (re.Read())
+                    {
+                        pClientes.ID = re["ID"].ToString();
+                        pClientes.Nombre = re["name"].ToString();
+                        pClientes.Apellido = re["lastname"].ToString();
+                        pClientes.Cedula = re["idcard"].ToString();
+                        pClientes.Image = re.GetString(5);
+                        pClientes.Status = re["Status"].ToString();
+                        pClientes.Fecha_Registro = re["registerdate"].ToString();
+                        pClientes.Fecha_Registro = re["registerdate"].ToString();
+                        pClientes.Direccion = re["cAddress"].ToString();
+                        pClientes.E_Mail = re["email"].ToString();
+                        pClientes.Ocupacion = re["ocupation"].ToString();
+                        pClientes.Sector = re["City"].ToString();
+                        pClientes.Telefono = re["Phone"].ToString();
+                        pClientes.Celular = re["Cellphone"].ToString();
+                    }
+                }
+                else
+                {
+                    pClientes = null;
                 }
                 con.Close();
             }

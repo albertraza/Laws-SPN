@@ -29,6 +29,7 @@ namespace Sistema_Abogados
         private void frmMenu_Load(object sender, EventArgs e)
         {
             // updating form properties for better desing.
+            ControlBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
             this.StartPosition = FormStartPosition.CenterScreen;
         }
@@ -57,7 +58,9 @@ namespace Sistema_Abogados
 
         private void clientesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            new frmCustomerSearch().Show();
+            frmCustomerSearch pc = new frmCustomerSearch();
+            pc.type = false;
+            pc.Show();
         }
 
         private void registroToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -68,6 +71,12 @@ namespace Sistema_Abogados
         private void serviciosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             new frmSearchServices().Show();
+        }
+
+        private void arquilerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new frmAlquiler().ShowDialog();
         }
     }
 }

@@ -49,6 +49,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AbogadosDBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="alquiler.cs" />
     <Compile Include="clientes.cs" />
     <Compile Include="DBcomun.cs" />
     <Compile Include="Form1.cs">
@@ -62,6 +63,12 @@
     </Compile>
     <Compile Include="frmAbout.Designer.cs">
       <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAlquiler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAlquiler.Designer.cs">
+      <DependentUpon>frmAlquiler.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCustomerRegistration.cs">
       <SubType>Form</SubType>
@@ -139,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAlquiler.resx">
+      <DependentUpon>frmAlquiler.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCustomerRegistration.resx">
       <DependentUpon>frmCustomerRegistration.cs</DependentUpon>

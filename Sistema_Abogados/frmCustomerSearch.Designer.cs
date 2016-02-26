@@ -44,6 +44,7 @@
             this.btnShow = new System.Windows.Forms.Button();
             this.txtUserID = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
+            this.btnSelect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -161,7 +162,7 @@
             // 
             // btnShow
             // 
-            this.btnShow.Location = new System.Drawing.Point(643, 100);
+            this.btnShow.Location = new System.Drawing.Point(669, 59);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(75, 23);
             this.btnShow.TabIndex = 13;
@@ -185,12 +186,23 @@
             this.lblId.TabIndex = 14;
             this.lblId.Text = "ID:";
             // 
+            // btnSelect
+            // 
+            this.btnSelect.Location = new System.Drawing.Point(642, 100);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(75, 23);
+            this.btnSelect.TabIndex = 16;
+            this.btnSelect.Text = "Seleccionar";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
             // frmCustomerSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkKhaki;
             this.ClientSize = new System.Drawing.Size(756, 440);
+            this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.txtUserID);
             this.Controls.Add(this.lblId);
             this.Controls.Add(this.btnShow);
@@ -236,5 +248,6 @@
         private System.Windows.Forms.Button btnShow;
         private System.Windows.Forms.TextBox txtUserID;
         private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.Button btnSelect;
     }
 }

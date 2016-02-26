@@ -12,6 +12,10 @@ namespace Sistema_Abogados
 {
     public partial class frmCustomerSearch : Form
     {
+        // variable for sending customer ID.
+        public string pCustSelectedID { get; set; }
+        // for form style.
+        public bool type { get; set; }
         // method for cleaning all values.
         private void clearInputs()
         {
@@ -34,6 +38,14 @@ namespace Sistema_Abogados
             // make a try catch.
             try
             {
+                if (type)
+                {
+                    btnSelect.Visible = true;
+                }
+                else
+                {
+                    btnSelect.Visible = false;
+                }
                 // load all customers on a list.
                 dgvClientes.DataSource = clientes.listAllCustomers();
             }
@@ -132,6 +144,19 @@ namespace Sistema_Abogados
             else
             {
                 MessageBox.Show("No se ha seleccionado un cliente de la tabla", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        //when seleccionar button is clicked.
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            if(dgvClientes.SelectedRows.Count == 1)
+            {
+                pCustSelectedID = dgvClientes.CurrentRow.Cells[0].Value.ToString();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un cliente de la tabla", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
