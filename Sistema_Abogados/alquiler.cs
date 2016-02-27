@@ -9,6 +9,7 @@ namespace Sistema_Abogados
 {
     public class alquiler
     {
+        // properties for creating an object.
         public string ID { get; set; }
         public string Ubicacion { get; set; }
         public string Detalles { get; set; }
@@ -20,7 +21,25 @@ namespace Sistema_Abogados
         public string Apellido_Garante { get; set; }
         public string Mensualidad { get; set; }
         public string Deposito { get; set; }
-
+        // **************** end properties ***************** //
+        // declaring construct
+        public alquiler() { }
+        public alquiler(string id, string ubicacion, string detalles, string nombrein, string apellidoin, string nombrecl, string apellidocl, string nombrega, string apellidoga, string mensualidad, string deposito)
+        {
+            ID = id;
+            Ubicacion = ubicacion;
+            Detalles = detalles;
+            Nombre_Inquilino = nombrein;
+            Apellido_Inquilino = apellidoin;
+            Nombre_Cliente = nombrecl;
+            Apellido_Cliente = apellidocl;
+            Nombre_Garante = nombrega;
+            Apellido_Garante = apellidoga;
+            Mensualidad = mensualidad;
+            Deposito = deposito;
+        }
+        // ***************** end cosuntruts ****************** //
+        // method for registering the users.
         public static int register(string ClienteID, string InquilinoID, string GaranteID, string ServicioID, string Mensualidad, string Honorario, string Detalles, string Direccion, string SectorID, string Deposito, string Abono)
         {
             int r = -1;
@@ -33,6 +52,7 @@ namespace Sistema_Abogados
             }
             return r;
         }
+        // method for listing all rent
         public static List<alquiler> listAll()
         {
             List<alquiler> list = new List<alquiler>();
