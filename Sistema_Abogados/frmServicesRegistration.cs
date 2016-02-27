@@ -96,6 +96,7 @@ namespace Sistema_Abogados
         {
             // close the form.
             Close();
+            new frmMenu().Show();
         }
     }
 }
