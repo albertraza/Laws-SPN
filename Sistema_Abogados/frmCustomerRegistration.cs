@@ -236,6 +236,7 @@ namespace Sistema_Abogados
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
+            new frmMenu().Show();
         }
         // when cedula cb is checked.
         private void rbCedula_CheckedChanged(object sender, EventArgs e)
