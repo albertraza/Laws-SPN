@@ -51,13 +51,13 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirDelSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbLessFive = new System.Windows.Forms.GroupBox();
-            this.gbLastCases = new System.Windows.Forms.GroupBox();
             this.dgvLessThan5 = new System.Windows.Forms.DataGridView();
+            this.gbLastCases = new System.Windows.Forms.GroupBox();
             this.dgvLastOpened = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             this.gbLessFive.SuspendLayout();
-            this.gbLastCases.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLessThan5)).BeginInit();
+            this.gbLastCases.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLastOpened)).BeginInit();
             this.SuspendLayout();
             // 
@@ -154,6 +154,7 @@
             this.divorciosToolStripMenuItem.Name = "divorciosToolStripMenuItem";
             this.divorciosToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.divorciosToolStripMenuItem.Text = "Divorcios";
+            this.divorciosToolStripMenuItem.Click += new System.EventHandler(this.divorciosToolStripMenuItem_Click);
             // 
             // ventaDeBienesToolStripMenuItem
             // 
@@ -245,6 +246,14 @@
             this.gbLessFive.TabStop = false;
             this.gbLessFive.Text = "En menos de 5 Dias";
             // 
+            // dgvLessThan5
+            // 
+            this.dgvLessThan5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLessThan5.Location = new System.Drawing.Point(7, 20);
+            this.dgvLessThan5.Name = "dgvLessThan5";
+            this.dgvLessThan5.Size = new System.Drawing.Size(363, 175);
+            this.dgvLessThan5.TabIndex = 0;
+            // 
             // gbLastCases
             // 
             this.gbLastCases.Controls.Add(this.dgvLastOpened);
@@ -255,14 +264,6 @@
             this.gbLastCases.TabIndex = 2;
             this.gbLastCases.TabStop = false;
             this.gbLastCases.Text = "Ultimos Casos";
-            // 
-            // dgvLessThan5
-            // 
-            this.dgvLessThan5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLessThan5.Location = new System.Drawing.Point(7, 20);
-            this.dgvLessThan5.Name = "dgvLessThan5";
-            this.dgvLessThan5.Size = new System.Drawing.Size(363, 175);
-            this.dgvLessThan5.TabIndex = 0;
             // 
             // dgvLastOpened
             // 
@@ -289,8 +290,8 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.gbLessFive.ResumeLayout(false);
-            this.gbLastCases.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLessThan5)).EndInit();
+            this.gbLastCases.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLastOpened)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

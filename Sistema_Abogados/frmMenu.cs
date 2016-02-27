@@ -53,6 +53,7 @@ namespace Sistema_Abogados
 
         private void registroToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Close();
             new frmCustomerRegistration().Show();
         }
 
@@ -65,6 +66,7 @@ namespace Sistema_Abogados
 
         private void registroToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            this.Close();
             new frmServicesRegistration().Show();
         }
 
@@ -77,6 +79,12 @@ namespace Sistema_Abogados
         {
             this.Close();
             new frmAlquiler().ShowDialog();
+        }
+
+        private void divorciosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new frmDivorcios().ShowDialog();
         }
     }
 }
