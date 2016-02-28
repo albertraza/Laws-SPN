@@ -52,6 +52,7 @@
     <Compile Include="alquiler.cs" />
     <Compile Include="clientes.cs" />
     <Compile Include="DBcomun.cs" />
+    <Compile Include="divorcios.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +82,12 @@
     </Compile>
     <Compile Include="frmCustomerSearch.Designer.cs">
       <DependentUpon>frmCustomerSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDivorcios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDivorcios.Designer.cs">
+      <DependentUpon>frmDivorcios.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -155,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCustomerSearch.resx">
       <DependentUpon>frmCustomerSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDivorcios.resx">
+      <DependentUpon>frmDivorcios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
