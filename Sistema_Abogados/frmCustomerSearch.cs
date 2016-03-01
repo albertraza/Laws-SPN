@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace Sistema_Abogados
 {
@@ -14,6 +15,21 @@ namespace Sistema_Abogados
     {
         // variable for sending customer ID.
         public string pCustSelectedID { get; set; }
+        // method for loading all users status.
+        private void listAllStatus()
+        {
+            cbStatus.Items.Clear();
+            using (SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand("SELECT * FROM customerStatus", con);
+                SqlDataReader re = comand.ExecuteReader();
+                while (re.Read())
+                {
+                    cbStatus.Items.Add(re["Status"]);
+                }
+                con.Close();
+            }
+        }
         // for form style.
         public bool type { get; set; }
         // method for cleaning all values.
@@ -47,6 +63,7 @@ namespace Sistema_Abogados
                     btnSelect.Visible = false;
                 }
                 // load all customers on a list.
+                listAllStatus();
                 dgvClientes.DataSource = clientes.listAllCustomers();
             }
             catch(Exception ex)
