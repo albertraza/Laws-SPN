@@ -29,6 +29,8 @@ namespace Sistema_Abogados
             txtPhoneDemandado.Enabled = false;
             txtPhoneDemandante.Enabled = false;
             txtIDDemandante.Focus();
+            txtAbono.Enabled = false;
+            txtPrecio.Enabled = false;
         }
         // method for cleaning evrything.
         private void clearInputs()
@@ -63,9 +65,9 @@ namespace Sistema_Abogados
                 ControlBox = false;
                 disableInputs();
                 servicios pser = servicios.getServiceInfo("4");
-                txtAbono.Text = pser.Abono;
-                txtPrecio.Text = pser.Precio;
-                txtHonorarios.Text = pser.Precio;
+                txtAbono.Text = Convert.ToDouble(pser.Abono).ToString("f2");
+                txtPrecio.Text = Convert.ToDouble(pser.Precio).ToString("f2");
+                txtHonorarios.Text = Convert.ToDouble(pser.Precio).ToString("f2");
             }
             catch(Exception ex)
             {
@@ -254,6 +256,19 @@ namespace Sistema_Abogados
         private void btnClearAll_Click(object sender, EventArgs e)
         {
             clearInputs();
+            disableInputs();
+        }
+
+        private void gbInfomacionPagos_Enter(object sender, EventArgs e)
+        {
+
+        }
+        // when Modificar button is clicked.
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            txtPrecio.Enabled = true;
+            txtHonorarios.Enabled = true;
+            txtAbono.Enabled = true;
         }
         // when Registrar Button is clicked.
         private void btnRegister_Click(object sender, EventArgs e)

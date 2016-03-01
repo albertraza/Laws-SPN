@@ -389,24 +389,26 @@
             this.gbInfomacionPagos.Controls.Add(this.lblPrice);
             this.gbInfomacionPagos.Location = new System.Drawing.Point(12, 252);
             this.gbInfomacionPagos.Name = "gbInfomacionPagos";
-            this.gbInfomacionPagos.Size = new System.Drawing.Size(395, 190);
+            this.gbInfomacionPagos.Size = new System.Drawing.Size(808, 67);
             this.gbInfomacionPagos.TabIndex = 2;
             this.gbInfomacionPagos.TabStop = false;
             this.gbInfomacionPagos.Text = "Pagos";
+            this.gbInfomacionPagos.Enter += new System.EventHandler(this.gbInfomacionPagos_Enter);
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(255, 130);
+            this.btnModificar.Location = new System.Drawing.Point(687, 22);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 7;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // lblAbono
             // 
             this.lblAbono.AutoSize = true;
-            this.lblAbono.Location = new System.Drawing.Point(48, 130);
+            this.lblAbono.Location = new System.Drawing.Point(411, 28);
             this.lblAbono.Name = "lblAbono";
             this.lblAbono.Size = new System.Drawing.Size(41, 13);
             this.lblAbono.TabIndex = 6;
@@ -414,14 +416,14 @@
             // 
             // txtAbono
             // 
-            this.txtAbono.Location = new System.Drawing.Point(94, 127);
+            this.txtAbono.Location = new System.Drawing.Point(457, 25);
             this.txtAbono.Name = "txtAbono";
             this.txtAbono.Size = new System.Drawing.Size(100, 20);
             this.txtAbono.TabIndex = 5;
             // 
             // txtHonorarios
             // 
-            this.txtHonorarios.Location = new System.Drawing.Point(94, 82);
+            this.txtHonorarios.Location = new System.Drawing.Point(294, 25);
             this.txtHonorarios.Name = "txtHonorarios";
             this.txtHonorarios.Size = new System.Drawing.Size(100, 20);
             this.txtHonorarios.TabIndex = 3;
@@ -429,7 +431,7 @@
             // lblHonorarios
             // 
             this.lblHonorarios.AutoSize = true;
-            this.lblHonorarios.Location = new System.Drawing.Point(27, 85);
+            this.lblHonorarios.Location = new System.Drawing.Point(227, 28);
             this.lblHonorarios.Name = "lblHonorarios";
             this.lblHonorarios.Size = new System.Drawing.Size(61, 13);
             this.lblHonorarios.TabIndex = 2;
@@ -437,7 +439,7 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(94, 39);
+            this.txtPrecio.Location = new System.Drawing.Point(88, 25);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(100, 20);
             this.txtPrecio.TabIndex = 1;
@@ -445,7 +447,7 @@
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(48, 42);
+            this.lblPrice.Location = new System.Drawing.Point(42, 28);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(40, 13);
             this.lblPrice.TabIndex = 0;
@@ -453,7 +455,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(733, 419);
+            this.btnCancelar.Location = new System.Drawing.Point(270, 335);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 3;
@@ -463,7 +465,7 @@
             // 
             // btnClearAll
             // 
-            this.btnClearAll.Location = new System.Drawing.Point(605, 419);
+            this.btnClearAll.Location = new System.Drawing.Point(142, 335);
             this.btnClearAll.Name = "btnClearAll";
             this.btnClearAll.Size = new System.Drawing.Size(90, 23);
             this.btnClearAll.TabIndex = 15;
@@ -473,7 +475,7 @@
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(482, 419);
+            this.btnRegister.Location = new System.Drawing.Point(19, 335);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(75, 23);
             this.btnRegister.TabIndex = 16;
@@ -486,7 +488,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkKhaki;
-            this.ClientSize = new System.Drawing.Size(832, 454);
+            this.ClientSize = new System.Drawing.Size(832, 370);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnClearAll);
             this.Controls.Add(this.btnCancelar);
