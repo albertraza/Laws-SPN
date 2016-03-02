@@ -161,6 +161,7 @@
             this.ventaDeBienesToolStripMenuItem.Name = "ventaDeBienesToolStripMenuItem";
             this.ventaDeBienesToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.ventaDeBienesToolStripMenuItem.Text = "Venta de Bienes";
+            this.ventaDeBienesToolStripMenuItem.Click += new System.EventHandler(this.ventaDeBienesToolStripMenuItem_Click);
             // 
             // accidentesToolStripMenuItem
             // 

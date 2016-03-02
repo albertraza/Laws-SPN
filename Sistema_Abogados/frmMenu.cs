@@ -86,5 +86,11 @@ namespace Sistema_Abogados
             this.Close();
             new frmDivorcios().ShowDialog();
         }
+
+        private void ventaDeBienesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new frmVentas().ShowDialog();
+        }
     }
 }
