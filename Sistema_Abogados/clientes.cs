@@ -173,6 +173,7 @@ namespace Sistema_Abogados
             }
             return pClientes;
         }
+        // method for getting status ID.
         public static string getStatusID(String Status)
         {
             string r = null;
@@ -188,6 +189,26 @@ namespace Sistema_Abogados
                 else
                 {
                     r = null;
+                }
+                con.Close();
+            }
+            return r;
+        }
+        // method for validating customers.
+        public static bool verify(string pCedula)
+        {
+            bool r;
+            using(SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("SELECT * FROM customers WHERE idcard = '{0}'", pCedula), con);
+                SqlDataReader re = comand.ExecuteReader();
+                if (re.HasRows)
+                {
+                    r = false;
+                }
+                else
+                {
+                    r = true;
                 }
                 con.Close();
             }
