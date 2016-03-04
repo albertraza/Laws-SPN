@@ -201,16 +201,24 @@ namespace Sistema_Abogados
                     {
                         // validate result value.
                         // if result is true. all inputs are filled.
-                        // execute method for registering users.
-                        if (clientes.customerRegistration(c, To) > 0)
+                        // verify if customer is already registered.
+                        if ((clientes.verify(txtID.Text) && txtID.MaskCompleted) || (clientes.verify(txtPassport.Text) && txtPassport.MaskCompleted))
                         {
-                            MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            File.Copy(From, To, true);
-                            clearInputs();
+                            // execute method for registering users.
+                            if (clientes.customerRegistration(c, To) > 0)
+                            {
+                                MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                File.Copy(From, To, true);
+                                clearInputs();
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se pudo registrar el Cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("No se pudo registrar el Cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("El Cliente ya ha sido registrado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                     }
                     catch (Exception ex)
