@@ -58,7 +58,38 @@ namespace Sistema_Abogados
             List<alquiler> list = new List<alquiler>();
             using(SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("SELECT Rent.ID, Rent.direccion, Cities.City, Rent.detalles, Rent.Mensualidad, Rent.Honorario, Rent.Abono, CLIENTE.name AS NombreCli, CLIENTE.lastname AS ApellidoCli, INQUILINO.name AS NombreInqui, INQUILINO.lastname AS ApellidoInqui, GARANTE.name AS NombreGara, GARANTE.lastname AS ApellidoGara FROM Rent INNER JOIN Cities ON Cities.ID = Rent.City INNER JOIN customers AS CLIENTE ON CLIENTE.ID = Rent.CLienteID INNER JOIN customers AS INQUILINO ON INQUILINO.ID = Rent.InquilinoID INNER JOIN customers AS GARANTE ON GARANTE.ID = Rent.GaranteID"), con);
+                SqlCommand comand = new SqlCommand(string.Format("SELECT Rent.ID, Rent.direccion, Cities.City, Rent.detalles, Rent.Mensualidad, Rent.Honorario, Rent.Abono, Rent.Deposito, CLIENTE.name AS NombreCli, CLIENTE.lastname AS ApellidoCli, INQUILINO.name AS NombreInqui, INQUILINO.lastname AS ApellidoInqui, GARANTE.name AS NombreGara, GARANTE.lastname AS ApellidoGara FROM Rent INNER JOIN Cities ON Cities.ID = Rent.City INNER JOIN customers AS CLIENTE ON CLIENTE.ID = Rent.CLienteID INNER JOIN customers AS INQUILINO ON INQUILINO.ID = Rent.InquilinoID INNER JOIN customers AS GARANTE ON GARANTE.ID = Rent.GaranteID"), con);
+                SqlDataReader re = comand.ExecuteReader();
+                while (re.Read())
+                {
+                    alquiler pAlquiler = new alquiler();
+                    pAlquiler.ID = re["ID"].ToString();
+                    pAlquiler.Apellido_Cliente = re["ApellidoCli"].ToString();
+                    pAlquiler.Apellido_Garante = re["ApellidoGara"].ToString();
+                    pAlquiler.Apellido_Inquilino = re["ApellidoInqui"].ToString();
+                    pAlquiler.Deposito = re["Deposito"].ToString();
+                    pAlquiler.Detalles = re["detalles"].ToString();
+                    pAlquiler.Mensualidad = re["Mensualidad"].ToString();
+                    pAlquiler.Nombre_Cliente = re["NombreCli"].ToString();
+                    pAlquiler.Nombre_Garante = re["NombreGara"].ToString();
+                    pAlquiler.Nombre_Inquilino = re["NombreInqui"].ToString();
+                    pAlquiler.Ubicacion = re["direccion"].ToString();
+
+                    list.Add(pAlquiler);
+                }
+                con.Close();
+            }
+            return list;
+        }
+        // method with the search engine.
+        public static List<alquiler> search(string ID, string NombreIn, string ApellidoIn, string Nombrecl, string Apellidocl, string Nombrega, string Apellidoga)
+        {
+            List<alquiler> list = new List<alquiler>();
+            using (SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("SELECT Rent.ID, Rent.direccion, Cities.City, Rent.detalles, Rent.Mensualidad, Rent.Honorario, Rent.Abono, Rent.Deposito, CLIENTE.name AS NombreCli, CLIENTE.lastname AS ApellidoCli, INQUILINO.name AS NombreInqui, INQUILINO.lastname AS ApellidoInqui, GARANTE.name AS NombreGara, GARANTE.lastname AS ApellidoGara FROM Rent INNER JOIN Cities ON Cities.ID = Rent.City INNER JOIN customers AS CLIENTE ON CLIENTE.ID = Rent.CLienteID INNER JOIN customers AS INQUILINO ON INQUILINO.ID = Rent.InquilinoID INNER JOIN customers AS GARANTE ON GARANTE.ID = Rent.GaranteID"+
+                    " WHERE CLIENTE.name like '{0}%' AND CLIENTE.lastname like '{1}%' AND GARANTE.name like '{2}%' AND GARANTE.lastname like '{3}%' AND INQUILINO.name like '{4}%' AND INQUILINO.lastname like '{5}%' AND Rent.ID like '{6}%'",
+                    Nombrecl, Apellidocl, Nombrega, Apellidoga, NombreIn, ApellidoIn, ID), con);
                 SqlDataReader re = comand.ExecuteReader();
                 while (re.Read())
                 {
