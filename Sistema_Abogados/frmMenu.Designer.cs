@@ -54,6 +54,8 @@
             this.dgvLessThan5 = new System.Windows.Forms.DataGridView();
             this.gbLastCases = new System.Windows.Forms.GroupBox();
             this.dgvLastOpened = new System.Windows.Forms.DataGridView();
+            this.casosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.alquilerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.gbLessFive.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLessThan5)).BeginInit();
@@ -91,7 +93,7 @@
             this.usuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrarToolStripMenuItem});
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // registrarToolStripMenuItem
@@ -106,7 +108,7 @@
             this.clientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registroToolStripMenuItem});
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             // 
             // registroToolStripMenuItem
@@ -121,7 +123,7 @@
             this.serviciosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registroToolStripMenuItem1});
             this.serviciosToolStripMenuItem.Name = "serviciosToolStripMenuItem";
-            this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.serviciosToolStripMenuItem.Text = "Servicios";
             // 
             // registroToolStripMenuItem1
@@ -139,7 +141,7 @@
             this.ventaDeBienesToolStripMenuItem,
             this.accidentesToolStripMenuItem});
             this.casosToolStripMenuItem.Name = "casosToolStripMenuItem";
-            this.casosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.casosToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.casosToolStripMenuItem.Text = "Casos";
             // 
             // arquilerToolStripMenuItem
@@ -174,7 +176,8 @@
             this.consultaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.usuariosToolStripMenuItem1,
             this.clientesToolStripMenuItem1,
-            this.serviciosToolStripMenuItem1});
+            this.serviciosToolStripMenuItem1,
+            this.casosToolStripMenuItem1});
             this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
             this.consultaToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.consultaToolStripMenuItem.Text = "Consulta";
@@ -182,21 +185,21 @@
             // usuariosToolStripMenuItem1
             // 
             this.usuariosToolStripMenuItem1.Name = "usuariosToolStripMenuItem1";
-            this.usuariosToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
+            this.usuariosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.usuariosToolStripMenuItem1.Text = "Usuarios";
             this.usuariosToolStripMenuItem1.Click += new System.EventHandler(this.usuariosToolStripMenuItem1_Click);
             // 
             // clientesToolStripMenuItem1
             // 
             this.clientesToolStripMenuItem1.Name = "clientesToolStripMenuItem1";
-            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
+            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.clientesToolStripMenuItem1.Text = "Clientes";
             this.clientesToolStripMenuItem1.Click += new System.EventHandler(this.clientesToolStripMenuItem1_Click);
             // 
             // serviciosToolStripMenuItem1
             // 
             this.serviciosToolStripMenuItem1.Name = "serviciosToolStripMenuItem1";
-            this.serviciosToolStripMenuItem1.Size = new System.Drawing.Size(120, 22);
+            this.serviciosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.serviciosToolStripMenuItem1.Text = "Servicios";
             this.serviciosToolStripMenuItem1.Click += new System.EventHandler(this.serviciosToolStripMenuItem1_Click);
             // 
@@ -274,6 +277,21 @@
             this.dgvLastOpened.Size = new System.Drawing.Size(363, 204);
             this.dgvLastOpened.TabIndex = 1;
             // 
+            // casosToolStripMenuItem1
+            // 
+            this.casosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.alquilerToolStripMenuItem});
+            this.casosToolStripMenuItem1.Name = "casosToolStripMenuItem1";
+            this.casosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.casosToolStripMenuItem1.Text = "Casos";
+            // 
+            // alquilerToolStripMenuItem
+            // 
+            this.alquilerToolStripMenuItem.Name = "alquilerToolStripMenuItem";
+            this.alquilerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.alquilerToolStripMenuItem.Text = "Alquiler";
+            this.alquilerToolStripMenuItem.Click += new System.EventHandler(this.alquilerToolStripMenuItem_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -327,5 +345,7 @@
         private System.Windows.Forms.ToolStripMenuItem accidentesToolStripMenuItem;
         private System.Windows.Forms.DataGridView dgvLessThan5;
         private System.Windows.Forms.DataGridView dgvLastOpened;
+        private System.Windows.Forms.ToolStripMenuItem casosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem alquilerToolStripMenuItem;
     }
 }

@@ -92,5 +92,10 @@ namespace Sistema_Abogados
             this.Close();
             new frmVentas().ShowDialog();
         }
+
+        private void alquilerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmAlquilerSearch().Show();
+        }
     }
 }
