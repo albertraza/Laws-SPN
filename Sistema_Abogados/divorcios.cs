@@ -47,5 +47,59 @@ namespace Sistema_Abogados
             }
             return r;
         }
+        // method for listing all Divorcios.
+        public static List<divorcios> listAll()
+        {
+            List<divorcios> list = new List<divorcios>();
+            using(SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("SELECT divorcios.ID, DEMANDANTE.name AS NombreDemandante, DEMANDANTE.lastname AS ApellidoDemandante, DEMANDADO.name AS NombreDemandado, DEMANDADO.lastname AS ApellidoDemandado, divorcios.Pagos, divorcios.Honorarios, divorcios.Abono FROM divorcios INNER JOIN customers AS DEMANDANTE ON DEMANDANTE.ID = divorcios.DemandanteID INNER JOIN customers AS DEMANDADO ON DEMANDADO.ID = divorcios.DemandadoID"), con);
+                SqlDataReader re = comand.ExecuteReader();
+                while (re.Read())
+                {
+                    divorcios pDivorcios = new divorcios();
+                    pDivorcios.ID = re["ID"].ToString();
+                    pDivorcios.Nombre_Demandante = re["NombreDemandante"].ToString();
+                    pDivorcios.Apellido_Demandante = re["ApellidoDemandante"].ToString();
+                    pDivorcios.Nombre_Demandado = re["NombreDemandado"].ToString();
+                    pDivorcios.Apellido_Demandado = re["ApellidoDemandado"].ToString();
+                    pDivorcios.Honorarios = re["Honorarios"].ToString();
+                    pDivorcios.Precio = re["Pagos"].ToString();
+                    pDivorcios.Abono = re["Abono"].ToString();
+
+                    list.Add(pDivorcios);
+                }
+                con.Close();
+            }
+            return list;
+        }
+        // method for searching Divorcios.
+        public static List<divorcios> search(string ID, string pNombreDemandante, string ApellidoDemandante, string NombreDemandado, string ApellidoDemandado)
+        {
+            List<divorcios> list = new List<divorcios>();
+            using(SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("SELECT divorcios.ID, DEMANDANTE.name AS NombreDemandante, DEMANDANTE.lastname AS ApellidoDemandante, DEMANDADO.name AS NombreDemandado, DEMANDADO.lastname AS ApellidoDemandado, divorcios.Pagos, divorcios.Honorarios, divorcios.Abono FROM divorcios INNER JOIN customers AS DEMANDANTE ON DEMANDANTE.ID = divorcios.DemandanteID INNER JOIN customers AS DEMANDADO ON DEMANDADO.ID = divorcios.DemandadoID" +
+                    " WHERE divorcios.ID LIKE '{0}%' AND DEMANDANTE.name LIKE '{1}%' AND DEMANDANTE.lastname LIKE '{2}%' AND DEMANDADO.name LIKE '{3}%' AND DEMANDADO.lastname LIKE '{4}%'",
+                    ID, pNombreDemandante, ApellidoDemandante, NombreDemandado, ApellidoDemandado), con);
+                SqlDataReader re = comand.ExecuteReader();
+                while (re.Read())
+                {
+                    divorcios pDivorcios = new divorcios();
+                    pDivorcios.ID = re["ID"].ToString();
+                    pDivorcios.Nombre_Demandante = re["NombreDemandante"].ToString();
+                    pDivorcios.Apellido_Demandante = re["ApellidoDemandante"].ToString();
+                    pDivorcios.Nombre_Demandado = re["NombreDemandado"].ToString();
+                    pDivorcios.Apellido_Demandado = re["ApellidoDemandado"].ToString();
+                    pDivorcios.Honorarios = re["Honorarios"].ToString();
+                    pDivorcios.Precio = re["Pagos"].ToString();
+                    pDivorcios.Abono = re["Abono"].ToString();
+
+                    list.Add(pDivorcios);
+                }
+                con.Close();
+            }
+            return list;
+        }
     }
 }
