@@ -97,5 +97,10 @@ namespace Sistema_Abogados
         {
             new frmAlquilerSearch().Show();
         }
+
+        private void divorciosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            new frmDivorciosSearch().Show();
+        }
     }
 }

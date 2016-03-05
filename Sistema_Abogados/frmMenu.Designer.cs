@@ -45,6 +45,8 @@
             this.usuariosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.serviciosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.casosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.alquilerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,8 +56,7 @@
             this.dgvLessThan5 = new System.Windows.Forms.DataGridView();
             this.gbLastCases = new System.Windows.Forms.GroupBox();
             this.dgvLastOpened = new System.Windows.Forms.DataGridView();
-            this.casosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.alquilerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.divorciosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.gbLessFive.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLessThan5)).BeginInit();
@@ -203,6 +204,22 @@
             this.serviciosToolStripMenuItem1.Text = "Servicios";
             this.serviciosToolStripMenuItem1.Click += new System.EventHandler(this.serviciosToolStripMenuItem1_Click);
             // 
+            // casosToolStripMenuItem1
+            // 
+            this.casosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.alquilerToolStripMenuItem,
+            this.divorciosToolStripMenuItem1});
+            this.casosToolStripMenuItem1.Name = "casosToolStripMenuItem1";
+            this.casosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.casosToolStripMenuItem1.Text = "Casos";
+            // 
+            // alquilerToolStripMenuItem
+            // 
+            this.alquilerToolStripMenuItem.Name = "alquilerToolStripMenuItem";
+            this.alquilerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.alquilerToolStripMenuItem.Text = "Alquiler";
+            this.alquilerToolStripMenuItem.Click += new System.EventHandler(this.alquilerToolStripMenuItem_Click);
+            // 
             // reportesToolStripMenuItem
             // 
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
@@ -277,20 +294,12 @@
             this.dgvLastOpened.Size = new System.Drawing.Size(363, 204);
             this.dgvLastOpened.TabIndex = 1;
             // 
-            // casosToolStripMenuItem1
+            // divorciosToolStripMenuItem1
             // 
-            this.casosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.alquilerToolStripMenuItem});
-            this.casosToolStripMenuItem1.Name = "casosToolStripMenuItem1";
-            this.casosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.casosToolStripMenuItem1.Text = "Casos";
-            // 
-            // alquilerToolStripMenuItem
-            // 
-            this.alquilerToolStripMenuItem.Name = "alquilerToolStripMenuItem";
-            this.alquilerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.alquilerToolStripMenuItem.Text = "Alquiler";
-            this.alquilerToolStripMenuItem.Click += new System.EventHandler(this.alquilerToolStripMenuItem_Click);
+            this.divorciosToolStripMenuItem1.Name = "divorciosToolStripMenuItem1";
+            this.divorciosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.divorciosToolStripMenuItem1.Text = "Divorcios";
+            this.divorciosToolStripMenuItem1.Click += new System.EventHandler(this.divorciosToolStripMenuItem1_Click);
             // 
             // frmMenu
             // 
@@ -347,5 +356,6 @@
         private System.Windows.Forms.DataGridView dgvLastOpened;
         private System.Windows.Forms.ToolStripMenuItem casosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem alquilerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem divorciosToolStripMenuItem1;
     }
 }
