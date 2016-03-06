@@ -232,8 +232,6 @@ namespace Sistema_Abogados
         // when guardar button is clicked.
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // variable for validating mask texbox.
-            bool inputs = true;
             // inputs valiadations.
             if (vID == null)
             {
@@ -282,17 +280,25 @@ namespace Sistema_Abogados
                     // when all inputs are filled.
                     try {
                         // verify the combobox status.
-                        if (cbInmueble.Text == "Vehiculo" && txtMatricula.MaskCompleted)
+                        if (cbInmueble.Text == "Vehiculos")
                         {
-                            if (ventas.register(vID, cID, txtDescripcion.Text + " " + txtMatricula.Text, txtPrecioVenta.Text, txtHonorarios.Text, txtAbono.Text, "5") > 0)
+                            if (txtMatricula.MaskCompleted)
                             {
-                                MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                cleanEverything();
-                                disableInputs();
+                                if (ventas.register(vID, cID, txtDescripcion.Text + " Matricula: " + txtMatricula.Text, txtPrecioVenta.Text, txtHonorarios.Text, txtAbono.Text, "5") > 0)
+                                {
+                                    MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    cleanEverything();
+                                    disableInputs();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("No se pudo registrar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                }
                             }
                             else
                             {
-                                MessageBox.Show("No se pudo registrar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("Completa la Matricula del Vehiculo", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                txtMatricula.Focus();
                             }
                         }
                         else
