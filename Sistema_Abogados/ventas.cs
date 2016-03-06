@@ -33,5 +33,61 @@ namespace Sistema_Abogados
             }
             return r;
         }
+        // method for listing all ventas.
+        public static List<ventas> listAll()
+        {
+            List<ventas> list = new List<ventas>();
+            using(SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand("SELECT Venta.ID, SERVICIO.cService AS Servicio, VENDEDOR.name AS NombreVe, VENDEDOR.lastname AS ApellidoVe, COMPRADOR.name AS NombreCo, COMPRADOR.lastname AS ApellidoCo, Venta.Descripcion, Venta.Abono, Venta.Honorarios, Venta.MontoVenta FROM Venta INNER JOIN customers as VENDEDOR ON VENDEDOR.ID = Venta.VendedorID INNER JOIN customers AS COMPRADOR ON COMPRADOR.ID = Venta.CompradorID INNER JOIN services AS SERVICIO ON SERVICIO.ID = Venta.ServiceID", con);
+                SqlDataReader re = comand.ExecuteReader();
+                while (re.Read())
+                {
+                    ventas pVenta = new ventas();
+                    pVenta.Apellido_comprador = re["ApellidoCo"].ToString();
+                    pVenta.Apellido_vendedor = re["ApellidoVe"].ToString();
+                    pVenta.Detalles = re["Descripcion"].ToString();
+                    pVenta.Honorarios = re["Honorarios"].ToString();
+                    pVenta.ID = re["ID"].ToString();
+                    pVenta.Nombre_comprador = re["NombreCo"].ToString();
+                    pVenta.Nombre_vendedor = re["NombreVe"].ToString();
+                    pVenta.Precio_venta = re["MontoVenta"].ToString();
+                    pVenta.Servicio = re["Servicio"].ToString();
+
+                    list.Add(pVenta);
+                }
+                con.Close();
+            }
+            return list;
+        }
+        // method for searching ventas.
+        public static List<ventas> search(string NombreV, string ApellidoV, string NombreC, string ApellidoC, string ID)
+        {
+            List<ventas> list = new List<ventas>();
+            using(SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("SELECT Venta.ID, SERVICIO.cService AS Servicio, VENDEDOR.name AS NombreVe, VENDEDOR.lastname AS ApellidoVe, COMPRADOR.name AS NombreCo, COMPRADOR.lastname AS ApellidoCo, Venta.Descripcion, Venta.Abono, Venta.Honorarios, Venta.MontoVenta FROM Venta INNER JOIN customers as VENDEDOR ON VENDEDOR.ID = Venta.VendedorID INNER JOIN customers AS COMPRADOR ON COMPRADOR.ID = Venta.CompradorID INNER JOIN services AS SERVICIO ON SERVICIO.ID = Venta.ServiceID" +
+                    " WHERE VENDEDOR.name LIKE '{0}%' AND VENDEDOR.lastname LIKE '{1}%' AND COMPRADOR.name LIKE '{2}%' AND COMPRADOR.lastname LIKE '{3}%' AND Venta.ID LIKE '{4}%'",
+                    NombreV, ApellidoV, NombreC, ApellidoC, ID), con);
+                SqlDataReader re = comand.ExecuteReader();
+                while (re.Read())
+                {
+                    ventas pVenta = new ventas();
+                    pVenta.Apellido_comprador = re["ApellidoCo"].ToString();
+                    pVenta.Apellido_vendedor = re["ApellidoVe"].ToString();
+                    pVenta.Detalles = re["Descripcion"].ToString();
+                    pVenta.Honorarios = re["Honorarios"].ToString();
+                    pVenta.ID = re["ID"].ToString();
+                    pVenta.Nombre_comprador = re["NombreCo"].ToString();
+                    pVenta.Nombre_vendedor = re["NombreVe"].ToString();
+                    pVenta.Precio_venta = re["MontoVenta"].ToString();
+                    pVenta.Servicio = re["Servicio"].ToString();
+
+                    list.Add(pVenta);
+                }
+                con.Close();
+            }
+            return list;
+        }
     }
 }
