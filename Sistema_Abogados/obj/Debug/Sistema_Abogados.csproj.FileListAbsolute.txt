@@ -24,3 +24,4 @@ C:\FactoriadeProyectos\Sistema-oficina-abogados\Sistema_Abogados\Sistema_Abogado
 C:\FactoriadeProyectos\Sistema-oficina-abogados\Sistema_Abogados\Sistema_Abogados\obj\Debug\Sistema_Abogados.frmVentas.resources
 C:\FactoriadeProyectos\Sistema-oficina-abogados\Sistema_Abogados\Sistema_Abogados\obj\Debug\Sistema_Abogados.frmAlquilerSearch.resources
 C:\FactoriadeProyectos\Sistema-oficina-abogados\Sistema_Abogados\Sistema_Abogados\obj\Debug\Sistema_Abogados.frmDivorciosSearch.resources
+C:\FactoriadeProyectos\Sistema-oficina-abogados\Sistema_Abogados\Sistema_Abogados\obj\Debug\Sistema_Abogados.frmVentasSearch.resources
