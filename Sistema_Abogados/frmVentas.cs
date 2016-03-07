@@ -184,6 +184,7 @@ namespace Sistema_Abogados
             frmCustomerSearch pCustomer = new frmCustomerSearch();
             pCustomer.type = true;
             pCustomer.Text = "Buscar Vendedor";
+            pCustomer.pGetStatus = "Vendedor";
             pCustomer.ShowDialog();
             if(pCustomer.pCustSelectedID != null)
             {
@@ -330,6 +331,7 @@ namespace Sistema_Abogados
             frmCustomerSearch pComprador = new frmCustomerSearch();
             pComprador.type = true;
             pComprador.Text = "Buscar Comprador";
+            pComprador.pGetStatus = "Comprador";
             pComprador.ShowDialog();
             if(pComprador.pCustSelectedID != null)
             {

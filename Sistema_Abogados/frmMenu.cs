@@ -29,8 +29,8 @@ namespace Sistema_Abogados
         private void frmMenu_Load(object sender, EventArgs e)
         {
             // updating form properties for better desing.
-            ControlBox = false;
-            this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
@@ -101,6 +101,11 @@ namespace Sistema_Abogados
         private void divorciosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             new frmDivorciosSearch().Show();
+        }
+
+        private void ventasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmVentasSearch().Show();
         }
     }
 }

@@ -98,6 +98,7 @@ namespace Sistema_Abogados
             frmCustomerSearch pSearch = new frmCustomerSearch();
             pSearch.type = true;
             pSearch.Text = "Busqueda de Inquilino";
+            pSearch.pGetStatus = "Inquilino";
             pSearch.ShowDialog();
             if(pSearch.pCustSelectedID != null)
             {
@@ -207,6 +208,7 @@ namespace Sistema_Abogados
             frmCustomerSearch pc = new frmCustomerSearch();
             pc.type = true;
             pc.Text = "Busqueda de Clientes";
+            pc.pGetStatus = "Cliente";
             pc.ShowDialog();
 
             if(pc.pCustSelectedID != null)
@@ -232,6 +234,7 @@ namespace Sistema_Abogados
             frmCustomerSearch pSearch = new frmCustomerSearch();
             pSearch.type = true;
             pSearch.Text = "Busqueda de Garantes";
+            pSearch.pGetStatus = "Garante";
             pSearch.ShowDialog();
             if(pSearch.pCustSelectedID != null)
             {

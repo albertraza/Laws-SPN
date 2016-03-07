@@ -268,7 +268,7 @@
             this.btnSearchDemandado.Name = "btnSearchDemandado";
             this.btnSearchDemandado.Size = new System.Drawing.Size(119, 23);
             this.btnSearchDemandado.TabIndex = 13;
-            this.btnSearchDemandado.Text = "Buscar demandante";
+            this.btnSearchDemandado.Text = "Buscar demandado";
             this.btnSearchDemandado.UseVisualStyleBackColor = true;
             this.btnSearchDemandado.Click += new System.EventHandler(this.btnSearchDemandado_Click);
             // 
@@ -498,7 +498,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmDivorcios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Divorcios";
+            this.Text = "Divorcios o Accidente";
             this.Load += new System.EventHandler(this.frmDivorcios_Load);
             this.gbDemandante.ResumeLayout(false);
             this.gbDemandante.PerformLayout();

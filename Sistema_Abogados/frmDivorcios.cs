@@ -180,6 +180,7 @@ namespace Sistema_Abogados
             frmCustomerSearch pCustomer = new frmCustomerSearch();
             pCustomer.type = true;
             pCustomer.Text = "Busqueda Demandante";
+            pCustomer.pGetStatus = "Demandante";
             pCustomer.ShowDialog();
             if(pCustomer.pCustSelectedID != null)
             {
@@ -219,6 +220,7 @@ namespace Sistema_Abogados
             frmCustomerSearch pCustomer = new frmCustomerSearch();
             pCustomer.type = true;
             pCustomer.Text = "Busqueda Demandados";
+            pCustomer.pGetStatus = "Demandado";
             pCustomer.ShowDialog();
             if (pCustomer.pCustSelectedID != null)
             {

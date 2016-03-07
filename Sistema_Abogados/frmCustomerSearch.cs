@@ -13,6 +13,13 @@ namespace Sistema_Abogados
 {
     public partial class frmCustomerSearch : Form
     {
+        // variable for getting customers Status.
+        public string pGetStatus
+        {
+            get { return Status; }
+            set { Status = value; }
+        }
+        private string Status;
         // variable for sending customer ID.
         public string pCustSelectedID { get; set; }
         // method for loading all users status.
@@ -57,14 +64,20 @@ namespace Sistema_Abogados
                 if (type)
                 {
                     btnSelect.Visible = true;
+                    if (Status == null)
+                    {
+                        Status = "";
+                    }
+                    // load custom customer list.
+                    dgvClientes.DataSource = clientes.searchCustomers("", "", "", "", Status, "");
                 }
                 else
                 {
                     btnSelect.Visible = false;
+                    // load all customers on a list.
+                    listAllStatus();
+                    dgvClientes.DataSource = clientes.listAllCustomers();
                 }
-                // load all customers on a list.
-                listAllStatus();
-                dgvClientes.DataSource = clientes.listAllCustomers();
             }
             catch(Exception ex)
             {
