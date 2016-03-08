@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gbInfoCustomer = new System.Windows.Forms.GroupBox();
+            this.btnClearCustomer = new System.Windows.Forms.Button();
             this.lblSearchCust = new System.Windows.Forms.LinkLabel();
             this.btnSearchCustomer = new System.Windows.Forms.Button();
             this.txtCustCell = new System.Windows.Forms.TextBox();
@@ -42,6 +43,7 @@
             this.txtCustID = new System.Windows.Forms.TextBox();
             this.lblCustID = new System.Windows.Forms.Label();
             this.gbInfoInqui = new System.Windows.Forms.GroupBox();
+            this.btnClearInqui = new System.Windows.Forms.Button();
             this.lblSearchInqui = new System.Windows.Forms.LinkLabel();
             this.btnSearchInqui = new System.Windows.Forms.Button();
             this.txtCellphoneInqui = new System.Windows.Forms.TextBox();
@@ -55,6 +57,7 @@
             this.txtIDInqui = new System.Windows.Forms.TextBox();
             this.lblIDInqui = new System.Windows.Forms.Label();
             this.gbInfoGaran = new System.Windows.Forms.GroupBox();
+            this.btnClearGaran = new System.Windows.Forms.Button();
             this.lblSearchGara = new System.Windows.Forms.LinkLabel();
             this.btnSearchGaran = new System.Windows.Forms.Button();
             this.txtCellphoneGaran = new System.Windows.Forms.TextBox();
@@ -68,6 +71,8 @@
             this.txtIDGaran = new System.Windows.Forms.TextBox();
             this.lblIDGaran = new System.Windows.Forms.Label();
             this.gbInfoAlqui = new System.Windows.Forms.GroupBox();
+            this.txtDeposito = new System.Windows.Forms.TextBox();
+            this.lblDeposito = new System.Windows.Forms.Label();
             this.txtHonorarios = new System.Windows.Forms.TextBox();
             this.lblHonorarios = new System.Windows.Forms.Label();
             this.txtAbono = new System.Windows.Forms.TextBox();
@@ -84,20 +89,22 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.txtDeposito = new System.Windows.Forms.TextBox();
-            this.lblDeposito = new System.Windows.Forms.Label();
-            this.btnClearCustomer = new System.Windows.Forms.Button();
-            this.btnClearInqui = new System.Windows.Forms.Button();
-            this.btnClearGaran = new System.Windows.Forms.Button();
+            this.pbCliente = new System.Windows.Forms.PictureBox();
+            this.pbInquilino = new System.Windows.Forms.PictureBox();
+            this.pbGarante = new System.Windows.Forms.PictureBox();
             this.gbInfoCustomer.SuspendLayout();
             this.gbInfoInqui.SuspendLayout();
             this.gbInfoGaran.SuspendLayout();
             this.gbInfoAlqui.SuspendLayout();
             this.gbInfoInmueble.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInquilino)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGarante)).BeginInit();
             this.SuspendLayout();
             // 
             // gbInfoCustomer
             // 
+            this.gbInfoCustomer.Controls.Add(this.pbCliente);
             this.gbInfoCustomer.Controls.Add(this.btnClearCustomer);
             this.gbInfoCustomer.Controls.Add(this.lblSearchCust);
             this.gbInfoCustomer.Controls.Add(this.btnSearchCustomer);
@@ -113,10 +120,20 @@
             this.gbInfoCustomer.Controls.Add(this.lblCustID);
             this.gbInfoCustomer.Location = new System.Drawing.Point(12, 12);
             this.gbInfoCustomer.Name = "gbInfoCustomer";
-            this.gbInfoCustomer.Size = new System.Drawing.Size(299, 172);
+            this.gbInfoCustomer.Size = new System.Drawing.Size(299, 308);
             this.gbInfoCustomer.TabIndex = 0;
             this.gbInfoCustomer.TabStop = false;
             this.gbInfoCustomer.Text = "Informacion Cliente";
+            // 
+            // btnClearCustomer
+            // 
+            this.btnClearCustomer.Location = new System.Drawing.Point(20, 266);
+            this.btnClearCustomer.Name = "btnClearCustomer";
+            this.btnClearCustomer.Size = new System.Drawing.Size(85, 23);
+            this.btnClearCustomer.TabIndex = 22;
+            this.btnClearCustomer.Text = "Limpiar";
+            this.btnClearCustomer.UseVisualStyleBackColor = true;
+            this.btnClearCustomer.Click += new System.EventHandler(this.btnClearCustomer_Click);
             // 
             // lblSearchCust
             // 
@@ -131,7 +148,7 @@
             // 
             // btnSearchCustomer
             // 
-            this.btnSearchCustomer.Location = new System.Drawing.Point(165, 134);
+            this.btnSearchCustomer.Location = new System.Drawing.Point(154, 266);
             this.btnSearchCustomer.Name = "btnSearchCustomer";
             this.btnSearchCustomer.Size = new System.Drawing.Size(109, 23);
             this.btnSearchCustomer.TabIndex = 10;
@@ -224,6 +241,7 @@
             // 
             // gbInfoInqui
             // 
+            this.gbInfoInqui.Controls.Add(this.pbInquilino);
             this.gbInfoInqui.Controls.Add(this.btnClearInqui);
             this.gbInfoInqui.Controls.Add(this.lblSearchInqui);
             this.gbInfoInqui.Controls.Add(this.btnSearchInqui);
@@ -239,10 +257,20 @@
             this.gbInfoInqui.Controls.Add(this.lblIDInqui);
             this.gbInfoInqui.Location = new System.Drawing.Point(326, 12);
             this.gbInfoInqui.Name = "gbInfoInqui";
-            this.gbInfoInqui.Size = new System.Drawing.Size(301, 172);
+            this.gbInfoInqui.Size = new System.Drawing.Size(301, 308);
             this.gbInfoInqui.TabIndex = 1;
             this.gbInfoInqui.TabStop = false;
             this.gbInfoInqui.Text = "Informacion  Inquilino";
+            // 
+            // btnClearInqui
+            // 
+            this.btnClearInqui.Location = new System.Drawing.Point(26, 266);
+            this.btnClearInqui.Name = "btnClearInqui";
+            this.btnClearInqui.Size = new System.Drawing.Size(85, 23);
+            this.btnClearInqui.TabIndex = 23;
+            this.btnClearInqui.Text = "Limpiar";
+            this.btnClearInqui.UseVisualStyleBackColor = true;
+            this.btnClearInqui.Click += new System.EventHandler(this.btnClearInqui_Click);
             // 
             // lblSearchInqui
             // 
@@ -257,7 +285,7 @@
             // 
             // btnSearchInqui
             // 
-            this.btnSearchInqui.Location = new System.Drawing.Point(168, 134);
+            this.btnSearchInqui.Location = new System.Drawing.Point(168, 266);
             this.btnSearchInqui.Name = "btnSearchInqui";
             this.btnSearchInqui.Size = new System.Drawing.Size(109, 23);
             this.btnSearchInqui.TabIndex = 21;
@@ -347,6 +375,7 @@
             // 
             // gbInfoGaran
             // 
+            this.gbInfoGaran.Controls.Add(this.pbGarante);
             this.gbInfoGaran.Controls.Add(this.btnClearGaran);
             this.gbInfoGaran.Controls.Add(this.lblSearchGara);
             this.gbInfoGaran.Controls.Add(this.btnSearchGaran);
@@ -362,10 +391,20 @@
             this.gbInfoGaran.Controls.Add(this.lblIDGaran);
             this.gbInfoGaran.Location = new System.Drawing.Point(653, 12);
             this.gbInfoGaran.Name = "gbInfoGaran";
-            this.gbInfoGaran.Size = new System.Drawing.Size(299, 172);
+            this.gbInfoGaran.Size = new System.Drawing.Size(299, 308);
             this.gbInfoGaran.TabIndex = 2;
             this.gbInfoGaran.TabStop = false;
             this.gbInfoGaran.Text = "Informacion Garante";
+            // 
+            // btnClearGaran
+            // 
+            this.btnClearGaran.Location = new System.Drawing.Point(22, 266);
+            this.btnClearGaran.Name = "btnClearGaran";
+            this.btnClearGaran.Size = new System.Drawing.Size(85, 23);
+            this.btnClearGaran.TabIndex = 23;
+            this.btnClearGaran.Text = "Limpiar";
+            this.btnClearGaran.UseVisualStyleBackColor = true;
+            this.btnClearGaran.Click += new System.EventHandler(this.btnClearGaran_Click);
             // 
             // lblSearchGara
             // 
@@ -380,7 +419,7 @@
             // 
             // btnSearchGaran
             // 
-            this.btnSearchGaran.Location = new System.Drawing.Point(157, 134);
+            this.btnSearchGaran.Location = new System.Drawing.Point(157, 266);
             this.btnSearchGaran.Name = "btnSearchGaran";
             this.btnSearchGaran.Size = new System.Drawing.Size(109, 23);
             this.btnSearchGaran.TabIndex = 21;
@@ -478,13 +517,29 @@
             this.gbInfoAlqui.Controls.Add(this.lblAbono);
             this.gbInfoAlqui.Controls.Add(this.txtPriceRent);
             this.gbInfoAlqui.Controls.Add(this.lblPrice);
-            this.gbInfoAlqui.Location = new System.Drawing.Point(12, 202);
+            this.gbInfoAlqui.Location = new System.Drawing.Point(12, 345);
             this.gbInfoAlqui.Name = "gbInfoAlqui";
             this.gbInfoAlqui.Size = new System.Drawing.Size(299, 140);
             this.gbInfoAlqui.TabIndex = 3;
             this.gbInfoAlqui.TabStop = false;
             this.gbInfoAlqui.Text = "Alquiler";
             this.gbInfoAlqui.Enter += new System.EventHandler(this.gbInfoAlqui_Enter);
+            // 
+            // txtDeposito
+            // 
+            this.txtDeposito.Location = new System.Drawing.Point(214, 78);
+            this.txtDeposito.Name = "txtDeposito";
+            this.txtDeposito.Size = new System.Drawing.Size(75, 20);
+            this.txtDeposito.TabIndex = 22;
+            // 
+            // lblDeposito
+            // 
+            this.lblDeposito.AutoSize = true;
+            this.lblDeposito.Location = new System.Drawing.Point(156, 81);
+            this.lblDeposito.Name = "lblDeposito";
+            this.lblDeposito.Size = new System.Drawing.Size(52, 13);
+            this.lblDeposito.TabIndex = 21;
+            this.lblDeposito.Text = "Deposito:";
             // 
             // txtHonorarios
             // 
@@ -544,7 +599,7 @@
             this.gbInfoInmueble.Controls.Add(this.lblSector);
             this.gbInfoInmueble.Controls.Add(this.txtAddress);
             this.gbInfoInmueble.Controls.Add(this.lblAddress);
-            this.gbInfoInmueble.Location = new System.Drawing.Point(333, 202);
+            this.gbInfoInmueble.Location = new System.Drawing.Point(333, 345);
             this.gbInfoInmueble.Name = "gbInfoInmueble";
             this.gbInfoInmueble.Size = new System.Drawing.Size(602, 140);
             this.gbInfoInmueble.TabIndex = 4;
@@ -604,7 +659,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(29, 357);
+            this.btnSave.Location = new System.Drawing.Point(17, 510);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(96, 23);
             this.btnSave.TabIndex = 5;
@@ -614,7 +669,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(189, 357);
+            this.btnClear.Location = new System.Drawing.Point(177, 510);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(122, 23);
             this.btnClear.TabIndex = 6;
@@ -624,7 +679,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(362, 357);
+            this.btnCancel.Location = new System.Drawing.Point(350, 510);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(96, 23);
             this.btnCancel.TabIndex = 7;
@@ -632,58 +687,39 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // txtDeposito
+            // pbCliente
             // 
-            this.txtDeposito.Location = new System.Drawing.Point(214, 78);
-            this.txtDeposito.Name = "txtDeposito";
-            this.txtDeposito.Size = new System.Drawing.Size(75, 20);
-            this.txtDeposito.TabIndex = 22;
+            this.pbCliente.Location = new System.Drawing.Point(28, 134);
+            this.pbCliente.Name = "pbCliente";
+            this.pbCliente.Size = new System.Drawing.Size(243, 126);
+            this.pbCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbCliente.TabIndex = 24;
+            this.pbCliente.TabStop = false;
             // 
-            // lblDeposito
+            // pbInquilino
             // 
-            this.lblDeposito.AutoSize = true;
-            this.lblDeposito.Location = new System.Drawing.Point(156, 81);
-            this.lblDeposito.Name = "lblDeposito";
-            this.lblDeposito.Size = new System.Drawing.Size(52, 13);
-            this.lblDeposito.TabIndex = 21;
-            this.lblDeposito.Text = "Deposito:";
+            this.pbInquilino.Location = new System.Drawing.Point(34, 136);
+            this.pbInquilino.Name = "pbInquilino";
+            this.pbInquilino.Size = new System.Drawing.Size(243, 126);
+            this.pbInquilino.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbInquilino.TabIndex = 25;
+            this.pbInquilino.TabStop = false;
             // 
-            // btnClearCustomer
+            // pbGarante
             // 
-            this.btnClearCustomer.Location = new System.Drawing.Point(46, 134);
-            this.btnClearCustomer.Name = "btnClearCustomer";
-            this.btnClearCustomer.Size = new System.Drawing.Size(85, 23);
-            this.btnClearCustomer.TabIndex = 22;
-            this.btnClearCustomer.Text = "Limpiar";
-            this.btnClearCustomer.UseVisualStyleBackColor = true;
-            this.btnClearCustomer.Click += new System.EventHandler(this.btnClearCustomer_Click);
-            // 
-            // btnClearInqui
-            // 
-            this.btnClearInqui.Location = new System.Drawing.Point(47, 134);
-            this.btnClearInqui.Name = "btnClearInqui";
-            this.btnClearInqui.Size = new System.Drawing.Size(85, 23);
-            this.btnClearInqui.TabIndex = 23;
-            this.btnClearInqui.Text = "Limpiar";
-            this.btnClearInqui.UseVisualStyleBackColor = true;
-            this.btnClearInqui.Click += new System.EventHandler(this.btnClearInqui_Click);
-            // 
-            // btnClearGaran
-            // 
-            this.btnClearGaran.Location = new System.Drawing.Point(52, 134);
-            this.btnClearGaran.Name = "btnClearGaran";
-            this.btnClearGaran.Size = new System.Drawing.Size(85, 23);
-            this.btnClearGaran.TabIndex = 23;
-            this.btnClearGaran.Text = "Limpiar";
-            this.btnClearGaran.UseVisualStyleBackColor = true;
-            this.btnClearGaran.Click += new System.EventHandler(this.btnClearGaran_Click);
+            this.pbGarante.Location = new System.Drawing.Point(17, 136);
+            this.pbGarante.Name = "pbGarante";
+            this.pbGarante.Size = new System.Drawing.Size(243, 126);
+            this.pbGarante.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbGarante.TabIndex = 25;
+            this.pbGarante.TabStop = false;
             // 
             // frmAlquiler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkKhaki;
-            this.ClientSize = new System.Drawing.Size(964, 406);
+            this.ClientSize = new System.Drawing.Size(964, 545);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSave);
@@ -707,6 +743,9 @@
             this.gbInfoAlqui.PerformLayout();
             this.gbInfoInmueble.ResumeLayout(false);
             this.gbInfoInmueble.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInquilino)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGarante)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -774,5 +813,8 @@
         private System.Windows.Forms.Button btnClearCustomer;
         private System.Windows.Forms.Button btnClearInqui;
         private System.Windows.Forms.Button btnClearGaran;
+        private System.Windows.Forms.PictureBox pbCliente;
+        private System.Windows.Forms.PictureBox pbInquilino;
+        private System.Windows.Forms.PictureBox pbGarante;
     }
 }

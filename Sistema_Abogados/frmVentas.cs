@@ -123,12 +123,21 @@ namespace Sistema_Abogados
                     if (clientes.getCustomerObject(txtIDSeller.Text) != null)
                     {
                         clientes pClientes = clientes.getCustomerObject(txtIDSeller.Text);
-                        vID = pClientes.ID;
-                        txtNameSeller.Text = pClientes.Nombre;
-                        txtLastNameSeller.Text = pClientes.Apellido;
-                        txtCedulaSeller.Text = pClientes.Cedula;
-                        txtCelularSeller.Text = pClientes.Celular;
-                        txtPhoneSeller.Text = pClientes.Telefono;
+                        if (pClientes.Status == "Vendedor")
+                        {
+                            vID = pClientes.ID;
+                            pbVendedor.Image = Image.FromFile(pClientes.Image);
+                            txtNameSeller.Text = pClientes.Nombre;
+                            txtLastNameSeller.Text = pClientes.Apellido;
+                            txtCedulaSeller.Text = pClientes.Cedula;
+                            txtCelularSeller.Text = pClientes.Celular;
+                            txtPhoneSeller.Text = pClientes.Telefono;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se selecciono un vendedor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            btnSearchSeller.Focus();
+                        }
                     }
                     else
                     {
@@ -158,12 +167,21 @@ namespace Sistema_Abogados
                     if (clientes.getCustomerObject(txtIDBuy.Text) != null)
                     {
                         clientes pClientes = clientes.getCustomerObject(txtIDBuy.Text);
-                        cID = pClientes.ID;
-                        txtNameBuy.Text = pClientes.Nombre;
-                        txtLastNameBuy.Text = pClientes.Apellido;
-                        txtCedulaBuy.Text = pClientes.Cedula;
-                        txtCelularBuy.Text = pClientes.Celular;
-                        txtPhoneBuy.Text = pClientes.Telefono;
+                        if (pClientes.Status == "Comprador")
+                        {
+                            cID = pClientes.ID;
+                            pbComprador.Image = Image.FromFile(pClientes.Image);
+                            txtNameBuy.Text = pClientes.Nombre;
+                            txtLastNameBuy.Text = pClientes.Apellido;
+                            txtCedulaBuy.Text = pClientes.Cedula;
+                            txtCelularBuy.Text = pClientes.Celular;
+                            txtPhoneBuy.Text = pClientes.Telefono;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se ha seleccionado un Comprador", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            btnSearchBuy.Focus();
+                        }
                     }
                     else
                     {
@@ -193,13 +211,22 @@ namespace Sistema_Abogados
                     if (clientes.getCustomerObject(pCustomer.pCustSelectedID) != null)
                     {
                         clientes pClientes = clientes.getCustomerObject(pCustomer.pCustSelectedID);
-                        vID = pClientes.ID;
-                        txtIDSeller.Text = pClientes.ID;
-                        txtNameSeller.Text = pClientes.Nombre;
-                        txtLastNameSeller.Text = pClientes.Apellido;
-                        txtCedulaSeller.Text = pClientes.Cedula;
-                        txtCelularSeller.Text = pClientes.Celular;
-                        txtPhoneSeller.Text = pClientes.Telefono;
+                        if (pClientes.Status == "Vendedor")
+                        {
+                            vID = pClientes.ID;
+                            txtIDSeller.Text = pClientes.ID;
+                            pbVendedor.Image = Image.FromFile(pClientes.Image);
+                            txtNameSeller.Text = pClientes.Nombre;
+                            txtLastNameSeller.Text = pClientes.Apellido;
+                            txtCedulaSeller.Text = pClientes.Cedula;
+                            txtCelularSeller.Text = pClientes.Celular;
+                            txtPhoneSeller.Text = pClientes.Telefono;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se selecciono un Vendedor, Seleccione uno valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            btnSearchSeller.Focus();
+                        }
                     }
                     else
                     {
@@ -340,13 +367,22 @@ namespace Sistema_Abogados
                     if (clientes.getCustomerObject(pComprador.pCustSelectedID) != null)
                     {
                         clientes pClientes = clientes.getCustomerObject(pComprador.pCustSelectedID);
-                        cID = pClientes.ID;
-                        txtIDBuy.Text = pClientes.ID;
-                        txtNameBuy.Text = pClientes.Nombre;
-                        txtLastNameBuy.Text = pClientes.Apellido;
-                        txtCedulaBuy.Text = pClientes.Cedula;
-                        txtCelularBuy.Text = pClientes.Celular;
-                        txtPhoneBuy.Text = pClientes.Telefono;
+                        if (pClientes.Status == "Comprador")
+                        {
+                            cID = pClientes.ID;
+                            pbComprador.Image = Image.FromFile(pClientes.Image);
+                            txtIDBuy.Text = pClientes.ID;
+                            txtNameBuy.Text = pClientes.Nombre;
+                            txtLastNameBuy.Text = pClientes.Apellido;
+                            txtCedulaBuy.Text = pClientes.Cedula;
+                            txtCelularBuy.Text = pClientes.Celular;
+                            txtPhoneBuy.Text = pClientes.Telefono;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se ha seleccionado un comprador", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            btnSearchBuy.Focus();
+                        }
                     }
                     else
                     {

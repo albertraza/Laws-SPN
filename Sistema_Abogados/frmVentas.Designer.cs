@@ -76,13 +76,18 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnClearAll = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.pbVendedor = new System.Windows.Forms.PictureBox();
+            this.pbComprador = new System.Windows.Forms.PictureBox();
             this.gbVendedor.SuspendLayout();
             this.gbComprador.SuspendLayout();
             this.gbInfoPagos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbVendedor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbComprador)).BeginInit();
             this.SuspendLayout();
             // 
             // gbVendedor
             // 
+            this.gbVendedor.Controls.Add(this.pbVendedor);
             this.gbVendedor.Controls.Add(this.lblSearchSeller);
             this.gbVendedor.Controls.Add(this.btnSearchSeller);
             this.gbVendedor.Controls.Add(this.btnClearSeller);
@@ -100,7 +105,7 @@
             this.gbVendedor.Controls.Add(this.lblID);
             this.gbVendedor.Location = new System.Drawing.Point(12, 12);
             this.gbVendedor.Name = "gbVendedor";
-            this.gbVendedor.Size = new System.Drawing.Size(382, 218);
+            this.gbVendedor.Size = new System.Drawing.Size(382, 312);
             this.gbVendedor.TabIndex = 0;
             this.gbVendedor.TabStop = false;
             this.gbVendedor.Text = "Vendedor";
@@ -118,7 +123,7 @@
             // 
             // btnSearchSeller
             // 
-            this.btnSearchSeller.Location = new System.Drawing.Point(227, 179);
+            this.btnSearchSeller.Location = new System.Drawing.Point(24, 231);
             this.btnSearchSeller.Name = "btnSearchSeller";
             this.btnSearchSeller.Size = new System.Drawing.Size(123, 23);
             this.btnSearchSeller.TabIndex = 13;
@@ -128,7 +133,7 @@
             // 
             // btnClearSeller
             // 
-            this.btnClearSeller.Location = new System.Drawing.Point(45, 179);
+            this.btnClearSeller.Location = new System.Drawing.Point(44, 270);
             this.btnClearSeller.Name = "btnClearSeller";
             this.btnClearSeller.Size = new System.Drawing.Size(75, 23);
             this.btnClearSeller.TabIndex = 12;
@@ -233,6 +238,7 @@
             // 
             // gbComprador
             // 
+            this.gbComprador.Controls.Add(this.pbComprador);
             this.gbComprador.Controls.Add(this.lblSearchBuy);
             this.gbComprador.Controls.Add(this.btnSearchBuy);
             this.gbComprador.Controls.Add(this.btnClearBuy);
@@ -250,7 +256,7 @@
             this.gbComprador.Controls.Add(this.lblIDBuy);
             this.gbComprador.Location = new System.Drawing.Point(412, 12);
             this.gbComprador.Name = "gbComprador";
-            this.gbComprador.Size = new System.Drawing.Size(382, 218);
+            this.gbComprador.Size = new System.Drawing.Size(382, 312);
             this.gbComprador.TabIndex = 1;
             this.gbComprador.TabStop = false;
             this.gbComprador.Text = "Comprador";
@@ -268,7 +274,7 @@
             // 
             // btnSearchBuy
             // 
-            this.btnSearchBuy.Location = new System.Drawing.Point(227, 179);
+            this.btnSearchBuy.Location = new System.Drawing.Point(24, 231);
             this.btnSearchBuy.Name = "btnSearchBuy";
             this.btnSearchBuy.Size = new System.Drawing.Size(123, 23);
             this.btnSearchBuy.TabIndex = 13;
@@ -278,7 +284,7 @@
             // 
             // btnClearBuy
             // 
-            this.btnClearBuy.Location = new System.Drawing.Point(45, 179);
+            this.btnClearBuy.Location = new System.Drawing.Point(45, 270);
             this.btnClearBuy.Name = "btnClearBuy";
             this.btnClearBuy.Size = new System.Drawing.Size(75, 23);
             this.btnClearBuy.TabIndex = 12;
@@ -287,7 +293,7 @@
             // 
             // txtCelularBuy
             // 
-            this.txtCelularBuy.Location = new System.Drawing.Point(250, 135);
+            this.txtCelularBuy.Location = new System.Drawing.Point(245, 135);
             this.txtCelularBuy.Name = "txtCelularBuy";
             this.txtCelularBuy.Size = new System.Drawing.Size(100, 20);
             this.txtCelularBuy.TabIndex = 11;
@@ -295,7 +301,7 @@
             // lblCelularBuy
             // 
             this.lblCelularBuy.AutoSize = true;
-            this.lblCelularBuy.Location = new System.Drawing.Point(207, 138);
+            this.lblCelularBuy.Location = new System.Drawing.Point(202, 138);
             this.lblCelularBuy.Name = "lblCelularBuy";
             this.lblCelularBuy.Size = new System.Drawing.Size(42, 13);
             this.lblCelularBuy.TabIndex = 10;
@@ -319,7 +325,7 @@
             // 
             // txtLastNameBuy
             // 
-            this.txtLastNameBuy.Location = new System.Drawing.Point(250, 82);
+            this.txtLastNameBuy.Location = new System.Drawing.Point(245, 82);
             this.txtLastNameBuy.Name = "txtLastNameBuy";
             this.txtLastNameBuy.Size = new System.Drawing.Size(100, 20);
             this.txtLastNameBuy.TabIndex = 7;
@@ -327,7 +333,7 @@
             // lblLastNameBuy
             // 
             this.lblLastNameBuy.AutoSize = true;
-            this.lblLastNameBuy.Location = new System.Drawing.Point(202, 85);
+            this.lblLastNameBuy.Location = new System.Drawing.Point(197, 85);
             this.lblLastNameBuy.Name = "lblLastNameBuy";
             this.lblLastNameBuy.Size = new System.Drawing.Size(47, 13);
             this.lblLastNameBuy.TabIndex = 6;
@@ -351,7 +357,7 @@
             // 
             // txtCedulaBuy
             // 
-            this.txtCedulaBuy.Location = new System.Drawing.Point(250, 34);
+            this.txtCedulaBuy.Location = new System.Drawing.Point(246, 34);
             this.txtCedulaBuy.Name = "txtCedulaBuy";
             this.txtCedulaBuy.Size = new System.Drawing.Size(118, 20);
             this.txtCedulaBuy.TabIndex = 3;
@@ -359,7 +365,7 @@
             // lblCedulaBuy
             // 
             this.lblCedulaBuy.AutoSize = true;
-            this.lblCedulaBuy.Location = new System.Drawing.Point(201, 37);
+            this.lblCedulaBuy.Location = new System.Drawing.Point(197, 37);
             this.lblCedulaBuy.Name = "lblCedulaBuy";
             this.lblCedulaBuy.Size = new System.Drawing.Size(43, 13);
             this.lblCedulaBuy.TabIndex = 2;
@@ -395,7 +401,7 @@
             this.gbInfoPagos.Controls.Add(this.lblAbono);
             this.gbInfoPagos.Controls.Add(this.txtHonorarios);
             this.gbInfoPagos.Controls.Add(this.lblHonorarios);
-            this.gbInfoPagos.Location = new System.Drawing.Point(12, 236);
+            this.gbInfoPagos.Location = new System.Drawing.Point(12, 349);
             this.gbInfoPagos.Name = "gbInfoPagos";
             this.gbInfoPagos.Size = new System.Drawing.Size(782, 150);
             this.gbInfoPagos.TabIndex = 2;
@@ -505,7 +511,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(345, 392);
+            this.btnCancel.Location = new System.Drawing.Point(382, 516);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 3;
@@ -515,7 +521,7 @@
             // 
             // btnClearAll
             // 
-            this.btnClearAll.Location = new System.Drawing.Point(202, 392);
+            this.btnClearAll.Location = new System.Drawing.Point(193, 516);
             this.btnClearAll.Name = "btnClearAll";
             this.btnClearAll.Size = new System.Drawing.Size(92, 23);
             this.btnClearAll.TabIndex = 4;
@@ -525,7 +531,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(26, 392);
+            this.btnSave.Location = new System.Drawing.Point(12, 516);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(119, 23);
             this.btnSave.TabIndex = 5;
@@ -533,12 +539,30 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // pbVendedor
+            // 
+            this.pbVendedor.Location = new System.Drawing.Point(173, 176);
+            this.pbVendedor.Name = "pbVendedor";
+            this.pbVendedor.Size = new System.Drawing.Size(177, 117);
+            this.pbVendedor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbVendedor.TabIndex = 14;
+            this.pbVendedor.TabStop = false;
+            // 
+            // pbComprador
+            // 
+            this.pbComprador.Location = new System.Drawing.Point(177, 176);
+            this.pbComprador.Name = "pbComprador";
+            this.pbComprador.Size = new System.Drawing.Size(177, 117);
+            this.pbComprador.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbComprador.TabIndex = 15;
+            this.pbComprador.TabStop = false;
+            // 
             // frmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkKhaki;
-            this.ClientSize = new System.Drawing.Size(808, 421);
+            this.ClientSize = new System.Drawing.Size(817, 551);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClearAll);
             this.Controls.Add(this.btnCancel);
@@ -556,6 +580,8 @@
             this.gbComprador.PerformLayout();
             this.gbInfoPagos.ResumeLayout(false);
             this.gbInfoPagos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbVendedor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbComprador)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -610,5 +636,7 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnClearAll;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.PictureBox pbVendedor;
+        private System.Windows.Forms.PictureBox pbComprador;
     }
 }

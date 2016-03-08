@@ -71,13 +71,18 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnClearAll = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
+            this.pbDemandante = new System.Windows.Forms.PictureBox();
+            this.pbDemandado = new System.Windows.Forms.PictureBox();
             this.gbDemandante.SuspendLayout();
             this.gbInfoDemandado.SuspendLayout();
             this.gbInfomacionPagos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDemandante)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDemandado)).BeginInit();
             this.SuspendLayout();
             // 
             // gbDemandante
             // 
+            this.gbDemandante.Controls.Add(this.pbDemandante);
             this.gbDemandante.Controls.Add(this.lblSearchDemandante);
             this.gbDemandante.Controls.Add(this.btnSearchDemandante);
             this.gbDemandante.Controls.Add(this.btnClearDemandante);
@@ -95,7 +100,7 @@
             this.gbDemandante.Controls.Add(this.lblID);
             this.gbDemandante.Location = new System.Drawing.Point(12, 12);
             this.gbDemandante.Name = "gbDemandante";
-            this.gbDemandante.Size = new System.Drawing.Size(395, 234);
+            this.gbDemandante.Size = new System.Drawing.Size(395, 365);
             this.gbDemandante.TabIndex = 0;
             this.gbDemandante.TabStop = false;
             this.gbDemandante.Text = "Infomacion Demandante";
@@ -113,7 +118,7 @@
             // 
             // btnSearchDemandante
             // 
-            this.btnSearchDemandante.Location = new System.Drawing.Point(221, 178);
+            this.btnSearchDemandante.Location = new System.Drawing.Point(221, 336);
             this.btnSearchDemandante.Name = "btnSearchDemandante";
             this.btnSearchDemandante.Size = new System.Drawing.Size(119, 23);
             this.btnSearchDemandante.TabIndex = 13;
@@ -123,7 +128,7 @@
             // 
             // btnClearDemandante
             // 
-            this.btnClearDemandante.Location = new System.Drawing.Point(30, 178);
+            this.btnClearDemandante.Location = new System.Drawing.Point(21, 336);
             this.btnClearDemandante.Name = "btnClearDemandante";
             this.btnClearDemandante.Size = new System.Drawing.Size(102, 23);
             this.btnClearDemandante.TabIndex = 12;
@@ -229,6 +234,7 @@
             // 
             // gbInfoDemandado
             // 
+            this.gbInfoDemandado.Controls.Add(this.pbDemandado);
             this.gbInfoDemandado.Controls.Add(this.lblSearchDemandado);
             this.gbInfoDemandado.Controls.Add(this.btnSearchDemandado);
             this.gbInfoDemandado.Controls.Add(this.btnClearDemandado);
@@ -246,7 +252,7 @@
             this.gbInfoDemandado.Controls.Add(this.lblIDDemandado);
             this.gbInfoDemandado.Location = new System.Drawing.Point(425, 12);
             this.gbInfoDemandado.Name = "gbInfoDemandado";
-            this.gbInfoDemandado.Size = new System.Drawing.Size(395, 234);
+            this.gbInfoDemandado.Size = new System.Drawing.Size(395, 365);
             this.gbInfoDemandado.TabIndex = 1;
             this.gbInfoDemandado.TabStop = false;
             this.gbInfoDemandado.Text = "Infomacion Demandado";
@@ -264,7 +270,7 @@
             // 
             // btnSearchDemandado
             // 
-            this.btnSearchDemandado.Location = new System.Drawing.Point(221, 178);
+            this.btnSearchDemandado.Location = new System.Drawing.Point(221, 336);
             this.btnSearchDemandado.Name = "btnSearchDemandado";
             this.btnSearchDemandado.Size = new System.Drawing.Size(119, 23);
             this.btnSearchDemandado.TabIndex = 13;
@@ -274,7 +280,7 @@
             // 
             // btnClearDemandado
             // 
-            this.btnClearDemandado.Location = new System.Drawing.Point(30, 178);
+            this.btnClearDemandado.Location = new System.Drawing.Point(21, 336);
             this.btnClearDemandado.Name = "btnClearDemandado";
             this.btnClearDemandado.Size = new System.Drawing.Size(102, 23);
             this.btnClearDemandado.TabIndex = 12;
@@ -387,7 +393,7 @@
             this.gbInfomacionPagos.Controls.Add(this.lblHonorarios);
             this.gbInfomacionPagos.Controls.Add(this.txtPrecio);
             this.gbInfomacionPagos.Controls.Add(this.lblPrice);
-            this.gbInfomacionPagos.Location = new System.Drawing.Point(12, 252);
+            this.gbInfomacionPagos.Location = new System.Drawing.Point(12, 395);
             this.gbInfomacionPagos.Name = "gbInfomacionPagos";
             this.gbInfomacionPagos.Size = new System.Drawing.Size(808, 67);
             this.gbInfomacionPagos.TabIndex = 2;
@@ -455,7 +461,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(270, 335);
+            this.btnCancelar.Location = new System.Drawing.Point(266, 479);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 3;
@@ -465,7 +471,7 @@
             // 
             // btnClearAll
             // 
-            this.btnClearAll.Location = new System.Drawing.Point(142, 335);
+            this.btnClearAll.Location = new System.Drawing.Point(138, 479);
             this.btnClearAll.Name = "btnClearAll";
             this.btnClearAll.Size = new System.Drawing.Size(90, 23);
             this.btnClearAll.TabIndex = 15;
@@ -475,7 +481,7 @@
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(19, 335);
+            this.btnRegister.Location = new System.Drawing.Point(15, 479);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(75, 23);
             this.btnRegister.TabIndex = 16;
@@ -483,12 +489,30 @@
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
+            // pbDemandante
+            // 
+            this.pbDemandante.Location = new System.Drawing.Point(21, 161);
+            this.pbDemandante.Name = "pbDemandante";
+            this.pbDemandante.Size = new System.Drawing.Size(339, 169);
+            this.pbDemandante.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbDemandante.TabIndex = 15;
+            this.pbDemandante.TabStop = false;
+            // 
+            // pbDemandado
+            // 
+            this.pbDemandado.Location = new System.Drawing.Point(21, 161);
+            this.pbDemandado.Name = "pbDemandado";
+            this.pbDemandado.Size = new System.Drawing.Size(339, 169);
+            this.pbDemandado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbDemandado.TabIndex = 16;
+            this.pbDemandado.TabStop = false;
+            // 
             // frmDivorcios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkKhaki;
-            this.ClientSize = new System.Drawing.Size(832, 370);
+            this.ClientSize = new System.Drawing.Size(832, 514);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnClearAll);
             this.Controls.Add(this.btnCancelar);
@@ -506,6 +530,8 @@
             this.gbInfoDemandado.PerformLayout();
             this.gbInfomacionPagos.ResumeLayout(false);
             this.gbInfomacionPagos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDemandante)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDemandado)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -555,5 +581,7 @@
         private System.Windows.Forms.LinkLabel lblSearchDemandado;
         private System.Windows.Forms.Button btnClearAll;
         private System.Windows.Forms.Button btnRegister;
+        private System.Windows.Forms.PictureBox pbDemandante;
+        private System.Windows.Forms.PictureBox pbDemandado;
     }
 }

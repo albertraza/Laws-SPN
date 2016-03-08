@@ -95,12 +95,21 @@ namespace Sistema_Abogados
                     if (clientes.getCustomerObject(txtIDDemandante.Text) != null)
                     {
                         clientes pClientes = clientes.getCustomerObject(txtIDDemandante.Text);
-                        cID1 = pClientes.ID;
-                        txtNameDemandante.Text = pClientes.Nombre;
-                        txtLastNameDemandante.Text = pClientes.Apellido;
-                        txtPhoneDemandante.Text = pClientes.Telefono;
-                        txtCellphoneDemandante.Text = pClientes.Celular;
-                        txtCedulaDemandante.Text = pClientes.Cedula;
+                        if (pClientes.Status == "Demandante")
+                        {
+                            cID1 = pClientes.ID;
+                            pbDemandante.Image = Image.FromFile(pClientes.Image);
+                            txtNameDemandante.Text = pClientes.Nombre;
+                            txtLastNameDemandante.Text = pClientes.Apellido;
+                            txtPhoneDemandante.Text = pClientes.Telefono;
+                            txtCellphoneDemandante.Text = pClientes.Celular;
+                            txtCedulaDemandante.Text = pClientes.Cedula;
+                        }
+                        else
+                        {
+                            MessageBox.Show("El cliente no se ha seleccionado como un demandante, seleccione uno valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            btnSearchDemandante.Focus();
+                        }
                     }
                     else
                     {
@@ -130,12 +139,21 @@ namespace Sistema_Abogados
                     if (clientes.getCustomerObject(txtIDDemandado.Text) != null)
                     {
                         clientes pClientes = clientes.getCustomerObject(txtIDDemandado.Text);
-                        cID2 = pClientes.ID;
-                        txtNameDemandado.Text = pClientes.Nombre;
-                        txtLastNameDemandado.Text = pClientes.Apellido;
-                        txtPhoneDemandado.Text = pClientes.Telefono;
-                        txtCellphoneDemandado.Text = pClientes.Celular;
-                        txtCedulaDemandado.Text = pClientes.Cedula;
+                        if (pClientes.Status == "Demandado")
+                        {
+                            cID2 = pClientes.ID;
+                            pbDemandado.Image = Image.FromFile(pClientes.Image);
+                            txtNameDemandado.Text = pClientes.Nombre;
+                            txtLastNameDemandado.Text = pClientes.Apellido;
+                            txtPhoneDemandado.Text = pClientes.Telefono;
+                            txtCellphoneDemandado.Text = pClientes.Celular;
+                            txtCedulaDemandado.Text = pClientes.Cedula;
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se ha seleccionado un demandado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            btnSearchDemandado.Focus();
+                        }
                     }
                     else
                     {
@@ -189,13 +207,22 @@ namespace Sistema_Abogados
                     if (clientes.getCustomerObject(pCustomer.pCustSelectedID) != null)
                     {
                         clientes pClientes = clientes.getCustomerObject(pCustomer.pCustSelectedID);
-                        cID1 = pClientes.ID;
-                        txtIDDemandante.Text = pClientes.ID;
-                        txtNameDemandante.Text = pClientes.Nombre;
-                        txtLastNameDemandante.Text = pClientes.Apellido;
-                        txtPhoneDemandante.Text = pClientes.Telefono;
-                        txtCellphoneDemandante.Text = pClientes.Celular;
-                        txtCedulaDemandante.Text = pClientes.Cedula;
+                        if (pClientes.Status == "Demandante")
+                        {
+                            cID1 = pClientes.ID;
+                            pbDemandante.Image = Image.FromFile(pClientes.Image);
+                            txtIDDemandante.Text = pClientes.ID;
+                            txtNameDemandante.Text = pClientes.Nombre;
+                            txtLastNameDemandante.Text = pClientes.Apellido;
+                            txtPhoneDemandante.Text = pClientes.Telefono;
+                            txtCellphoneDemandante.Text = pClientes.Celular;
+                            txtCedulaDemandante.Text = pClientes.Cedula;
+                        }
+                        else
+                        {
+                            MessageBox.Show("El cliente no ha sido registrado como un demandante, seleccione uno diferente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            btnSearchDemandante.Focus();
+                        }
                     }
                     else
                     {
@@ -229,13 +256,22 @@ namespace Sistema_Abogados
                     if (clientes.getCustomerObject(pCustomer.pCustSelectedID) != null)
                     {
                         clientes pClientes = clientes.getCustomerObject(pCustomer.pCustSelectedID);
-                        cID2 = pClientes.ID;
-                        txtIDDemandado.Text = pClientes.ID;
-                        txtNameDemandado.Text = pClientes.Nombre;
-                        txtLastNameDemandado.Text = pClientes.Apellido;
-                        txtPhoneDemandado.Text = pClientes.Telefono;
-                        txtCellphoneDemandado.Text = pClientes.Celular;
-                        txtCedulaDemandado.Text = pClientes.Cedula;
+                        if (pClientes.Status == "Demandado")
+                        {
+                            cID2 = pClientes.ID;
+                            pbDemandado.Image = Image.FromFile(pClientes.Image);
+                            txtIDDemandado.Text = pClientes.ID;
+                            txtNameDemandado.Text = pClientes.Nombre;
+                            txtLastNameDemandado.Text = pClientes.Apellido;
+                            txtPhoneDemandado.Text = pClientes.Telefono;
+                            txtCellphoneDemandado.Text = pClientes.Celular;
+                            txtCedulaDemandado.Text = pClientes.Cedula;
+                        }
+                        else
+                        {
+                            MessageBox.Show("El cliente no ha sido registrado como un demandado, seleccione uno diferente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            btnSearchDemandado.Focus();
+                        }
                     }
                     else
                     {

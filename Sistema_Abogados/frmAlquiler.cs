@@ -106,11 +106,20 @@ namespace Sistema_Abogados
                 iID = pSearch.pCustSelectedID;
                 // load the customer.
                 clientes pClientes = clientes.getCustomerObject(pSearch.pCustSelectedID);
-                txtIDInqui.Text = pClientes.ID;
-                txtNameInqui.Text = pClientes.Nombre;
-                txtLastNameInqui.Text = pClientes.Apellido;
-                txtPhoneInqui.Text = pClientes.Telefono;
-                txtCellphoneInqui.Text = pClientes.Celular;
+                if (pClientes.Status == "Inquilino")
+                {
+                    txtIDInqui.Text = pClientes.ID;
+                    pbInquilino.Image = Image.FromFile(pClientes.Image);
+                    txtNameInqui.Text = pClientes.Nombre;
+                    txtLastNameInqui.Text = pClientes.Apellido;
+                    txtPhoneInqui.Text = pClientes.Telefono;
+                    txtCellphoneInqui.Text = pClientes.Celular;
+                }
+                else
+                {
+                    MessageBox.Show("El cliente no esta clasificado exitosamente, seleccione un Inquilino de la tabla", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    btnSearchInqui.Focus();
+                }
             }
             else
             {
@@ -164,10 +173,19 @@ namespace Sistema_Abogados
                     iID = txtIDInqui.Text;
                     // load the customer.
                     clientes pClientes = clientes.getCustomerObject(txtIDInqui.Text);
-                    txtNameInqui.Text = pClientes.Nombre;
-                    txtLastNameInqui.Text = pClientes.Apellido;
-                    txtPhoneInqui.Text = pClientes.Telefono;
-                    txtCellphoneInqui.Text = pClientes.Celular;
+                    if (pClientes.Status == "Inquilino")
+                    {
+                        txtNameInqui.Text = pClientes.Nombre;
+                        pbInquilino.Image = Image.FromFile(pClientes.Image);
+                        txtLastNameInqui.Text = pClientes.Apellido;
+                        txtPhoneInqui.Text = pClientes.Telefono;
+                        txtCellphoneInqui.Text = pClientes.Celular;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El cliente seleccionado no ha sido clasificado correctamente, seleccione un Inquilino", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        btnSearchInqui.Focus();
+                    }
                 }
                 else
                 {
@@ -191,10 +209,19 @@ namespace Sistema_Abogados
                     gID = txtIDGaran.Text;
                     // load the customer.
                     clientes pClientes = clientes.getCustomerObject(txtIDGaran.Text);
-                    txtNameGaran.Text = pClientes.Nombre;
-                    txtLastNameGaran.Text = pClientes.Apellido;
-                    txtPhoneGaran.Text = pClientes.Telefono;
-                    txtCellphoneGaran.Text = pClientes.Celular;
+                    if (pClientes.Status == "Garante")
+                    {
+                        txtNameGaran.Text = pClientes.Nombre;
+                        pbGarante.Image = Image.FromFile(pClientes.Image);
+                        txtLastNameGaran.Text = pClientes.Apellido;
+                        txtPhoneGaran.Text = pClientes.Telefono;
+                        txtCellphoneGaran.Text = pClientes.Celular;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se selecciono un garante, seleccione uno correcto de la lista", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        btnSearchGaran.Focus();
+                    }
                 }
                 else
                 {
@@ -217,11 +244,20 @@ namespace Sistema_Abogados
                 cID = pc.pCustSelectedID;
                 // load the customer.
                 clientes pClientes = clientes.getCustomerObject(pc.pCustSelectedID);
-                txtCustID.Text = pClientes.ID;
-                txtCustName.Text = pClientes.Nombre;
-                txtCustLastName.Text = pClientes.Apellido;
-                txtCustPhone.Text = pClientes.Telefono;
-                txtCustCell.Text = pClientes.Celular;
+                if (pClientes.Status == "Cliente")
+                {
+                    txtCustID.Text = pClientes.ID;
+                    pbCliente.Image = Image.FromFile(pClientes.Image);
+                    txtCustName.Text = pClientes.Nombre;
+                    txtCustLastName.Text = pClientes.Apellido;
+                    txtCustPhone.Text = pClientes.Telefono;
+                    txtCustCell.Text = pClientes.Celular;
+                }
+                else
+                {
+                    MessageBox.Show("El cliente seleccionado no esta correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    btnSearchCustomer.Focus();
+                }
             }
             else
             {
@@ -242,11 +278,20 @@ namespace Sistema_Abogados
                 gID = pSearch.pCustSelectedID;
                 // load the customer.
                 clientes pClientes = clientes.getCustomerObject(pSearch.pCustSelectedID);
-                txtIDGaran.Text = pClientes.ID;
-                txtNameGaran.Text = pClientes.Nombre;
-                txtLastNameGaran.Text = pClientes.Apellido;
-                txtPhoneGaran.Text = pClientes.Telefono;
-                txtCellphoneGaran.Text = pClientes.Celular;
+                if (pClientes.Status == "Garante")
+                {
+                    txtIDGaran.Text = pClientes.ID;
+                    pbGarante.Image = Image.FromFile(pClientes.Image);
+                    txtNameGaran.Text = pClientes.Nombre;
+                    txtLastNameGaran.Text = pClientes.Apellido;
+                    txtPhoneGaran.Text = pClientes.Telefono;
+                    txtCellphoneGaran.Text = pClientes.Celular;
+                }
+                else
+                {
+                    MessageBox.Show("No se ha seleccionado el garante", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    btnSearchGaran.Focus();
+                }
             }
         }
         // when Guardar button is clicked.
@@ -383,10 +428,19 @@ namespace Sistema_Abogados
                     cID = txtCustID.Text;
                     // load the customer.
                     clientes pClientes = clientes.getCustomerObject(txtCustID.Text);
-                    txtCustName.Text = pClientes.Nombre;
-                    txtCustLastName.Text = pClientes.Apellido;
-                    txtCustPhone.Text = pClientes.Telefono;
-                    txtCustCell.Text = pClientes.Celular;
+                    if (pClientes.Status == "Cliente")
+                    {
+                        txtCustName.Text = pClientes.Nombre;
+                        pbCliente.Image = Image.FromFile(pClientes.Image);
+                        txtCustLastName.Text = pClientes.Apellido;
+                        txtCustPhone.Text = pClientes.Telefono;
+                        txtCustCell.Text = pClientes.Celular;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El usuario a seleccionar no esta clasificado como cliente, digite otro ID", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        btnSearchCustomer.Focus();
+                    }
                 }
                 else
                 {
