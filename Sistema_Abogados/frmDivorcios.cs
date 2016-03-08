@@ -336,6 +336,10 @@ namespace Sistema_Abogados
                 MessageBox.Show("El Abono esta vacio", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtAbono.Focus();
             }
+            else if(cID1 == cID2)
+            {
+                MessageBox.Show("El demandante y el demandado son los mismos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             else
             {
                 try

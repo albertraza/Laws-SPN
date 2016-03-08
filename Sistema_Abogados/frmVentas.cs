@@ -296,6 +296,10 @@ namespace Sistema_Abogados
                 MessageBox.Show("La descripcion no se ha completado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtDescripcion.Focus();
             }
+            else if (vID == cID)
+            {
+                MessageBox.Show("El vendedor y el comprador son los mismos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             else
             {
                 if(cbInmueble.Text == string.Empty)

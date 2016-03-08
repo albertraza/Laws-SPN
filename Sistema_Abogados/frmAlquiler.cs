@@ -343,6 +343,22 @@ namespace Sistema_Abogados
                 MessageBox.Show("El Deposito esta vacio, Digite un deposito valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtDeposito.Focus();
             }
+            else if(cID == iID && iID == gID && gID == cID)
+            {
+                MessageBox.Show("No se pueden registrar todos los datos iguales", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if(cID == iID)
+            {
+                MessageBox.Show("El cliente y el Inquilino son las mismas personas, Seleccione diferentes clientes", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if(iID == gID)
+            {
+                MessageBox.Show("El Inquilino Ademas del Garante son los mismos, Seleccione diferentes clientes", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if(gID == cID)
+            {
+                MessageBox.Show("El Cliente y el Garante son los mismos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             else
             {
                 // if all inputs are filled.
