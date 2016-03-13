@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gbVendedor = new System.Windows.Forms.GroupBox();
+            this.pbVendedor = new System.Windows.Forms.PictureBox();
             this.lblSearchSeller = new System.Windows.Forms.LinkLabel();
             this.btnSearchSeller = new System.Windows.Forms.Button();
             this.btnClearSeller = new System.Windows.Forms.Button();
@@ -45,6 +46,7 @@
             this.txtIDSeller = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
             this.gbComprador = new System.Windows.Forms.GroupBox();
+            this.pbComprador = new System.Windows.Forms.PictureBox();
             this.lblSearchBuy = new System.Windows.Forms.LinkLabel();
             this.btnSearchBuy = new System.Windows.Forms.Button();
             this.btnClearBuy = new System.Windows.Forms.Button();
@@ -76,13 +78,11 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnClearAll = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.pbVendedor = new System.Windows.Forms.PictureBox();
-            this.pbComprador = new System.Windows.Forms.PictureBox();
             this.gbVendedor.SuspendLayout();
-            this.gbComprador.SuspendLayout();
-            this.gbInfoPagos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbVendedor)).BeginInit();
+            this.gbComprador.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbComprador)).BeginInit();
+            this.gbInfoPagos.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbVendedor
@@ -109,6 +109,15 @@
             this.gbVendedor.TabIndex = 0;
             this.gbVendedor.TabStop = false;
             this.gbVendedor.Text = "Vendedor";
+            // 
+            // pbVendedor
+            // 
+            this.pbVendedor.Location = new System.Drawing.Point(173, 176);
+            this.pbVendedor.Name = "pbVendedor";
+            this.pbVendedor.Size = new System.Drawing.Size(177, 117);
+            this.pbVendedor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbVendedor.TabIndex = 14;
+            this.pbVendedor.TabStop = false;
             // 
             // lblSearchSeller
             // 
@@ -139,6 +148,7 @@
             this.btnClearSeller.TabIndex = 12;
             this.btnClearSeller.Text = "Limpiar";
             this.btnClearSeller.UseVisualStyleBackColor = true;
+            this.btnClearSeller.Click += new System.EventHandler(this.btnClearSeller_Click);
             // 
             // txtCelularSeller
             // 
@@ -261,6 +271,15 @@
             this.gbComprador.TabStop = false;
             this.gbComprador.Text = "Comprador";
             // 
+            // pbComprador
+            // 
+            this.pbComprador.Location = new System.Drawing.Point(177, 176);
+            this.pbComprador.Name = "pbComprador";
+            this.pbComprador.Size = new System.Drawing.Size(177, 117);
+            this.pbComprador.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbComprador.TabIndex = 15;
+            this.pbComprador.TabStop = false;
+            // 
             // lblSearchBuy
             // 
             this.lblSearchBuy.AutoSize = true;
@@ -290,6 +309,7 @@
             this.btnClearBuy.TabIndex = 12;
             this.btnClearBuy.Text = "Limpiar";
             this.btnClearBuy.UseVisualStyleBackColor = true;
+            this.btnClearBuy.Click += new System.EventHandler(this.btnClearBuy_Click);
             // 
             // txtCelularBuy
             // 
@@ -539,24 +559,6 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // pbVendedor
-            // 
-            this.pbVendedor.Location = new System.Drawing.Point(173, 176);
-            this.pbVendedor.Name = "pbVendedor";
-            this.pbVendedor.Size = new System.Drawing.Size(177, 117);
-            this.pbVendedor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbVendedor.TabIndex = 14;
-            this.pbVendedor.TabStop = false;
-            // 
-            // pbComprador
-            // 
-            this.pbComprador.Location = new System.Drawing.Point(177, 176);
-            this.pbComprador.Name = "pbComprador";
-            this.pbComprador.Size = new System.Drawing.Size(177, 117);
-            this.pbComprador.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbComprador.TabIndex = 15;
-            this.pbComprador.TabStop = false;
-            // 
             // frmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -576,12 +578,12 @@
             this.Load += new System.EventHandler(this.frmVentas_Load);
             this.gbVendedor.ResumeLayout(false);
             this.gbVendedor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbVendedor)).EndInit();
             this.gbComprador.ResumeLayout(false);
             this.gbComprador.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbComprador)).EndInit();
             this.gbInfoPagos.ResumeLayout(false);
             this.gbInfoPagos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbVendedor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbComprador)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -70,6 +70,8 @@ namespace Sistema_Abogados
             listThings();
             cID = null;
             vID = null;
+            pbComprador.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
+            pbVendedor.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
         }
         public frmVentas()
         {
@@ -80,6 +82,7 @@ namespace Sistema_Abogados
         {
             try
             {
+                cleanEverything();
                 listThings();
                 disableInputs();
                 ControlBox = false;
@@ -262,6 +265,34 @@ namespace Sistema_Abogados
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnClearSeller_Click(object sender, EventArgs e)
+        {
+            txtIDSeller.Clear();
+            txtCedulaSeller.Clear();
+            txtCelularSeller.Clear();
+            txtIDSeller.Clear();
+            txtLastNameSeller.Clear();
+            txtNameSeller.Clear();
+            txtPhoneSeller.Clear();
+            pbComprador.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
+            txtIDSeller.Focus();
+            vID = null;
+        }
+
+        private void btnClearBuy_Click(object sender, EventArgs e)
+        {
+            txtCedulaBuy.Clear();
+            txtCelularBuy.Clear();
+            txtIDBuy.Clear();
+            txtLastNameBuy.Clear();
+            txtNameBuy.Clear();
+            txtPhoneBuy.Clear();
+            pbComprador.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
+            txtIDBuy.Focus();
+            cID = null;
+        }
+
         // when guardar button is clicked.
         private void btnSave_Click(object sender, EventArgs e)
         {

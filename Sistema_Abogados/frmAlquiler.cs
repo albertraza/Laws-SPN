@@ -59,6 +59,9 @@ namespace Sistema_Abogados
             iID = null;
             gID = null;
             txtCustID.Focus();
+            pbCliente.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
+            pbGarante.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
+            pbInquilino.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
         }
         // method for listing all Cities.
         private void listCities()
@@ -133,6 +136,7 @@ namespace Sistema_Abogados
         private void frmAlquiler_Load(object sender, EventArgs e)
         {
             try {
+                clearAll();
                 ControlBox = false;
                 disableControls();
                 servicios pServicios = servicios.getServiceInfo("3");
@@ -400,6 +404,7 @@ namespace Sistema_Abogados
             txtCustName.Clear();
             txtCustID.Focus();
             cID = null;
+            pbCliente.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
         }
         // when Limpiar button is clicked on Inquilinos.
         private void btnClearInqui_Click(object sender, EventArgs e)
@@ -411,6 +416,7 @@ namespace Sistema_Abogados
             txtCellphoneInqui.Clear();
             txtIDInqui.Focus();
             iID = null;
+            pbInquilino.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
         }
         // when Limpiar buttin is clicked on Garante.
         private void btnClearGaran_Click(object sender, EventArgs e)
@@ -422,6 +428,7 @@ namespace Sistema_Abogados
             txtCellphoneGaran.Clear();
             txtIDGaran.Focus();
             gID = null;
+            pbGarante.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
         }
 
         private void btnClear_Click(object sender, EventArgs e)

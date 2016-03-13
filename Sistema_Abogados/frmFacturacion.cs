@@ -16,6 +16,59 @@ namespace Sistema_Abogados
         private clientes pCliente;
         private servicios pService;
         private facturacionBaseObj pBaseObjfactura;
+        private void cleanInputs()
+        {
+            pbCedula.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
+            txtCedula.Clear();
+            txtApellido.Clear();
+            txtCantDevolver.Clear();
+            txtCantPagar.Clear();
+            txtCedula.Clear();
+            txtMoneda.Clear();
+            txtNombre.Clear();
+            txtNumeroCaso.Clear();
+            txtServicio.Clear();
+            txtTotalaPagar.Clear();
+            txtUltimoPago.Clear();
+            rbDivorcioAccidente.Checked = true;
+            if (rbAlquiler.Checked == true)
+            {
+                dgvFacturacion.DataSource = facturacion.listAllRent();
+                lblTotalaPagar.Text = "Mensualidad:";
+                txtUltimoPago.Visible = true;
+                lblFechaUltimoPago.Visible = true;
+            }
+            else if (rbDivorcioAccidente.Checked == true)
+            {
+                dgvFacturacion.DataSource = facturacion.listAllDivorciosAccidentes();
+                lblTotalaPagar.Text = "Total a Pagar:";
+                txtUltimoPago.Visible = false;
+                lblFechaUltimoPago.Visible = false;
+            }
+            else if (rbVentas.Checked == true)
+            {
+                dgvFacturacion.DataSource = facturacion.listAllVentas();
+                lblTotalaPagar.Text = "Total a Pagar:";
+                txtUltimoPago.Visible = false;
+                lblFechaUltimoPago.Visible = false;
+            }
+            else
+            {
+                List<facturacion> list = new List<facturacion>();
+                list.AddRange(facturacion.listAllRent());
+                list.AddRange(facturacion.listAllDivorciosAccidentes());
+                list.AddRange(facturacion.listAllVentas());
+                dgvFacturacion.DataSource = list;
+            }
+        }
+        private void disableInputs()
+        {
+            txtCantDevolver.Enabled = false;
+            txtNumeroCaso.Enabled = false;
+            txtServicio.Enabled = false;
+            txtTotalaPagar.Enabled = false;
+            txtUltimoPago.Enabled = false;
+        }
         // ***************** //
 
         public frmFacturacion()
@@ -36,20 +89,27 @@ namespace Sistema_Abogados
         {
             try
             {
+                cleanInputs();
+                disableInputs();
                 if (rbAlquiler.Checked == true)
                 {
                     dgvFacturacion.DataSource = facturacion.listAllRent();
                     lblTotalaPagar.Text = "Mensualidad:";
+                    txtUltimoPago.Visible = true;
                 }
                 else if (rbDivorcioAccidente.Checked == true)
                 {
                     dgvFacturacion.DataSource = facturacion.listAllDivorciosAccidentes();
                     lblTotalaPagar.Text = "Total a Pagar:";
+                    txtUltimoPago.Visible = false;
+                    lblFechaUltimoPago.Visible = false;
                 }
                 else if (rbVentas.Checked == true)
                 {
                     dgvFacturacion.DataSource = facturacion.listAllVentas();
                     lblTotalaPagar.Text = "Total a Pagar:";
+                    txtUltimoPago.Visible = false;
+                    lblFechaUltimoPago.Visible = false;
                 }
             }
             catch (Exception ex)
@@ -66,16 +126,22 @@ namespace Sistema_Abogados
                 {
                     dgvFacturacion.DataSource = facturacion.listAllRent();
                     lblTotalaPagar.Text = "Mensualidad:";
+                    txtUltimoPago.Visible = true;
+                    lblFechaUltimoPago.Visible = true;
                 }
                 else if (rbDivorcioAccidente.Checked == true)
                 {
                     dgvFacturacion.DataSource = facturacion.listAllDivorciosAccidentes();
                     lblTotalaPagar.Text = "Total a Pagar:";
+                    txtUltimoPago.Visible = false;
+                    lblFechaUltimoPago.Visible = false;
                 }
                 else if (rbVentas.Checked == true)
                 {
                     dgvFacturacion.DataSource = facturacion.listAllVentas();
                     lblTotalaPagar.Text = "Total a Pagar:";
+                    txtUltimoPago.Visible = false;
+                    lblFechaUltimoPago.Visible = false;
                 }
                 else
                 {
@@ -100,16 +166,22 @@ namespace Sistema_Abogados
                 {
                     dgvFacturacion.DataSource = facturacion.listAllRent();
                     lblTotalaPagar.Text = "Mensualidad:";
+                    txtUltimoPago.Visible = true;
+                    lblFechaUltimoPago.Visible = true;
                 }
                 else if (rbDivorcioAccidente.Checked == true)
                 {
                     dgvFacturacion.DataSource = facturacion.listAllDivorciosAccidentes();
                     lblTotalaPagar.Text = "Total a Pagar:";
+                    txtUltimoPago.Visible = false;
+                    lblFechaUltimoPago.Visible = false;
                 }
                 else if (rbVentas.Checked == true)
                 {
                     dgvFacturacion.DataSource = facturacion.listAllVentas();
                     lblTotalaPagar.Text = "Total a Pagar:";
+                    txtUltimoPago.Visible = false;
+                    lblFechaUltimoPago.Visible = false;
                 }
                 else
                 {
@@ -134,16 +206,22 @@ namespace Sistema_Abogados
                 {
                     dgvFacturacion.DataSource = facturacion.listAllRent();
                     lblTotalaPagar.Text = "Mensualidad:";
+                    txtUltimoPago.Visible = true;
+                    lblFechaUltimoPago.Visible = true;
                 }
                 else if (rbDivorcioAccidente.Checked == true)
                 {
                     dgvFacturacion.DataSource = facturacion.listAllDivorciosAccidentes();
                     lblTotalaPagar.Text = "Total a Pagar:";
+                    txtUltimoPago.Visible = false;
+                    lblFechaUltimoPago.Visible = false;
                 }
                 else if (rbVentas.Checked == true)
                 {
                     dgvFacturacion.DataSource = facturacion.listAllVentas();
                     lblTotalaPagar.Text = "Total a Pagar:";
+                    txtUltimoPago.Visible = false;
+                    lblFechaUltimoPago.Visible = false;
                 }
                 else
                 {
@@ -450,16 +528,22 @@ namespace Sistema_Abogados
                 {
                     dgvFacturacion.DataSource = facturacion.listAllRent();
                     lblTotalaPagar.Text = "Mensualidad:";
+                    txtUltimoPago.Visible = true;
+                    lblFechaUltimoPago.Visible = true;
                 }
                 else if (rbDivorcioAccidente.Checked == true)
                 {
                     dgvFacturacion.DataSource = facturacion.listAllDivorciosAccidentes();
                     lblTotalaPagar.Text = "Total a Pagar:";
+                    txtUltimoPago.Visible = false;
+                    lblFechaUltimoPago.Visible = false;
                 }
                 else if (rbVentas.Checked == true)
                 {
                     dgvFacturacion.DataSource = facturacion.listAllVentas();
                     lblTotalaPagar.Text = "Total a Pagar:";
+                    txtUltimoPago.Visible = false;
+                    lblFechaUltimoPago.Visible = false;
                 }
                 else
                 {
@@ -538,6 +622,7 @@ namespace Sistema_Abogados
                                 {
                                     MessageBox.Show("Factura registrada exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     facturacion.updateRentStatus(pBaseObjfactura.ID, "0", DateTime.Today.Date.ToString("yyyy-MM-dd"));
+                                    cleanInputs();
                                 }
                                 else
                                 {
@@ -556,6 +641,7 @@ namespace Sistema_Abogados
                                 {
                                     MessageBox.Show("Factura registrada Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     facturacion.updateRentStatus(pBaseObjfactura.ID, deposito.ToString("f2"), DateTime.Today.Date.ToString("yyyy-MM-dd"));
+                                    cleanInputs();
                                 }
                                 else
                                 {
@@ -570,6 +656,7 @@ namespace Sistema_Abogados
                             {
                                 MessageBox.Show("Factura registrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 facturacion.updateDivorciosAccidenteStatus(pBaseObjfactura.ID, pr.ToString("f2"), abono.ToString("f2"));
+                                cleanInputs();
                             }
                             else
                             {
@@ -583,6 +670,7 @@ namespace Sistema_Abogados
                             {
                                 MessageBox.Show("Factura registrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 facturacion.updateVentaStatus(pBaseObjfactura.ID, pr.ToString("f2"), abono.ToString("f2"));
+                                cleanInputs();
                             }
                             else
                             {
@@ -595,6 +683,43 @@ namespace Sistema_Abogados
                         MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+            }
+        }
+        // when  limpiar button is clicked on informacion cliente.
+        private void btnCleanCustoInfo_Click(object sender, EventArgs e)
+        {
+            txtCedula.Clear();
+            txtNombre.Clear();
+            txtApellido.Clear();
+            try {
+                pbCedula.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("No se pudo encontrar la imagen error: " + ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        // when limpiar is clicked on case group.
+        private void btnCleanCaseInfo_Click(object sender, EventArgs e)
+        {
+            txtCantDevolver.Clear();
+            txtCantPagar.Clear();
+            txtMoneda.Clear();
+            txtNumeroCaso.Clear();
+            txtServicio.Clear();
+            txtTotalaPagar.Clear();
+            txtUltimoPago.Clear();
+        }
+        // when limpiar button is clicked.
+        private void btnCleanAll_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                cleanInputs();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

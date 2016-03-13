@@ -54,14 +54,21 @@
             this.lblDevuelta = new System.Windows.Forms.Label();
             this.txtCantDevolver = new System.Windows.Forms.TextBox();
             this.btnCalcular = new System.Windows.Forms.Button();
+            this.lblFechaUltimoPago = new System.Windows.Forms.Label();
+            this.txtUltimoPago = new System.Windows.Forms.TextBox();
+            this.gbInformacionCliente = new System.Windows.Forms.GroupBox();
+            this.gbInformacionCaso = new System.Windows.Forms.GroupBox();
+            this.btnCleanCaseInfo = new System.Windows.Forms.Button();
+            this.btnCleanCustoInfo = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnCobrar = new System.Windows.Forms.Button();
             this.pbCedula = new System.Windows.Forms.PictureBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.lblFechaUltimoPago = new System.Windows.Forms.Label();
-            this.txtUltimoPago = new System.Windows.Forms.TextBox();
+            this.btnCleanAll = new System.Windows.Forms.Button();
             this.gbParametrosBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturacion)).BeginInit();
+            this.gbInformacionCliente.SuspendLayout();
+            this.gbInformacionCaso.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCedula)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,9 +78,9 @@
             this.gbParametrosBusqueda.Controls.Add(this.rbAlquiler);
             this.gbParametrosBusqueda.Controls.Add(this.rbVentas);
             this.gbParametrosBusqueda.Controls.Add(this.rbDivorcioAccidente);
-            this.gbParametrosBusqueda.Location = new System.Drawing.Point(12, 206);
+            this.gbParametrosBusqueda.Location = new System.Drawing.Point(12, 272);
             this.gbParametrosBusqueda.Name = "gbParametrosBusqueda";
-            this.gbParametrosBusqueda.Size = new System.Drawing.Size(451, 51);
+            this.gbParametrosBusqueda.Size = new System.Drawing.Size(479, 51);
             this.gbParametrosBusqueda.TabIndex = 0;
             this.gbParametrosBusqueda.TabStop = false;
             this.gbParametrosBusqueda.Text = "Servicios";
@@ -129,15 +136,15 @@
             // dgvFacturacion
             // 
             this.dgvFacturacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFacturacion.Location = new System.Drawing.Point(12, 278);
+            this.dgvFacturacion.Location = new System.Drawing.Point(9, 329);
             this.dgvFacturacion.Name = "dgvFacturacion";
-            this.dgvFacturacion.Size = new System.Drawing.Size(622, 195);
+            this.dgvFacturacion.Size = new System.Drawing.Size(673, 195);
             this.dgvFacturacion.TabIndex = 3;
             // 
             // lblCedula
             // 
             this.lblCedula.AutoSize = true;
-            this.lblCedula.Location = new System.Drawing.Point(40, 42);
+            this.lblCedula.Location = new System.Drawing.Point(21, 30);
             this.lblCedula.Name = "lblCedula";
             this.lblCedula.Size = new System.Drawing.Size(43, 13);
             this.lblCedula.TabIndex = 4;
@@ -145,7 +152,7 @@
             // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(89, 39);
+            this.txtCedula.Location = new System.Drawing.Point(70, 27);
             this.txtCedula.Mask = "000-0000000-0";
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(100, 20);
@@ -154,7 +161,7 @@
             // lblNombreCli
             // 
             this.lblNombreCli.AutoSize = true;
-            this.lblNombreCli.Location = new System.Drawing.Point(222, 42);
+            this.lblNombreCli.Location = new System.Drawing.Point(203, 30);
             this.lblNombreCli.Name = "lblNombreCli";
             this.lblNombreCli.Size = new System.Drawing.Size(47, 13);
             this.lblNombreCli.TabIndex = 6;
@@ -162,14 +169,14 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(275, 39);
+            this.txtNombre.Location = new System.Drawing.Point(256, 27);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 7;
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(443, 39);
+            this.txtApellido.Location = new System.Drawing.Point(425, 27);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(100, 20);
             this.txtApellido.TabIndex = 9;
@@ -177,7 +184,7 @@
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(390, 42);
+            this.lblApellido.Location = new System.Drawing.Point(372, 30);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(47, 13);
             this.lblApellido.TabIndex = 8;
@@ -185,7 +192,7 @@
             // 
             // txtTotalaPagar
             // 
-            this.txtTotalaPagar.Location = new System.Drawing.Point(95, 129);
+            this.txtTotalaPagar.Location = new System.Drawing.Point(86, 74);
             this.txtTotalaPagar.Name = "txtTotalaPagar";
             this.txtTotalaPagar.Size = new System.Drawing.Size(82, 20);
             this.txtTotalaPagar.TabIndex = 11;
@@ -193,7 +200,7 @@
             // lblTotalaPagar
             // 
             this.lblTotalaPagar.AutoSize = true;
-            this.lblTotalaPagar.Location = new System.Drawing.Point(15, 132);
+            this.lblTotalaPagar.Location = new System.Drawing.Point(6, 77);
             this.lblTotalaPagar.Name = "lblTotalaPagar";
             this.lblTotalaPagar.Size = new System.Drawing.Size(74, 13);
             this.lblTotalaPagar.TabIndex = 10;
@@ -201,7 +208,7 @@
             // 
             // txtMoneda
             // 
-            this.txtMoneda.Location = new System.Drawing.Point(236, 129);
+            this.txtMoneda.Location = new System.Drawing.Point(227, 74);
             this.txtMoneda.Name = "txtMoneda";
             this.txtMoneda.Size = new System.Drawing.Size(69, 20);
             this.txtMoneda.TabIndex = 13;
@@ -209,7 +216,7 @@
             // lblMoneda
             // 
             this.lblMoneda.AutoSize = true;
-            this.lblMoneda.Location = new System.Drawing.Point(183, 132);
+            this.lblMoneda.Location = new System.Drawing.Point(174, 77);
             this.lblMoneda.Name = "lblMoneda";
             this.lblMoneda.Size = new System.Drawing.Size(49, 13);
             this.lblMoneda.TabIndex = 12;
@@ -217,7 +224,7 @@
             // 
             // txtNumeroCaso
             // 
-            this.txtNumeroCaso.Location = new System.Drawing.Point(95, 84);
+            this.txtNumeroCaso.Location = new System.Drawing.Point(86, 29);
             this.txtNumeroCaso.Name = "txtNumeroCaso";
             this.txtNumeroCaso.Size = new System.Drawing.Size(100, 20);
             this.txtNumeroCaso.TabIndex = 15;
@@ -225,7 +232,7 @@
             // lblNumeroCaso
             // 
             this.lblNumeroCaso.AutoSize = true;
-            this.lblNumeroCaso.Location = new System.Drawing.Point(36, 87);
+            this.lblNumeroCaso.Location = new System.Drawing.Point(27, 32);
             this.lblNumeroCaso.Name = "lblNumeroCaso";
             this.lblNumeroCaso.Size = new System.Drawing.Size(53, 13);
             this.lblNumeroCaso.TabIndex = 14;
@@ -233,7 +240,7 @@
             // 
             // txtServicio
             // 
-            this.txtServicio.Location = new System.Drawing.Point(275, 84);
+            this.txtServicio.Location = new System.Drawing.Point(266, 29);
             this.txtServicio.Name = "txtServicio";
             this.txtServicio.Size = new System.Drawing.Size(100, 20);
             this.txtServicio.TabIndex = 17;
@@ -241,7 +248,7 @@
             // lblServicio
             // 
             this.lblServicio.AutoSize = true;
-            this.lblServicio.Location = new System.Drawing.Point(222, 87);
+            this.lblServicio.Location = new System.Drawing.Point(213, 32);
             this.lblServicio.Name = "lblServicio";
             this.lblServicio.Size = new System.Drawing.Size(48, 13);
             this.lblServicio.TabIndex = 16;
@@ -249,7 +256,7 @@
             // 
             // txtCantPagar
             // 
-            this.txtCantPagar.Location = new System.Drawing.Point(408, 129);
+            this.txtCantPagar.Location = new System.Drawing.Point(399, 74);
             this.txtCantPagar.Name = "txtCantPagar";
             this.txtCantPagar.Size = new System.Drawing.Size(68, 20);
             this.txtCantPagar.TabIndex = 19;
@@ -257,7 +264,7 @@
             // lblCantidadaPagar
             // 
             this.lblCantidadaPagar.AutoSize = true;
-            this.lblCantidadaPagar.Location = new System.Drawing.Point(313, 132);
+            this.lblCantidadaPagar.Location = new System.Drawing.Point(304, 77);
             this.lblCantidadaPagar.Name = "lblCantidadaPagar";
             this.lblCantidadaPagar.Size = new System.Drawing.Size(92, 13);
             this.lblCantidadaPagar.TabIndex = 18;
@@ -265,7 +272,7 @@
             // 
             // btnSeleccionar
             // 
-            this.btnSeleccionar.Location = new System.Drawing.Point(506, 234);
+            this.btnSeleccionar.Location = new System.Drawing.Point(554, 300);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(128, 23);
             this.btnSeleccionar.TabIndex = 20;
@@ -276,7 +283,7 @@
             // lblDevuelta
             // 
             this.lblDevuelta.AutoSize = true;
-            this.lblDevuelta.Location = new System.Drawing.Point(40, 171);
+            this.lblDevuelta.Location = new System.Drawing.Point(31, 116);
             this.lblDevuelta.Name = "lblDevuelta";
             this.lblDevuelta.Size = new System.Drawing.Size(107, 13);
             this.lblDevuelta.TabIndex = 22;
@@ -284,29 +291,123 @@
             // 
             // txtCantDevolver
             // 
-            this.txtCantDevolver.Location = new System.Drawing.Point(147, 168);
+            this.txtCantDevolver.Location = new System.Drawing.Point(138, 113);
             this.txtCantDevolver.Name = "txtCantDevolver";
             this.txtCantDevolver.Size = new System.Drawing.Size(85, 20);
             this.txtCantDevolver.TabIndex = 23;
             // 
             // btnCalcular
             // 
-            this.btnCalcular.Location = new System.Drawing.Point(473, 171);
+            this.btnCalcular.Location = new System.Drawing.Point(530, 115);
             this.btnCalcular.Name = "btnCalcular";
-            this.btnCalcular.Size = new System.Drawing.Size(70, 23);
+            this.btnCalcular.Size = new System.Drawing.Size(95, 23);
             this.btnCalcular.TabIndex = 24;
             this.btnCalcular.Text = "Calcular";
             this.btnCalcular.UseVisualStyleBackColor = true;
             this.btnCalcular.Click += new System.EventHandler(this.btnCalcular_Click);
+            // 
+            // lblFechaUltimoPago
+            // 
+            this.lblFechaUltimoPago.AutoSize = true;
+            this.lblFechaUltimoPago.Location = new System.Drawing.Point(229, 120);
+            this.lblFechaUltimoPago.Name = "lblFechaUltimoPago";
+            this.lblFechaUltimoPago.Size = new System.Drawing.Size(67, 13);
+            this.lblFechaUltimoPago.TabIndex = 28;
+            this.lblFechaUltimoPago.Text = "Ultimo Pago:";
+            // 
+            // txtUltimoPago
+            // 
+            this.txtUltimoPago.Location = new System.Drawing.Point(302, 117);
+            this.txtUltimoPago.Name = "txtUltimoPago";
+            this.txtUltimoPago.Size = new System.Drawing.Size(152, 20);
+            this.txtUltimoPago.TabIndex = 29;
+            // 
+            // gbInformacionCliente
+            // 
+            this.gbInformacionCliente.Controls.Add(this.btnCleanCustoInfo);
+            this.gbInformacionCliente.Controls.Add(this.lblCedula);
+            this.gbInformacionCliente.Controls.Add(this.txtCedula);
+            this.gbInformacionCliente.Controls.Add(this.lblNombreCli);
+            this.gbInformacionCliente.Controls.Add(this.txtNombre);
+            this.gbInformacionCliente.Controls.Add(this.lblApellido);
+            this.gbInformacionCliente.Controls.Add(this.txtApellido);
+            this.gbInformacionCliente.Controls.Add(this.btnBuscar);
+            this.gbInformacionCliente.Location = new System.Drawing.Point(12, 12);
+            this.gbInformacionCliente.Name = "gbInformacionCliente";
+            this.gbInformacionCliente.Size = new System.Drawing.Size(659, 79);
+            this.gbInformacionCliente.TabIndex = 30;
+            this.gbInformacionCliente.TabStop = false;
+            this.gbInformacionCliente.Text = "Informacion Cliente";
+            // 
+            // gbInformacionCaso
+            // 
+            this.gbInformacionCaso.Controls.Add(this.btnCleanCaseInfo);
+            this.gbInformacionCaso.Controls.Add(this.txtNumeroCaso);
+            this.gbInformacionCaso.Controls.Add(this.lblTotalaPagar);
+            this.gbInformacionCaso.Controls.Add(this.txtUltimoPago);
+            this.gbInformacionCaso.Controls.Add(this.txtTotalaPagar);
+            this.gbInformacionCaso.Controls.Add(this.lblFechaUltimoPago);
+            this.gbInformacionCaso.Controls.Add(this.lblMoneda);
+            this.gbInformacionCaso.Controls.Add(this.txtMoneda);
+            this.gbInformacionCaso.Controls.Add(this.lblNumeroCaso);
+            this.gbInformacionCaso.Controls.Add(this.lblServicio);
+            this.gbInformacionCaso.Controls.Add(this.btnCalcular);
+            this.gbInformacionCaso.Controls.Add(this.txtServicio);
+            this.gbInformacionCaso.Controls.Add(this.txtCantDevolver);
+            this.gbInformacionCaso.Controls.Add(this.lblCantidadaPagar);
+            this.gbInformacionCaso.Controls.Add(this.lblDevuelta);
+            this.gbInformacionCaso.Controls.Add(this.txtCantPagar);
+            this.gbInformacionCaso.Location = new System.Drawing.Point(12, 97);
+            this.gbInformacionCaso.Name = "gbInformacionCaso";
+            this.gbInformacionCaso.Size = new System.Drawing.Size(656, 169);
+            this.gbInformacionCaso.TabIndex = 31;
+            this.gbInformacionCaso.TabStop = false;
+            this.gbInformacionCaso.Text = "Informacion del Caso";
+            // 
+            // btnCleanCaseInfo
+            // 
+            this.btnCleanCaseInfo.Location = new System.Drawing.Point(530, 32);
+            this.btnCleanCaseInfo.Name = "btnCleanCaseInfo";
+            this.btnCleanCaseInfo.Size = new System.Drawing.Size(95, 23);
+            this.btnCleanCaseInfo.TabIndex = 30;
+            this.btnCleanCaseInfo.Text = "Limpiar";
+            this.btnCleanCaseInfo.UseVisualStyleBackColor = true;
+            this.btnCleanCaseInfo.Click += new System.EventHandler(this.btnCleanCaseInfo_Click);
+            // 
+            // btnCleanCustoInfo
+            // 
+            this.btnCleanCustoInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCleanCustoInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCleanCustoInfo.Location = new System.Drawing.Point(542, 52);
+            this.btnCleanCustoInfo.Name = "btnCleanCustoInfo";
+            this.btnCleanCustoInfo.Size = new System.Drawing.Size(112, 27);
+            this.btnCleanCustoInfo.TabIndex = 22;
+            this.btnCleanCustoInfo.Text = "Limpiar";
+            this.btnCleanCustoInfo.UseVisualStyleBackColor = true;
+            this.btnCleanCustoInfo.Click += new System.EventHandler(this.btnCleanCustoInfo_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Image = global::Sistema_Abogados.Properties.Resources.search;
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscar.Location = new System.Drawing.Point(542, 10);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(112, 33);
+            this.btnBuscar.TabIndex = 21;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::Sistema_Abogados.Properties.Resources.exit;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(658, 424);
+            this.btnCancelar.Location = new System.Drawing.Point(851, 458);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(158, 39);
+            this.btnCancelar.Size = new System.Drawing.Size(128, 66);
             this.btnCancelar.TabIndex = 27;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -318,7 +419,7 @@
             this.btnCobrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCobrar.Image = global::Sistema_Abogados.Properties.Resources.checkout;
             this.btnCobrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCobrar.Location = new System.Drawing.Point(658, 327);
+            this.btnCobrar.Location = new System.Drawing.Point(687, 458);
             this.btnCobrar.Name = "btnCobrar";
             this.btnCobrar.Size = new System.Drawing.Size(158, 66);
             this.btnCobrar.TabIndex = 26;
@@ -329,75 +430,40 @@
             // 
             // pbCedula
             // 
-            this.pbCedula.Location = new System.Drawing.Point(569, 39);
+            this.pbCedula.Location = new System.Drawing.Point(677, 18);
             this.pbCedula.Name = "pbCedula";
-            this.pbCedula.Size = new System.Drawing.Size(247, 173);
+            this.pbCedula.Size = new System.Drawing.Size(302, 248);
             this.pbCedula.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbCedula.TabIndex = 25;
             this.pbCedula.TabStop = false;
             // 
-            // btnBuscar
+            // btnCleanAll
             // 
-            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Image = global::Sistema_Abogados.Properties.Resources.search;
-            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(417, 64);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(126, 36);
-            this.btnBuscar.TabIndex = 21;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // lblFechaUltimoPago
-            // 
-            this.lblFechaUltimoPago.AutoSize = true;
-            this.lblFechaUltimoPago.Location = new System.Drawing.Point(238, 175);
-            this.lblFechaUltimoPago.Name = "lblFechaUltimoPago";
-            this.lblFechaUltimoPago.Size = new System.Drawing.Size(67, 13);
-            this.lblFechaUltimoPago.TabIndex = 28;
-            this.lblFechaUltimoPago.Text = "Ultimo Pago:";
-            // 
-            // txtUltimoPago
-            // 
-            this.txtUltimoPago.Location = new System.Drawing.Point(311, 172);
-            this.txtUltimoPago.Name = "txtUltimoPago";
-            this.txtUltimoPago.Size = new System.Drawing.Size(152, 20);
-            this.txtUltimoPago.TabIndex = 29;
+            this.btnCleanAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCleanAll.Image = global::Sistema_Abogados.Properties.Resources._1361350698_edit_clear;
+            this.btnCleanAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCleanAll.Location = new System.Drawing.Point(716, 395);
+            this.btnCleanAll.Name = "btnCleanAll";
+            this.btnCleanAll.Size = new System.Drawing.Size(235, 57);
+            this.btnCleanAll.TabIndex = 31;
+            this.btnCleanAll.Text = "Limpiar Todo";
+            this.btnCleanAll.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCleanAll.UseVisualStyleBackColor = true;
+            this.btnCleanAll.Click += new System.EventHandler(this.btnCleanAll_Click);
             // 
             // frmFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkKhaki;
-            this.ClientSize = new System.Drawing.Size(855, 485);
-            this.Controls.Add(this.txtUltimoPago);
-            this.Controls.Add(this.lblFechaUltimoPago);
+            this.ClientSize = new System.Drawing.Size(991, 533);
+            this.Controls.Add(this.btnCleanAll);
+            this.Controls.Add(this.gbInformacionCaso);
+            this.Controls.Add(this.gbInformacionCliente);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnCobrar);
             this.Controls.Add(this.pbCedula);
-            this.Controls.Add(this.btnCalcular);
-            this.Controls.Add(this.txtCantDevolver);
-            this.Controls.Add(this.lblDevuelta);
-            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnSeleccionar);
-            this.Controls.Add(this.txtCantPagar);
-            this.Controls.Add(this.lblCantidadaPagar);
-            this.Controls.Add(this.txtServicio);
-            this.Controls.Add(this.lblServicio);
-            this.Controls.Add(this.txtNumeroCaso);
-            this.Controls.Add(this.lblNumeroCaso);
-            this.Controls.Add(this.txtMoneda);
-            this.Controls.Add(this.lblMoneda);
-            this.Controls.Add(this.txtTotalaPagar);
-            this.Controls.Add(this.lblTotalaPagar);
-            this.Controls.Add(this.txtApellido);
-            this.Controls.Add(this.lblApellido);
-            this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.lblNombreCli);
-            this.Controls.Add(this.txtCedula);
-            this.Controls.Add(this.lblCedula);
             this.Controls.Add(this.dgvFacturacion);
             this.Controls.Add(this.gbParametrosBusqueda);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -408,9 +474,12 @@
             this.gbParametrosBusqueda.ResumeLayout(false);
             this.gbParametrosBusqueda.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturacion)).EndInit();
+            this.gbInformacionCliente.ResumeLayout(false);
+            this.gbInformacionCliente.PerformLayout();
+            this.gbInformacionCaso.ResumeLayout(false);
+            this.gbInformacionCaso.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCedula)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -448,5 +517,10 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label lblFechaUltimoPago;
         private System.Windows.Forms.TextBox txtUltimoPago;
+        private System.Windows.Forms.GroupBox gbInformacionCliente;
+        private System.Windows.Forms.GroupBox gbInformacionCaso;
+        private System.Windows.Forms.Button btnCleanCustoInfo;
+        private System.Windows.Forms.Button btnCleanCaseInfo;
+        private System.Windows.Forms.Button btnCleanAll;
     }
 }

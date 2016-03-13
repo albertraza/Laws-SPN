@@ -55,6 +55,8 @@ namespace Sistema_Abogados
             txtIDDemandante.Focus();
             cID1 = null;
             cID2 = null;
+            pbDemandado.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
+            pbDemandante.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
         }
         public frmDivorcios()
         {
@@ -64,6 +66,7 @@ namespace Sistema_Abogados
         private void frmDivorcios_Load(object sender, EventArgs e)
         {
             try {
+                clearInputs();
                 ControlBox = false;
                 disableInputs();
                 servicios pser = servicios.getServiceInfo("4");
@@ -183,6 +186,7 @@ namespace Sistema_Abogados
             txtCellphoneDemandante.Clear();
             txtCedulaDemandante.Clear();
             cID1 = null;
+            pbDemandante.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
         }
         // when Limpiar button is clickec on Demandado.
         private void btnClearDemandado_Click(object sender, EventArgs e)
@@ -195,6 +199,7 @@ namespace Sistema_Abogados
             txtCellphoneDemandado.Clear();
             txtCedulaDemandado.Clear();
             cID2 = null;
+            pbDemandado.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
         }
         // when buscar demandante button is clicked.
         private void btnSearchDemandante_Click(object sender, EventArgs e)
