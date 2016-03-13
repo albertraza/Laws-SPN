@@ -53,6 +53,8 @@
     <Compile Include="clientes.cs" />
     <Compile Include="DBcomun.cs" />
     <Compile Include="divorcios.cs" />
+    <Compile Include="facturacion.cs" />
+    <Compile Include="facturacionBaseObj.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +102,12 @@
     </Compile>
     <Compile Include="frmDivorciosSearch.Designer.cs">
       <DependentUpon>frmDivorciosSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFacturacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFacturacion.Designer.cs">
+      <DependentUpon>frmFacturacion.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -197,6 +205,9 @@
     <EmbeddedResource Include="frmDivorciosSearch.resx">
       <DependentUpon>frmDivorciosSearch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmFacturacion.resx">
+      <DependentUpon>frmFacturacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -266,6 +277,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\latest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checkout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
