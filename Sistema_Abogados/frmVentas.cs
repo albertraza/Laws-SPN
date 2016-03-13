@@ -385,7 +385,7 @@ namespace Sistema_Abogados
                                 if (ventas.register(vID, cID, txtDescripcion.Text + " Matricula: " + txtMatricula.Text, txtTotalPagar.Text, txtHonorarios.Text, txtAbono.Text, "5") > 0)
                                 {
                                     MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    facturacion.registerVentas(vID, "5", ventas.getID(pVendedor.Nombre, pVendedor.Apellido, pComprador1.Nombre, pComprador1.Apellido, txtDescripcion.Text, pVendedor.Cedula, pComprador1.Cedula), txtTotalPagar.Text, txtAbono.Text);
+                                    facturacion.registerVentas(vID, "5", ventas.getID(pVendedor.Nombre, pVendedor.Apellido, pComprador1.Nombre, pComprador1.Apellido, pVendedor.Cedula, pComprador1.Cedula), txtTotalPagar.Text, txtAbono.Text);
                                     cleanEverything();
                                     disableInputs();
                                 }
@@ -406,7 +406,7 @@ namespace Sistema_Abogados
                             if (ventas.register(vID, cID, txtDescripcion.Text, txtTotalPagar.Text, txtHonorarios.Text, txtAbono.Text, "5") > 0)
                             {
                                 MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                facturacion.registerVentas(vID, "5", ventas.getID(pVendedor.Nombre, pVendedor.Apellido, pComprador1.Nombre, pComprador1.Apellido, txtDescripcion.Text, pVendedor.Cedula, pComprador1.Cedula), txtTotalPagar.Text, txtAbono.Text);
+                                facturacion.registerVentas(vID, "5", ventas.getID(pVendedor.Nombre, pVendedor.Apellido, pComprador1.Nombre, pComprador1.Apellido, pVendedor.Cedula, pComprador1.Cedula), txtTotalPagar.Text, txtAbono.Text);
                                 cleanEverything();
                                 disableInputs();
                             }
