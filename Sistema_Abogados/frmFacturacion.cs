@@ -398,7 +398,7 @@ namespace Sistema_Abogados
 
                             DateTime fechaActual = DateTime.Today.Date;
                             DateTime proximoPago;
-                            if (pBaseObjfactura.fechaUltimoPago == null)
+                            if (pBaseObjfactura.fechaUltimoPago == null || pBaseObjfactura.fechaUltimoPago == string.Empty)
                             {
                                 txtUltimoPago.Text = "No se ha hecho un pago";
                                 proximoPago = fechaActual.AddMonths(1);
@@ -417,7 +417,7 @@ namespace Sistema_Abogados
                             else
                             {
                                 txtTotalaPagar.Text = (Convert.ToDouble(pFacturaBase.TotalPago_Mensualidad) + Convert.ToDouble(pBaseObjfactura.Abono_Deposito)).ToString("f2");
-                                lblTotalaPagar.Text = "Mensuali. y Dep. :";
+                                lblTotalaPagar.Text = "Mensuali. y Dep :";
                             }
                             pbCedula.Image = Image.FromFile(pCliente.Image);
                         }
@@ -603,7 +603,7 @@ namespace Sistema_Abogados
                     pr = tp - cp;
                     DateTime proximoPago;
                     DateTime fechaActual = DateTime.Today.Date;
-                    if(pBaseObjfactura.fechaUltimoPago == null)
+                    if(pBaseObjfactura.fechaUltimoPago == null || pBaseObjfactura.fechaUltimoPago == string.Empty)
                     {
                         proximoPago = fechaActual.AddMonths(1);
                     }

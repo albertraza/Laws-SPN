@@ -63,6 +63,9 @@
             this.txtIDBuy = new System.Windows.Forms.TextBox();
             this.lblIDBuy = new System.Windows.Forms.Label();
             this.gbInfoPagos = new System.Windows.Forms.GroupBox();
+            this.btnCalcular = new System.Windows.Forms.Button();
+            this.txtTotalPagar = new System.Windows.Forms.TextBox();
+            this.lblTotalPagar = new System.Windows.Forms.Label();
             this.txtMatricula = new System.Windows.Forms.MaskedTextBox();
             this.lblMatricula = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
@@ -409,6 +412,9 @@
             // 
             // gbInfoPagos
             // 
+            this.gbInfoPagos.Controls.Add(this.btnCalcular);
+            this.gbInfoPagos.Controls.Add(this.txtTotalPagar);
+            this.gbInfoPagos.Controls.Add(this.lblTotalPagar);
             this.gbInfoPagos.Controls.Add(this.txtMatricula);
             this.gbInfoPagos.Controls.Add(this.lblMatricula);
             this.gbInfoPagos.Controls.Add(this.txtDescripcion);
@@ -427,6 +433,32 @@
             this.gbInfoPagos.TabIndex = 2;
             this.gbInfoPagos.TabStop = false;
             this.gbInfoPagos.Text = "Informacion Venta";
+            // 
+            // btnCalcular
+            // 
+            this.btnCalcular.Location = new System.Drawing.Point(701, 106);
+            this.btnCalcular.Name = "btnCalcular";
+            this.btnCalcular.Size = new System.Drawing.Size(75, 23);
+            this.btnCalcular.TabIndex = 14;
+            this.btnCalcular.Text = "Calcular";
+            this.btnCalcular.UseVisualStyleBackColor = true;
+            this.btnCalcular.Click += new System.EventHandler(this.btnCalcular_Click);
+            // 
+            // txtTotalPagar
+            // 
+            this.txtTotalPagar.Location = new System.Drawing.Point(594, 108);
+            this.txtTotalPagar.Name = "txtTotalPagar";
+            this.txtTotalPagar.Size = new System.Drawing.Size(100, 20);
+            this.txtTotalPagar.TabIndex = 13;
+            // 
+            // lblTotalPagar
+            // 
+            this.lblTotalPagar.AutoSize = true;
+            this.lblTotalPagar.Location = new System.Drawing.Point(529, 111);
+            this.lblTotalPagar.Name = "lblTotalPagar";
+            this.lblTotalPagar.Size = new System.Drawing.Size(65, 13);
+            this.lblTotalPagar.TabIndex = 12;
+            this.lblTotalPagar.Text = "Total Pagar:";
             // 
             // txtMatricula
             // 
@@ -483,7 +515,7 @@
             // 
             // txtPrecioVenta
             // 
-            this.txtPrecioVenta.Location = new System.Drawing.Point(482, 108);
+            this.txtPrecioVenta.Location = new System.Drawing.Point(400, 108);
             this.txtPrecioVenta.Name = "txtPrecioVenta";
             this.txtPrecioVenta.Size = new System.Drawing.Size(100, 20);
             this.txtPrecioVenta.TabIndex = 5;
@@ -491,7 +523,7 @@
             // lblPreciodeVenta
             // 
             this.lblPreciodeVenta.AutoSize = true;
-            this.lblPreciodeVenta.Location = new System.Drawing.Point(405, 111);
+            this.lblPreciodeVenta.Location = new System.Drawing.Point(323, 111);
             this.lblPreciodeVenta.Name = "lblPreciodeVenta";
             this.lblPreciodeVenta.Size = new System.Drawing.Size(71, 13);
             this.lblPreciodeVenta.TabIndex = 4;
@@ -499,15 +531,15 @@
             // 
             // txtAbono
             // 
-            this.txtAbono.Location = new System.Drawing.Point(279, 108);
+            this.txtAbono.Location = new System.Drawing.Point(235, 108);
             this.txtAbono.Name = "txtAbono";
-            this.txtAbono.Size = new System.Drawing.Size(100, 20);
+            this.txtAbono.Size = new System.Drawing.Size(71, 20);
             this.txtAbono.TabIndex = 3;
             // 
             // lblAbono
             // 
             this.lblAbono.AutoSize = true;
-            this.lblAbono.Location = new System.Drawing.Point(232, 111);
+            this.lblAbono.Location = new System.Drawing.Point(188, 111);
             this.lblAbono.Name = "lblAbono";
             this.lblAbono.Size = new System.Drawing.Size(41, 13);
             this.lblAbono.TabIndex = 2;
@@ -517,7 +549,7 @@
             // 
             this.txtHonorarios.Location = new System.Drawing.Point(98, 108);
             this.txtHonorarios.Name = "txtHonorarios";
-            this.txtHonorarios.Size = new System.Drawing.Size(100, 20);
+            this.txtHonorarios.Size = new System.Drawing.Size(79, 20);
             this.txtHonorarios.TabIndex = 1;
             // 
             // lblHonorarios
@@ -640,5 +672,8 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.PictureBox pbVendedor;
         private System.Windows.Forms.PictureBox pbComprador;
+        private System.Windows.Forms.Button btnCalcular;
+        private System.Windows.Forms.TextBox txtTotalPagar;
+        private System.Windows.Forms.Label lblTotalPagar;
     }
 }

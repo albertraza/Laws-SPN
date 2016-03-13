@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gbDemandante = new System.Windows.Forms.GroupBox();
+            this.pbDemandante = new System.Windows.Forms.PictureBox();
             this.lblSearchDemandante = new System.Windows.Forms.LinkLabel();
             this.btnSearchDemandante = new System.Windows.Forms.Button();
             this.btnClearDemandante = new System.Windows.Forms.Button();
@@ -45,6 +46,7 @@
             this.txtIDDemandante = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
             this.gbInfoDemandado = new System.Windows.Forms.GroupBox();
+            this.pbDemandado = new System.Windows.Forms.PictureBox();
             this.lblSearchDemandado = new System.Windows.Forms.LinkLabel();
             this.btnSearchDemandado = new System.Windows.Forms.Button();
             this.btnClearDemandado = new System.Windows.Forms.Button();
@@ -71,13 +73,14 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnClearAll = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
-            this.pbDemandante = new System.Windows.Forms.PictureBox();
-            this.pbDemandado = new System.Windows.Forms.PictureBox();
+            this.lblTotalPagar = new System.Windows.Forms.Label();
+            this.txtTotalPagar = new System.Windows.Forms.TextBox();
+            this.btnCalcular = new System.Windows.Forms.Button();
             this.gbDemandante.SuspendLayout();
-            this.gbInfoDemandado.SuspendLayout();
-            this.gbInfomacionPagos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbDemandante)).BeginInit();
+            this.gbInfoDemandado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbDemandado)).BeginInit();
+            this.gbInfomacionPagos.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbDemandante
@@ -104,6 +107,15 @@
             this.gbDemandante.TabIndex = 0;
             this.gbDemandante.TabStop = false;
             this.gbDemandante.Text = "Infomacion Demandante";
+            // 
+            // pbDemandante
+            // 
+            this.pbDemandante.Location = new System.Drawing.Point(21, 161);
+            this.pbDemandante.Name = "pbDemandante";
+            this.pbDemandante.Size = new System.Drawing.Size(339, 169);
+            this.pbDemandante.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbDemandante.TabIndex = 15;
+            this.pbDemandante.TabStop = false;
             // 
             // lblSearchDemandante
             // 
@@ -257,6 +269,15 @@
             this.gbInfoDemandado.TabStop = false;
             this.gbInfoDemandado.Text = "Infomacion Demandado";
             // 
+            // pbDemandado
+            // 
+            this.pbDemandado.Location = new System.Drawing.Point(21, 161);
+            this.pbDemandado.Name = "pbDemandado";
+            this.pbDemandado.Size = new System.Drawing.Size(339, 169);
+            this.pbDemandado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbDemandado.TabIndex = 16;
+            this.pbDemandado.TabStop = false;
+            // 
             // lblSearchDemandado
             // 
             this.lblSearchDemandado.AutoSize = true;
@@ -386,6 +407,9 @@
             // 
             // gbInfomacionPagos
             // 
+            this.gbInfomacionPagos.Controls.Add(this.btnCalcular);
+            this.gbInfomacionPagos.Controls.Add(this.lblTotalPagar);
+            this.gbInfomacionPagos.Controls.Add(this.txtTotalPagar);
             this.gbInfomacionPagos.Controls.Add(this.btnModificar);
             this.gbInfomacionPagos.Controls.Add(this.lblAbono);
             this.gbInfomacionPagos.Controls.Add(this.txtAbono);
@@ -403,7 +427,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(687, 22);
+            this.btnModificar.Location = new System.Drawing.Point(643, 23);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 7;
@@ -414,7 +438,7 @@
             // lblAbono
             // 
             this.lblAbono.AutoSize = true;
-            this.lblAbono.Location = new System.Drawing.Point(411, 28);
+            this.lblAbono.Location = new System.Drawing.Point(324, 28);
             this.lblAbono.Name = "lblAbono";
             this.lblAbono.Size = new System.Drawing.Size(41, 13);
             this.lblAbono.TabIndex = 6;
@@ -422,22 +446,22 @@
             // 
             // txtAbono
             // 
-            this.txtAbono.Location = new System.Drawing.Point(457, 25);
+            this.txtAbono.Location = new System.Drawing.Point(370, 25);
             this.txtAbono.Name = "txtAbono";
-            this.txtAbono.Size = new System.Drawing.Size(100, 20);
+            this.txtAbono.Size = new System.Drawing.Size(82, 20);
             this.txtAbono.TabIndex = 5;
             // 
             // txtHonorarios
             // 
-            this.txtHonorarios.Location = new System.Drawing.Point(294, 25);
+            this.txtHonorarios.Location = new System.Drawing.Point(221, 25);
             this.txtHonorarios.Name = "txtHonorarios";
-            this.txtHonorarios.Size = new System.Drawing.Size(100, 20);
+            this.txtHonorarios.Size = new System.Drawing.Size(80, 20);
             this.txtHonorarios.TabIndex = 3;
             // 
             // lblHonorarios
             // 
             this.lblHonorarios.AutoSize = true;
-            this.lblHonorarios.Location = new System.Drawing.Point(227, 28);
+            this.lblHonorarios.Location = new System.Drawing.Point(154, 28);
             this.lblHonorarios.Name = "lblHonorarios";
             this.lblHonorarios.Size = new System.Drawing.Size(61, 13);
             this.lblHonorarios.TabIndex = 2;
@@ -445,15 +469,15 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(88, 25);
+            this.txtPrecio.Location = new System.Drawing.Point(54, 25);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(100, 20);
+            this.txtPrecio.Size = new System.Drawing.Size(91, 20);
             this.txtPrecio.TabIndex = 1;
             // 
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(42, 28);
+            this.lblPrice.Location = new System.Drawing.Point(8, 28);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(40, 13);
             this.lblPrice.TabIndex = 0;
@@ -489,23 +513,31 @@
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
-            // pbDemandante
+            // lblTotalPagar
             // 
-            this.pbDemandante.Location = new System.Drawing.Point(21, 161);
-            this.pbDemandante.Name = "pbDemandante";
-            this.pbDemandante.Size = new System.Drawing.Size(339, 169);
-            this.pbDemandante.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbDemandante.TabIndex = 15;
-            this.pbDemandante.TabStop = false;
+            this.lblTotalPagar.AutoSize = true;
+            this.lblTotalPagar.Location = new System.Drawing.Point(468, 28);
+            this.lblTotalPagar.Name = "lblTotalPagar";
+            this.lblTotalPagar.Size = new System.Drawing.Size(74, 13);
+            this.lblTotalPagar.TabIndex = 9;
+            this.lblTotalPagar.Text = "Total a Pagar:";
             // 
-            // pbDemandado
+            // txtTotalPagar
             // 
-            this.pbDemandado.Location = new System.Drawing.Point(21, 161);
-            this.pbDemandado.Name = "pbDemandado";
-            this.pbDemandado.Size = new System.Drawing.Size(339, 169);
-            this.pbDemandado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbDemandado.TabIndex = 16;
-            this.pbDemandado.TabStop = false;
+            this.txtTotalPagar.Location = new System.Drawing.Point(545, 25);
+            this.txtTotalPagar.Name = "txtTotalPagar";
+            this.txtTotalPagar.Size = new System.Drawing.Size(78, 20);
+            this.txtTotalPagar.TabIndex = 8;
+            // 
+            // btnCalcular
+            // 
+            this.btnCalcular.Location = new System.Drawing.Point(724, 23);
+            this.btnCalcular.Name = "btnCalcular";
+            this.btnCalcular.Size = new System.Drawing.Size(75, 23);
+            this.btnCalcular.TabIndex = 10;
+            this.btnCalcular.Text = "Calcular";
+            this.btnCalcular.UseVisualStyleBackColor = true;
+            this.btnCalcular.Click += new System.EventHandler(this.btnCalcular_Click);
             // 
             // frmDivorcios
             // 
@@ -526,12 +558,12 @@
             this.Load += new System.EventHandler(this.frmDivorcios_Load);
             this.gbDemandante.ResumeLayout(false);
             this.gbDemandante.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDemandante)).EndInit();
             this.gbInfoDemandado.ResumeLayout(false);
             this.gbInfoDemandado.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDemandado)).EndInit();
             this.gbInfomacionPagos.ResumeLayout(false);
             this.gbInfomacionPagos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDemandante)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDemandado)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -583,5 +615,8 @@
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.PictureBox pbDemandante;
         private System.Windows.Forms.PictureBox pbDemandado;
+        private System.Windows.Forms.Button btnCalcular;
+        private System.Windows.Forms.Label lblTotalPagar;
+        private System.Windows.Forms.TextBox txtTotalPagar;
     }
 }

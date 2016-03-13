@@ -45,6 +45,7 @@ namespace Sistema_Abogados
             txtNameSeller.Enabled = false;
             txtPhoneBuy.Enabled = false;
             txtPhoneSeller.Enabled = false;
+            txtTotalPagar.Enabled = false;
             txtIDSeller.Focus();
         }
         // method for cleaning everything.
@@ -72,6 +73,7 @@ namespace Sistema_Abogados
             vID = null;
             pbComprador.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
             pbVendedor.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
+            txtTotalPagar.Clear();
         }
         public frmVentas()
         {
@@ -293,6 +295,29 @@ namespace Sistema_Abogados
             cID = null;
         }
 
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {
+            if(txtHonorarios.Text == string.Empty)
+            {
+                MessageBox.Show("El honorario esta vacio", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtHonorarios.Focus();
+            }
+            else if(txtAbono.Text == string.Empty)
+            {
+                MessageBox.Show("El Abono esta vacio", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtAbono.Focus();
+            }
+            else if(txtPrecioVenta.Text == string.Empty)
+            {
+                MessageBox.Show("El precio esta vacio", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPrecioVenta.Focus();
+            }
+            else
+            {
+                txtTotalPagar.Text = (Convert.ToDouble(txtHonorarios.Text) + Convert.ToDouble(txtPrecioVenta.Text)).ToString("f2");
+            }
+        }
+
         // when guardar button is clicked.
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -336,6 +361,11 @@ namespace Sistema_Abogados
             {
                 MessageBox.Show("El vendedor y el comprador son los mismos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else if(txtTotalPagar.Text == string.Empty)
+            {
+                MessageBox.Show("No se ha calculado el total a pagar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                btnCalcular.Focus();
+            }
             else
             {
                 if(cbInmueble.Text == string.Empty)
@@ -352,9 +382,10 @@ namespace Sistema_Abogados
                         {
                             if (txtMatricula.MaskCompleted)
                             {
-                                if (ventas.register(vID, cID, txtDescripcion.Text + " Matricula: " + txtMatricula.Text, txtPrecioVenta.Text, txtHonorarios.Text, txtAbono.Text, "5") > 0)
+                                if (ventas.register(vID, cID, txtDescripcion.Text + " Matricula: " + txtMatricula.Text, txtTotalPagar.Text, txtHonorarios.Text, txtAbono.Text, "5") > 0)
                                 {
                                     MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    facturacion.registerVentas(vID, "5", ventas.getID(pVendedor.Nombre, pVendedor.Apellido, pComprador1.Nombre, pComprador1.Apellido, txtDescripcion.Text, pVendedor.Cedula, pComprador1.Cedula), txtTotalPagar.Text, txtAbono.Text);
                                     cleanEverything();
                                     disableInputs();
                                 }
@@ -372,10 +403,10 @@ namespace Sistema_Abogados
                         else
                         {
                             // if it is not focus on vehiculos.
-                            if (ventas.register(vID, cID, txtDescripcion.Text, txtPrecioVenta.Text, txtHonorarios.Text, txtAbono.Text, "5") > 0)
+                            if (ventas.register(vID, cID, txtDescripcion.Text, txtTotalPagar.Text, txtHonorarios.Text, txtAbono.Text, "5") > 0)
                             {
                                 MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                facturacion.registerVentas(vID, "5", ventas.getID(pVendedor.Nombre, pVendedor.Apellido, pComprador1.Nombre, pComprador1.Apellido, txtDescripcion.Text, pVendedor.Cedula, pComprador1.Cedula), txtPrecioVenta.Text, txtAbono.Text);
+                                facturacion.registerVentas(vID, "5", ventas.getID(pVendedor.Nombre, pVendedor.Apellido, pComprador1.Nombre, pComprador1.Apellido, txtDescripcion.Text, pVendedor.Cedula, pComprador1.Cedula), txtTotalPagar.Text, txtAbono.Text);
                                 cleanEverything();
                                 disableInputs();
                             }

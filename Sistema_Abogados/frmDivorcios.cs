@@ -31,8 +31,8 @@ namespace Sistema_Abogados
             txtPhoneDemandado.Enabled = false;
             txtPhoneDemandante.Enabled = false;
             txtIDDemandante.Focus();
-            txtAbono.Enabled = false;
             txtPrecio.Enabled = false;
+            txtTotalPagar.Enabled = false;
         }
         // method for cleaning evrything.
         private void clearInputs()
@@ -57,6 +57,7 @@ namespace Sistema_Abogados
             cID2 = null;
             pbDemandado.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
             pbDemandante.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
+            txtTotalPagar.Clear();
         }
         public frmDivorcios()
         {
@@ -312,6 +313,30 @@ namespace Sistema_Abogados
         {
 
         }
+        // when calcular button is clicked.
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {
+            if (txtPrecio.Text == string.Empty)
+            {
+                MessageBox.Show("El precio esta vacio", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPrecio.Focus();
+            }
+            else if(txtHonorarios.Text == string.Empty)
+            {
+                MessageBox.Show("El Honorario esta vacio", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtHonorarios.Focus();
+            }
+            else if(txtAbono.Text == string.Empty)
+            {
+                MessageBox.Show("El abono esta vacio", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtAbono.Focus();
+            }
+            else
+            {
+                txtTotalPagar.Text = (Convert.ToDouble(txtPrecio.Text) + Convert.ToDouble(txtHonorarios.Text)).ToString("f2");
+            }
+        }
+
         // when Modificar button is clicked.
         private void btnModificar_Click(object sender, EventArgs e)
         {
@@ -351,14 +376,19 @@ namespace Sistema_Abogados
             {
                 MessageBox.Show("El demandante y el demandado son los mismos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else if(Convert.ToDouble(txtAbono.Text) == 0)
+            {
+                MessageBox.Show("El Abono no puede estar en 0", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtAbono.Focus();
+            }
             else
             {
                 try
                 {
-                    if(divorcios.register("4", cID2, cID1, txtPrecio.Text, txtHonorarios.Text, txtAbono.Text) > 0)
+                    if(divorcios.register("4", cID2, cID1, txtTotalPagar.Text, txtHonorarios.Text, txtAbono.Text) > 0)
                     {
                         MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        facturacion.registerDivorciosAccidente(cID1, "4", divorcios.getID(txtAbono.Text, pDemandante.Nombre, pDemandante.Apellido, pDemandado.Nombre, pDemandado.Apellido, pDemandante.Cedula, pDemandado.Cedula), txtPrecio.Text, txtAbono.Text);
+                        facturacion.registerDivorciosAccidente(cID1, "4", divorcios.getID(txtAbono.Text, pDemandante.Nombre, pDemandante.Apellido, pDemandado.Nombre, pDemandado.Apellido, pDemandante.Cedula, pDemandado.Cedula), txtTotalPagar.Text, txtAbono.Text);
                         clearInputs();
                         disableInputs();
                     }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gbInfoCustomer = new System.Windows.Forms.GroupBox();
+            this.pbCliente = new System.Windows.Forms.PictureBox();
             this.btnClearCustomer = new System.Windows.Forms.Button();
             this.lblSearchCust = new System.Windows.Forms.LinkLabel();
             this.btnSearchCustomer = new System.Windows.Forms.Button();
@@ -43,6 +44,7 @@
             this.txtCustID = new System.Windows.Forms.TextBox();
             this.lblCustID = new System.Windows.Forms.Label();
             this.gbInfoInqui = new System.Windows.Forms.GroupBox();
+            this.pbInquilino = new System.Windows.Forms.PictureBox();
             this.btnClearInqui = new System.Windows.Forms.Button();
             this.lblSearchInqui = new System.Windows.Forms.LinkLabel();
             this.btnSearchInqui = new System.Windows.Forms.Button();
@@ -57,6 +59,7 @@
             this.txtIDInqui = new System.Windows.Forms.TextBox();
             this.lblIDInqui = new System.Windows.Forms.Label();
             this.gbInfoGaran = new System.Windows.Forms.GroupBox();
+            this.pbGarante = new System.Windows.Forms.PictureBox();
             this.btnClearGaran = new System.Windows.Forms.Button();
             this.lblSearchGara = new System.Windows.Forms.LinkLabel();
             this.btnSearchGaran = new System.Windows.Forms.Button();
@@ -89,17 +92,17 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.pbCliente = new System.Windows.Forms.PictureBox();
-            this.pbInquilino = new System.Windows.Forms.PictureBox();
-            this.pbGarante = new System.Windows.Forms.PictureBox();
+            this.txtMensualidad = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnCalcular = new System.Windows.Forms.Button();
             this.gbInfoCustomer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCliente)).BeginInit();
             this.gbInfoInqui.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInquilino)).BeginInit();
             this.gbInfoGaran.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGarante)).BeginInit();
             this.gbInfoAlqui.SuspendLayout();
             this.gbInfoInmueble.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCliente)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInquilino)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbGarante)).BeginInit();
             this.SuspendLayout();
             // 
             // gbInfoCustomer
@@ -124,6 +127,15 @@
             this.gbInfoCustomer.TabIndex = 0;
             this.gbInfoCustomer.TabStop = false;
             this.gbInfoCustomer.Text = "Informacion Cliente";
+            // 
+            // pbCliente
+            // 
+            this.pbCliente.Location = new System.Drawing.Point(28, 134);
+            this.pbCliente.Name = "pbCliente";
+            this.pbCliente.Size = new System.Drawing.Size(243, 126);
+            this.pbCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbCliente.TabIndex = 24;
+            this.pbCliente.TabStop = false;
             // 
             // btnClearCustomer
             // 
@@ -262,6 +274,15 @@
             this.gbInfoInqui.TabStop = false;
             this.gbInfoInqui.Text = "Informacion  Inquilino";
             // 
+            // pbInquilino
+            // 
+            this.pbInquilino.Location = new System.Drawing.Point(34, 136);
+            this.pbInquilino.Name = "pbInquilino";
+            this.pbInquilino.Size = new System.Drawing.Size(243, 126);
+            this.pbInquilino.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbInquilino.TabIndex = 25;
+            this.pbInquilino.TabStop = false;
+            // 
             // btnClearInqui
             // 
             this.btnClearInqui.Location = new System.Drawing.Point(26, 266);
@@ -396,6 +417,15 @@
             this.gbInfoGaran.TabStop = false;
             this.gbInfoGaran.Text = "Informacion Garante";
             // 
+            // pbGarante
+            // 
+            this.pbGarante.Location = new System.Drawing.Point(17, 136);
+            this.pbGarante.Name = "pbGarante";
+            this.pbGarante.Size = new System.Drawing.Size(243, 126);
+            this.pbGarante.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbGarante.TabIndex = 25;
+            this.pbGarante.TabStop = false;
+            // 
             // btnClearGaran
             // 
             this.btnClearGaran.Location = new System.Drawing.Point(22, 266);
@@ -509,6 +539,9 @@
             // 
             // gbInfoAlqui
             // 
+            this.gbInfoAlqui.Controls.Add(this.btnCalcular);
+            this.gbInfoAlqui.Controls.Add(this.label1);
+            this.gbInfoAlqui.Controls.Add(this.txtMensualidad);
             this.gbInfoAlqui.Controls.Add(this.txtDeposito);
             this.gbInfoAlqui.Controls.Add(this.lblDeposito);
             this.gbInfoAlqui.Controls.Add(this.txtHonorarios);
@@ -519,7 +552,7 @@
             this.gbInfoAlqui.Controls.Add(this.lblPrice);
             this.gbInfoAlqui.Location = new System.Drawing.Point(12, 345);
             this.gbInfoAlqui.Name = "gbInfoAlqui";
-            this.gbInfoAlqui.Size = new System.Drawing.Size(299, 140);
+            this.gbInfoAlqui.Size = new System.Drawing.Size(299, 159);
             this.gbInfoAlqui.TabIndex = 3;
             this.gbInfoAlqui.TabStop = false;
             this.gbInfoAlqui.Text = "Alquiler";
@@ -527,7 +560,7 @@
             // 
             // txtDeposito
             // 
-            this.txtDeposito.Location = new System.Drawing.Point(214, 78);
+            this.txtDeposito.Location = new System.Drawing.Point(212, 71);
             this.txtDeposito.Name = "txtDeposito";
             this.txtDeposito.Size = new System.Drawing.Size(75, 20);
             this.txtDeposito.TabIndex = 22;
@@ -535,7 +568,7 @@
             // lblDeposito
             // 
             this.lblDeposito.AutoSize = true;
-            this.lblDeposito.Location = new System.Drawing.Point(156, 81);
+            this.lblDeposito.Location = new System.Drawing.Point(154, 74);
             this.lblDeposito.Name = "lblDeposito";
             this.lblDeposito.Size = new System.Drawing.Size(52, 13);
             this.lblDeposito.TabIndex = 21;
@@ -543,7 +576,7 @@
             // 
             // txtHonorarios
             // 
-            this.txtHonorarios.Location = new System.Drawing.Point(76, 78);
+            this.txtHonorarios.Location = new System.Drawing.Point(74, 71);
             this.txtHonorarios.Name = "txtHonorarios";
             this.txtHonorarios.Size = new System.Drawing.Size(75, 20);
             this.txtHonorarios.TabIndex = 20;
@@ -552,7 +585,7 @@
             // lblHonorarios
             // 
             this.lblHonorarios.AutoSize = true;
-            this.lblHonorarios.Location = new System.Drawing.Point(14, 81);
+            this.lblHonorarios.Location = new System.Drawing.Point(12, 74);
             this.lblHonorarios.Name = "lblHonorarios";
             this.lblHonorarios.Size = new System.Drawing.Size(61, 13);
             this.lblHonorarios.TabIndex = 19;
@@ -601,14 +634,14 @@
             this.gbInfoInmueble.Controls.Add(this.lblAddress);
             this.gbInfoInmueble.Location = new System.Drawing.Point(333, 345);
             this.gbInfoInmueble.Name = "gbInfoInmueble";
-            this.gbInfoInmueble.Size = new System.Drawing.Size(602, 140);
+            this.gbInfoInmueble.Size = new System.Drawing.Size(602, 159);
             this.gbInfoInmueble.TabIndex = 4;
             this.gbInfoInmueble.TabStop = false;
             this.gbInfoInmueble.Text = "Informacion Inmueble";
             // 
             // txtDetails
             // 
-            this.txtDetails.Location = new System.Drawing.Point(87, 75);
+            this.txtDetails.Location = new System.Drawing.Point(87, 84);
             this.txtDetails.Multiline = true;
             this.txtDetails.Name = "txtDetails";
             this.txtDetails.Size = new System.Drawing.Size(303, 46);
@@ -617,7 +650,7 @@
             // lblDetails
             // 
             this.lblDetails.AutoSize = true;
-            this.lblDetails.Location = new System.Drawing.Point(33, 78);
+            this.lblDetails.Location = new System.Drawing.Point(33, 87);
             this.lblDetails.Name = "lblDetails";
             this.lblDetails.Size = new System.Drawing.Size(48, 13);
             this.lblDetails.TabIndex = 5;
@@ -687,32 +720,31 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // pbCliente
+            // txtMensualidad
             // 
-            this.pbCliente.Location = new System.Drawing.Point(28, 134);
-            this.pbCliente.Name = "pbCliente";
-            this.pbCliente.Size = new System.Drawing.Size(243, 126);
-            this.pbCliente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbCliente.TabIndex = 24;
-            this.pbCliente.TabStop = false;
+            this.txtMensualidad.Location = new System.Drawing.Point(76, 110);
+            this.txtMensualidad.Name = "txtMensualidad";
+            this.txtMensualidad.Size = new System.Drawing.Size(80, 20);
+            this.txtMensualidad.TabIndex = 8;
             // 
-            // pbInquilino
+            // label1
             // 
-            this.pbInquilino.Location = new System.Drawing.Point(34, 136);
-            this.pbInquilino.Name = "pbInquilino";
-            this.pbInquilino.Size = new System.Drawing.Size(243, 126);
-            this.pbInquilino.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbInquilino.TabIndex = 25;
-            this.pbInquilino.TabStop = false;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 113);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 13);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Mensualidad:";
             // 
-            // pbGarante
+            // btnCalcular
             // 
-            this.pbGarante.Location = new System.Drawing.Point(17, 136);
-            this.pbGarante.Name = "pbGarante";
-            this.pbGarante.Size = new System.Drawing.Size(243, 126);
-            this.pbGarante.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbGarante.TabIndex = 25;
-            this.pbGarante.TabStop = false;
+            this.btnCalcular.Location = new System.Drawing.Point(196, 108);
+            this.btnCalcular.Name = "btnCalcular";
+            this.btnCalcular.Size = new System.Drawing.Size(75, 23);
+            this.btnCalcular.TabIndex = 8;
+            this.btnCalcular.Text = "Calcular";
+            this.btnCalcular.UseVisualStyleBackColor = true;
+            this.btnCalcular.Click += new System.EventHandler(this.btnCalcular_Click);
             // 
             // frmAlquiler
             // 
@@ -735,17 +767,17 @@
             this.Load += new System.EventHandler(this.frmAlquiler_Load);
             this.gbInfoCustomer.ResumeLayout(false);
             this.gbInfoCustomer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbCliente)).EndInit();
             this.gbInfoInqui.ResumeLayout(false);
             this.gbInfoInqui.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbInquilino)).EndInit();
             this.gbInfoGaran.ResumeLayout(false);
             this.gbInfoGaran.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGarante)).EndInit();
             this.gbInfoAlqui.ResumeLayout(false);
             this.gbInfoAlqui.PerformLayout();
             this.gbInfoInmueble.ResumeLayout(false);
             this.gbInfoInmueble.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCliente)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbInquilino)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbGarante)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -816,5 +848,8 @@
         private System.Windows.Forms.PictureBox pbCliente;
         private System.Windows.Forms.PictureBox pbInquilino;
         private System.Windows.Forms.PictureBox pbGarante;
+        private System.Windows.Forms.Button btnCalcular;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtMensualidad;
     }
 }

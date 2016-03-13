@@ -31,6 +31,7 @@ namespace Sistema_Abogados
             txtNameInqui.Enabled = false;
             txtPhoneGaran.Enabled = false;
             txtPhoneInqui.Enabled = false;
+            txtMensualidad.Enabled = false;
         }
         private void clearAll()
         {
@@ -62,6 +63,7 @@ namespace Sistema_Abogados
             pbCliente.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
             pbGarante.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
             pbInquilino.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
+            txtMensualidad.Clear();
         }
         // method for listing all Cities.
         private void listCities()
@@ -370,16 +372,26 @@ namespace Sistema_Abogados
             {
                 MessageBox.Show("El Cliente y el Garante son los mismos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else if(txtMensualidad.Text == string.Empty)
+            {
+                MessageBox.Show("No se ha calculado la mensualidad", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                btnCalcular.Focus();
+            }
+            else if(Convert.ToDouble(txtAbono.Text) == 0)
+            {
+                MessageBox.Show("El Abono no puede estar en 0", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtAbono.Focus();
+            }
             else
             {
                 // if all inputs are filled.
                 try
                 {
                     // execute method for registering the data on databse
-                    if (alquiler.register(cID, iID, gID, "3", txtPriceRent.Text, txtHonorarios.Text, txtDetails.Text, txtAddress.Text, sectores.getCityID(cbCities.Text), txtDeposito.Text, txtAbono.Text) > 0)
+                    if (alquiler.register(cID, iID, gID, "3", txtMensualidad.Text , txtHonorarios.Text, txtDetails.Text, txtAddress.Text, sectores.getCityID(cbCities.Text), txtDeposito.Text, txtAbono.Text, txtPriceRent.Text) > 0)
                     {
                         MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        facturacion.registerRent(cID, "3", alquiler.getID(pInquilino.Nombre, pInquilino.Apellido, pCliente.Nombre, pCliente.Apellido, pGarante.Nombre, pGarante.Apellido, pInquilino.Cedula, pCliente.Cedula, pGarante.Cedula), txtPriceRent.Text, txtDeposito.Text);
+                        facturacion.registerRent(cID, "3", alquiler.getID(pInquilino.Nombre, pInquilino.Apellido, pCliente.Nombre, pCliente.Apellido, pGarante.Nombre, pGarante.Apellido, pInquilino.Cedula, pCliente.Cedula, pGarante.Cedula), txtMensualidad.Text, txtDeposito.Text);
                         clearAll();
                         listCities();
                     }
@@ -418,6 +430,36 @@ namespace Sistema_Abogados
             iID = null;
             pbInquilino.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
         }
+        // when calcular button is cliked.
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {
+            if(txtPriceRent.Text == string.Empty)
+            {
+                MessageBox.Show("El Alquiler esta vacio", "Menjase", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPriceRent.Focus();
+            }
+            else if(txtHonorarios.Text == string.Empty)
+            {
+                MessageBox.Show("El honorario esta vacio", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtHonorarios.Focus();
+            }
+            else if(txtAbono.Text == string.Empty)
+            {
+                MessageBox.Show("El Abono esta vacio", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtAbono.Focus();
+            }
+            else if (txtDeposito.Text == string.Empty)
+            {
+                MessageBox.Show("El deposito esta vacio", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDeposito.Focus();
+            }
+            else
+            {
+                txtMensualidad.Text = (Convert.ToDouble(txtPriceRent.Text) + Convert.ToDouble(txtHonorarios.Text)).ToString("f2");
+            }
+
+        }
+
         // when Limpiar buttin is clicked on Garante.
         private void btnClearGaran_Click(object sender, EventArgs e)
         {

@@ -90,14 +90,14 @@ namespace Sistema_Abogados
             return list;
         }
         // method for getting ID.
-        public static string getID(string NombreV, string ApellidoV, string NombreC, string ApellidoC, string Descripcion, string cedulaV, string cedulaC)
+        public static string getID(string NombreV, string ApellidoV, string NombreC, string ApellidoC, string cedulaV, string cedulaC)
         {
             string r = null;
             using(SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("SELECT Venta.ID, SERVICIO.cService AS Servicio, VENDEDOR.name AS NombreVe, VENDEDOR.lastname AS ApellidoVe, COMPRADOR.name AS NombreCo, COMPRADOR.lastname AS ApellidoCo, Venta.Descripcion, Venta.Abono, Venta.Honorarios, Venta.MontoVenta FROM Venta INNER JOIN customers as VENDEDOR ON VENDEDOR.ID = Venta.VendedorID INNER JOIN customers AS COMPRADOR ON COMPRADOR.ID = Venta.CompradorID INNER JOIN services AS SERVICIO ON SERVICIO.ID = Venta.ServiceID " + 
-                    " WHERE VENDEDOR.name = '{0}' AND VENDEDOR.lastname = '{1}' AND VENDEDOR.idcard = '{2}' AND COMPRADOR.name = '{3}' AND COMPRADOR.lastname = '{4}' AND COMPRADOR.idcard = '{5}' AND Venta.Descripcion = '{6}'",
-                    NombreV, ApellidoV, cedulaV, NombreC, ApellidoC, cedulaC, Descripcion), con);
+                SqlCommand comand = new SqlCommand(string.Format("SELECT Venta.ID FROM Venta INNER JOIN customers as VENDEDOR ON VENDEDOR.ID = Venta.VendedorID INNER JOIN customers AS COMPRADOR ON COMPRADOR.ID = Venta.CompradorID INNER JOIN services AS SERVICIO ON SERVICIO.ID = Venta.ServiceID " + 
+                    " WHERE VENDEDOR.name = '{0}' AND VENDEDOR.lastname = '{1}' AND VENDEDOR.idcard = '{2}' AND COMPRADOR.name = '{3}' AND COMPRADOR.lastname = '{4}' AND COMPRADOR.idcard = '{5}'",
+                    NombreV, ApellidoV, cedulaV, NombreC, ApellidoC, cedulaC), con);
                 SqlDataReader re = comand.ExecuteReader();
                 if (re.HasRows)
                 {
