@@ -14,6 +14,8 @@ namespace Sistema_Abogados
     {
         // variables for storing customers ID's.
         private string cID1 = null, cID2 = null;
+        // clientes object declaration.
+        clientes pDemandante, pDemandado;
         // method for disabling all inputs.
         private void disableInputs()
         {
@@ -98,6 +100,7 @@ namespace Sistema_Abogados
                         if (pClientes.Status == "Demandante")
                         {
                             cID1 = pClientes.ID;
+                            pDemandante = pClientes;
                             pbDemandante.Image = Image.FromFile(pClientes.Image);
                             txtNameDemandante.Text = pClientes.Nombre;
                             txtLastNameDemandante.Text = pClientes.Apellido;
@@ -141,6 +144,7 @@ namespace Sistema_Abogados
                         clientes pClientes = clientes.getCustomerObject(txtIDDemandado.Text);
                         if (pClientes.Status == "Demandado")
                         {
+                            pDemandado = pClientes;
                             cID2 = pClientes.ID;
                             pbDemandado.Image = Image.FromFile(pClientes.Image);
                             txtNameDemandado.Text = pClientes.Nombre;
@@ -209,6 +213,7 @@ namespace Sistema_Abogados
                         clientes pClientes = clientes.getCustomerObject(pCustomer.pCustSelectedID);
                         if (pClientes.Status == "Demandante")
                         {
+                            pDemandante = pClientes;
                             cID1 = pClientes.ID;
                             pbDemandante.Image = Image.FromFile(pClientes.Image);
                             txtIDDemandante.Text = pClientes.ID;
@@ -258,6 +263,7 @@ namespace Sistema_Abogados
                         clientes pClientes = clientes.getCustomerObject(pCustomer.pCustSelectedID);
                         if (pClientes.Status == "Demandado")
                         {
+                            pDemandado = pClientes;
                             cID2 = pClientes.ID;
                             pbDemandado.Image = Image.FromFile(pClientes.Image);
                             txtIDDemandado.Text = pClientes.ID;
@@ -347,6 +353,7 @@ namespace Sistema_Abogados
                     if(divorcios.register("4", cID2, cID1, txtPrecio.Text, txtHonorarios.Text, txtAbono.Text) > 0)
                     {
                         MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        facturacion.registerDivorciosAccidente(cID1, "4", divorcios.getID(txtAbono.Text, pDemandante.Nombre, pDemandante.Apellido, pDemandado.Nombre, pDemandado.Apellido, pDemandante.Cedula, pDemandado.Cedula), txtPrecio.Text, txtAbono.Text);
                         clearInputs();
                         disableInputs();
                     }

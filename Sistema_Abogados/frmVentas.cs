@@ -15,6 +15,8 @@ namespace Sistema_Abogados
     {
         // variables for storing customer ID.
         private string vID = null, cID = null;
+        // clientes object for getting data.
+        clientes pVendedor, pComprador1;
         // method for listing all thisngs for selling.
         private void listThings()
         {
@@ -126,6 +128,7 @@ namespace Sistema_Abogados
                         if (pClientes.Status == "Vendedor")
                         {
                             vID = pClientes.ID;
+                            pVendedor = pClientes;
                             pbVendedor.Image = Image.FromFile(pClientes.Image);
                             txtNameSeller.Text = pClientes.Nombre;
                             txtLastNameSeller.Text = pClientes.Apellido;
@@ -170,6 +173,7 @@ namespace Sistema_Abogados
                         if (pClientes.Status == "Comprador")
                         {
                             cID = pClientes.ID;
+                            pComprador1 = pClientes;
                             pbComprador.Image = Image.FromFile(pClientes.Image);
                             txtNameBuy.Text = pClientes.Nombre;
                             txtLastNameBuy.Text = pClientes.Apellido;
@@ -213,6 +217,7 @@ namespace Sistema_Abogados
                         clientes pClientes = clientes.getCustomerObject(pCustomer.pCustSelectedID);
                         if (pClientes.Status == "Vendedor")
                         {
+                            pVendedor = pClientes;
                             vID = pClientes.ID;
                             txtIDSeller.Text = pClientes.ID;
                             pbVendedor.Image = Image.FromFile(pClientes.Image);
@@ -339,6 +344,7 @@ namespace Sistema_Abogados
                             if (ventas.register(vID, cID, txtDescripcion.Text, txtPrecioVenta.Text, txtHonorarios.Text, txtAbono.Text, "5") > 0)
                             {
                                 MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                facturacion.registerVentas(vID, "5", ventas.getID(pVendedor.Nombre, pVendedor.Apellido, pComprador1.Nombre, pComprador1.Apellido, txtDescripcion.Text, pVendedor.Cedula, pComprador1.Cedula), txtPrecioVenta.Text, txtAbono.Text);
                                 cleanEverything();
                                 disableInputs();
                             }
@@ -374,6 +380,7 @@ namespace Sistema_Abogados
                         if (pClientes.Status == "Comprador")
                         {
                             cID = pClientes.ID;
+                            pComprador1 = pClientes;
                             pbComprador.Image = Image.FromFile(pClientes.Image);
                             txtIDBuy.Text = pClientes.ID;
                             txtNameBuy.Text = pClientes.Nombre;

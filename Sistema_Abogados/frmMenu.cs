@@ -107,5 +107,11 @@ namespace Sistema_Abogados
         {
             new frmVentasSearch().Show();
         }
+
+        private void cobrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new frmFacturacion().Show();
+        }
     }
 }

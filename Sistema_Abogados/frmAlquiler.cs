@@ -14,6 +14,8 @@ namespace Sistema_Abogados
     {
         // variables for saving ID's.
         private string cID = null, iID = null, gID = null;
+        // cliente object for getting rent ID.
+        clientes pInquilino, pCliente, pGarante;
         // menthod for disabling all inputs
         private void disableControls()
         {
@@ -108,6 +110,7 @@ namespace Sistema_Abogados
                 clientes pClientes = clientes.getCustomerObject(pSearch.pCustSelectedID);
                 if (pClientes.Status == "Inquilino")
                 {
+                    pInquilino = pClientes;
                     txtIDInqui.Text = pClientes.ID;
                     pbInquilino.Image = Image.FromFile(pClientes.Image);
                     txtNameInqui.Text = pClientes.Nombre;
@@ -175,6 +178,7 @@ namespace Sistema_Abogados
                     clientes pClientes = clientes.getCustomerObject(txtIDInqui.Text);
                     if (pClientes.Status == "Inquilino")
                     {
+                        pInquilino = pClientes;
                         txtNameInqui.Text = pClientes.Nombre;
                         pbInquilino.Image = Image.FromFile(pClientes.Image);
                         txtLastNameInqui.Text = pClientes.Apellido;
@@ -211,6 +215,7 @@ namespace Sistema_Abogados
                     clientes pClientes = clientes.getCustomerObject(txtIDGaran.Text);
                     if (pClientes.Status == "Garante")
                     {
+                        pGarante = pClientes;
                         txtNameGaran.Text = pClientes.Nombre;
                         pbGarante.Image = Image.FromFile(pClientes.Image);
                         txtLastNameGaran.Text = pClientes.Apellido;
@@ -246,6 +251,7 @@ namespace Sistema_Abogados
                 clientes pClientes = clientes.getCustomerObject(pc.pCustSelectedID);
                 if (pClientes.Status == "Cliente")
                 {
+                    pCliente = pClientes;
                     txtCustID.Text = pClientes.ID;
                     pbCliente.Image = Image.FromFile(pClientes.Image);
                     txtCustName.Text = pClientes.Nombre;
@@ -280,6 +286,7 @@ namespace Sistema_Abogados
                 clientes pClientes = clientes.getCustomerObject(pSearch.pCustSelectedID);
                 if (pClientes.Status == "Garante")
                 {
+                    pGarante = pClientes;
                     txtIDGaran.Text = pClientes.ID;
                     pbGarante.Image = Image.FromFile(pClientes.Image);
                     txtNameGaran.Text = pClientes.Nombre;
@@ -368,6 +375,7 @@ namespace Sistema_Abogados
                     if (alquiler.register(cID, iID, gID, "3", txtPriceRent.Text, txtHonorarios.Text, txtDetails.Text, txtAddress.Text, sectores.getCityID(cbCities.Text), txtDeposito.Text, txtAbono.Text) > 0)
                     {
                         MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        facturacion.registerRent(cID, "3", alquiler.getID(pInquilino.Nombre, pInquilino.Apellido, pCliente.Nombre, pCliente.Apellido, pGarante.Nombre, pGarante.Apellido, pInquilino.Cedula, pCliente.Cedula, pGarante.Cedula), txtPriceRent.Text, txtDeposito.Text);
                         clearAll();
                         listCities();
                     }
@@ -446,6 +454,7 @@ namespace Sistema_Abogados
                     clientes pClientes = clientes.getCustomerObject(txtCustID.Text);
                     if (pClientes.Status == "Cliente")
                     {
+                        pCliente = pClientes;
                         txtCustName.Text = pClientes.Nombre;
                         pbCliente.Image = Image.FromFile(pClientes.Image);
                         txtCustLastName.Text = pClientes.Apellido;

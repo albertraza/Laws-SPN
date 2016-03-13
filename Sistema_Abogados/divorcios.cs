@@ -101,5 +101,28 @@ namespace Sistema_Abogados
             }
             return list;
         }
+        // method for getting ID.
+        public static string getID(string Abono, string pNombreDemandante, string ApellidoDemandante, string NombreDemandado, string ApellidoDemandado, string cedulaDemandante, string cedulaDemandado)
+        {
+            string r = null;
+            using(SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("SELECT divorcios.ID FROM divorcios INNER JOIN customers AS DEMANDANTE ON DEMANDANTE.ID = divorcios.DemandanteID INNER JOIN customers AS DEMANDADO ON DEMANDADO.ID = divorcios.DemandadoID " +
+                    " WHERE DEMANDANTE.name = '{0}' AND DEMANDANTE.lastname = '{1}' AND DEMANDANTE.idcard = '{2}' AND DEMANDADO.name = '{3}' AND DEMANDADO.lastname = '{4}' AND DEMANDADO.idcard = '{5}' AND divorcios.Abono = '{6}'",
+                    pNombreDemandante, ApellidoDemandante, cedulaDemandante, NombreDemandado, ApellidoDemandado, cedulaDemandado, Abono), con);
+                SqlDataReader re = comand.ExecuteReader();
+                if (re.HasRows)
+                {
+                    re.Close();
+                    r = comand.ExecuteScalar().ToString();
+                }
+                else
+                {
+                    r = null;
+                }
+                con.Close();
+            }
+            return r;
+        }
     }
 }

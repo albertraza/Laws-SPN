@@ -112,5 +112,27 @@ namespace Sistema_Abogados
             }
             return list;
         }
+        public static string getID(string NombreIn, string ApellidoIn, string Nombrecl, string Apellidocl, string Nombrega, string Apellidoga, string cedulaIn, string cedulaCli, string cedulaGa)
+        {
+            string r = null;
+            using(SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("Select * FROM Rent INNER JOIN Cities ON Cities.ID = Rent.City INNER JOIN customers AS CLIENTE ON CLIENTE.ID = Rent.CLienteID INNER JOIN customers AS INQUILINO ON INQUILINO.ID = Rent.InquilinoID INNER JOIN customers AS GARANTE ON GARANTE.ID = Rent.GaranteID " + 
+                    " WHERE CLIENTE.name = '{0}' AND CLIENTE.lastname = '{1}' AND CLIENTE.idcard = '{2}' AND GARANTE.name = '{3}' AND GARANTE.lastname = '{4}' AND GARANTE.idcard = '{5}' AND INQUILINO.name = '{6}' AND INQUILINO.lastname = '{7}' AND INQUILINO.idcard = '{8}'",
+                    Nombrecl, Apellidocl, cedulaCli, Nombrega, Apellidoga, cedulaGa, NombreIn, ApellidoIn, cedulaIn), con);
+                SqlDataReader re = comand.ExecuteReader();
+                if (re.HasRows)
+                {
+                    re.Close();
+                    r = comand.ExecuteScalar().ToString();
+                }
+                else
+                {
+                    r = null;
+                }
+                con.Close();
+            }
+            return r;
+        }
     }
 }
