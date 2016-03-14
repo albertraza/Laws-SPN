@@ -26,7 +26,6 @@ namespace Sistema_Abogados
         // ******************************************** //
         private void frmFacturaAlquiler_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'AbogadosDBDataSet.FacturaAlquiler' table. You can move, or remove it, as needed.
             this.FacturaAlquilerTableAdapter.Fill(this.AbogadosDBDataSet.FacturaAlquiler, ID);
 
             this.reportViewer1.RefreshReport();

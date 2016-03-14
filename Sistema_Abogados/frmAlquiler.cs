@@ -455,7 +455,30 @@ namespace Sistema_Abogados
             }
             else
             {
-                txtMensualidad.Text = (Convert.ToDouble(txtPriceRent.Text) + Convert.ToDouble(txtHonorarios.Text)).ToString("f2");
+                if (Convert.ToDouble(txtPriceRent.Text) <= 0)
+                {
+                    MessageBox.Show("El alquiler no debe ser menor o igual a 0", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtPriceRent.Focus();
+                }
+                else if (Convert.ToDouble(txtHonorarios.Text) <= 0)
+                {
+                    MessageBox.Show("El honorario no puede ser menor o igual a 0", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtHonorarios.Focus();
+                }
+                else if (Convert.ToDouble(txtAbono.Text) <= 0)
+                {
+                    MessageBox.Show("El Abono no debe ser menor o igual a 0", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtAbono.Focus();
+                }
+                else if (Convert.ToDouble(txtDeposito.Text) <= 0)
+                {
+                    MessageBox.Show("El deposito debe ser mayor a 0", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtDeposito.Focus();
+                }
+                else
+                {
+                    txtMensualidad.Text = (Convert.ToDouble(txtPriceRent.Text) + Convert.ToDouble(txtHonorarios.Text)).ToString("f2");
+                }
             }
 
         }

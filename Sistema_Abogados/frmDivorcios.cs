@@ -333,7 +333,25 @@ namespace Sistema_Abogados
             }
             else
             {
-                txtTotalPagar.Text = (Convert.ToDouble(txtPrecio.Text) + Convert.ToDouble(txtHonorarios.Text)).ToString("f2");
+                if (Convert.ToDouble(txtPrecio.Text) <= 0)
+                {
+                    MessageBox.Show("El precio a cobrar no debe ser 0 o menor de 0", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtPrecio.Focus();
+                }
+                else if (Convert.ToDouble(txtHonorarios.Text) <= 0)
+                {
+                    MessageBox.Show("Los honorarios no deben ser igual a 0 o menor de 0", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtHonorarios.Focus();
+                }
+                else if (Convert.ToDouble(txtAbono.Text) <= 0)
+                {
+                    MessageBox.Show("El abono no debe ser igual o menor de 0", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtAbono.Focus();
+                }
+                else
+                {
+                    txtTotalPagar.Text = (Convert.ToDouble(txtPrecio.Text) + Convert.ToDouble(txtHonorarios.Text)).ToString("f2");
+                }
             }
         }
 
@@ -380,6 +398,11 @@ namespace Sistema_Abogados
             {
                 MessageBox.Show("El Abono no puede estar en 0", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtAbono.Focus();
+            }
+            else if(txtTotalPagar.Text == string.Empty)
+            {
+                MessageBox.Show("No se ha calculado la totalidad a pagar", "Mensualidad", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                btnCalcular.Focus();
             }
             else
             {

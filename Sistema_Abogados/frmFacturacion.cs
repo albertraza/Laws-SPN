@@ -516,7 +516,20 @@ namespace Sistema_Abogados
             }
             else
             {
-                txtCantDevolver.Text = (Convert.ToDouble(txtMoneda.Text) - Convert.ToDouble(txtCantPagar.Text)).ToString("f2");
+                if (Convert.ToDouble(txtMoneda.Text) <= 0)
+                {
+                    MessageBox.Show("La moneda con la que se pagara no debe ser igual o menor de 0", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtMoneda.Focus();
+                }
+                else if (Convert.ToDouble(txtCantPagar.Text) <= 0)
+                {
+                    MessageBox.Show("La cantidad a pagar no debe ser igual o menor a 0", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtCantPagar.Focus();
+                }
+                else
+                {
+                    txtCantDevolver.Text = (Convert.ToDouble(txtMoneda.Text) - Convert.ToDouble(txtCantPagar.Text)).ToString("f2");
+                }
             }
         }
         // when General radio button is clicked.
