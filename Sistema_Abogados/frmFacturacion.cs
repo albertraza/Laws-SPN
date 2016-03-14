@@ -631,7 +631,7 @@ namespace Sistema_Abogados
                             // Alquiler
                             if(Convert.ToDouble(pBaseObjfactura.Abono_Deposito) == 0)
                             {
-                                if(facturacion.registerFacturaRent(pCliente.ID, pService.ID, pBaseObjfactura.Case_ID, cp.ToString("f2"), pr.ToString("f2"), tp.ToString("f2"), proximoPago.ToString("yyyy-MM-dd"), pr.ToString("f2"), "Pago mensualidad") > 0)
+                                if(factura.registerFacturaRent(pCliente.ID, pService.ID, pBaseObjfactura.Case_ID, cp.ToString("f2"), pr.ToString("f2"), tp.ToString("f2"), proximoPago.ToString("yyyy-MM-dd"), pr.ToString("f2"), "Pago mensualidad") > 0)
                                 {
                                     MessageBox.Show("Factura registrada exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     facturacion.updateRentStatus(pBaseObjfactura.ID, "0", DateTime.Today.Date.ToString("yyyy-MM-dd"));
@@ -650,7 +650,7 @@ namespace Sistema_Abogados
                                 {
                                     deposito = 0;
                                 }
-                                if(facturacion.registerFacturaRent(pCliente.ID, pService.ID, pBaseObjfactura.Case_ID, cp.ToString("f2"), pr.ToString("f2"), tp.ToString("f2"), proximoPago.ToString("yyyy-MM-dd"), pr.ToString("f2"), "Pago mensualidad y deposito") > 0)
+                                if(factura.registerFacturaRent(pCliente.ID, pService.ID, pBaseObjfactura.Case_ID, cp.ToString("f2"), pr.ToString("f2"), tp.ToString("f2"), proximoPago.ToString("yyyy-MM-dd"), pr.ToString("f2"), "Pago mensualidad y deposito") > 0)
                                 {
                                     MessageBox.Show("Factura registrada Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     facturacion.updateRentStatus(pBaseObjfactura.ID, deposito.ToString("f2"), DateTime.Today.Date.ToString("yyyy-MM-dd"));
@@ -665,7 +665,7 @@ namespace Sistema_Abogados
                         else if(pBaseObjfactura.Service_ID == "4")
                         {
                             // Divorcios o Accidente
-                            if(facturacion.registerFacturaDivorciosAccidente(pBaseObjfactura.ID, pBaseObjfactura.Service_ID, pBaseObjfactura.Case_ID, tp.ToString("f2"), cp.ToString("f2"), pr.ToString("f2")) > 0)
+                            if(factura.registerFacturaDivorciosAccidente(pBaseObjfactura.ID, pBaseObjfactura.Service_ID, pBaseObjfactura.Case_ID, tp.ToString("f2"), cp.ToString("f2"), pr.ToString("f2")) > 0)
                             {
                                 MessageBox.Show("Factura registrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 facturacion.updateDivorciosAccidenteStatus(pBaseObjfactura.ID, pr.ToString("f2"), abono.ToString("f2"));
@@ -679,7 +679,7 @@ namespace Sistema_Abogados
                         else
                         {
                             // Ventas
-                            if(facturacion.registerFacturaVenta(pBaseObjfactura.ID, pBaseObjfactura.Service_ID, pBaseObjfactura.Case_ID, tp.ToString("f2"), cp.ToString("f2"), pr.ToString("f2")) > 0)
+                            if(factura.registerFacturaVenta(pBaseObjfactura.ID, pBaseObjfactura.Service_ID, pBaseObjfactura.Case_ID, tp.ToString("f2"), cp.ToString("f2"), pr.ToString("f2")) > 0)
                             {
                                 MessageBox.Show("Factura registrada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 facturacion.updateVentaStatus(pBaseObjfactura.ID, pr.ToString("f2"), abono.ToString("f2"));
