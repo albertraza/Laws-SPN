@@ -55,40 +55,6 @@ namespace Sistema_Abogados
             }
             return r;
         }
-        public static int registerFacturaRent(string clienteID, string servicioID, string casoID, string pago, string pagoRestante, string TotalPagar, string proximoPago, string nuevoBalance, string Detalles)
-        {
-            int r = -1;
-            using (SqlConnection con = DBcomun.getConnection())
-            {
-                SqlCommand comand = new SqlCommand(string.Format("INSERT INTO facturasAlquiler (clienteID, servicioID, casoID, TotalBalance, Pago, NuevoBalance, ProximoPago, Detalles) values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')",
-                    clienteID, servicioID, casoID, TotalPagar, pago, nuevoBalance, proximoPago, Detalles), con);
-                r = comand.ExecuteNonQuery();
-                con.Close();
-            }
-            return r;
-        }
-        public static int registerFacturaDivorciosAccidente(string clienteID, string servicioID, string casoID, string TotalBalance, string pago, string nuevoBalance)
-        {
-            int r = -1;
-            using(SqlConnection con = DBcomun.getConnection())
-            {
-                SqlCommand comand = new SqlCommand(string.Format("INSERT INTO facturasDivorciosAccidente (clienteID, servicioID, casoID, TotalBalance, Pago, NuevoBalance) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')", clienteID, servicioID, casoID, TotalBalance, pago, nuevoBalance), con);
-                r = comand.ExecuteNonQuery();
-                con.Close();
-            }
-            return r;
-        }
-        public static int registerFacturaVenta(string clienteID, string servicioID, string casoID, string TotalBalance, string pago, string nuevoBalance)
-        {
-            int r = -1;
-            using (SqlConnection con = DBcomun.getConnection())
-            {
-                SqlCommand comand = new SqlCommand(string.Format("INSERT INTO facturasVenta (clienteID, servicioID, casoID, TotalBalance, Pago, NuevoBalance) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')", clienteID, servicioID, casoID, TotalBalance, pago, nuevoBalance), con);
-                r = comand.ExecuteNonQuery();
-                con.Close();
-            }
-            return r;
-        }
         // methods for listing all.
         public static List<facturacion> listAllRent()
         {
