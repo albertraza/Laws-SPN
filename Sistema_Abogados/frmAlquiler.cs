@@ -64,6 +64,9 @@ namespace Sistema_Abogados
             pbGarante.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
             pbInquilino.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
             txtMensualidad.Clear();
+            rbCedulaCli.Checked = true;
+            rbCedulaGa.Checked = true;
+            rbCedulaIn.Checked = true;
         }
         // method for listing all Cities.
         private void listCities()
@@ -112,7 +115,7 @@ namespace Sistema_Abogados
                 // assign the ID value to the variable.
                 iID = pSearch.pCustSelectedID;
                 // load the customer.
-                clientes pClientes = clientes.getCustomerObject(pSearch.pCustSelectedID);
+                clientes pClientes = clientes.getCustomerObject(pSearch.pCustSelectedID, "");
                 if (pClientes.Status == "Inquilino")
                 {
                     pInquilino = pClientes;
@@ -169,75 +172,93 @@ namespace Sistema_Abogados
         // when Buscar Inquilino is clicked.
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            string ID, Cedula;
             if (string.IsNullOrEmpty(txtIDInqui.Text))
             {
-                MessageBox.Show("El ID del Inquilino esta vacio, digite uno valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtIDInqui.Focus();
+                ID = "";
             }
             else
             {
-                if (clientes.getCustomerObject(txtIDInqui.Text) != null)
+                ID = txtIDInqui.Text;
+            }
+            if (txtCedulaIn.MaskCompleted)
+            {
+                Cedula = txtCedulaIn.Text;
+            }
+            else
+            {
+                Cedula = "";
+            }
+            if (clientes.getCustomerObject(txtIDInqui.Text, txtCedulaIn.Text) != null)
+            {
+                // assign the ID value to the variable.
+                iID = txtIDInqui.Text;
+                // load the customer.
+                clientes pClientes = clientes.getCustomerObject(ID, Cedula);
+                if (pClientes.Status == "Inquilino")
                 {
-                    // assign the ID value to the variable.
-                    iID = txtIDInqui.Text;
-                    // load the customer.
-                    clientes pClientes = clientes.getCustomerObject(txtIDInqui.Text);
-                    if (pClientes.Status == "Inquilino")
-                    {
-                        pInquilino = pClientes;
-                        txtNameInqui.Text = pClientes.Nombre;
-                        pbInquilino.Image = Image.FromFile(pClientes.Image);
-                        txtLastNameInqui.Text = pClientes.Apellido;
-                        txtPhoneInqui.Text = pClientes.Telefono;
-                        txtCellphoneInqui.Text = pClientes.Celular;
-                    }
-                    else
-                    {
-                        MessageBox.Show("El cliente seleccionado no ha sido clasificado correctamente, seleccione un Inquilino", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        btnSearchInqui.Focus();
-                    }
+                    pInquilino = pClientes;
+                    txtNameInqui.Text = pClientes.Nombre;
+                    pbInquilino.Image = Image.FromFile(pClientes.Image);
+                    txtLastNameInqui.Text = pClientes.Apellido;
+                    txtPhoneInqui.Text = pClientes.Telefono;
+                    txtCellphoneInqui.Text = pClientes.Celular;
                 }
                 else
                 {
-                    MessageBox.Show("EL Inquilino no existe, digite un ID valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("El cliente seleccionado no ha sido clasificado correctamente, seleccione un Inquilino", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    btnSearchInqui.Focus();
                 }
+            }
+            else
+            {
+                MessageBox.Show("EL Inquilino no existe, digite un ID valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         // when buscar label is clicked on garante.
         private void lblSearchGara_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            string ID, cedula;
             if (string.IsNullOrEmpty(txtIDGaran.Text))
             {
-                MessageBox.Show("El ID del Garante esta vacio, digite uno valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtIDGaran.Focus();
+                ID = "";
             }
             else
             {
-                if (clientes.getCustomerObject(txtIDGaran.Text) != null)
+                ID = txtIDGaran.Text;
+            }
+            if (txtCedulaGa.MaskCompleted)
+            {
+                cedula = txtCedulaGa.Text;
+            }
+            else
+            {
+                cedula = "";
+            }
+            if (clientes.getCustomerObject(ID, cedula) != null)
+            {
+                // assign the ID value to the variable.
+                gID = txtIDGaran.Text;
+                // load the customer.
+                clientes pClientes = clientes.getCustomerObject(ID, cedula);
+                if (pClientes.Status == "Garante")
                 {
-                    // assign the ID value to the variable.
-                    gID = txtIDGaran.Text;
-                    // load the customer.
-                    clientes pClientes = clientes.getCustomerObject(txtIDGaran.Text);
-                    if (pClientes.Status == "Garante")
-                    {
-                        pGarante = pClientes;
-                        txtNameGaran.Text = pClientes.Nombre;
-                        pbGarante.Image = Image.FromFile(pClientes.Image);
-                        txtLastNameGaran.Text = pClientes.Apellido;
-                        txtPhoneGaran.Text = pClientes.Telefono;
-                        txtCellphoneGaran.Text = pClientes.Celular;
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se selecciono un garante, seleccione uno correcto de la lista", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        btnSearchGaran.Focus();
-                    }
+                    pGarante = pClientes;
+                    txtNameGaran.Text = pClientes.Nombre;
+                    pbGarante.Image = Image.FromFile(pClientes.Image);
+                    txtLastNameGaran.Text = pClientes.Apellido;
+                    txtPhoneGaran.Text = pClientes.Telefono;
+                    txtCellphoneGaran.Text = pClientes.Celular;
                 }
                 else
                 {
-                    MessageBox.Show("EL Garante no existe, digite un ID valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("No se selecciono un garante, seleccione uno correcto de la lista", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    btnSearchGaran.Focus();
                 }
+            }
+            else
+            {
+                MessageBox.Show("EL Garante no existe, digite un ID valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         // when buscar cliente is clicked.
@@ -254,7 +275,7 @@ namespace Sistema_Abogados
                 // assign the ID value to the variable.
                 cID = pc.pCustSelectedID;
                 // load the customer.
-                clientes pClientes = clientes.getCustomerObject(pc.pCustSelectedID);
+                clientes pClientes = clientes.getCustomerObject(pc.pCustSelectedID, "");
                 if (pClientes.Status == "Cliente")
                 {
                     pCliente = pClientes;
@@ -289,7 +310,7 @@ namespace Sistema_Abogados
                 // assign the ID value to the variable.
                 gID = pSearch.pCustSelectedID;
                 // load the customer.
-                clientes pClientes = clientes.getCustomerObject(pSearch.pCustSelectedID);
+                clientes pClientes = clientes.getCustomerObject(pSearch.pCustSelectedID, "");
                 if (pClientes.Status == "Garante")
                 {
                     pGarante = pClientes;
@@ -483,6 +504,90 @@ namespace Sistema_Abogados
 
         }
 
+        private void rbCedulaCli_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCedulaCli.Checked == true)
+            {
+                txtCedulaClie.Mask = "000-0000000-0";
+                lblCedula.Text = "Cedula:";
+            }
+            else
+            {
+                txtCedulaClie.Mask = "SE-000-0000";
+                lblCedula.Text = "Pasaporte:";
+            }
+        }
+
+        private void rbPasaporteCli_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCedulaCli.Checked == true)
+            {
+                txtCedulaClie.Mask = "000-0000000-0";
+                lblCedula.Text = "Cedula:";
+            }
+            else
+            {
+                txtCedulaClie.Mask = "SE-000-0000";
+                lblCedula.Text = "Pasaporte:";
+            }
+        }
+
+        private void rbCedulaIn_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rbCedulaIn.Checked == true)
+            {
+                txtCedulaIn.Mask = "000-0000000-0";
+                lblCedulaIn.Text = "Cedula:";
+            }
+            else
+            {
+                txtCedulaIn.Mask = "SE-000-0000";
+                lblCedulaIn.Text = "Pasaporte:";
+            }
+        }
+
+        private void rbPasaporteIn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCedulaIn.Checked == true)
+            {
+                txtCedulaIn.Mask = "000-0000000-0";
+                lblCedulaIn.Text = "Cedula:";
+            }
+            else
+            {
+                txtCedulaIn.Mask = "SE-000-0000";
+                lblCedulaIn.Text = "Pasaporte:";
+            }
+        }
+
+        private void rbCedulaGa_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rbCedulaGa.Checked == true)
+            {
+                txtCedulaGa.Mask = "000-0000000-0";
+                lblCedulaGa.Text = "Cedula:";
+            }
+            else
+            {
+                txtCedulaGa.Mask = "SE-000-0000";
+                lblCedulaGa.Text = "Pasaporte:";
+            }
+        }
+
+        private void rbPasaporteGa_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCedulaGa.Checked == true)
+            {
+                txtCedulaGa.Mask = "000-0000000-0";
+                lblCedulaGa.Text = "Cedula:";
+            }
+            else
+            {
+                txtCedulaGa.Mask = "SE-000-0000";
+                lblCedulaGa.Text = "Pasaporte:";
+            }
+        }
+
         // when Limpiar buttin is clicked on Garante.
         private void btnClearGaran_Click(object sender, EventArgs e)
         {
@@ -511,38 +616,47 @@ namespace Sistema_Abogados
         // when buscar label is clicked on clientes.
         private void lblSearchCust_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            string ID, cedula;
             if (string.IsNullOrEmpty(txtCustID.Text))
             {
-                MessageBox.Show("El ID del cliente esta vacio, digite uno valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtCustID.Focus();
+                ID = "";
             }
             else
             {
-                if (clientes.getCustomerObject(txtCustID.Text) != null)
+                ID = txtCustID.Text;
+            }
+            if (txtCedulaClie.MaskCompleted)
+            {
+                cedula = txtCedulaClie.Text;
+            }
+            else
+            {
+                cedula = "";
+            }
+            if (clientes.getCustomerObject(ID, cedula) != null)
+            {
+                // assign the ID value to the variable.
+                cID = txtCustID.Text;
+                // load the customer.
+                clientes pClientes = clientes.getCustomerObject(ID, cedula);
+                if (pClientes.Status == "Cliente")
                 {
-                    // assign the ID value to the variable.
-                    cID = txtCustID.Text;
-                    // load the customer.
-                    clientes pClientes = clientes.getCustomerObject(txtCustID.Text);
-                    if (pClientes.Status == "Cliente")
-                    {
-                        pCliente = pClientes;
-                        txtCustName.Text = pClientes.Nombre;
-                        pbCliente.Image = Image.FromFile(pClientes.Image);
-                        txtCustLastName.Text = pClientes.Apellido;
-                        txtCustPhone.Text = pClientes.Telefono;
-                        txtCustCell.Text = pClientes.Celular;
-                    }
-                    else
-                    {
-                        MessageBox.Show("El usuario a seleccionar no esta clasificado como cliente, digite otro ID", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        btnSearchCustomer.Focus();
-                    }
+                    pCliente = pClientes;
+                    txtCustName.Text = pClientes.Nombre;
+                    pbCliente.Image = Image.FromFile(pClientes.Image);
+                    txtCustLastName.Text = pClientes.Apellido;
+                    txtCustPhone.Text = pClientes.Telefono;
+                    txtCustCell.Text = pClientes.Celular;
                 }
                 else
                 {
-                    MessageBox.Show("EL Cliente no existe, digite un ID valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("El usuario a seleccionar no esta clasificado como cliente, digite otro ID", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    btnSearchCustomer.Focus();
                 }
+            }
+            else
+            {
+                MessageBox.Show("EL Cliente no existe, digite un ID valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

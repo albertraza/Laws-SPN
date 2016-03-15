@@ -30,22 +30,21 @@
         {
             this.dgvFacturas = new System.Windows.Forms.DataGridView();
             this.gbServicios = new System.Windows.Forms.GroupBox();
-            this.rbGeneral = new System.Windows.Forms.RadioButton();
             this.rbAlquiler = new System.Windows.Forms.RadioButton();
             this.rbVentas = new System.Windows.Forms.RadioButton();
             this.rbDivorcioAccidente = new System.Windows.Forms.RadioButton();
             this.gbInfoClienteCaso = new System.Windows.Forms.GroupBox();
+            this.rbPasaporte = new System.Windows.Forms.RadioButton();
+            this.rbCedula = new System.Windows.Forms.RadioButton();
+            this.lblApellido = new System.Windows.Forms.Label();
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtPasaporte = new System.Windows.Forms.MaskedTextBox();
             this.txtCedula = new System.Windows.Forms.MaskedTextBox();
             this.lblNumeroCaso = new System.Windows.Forms.Label();
             this.txtNumeroCaso = new System.Windows.Forms.TextBox();
-            this.txtPasaporte = new System.Windows.Forms.MaskedTextBox();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.lblApellido = new System.Windows.Forms.Label();
-            this.txtApellido = new System.Windows.Forms.TextBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.rbCedula = new System.Windows.Forms.RadioButton();
-            this.rbPasaporte = new System.Windows.Forms.RadioButton();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -64,7 +63,6 @@
             // 
             // gbServicios
             // 
-            this.gbServicios.Controls.Add(this.rbGeneral);
             this.gbServicios.Controls.Add(this.rbAlquiler);
             this.gbServicios.Controls.Add(this.rbVentas);
             this.gbServicios.Controls.Add(this.rbDivorcioAccidente);
@@ -75,21 +73,10 @@
             this.gbServicios.TabStop = false;
             this.gbServicios.Text = "Busqueda por servicios";
             // 
-            // rbGeneral
-            // 
-            this.rbGeneral.AutoSize = true;
-            this.rbGeneral.Location = new System.Drawing.Point(397, 28);
-            this.rbGeneral.Name = "rbGeneral";
-            this.rbGeneral.Size = new System.Drawing.Size(62, 17);
-            this.rbGeneral.TabIndex = 3;
-            this.rbGeneral.TabStop = true;
-            this.rbGeneral.Text = "General";
-            this.rbGeneral.UseVisualStyleBackColor = true;
-            // 
             // rbAlquiler
             // 
             this.rbAlquiler.AutoSize = true;
-            this.rbAlquiler.Location = new System.Drawing.Point(291, 28);
+            this.rbAlquiler.Location = new System.Drawing.Point(347, 28);
             this.rbAlquiler.Name = "rbAlquiler";
             this.rbAlquiler.Size = new System.Drawing.Size(59, 17);
             this.rbAlquiler.TabIndex = 2;
@@ -101,7 +88,7 @@
             // rbVentas
             // 
             this.rbVentas.AutoSize = true;
-            this.rbVentas.Location = new System.Drawing.Point(179, 28);
+            this.rbVentas.Location = new System.Drawing.Point(235, 28);
             this.rbVentas.Name = "rbVentas";
             this.rbVentas.Size = new System.Drawing.Size(58, 17);
             this.rbVentas.TabIndex = 1;
@@ -113,7 +100,7 @@
             // rbDivorcioAccidente
             // 
             this.rbDivorcioAccidente.AutoSize = true;
-            this.rbDivorcioAccidente.Location = new System.Drawing.Point(17, 28);
+            this.rbDivorcioAccidente.Location = new System.Drawing.Point(73, 28);
             this.rbDivorcioAccidente.Name = "rbDivorcioAccidente";
             this.rbDivorcioAccidente.Size = new System.Drawing.Size(129, 17);
             this.rbDivorcioAccidente.TabIndex = 0;
@@ -141,6 +128,70 @@
             this.gbInfoClienteCaso.TabStop = false;
             this.gbInfoClienteCaso.Text = "Informacion Cliente y Caso";
             // 
+            // rbPasaporte
+            // 
+            this.rbPasaporte.AutoSize = true;
+            this.rbPasaporte.Location = new System.Drawing.Point(334, 33);
+            this.rbPasaporte.Name = "rbPasaporte";
+            this.rbPasaporte.Size = new System.Drawing.Size(76, 17);
+            this.rbPasaporte.TabIndex = 12;
+            this.rbPasaporte.TabStop = true;
+            this.rbPasaporte.Text = "Pasaporte:";
+            this.rbPasaporte.UseVisualStyleBackColor = true;
+            this.rbPasaporte.CheckedChanged += new System.EventHandler(this.rbPasaporte_CheckedChanged);
+            // 
+            // rbCedula
+            // 
+            this.rbCedula.AutoSize = true;
+            this.rbCedula.Location = new System.Drawing.Point(168, 32);
+            this.rbCedula.Name = "rbCedula";
+            this.rbCedula.Size = new System.Drawing.Size(61, 17);
+            this.rbCedula.TabIndex = 11;
+            this.rbCedula.TabStop = true;
+            this.rbCedula.Text = "Cedula:";
+            this.rbCedula.UseVisualStyleBackColor = true;
+            this.rbCedula.CheckedChanged += new System.EventHandler(this.rbCedula_CheckedChanged);
+            // 
+            // lblApellido
+            // 
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Location = new System.Drawing.Point(232, 96);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Size = new System.Drawing.Size(81, 13);
+            this.lblApellido.TabIndex = 10;
+            this.lblApellido.Text = "Apellido cliente:";
+            // 
+            // txtApellido
+            // 
+            this.txtApellido.Location = new System.Drawing.Point(319, 93);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(110, 20);
+            this.txtApellido.TabIndex = 9;
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(14, 96);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(81, 13);
+            this.lblNombre.TabIndex = 8;
+            this.lblNombre.Text = "Nombre cliente:";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(101, 93);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(110, 20);
+            this.txtNombre.TabIndex = 7;
+            // 
+            // txtPasaporte
+            // 
+            this.txtPasaporte.Location = new System.Drawing.Point(414, 32);
+            this.txtPasaporte.Mask = "SE-000-0000";
+            this.txtPasaporte.Name = "txtPasaporte";
+            this.txtPasaporte.Size = new System.Drawing.Size(93, 20);
+            this.txtPasaporte.TabIndex = 5;
+            // 
             // txtCedula
             // 
             this.txtCedula.Location = new System.Drawing.Point(235, 31);
@@ -165,46 +216,6 @@
             this.txtNumeroCaso.Size = new System.Drawing.Size(73, 20);
             this.txtNumeroCaso.TabIndex = 0;
             // 
-            // txtPasaporte
-            // 
-            this.txtPasaporte.Location = new System.Drawing.Point(414, 32);
-            this.txtPasaporte.Mask = "SE-000-0000";
-            this.txtPasaporte.Name = "txtPasaporte";
-            this.txtPasaporte.Size = new System.Drawing.Size(93, 20);
-            this.txtPasaporte.TabIndex = 5;
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(14, 96);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(81, 13);
-            this.lblNombre.TabIndex = 8;
-            this.lblNombre.Text = "Nombre cliente:";
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(101, 93);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(110, 20);
-            this.txtNombre.TabIndex = 7;
-            // 
-            // lblApellido
-            // 
-            this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(232, 96);
-            this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(81, 13);
-            this.lblApellido.TabIndex = 10;
-            this.lblApellido.Text = "Apellido cliente:";
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Location = new System.Drawing.Point(319, 93);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(110, 20);
-            this.txtApellido.TabIndex = 9;
-            // 
             // btnLimpiar
             // 
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -216,30 +227,6 @@
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
-            // rbCedula
-            // 
-            this.rbCedula.AutoSize = true;
-            this.rbCedula.Location = new System.Drawing.Point(168, 32);
-            this.rbCedula.Name = "rbCedula";
-            this.rbCedula.Size = new System.Drawing.Size(61, 17);
-            this.rbCedula.TabIndex = 11;
-            this.rbCedula.TabStop = true;
-            this.rbCedula.Text = "Cedula:";
-            this.rbCedula.UseVisualStyleBackColor = true;
-            this.rbCedula.CheckedChanged += new System.EventHandler(this.rbCedula_CheckedChanged);
-            // 
-            // rbPasaporte
-            // 
-            this.rbPasaporte.AutoSize = true;
-            this.rbPasaporte.Location = new System.Drawing.Point(334, 33);
-            this.rbPasaporte.Name = "rbPasaporte";
-            this.rbPasaporte.Size = new System.Drawing.Size(76, 17);
-            this.rbPasaporte.TabIndex = 12;
-            this.rbPasaporte.TabStop = true;
-            this.rbPasaporte.Text = "Pasaporte:";
-            this.rbPasaporte.UseVisualStyleBackColor = true;
-            this.rbPasaporte.CheckedChanged += new System.EventHandler(this.rbPasaporte_CheckedChanged);
             // 
             // btnBuscar
             // 
@@ -310,7 +297,6 @@
 
         private System.Windows.Forms.DataGridView dgvFacturas;
         private System.Windows.Forms.GroupBox gbServicios;
-        private System.Windows.Forms.RadioButton rbGeneral;
         private System.Windows.Forms.RadioButton rbAlquiler;
         private System.Windows.Forms.RadioButton rbVentas;
         private System.Windows.Forms.RadioButton rbDivorcioAccidente;

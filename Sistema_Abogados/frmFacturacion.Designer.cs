@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.gbParametrosBusqueda = new System.Windows.Forms.GroupBox();
-            this.rbGeneral = new System.Windows.Forms.RadioButton();
             this.rbAlquiler = new System.Windows.Forms.RadioButton();
             this.rbVentas = new System.Windows.Forms.RadioButton();
             this.rbDivorcioAccidente = new System.Windows.Forms.RadioButton();
@@ -75,7 +74,6 @@
             // 
             // gbParametrosBusqueda
             // 
-            this.gbParametrosBusqueda.Controls.Add(this.rbGeneral);
             this.gbParametrosBusqueda.Controls.Add(this.rbAlquiler);
             this.gbParametrosBusqueda.Controls.Add(this.rbVentas);
             this.gbParametrosBusqueda.Controls.Add(this.rbDivorcioAccidente);
@@ -86,22 +84,10 @@
             this.gbParametrosBusqueda.TabStop = false;
             this.gbParametrosBusqueda.Text = "Servicios";
             // 
-            // rbGeneral
-            // 
-            this.rbGeneral.AutoSize = true;
-            this.rbGeneral.Location = new System.Drawing.Point(372, 19);
-            this.rbGeneral.Name = "rbGeneral";
-            this.rbGeneral.Size = new System.Drawing.Size(62, 17);
-            this.rbGeneral.TabIndex = 3;
-            this.rbGeneral.TabStop = true;
-            this.rbGeneral.Text = "General";
-            this.rbGeneral.UseVisualStyleBackColor = true;
-            this.rbGeneral.CheckedChanged += new System.EventHandler(this.rbGeneral_CheckedChanged);
-            // 
             // rbAlquiler
             // 
             this.rbAlquiler.AutoSize = true;
-            this.rbAlquiler.Location = new System.Drawing.Point(287, 19);
+            this.rbAlquiler.Location = new System.Drawing.Point(330, 19);
             this.rbAlquiler.Name = "rbAlquiler";
             this.rbAlquiler.Size = new System.Drawing.Size(59, 17);
             this.rbAlquiler.TabIndex = 2;
@@ -113,7 +99,7 @@
             // rbVentas
             // 
             this.rbVentas.AutoSize = true;
-            this.rbVentas.Location = new System.Drawing.Point(177, 19);
+            this.rbVentas.Location = new System.Drawing.Point(220, 19);
             this.rbVentas.Name = "rbVentas";
             this.rbVentas.Size = new System.Drawing.Size(58, 17);
             this.rbVentas.TabIndex = 1;
@@ -125,7 +111,7 @@
             // rbDivorcioAccidente
             // 
             this.rbDivorcioAccidente.AutoSize = true;
-            this.rbDivorcioAccidente.Location = new System.Drawing.Point(14, 19);
+            this.rbDivorcioAccidente.Location = new System.Drawing.Point(57, 19);
             this.rbDivorcioAccidente.Name = "rbDivorcioAccidente";
             this.rbDivorcioAccidente.Size = new System.Drawing.Size(129, 17);
             this.rbDivorcioAccidente.TabIndex = 0;
@@ -502,7 +488,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbParametrosBusqueda;
-        private System.Windows.Forms.RadioButton rbGeneral;
         private System.Windows.Forms.RadioButton rbAlquiler;
         private System.Windows.Forms.RadioButton rbVentas;
         private System.Windows.Forms.RadioButton rbDivorcioAccidente;

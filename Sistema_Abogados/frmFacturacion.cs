@@ -387,7 +387,7 @@ namespace Sistema_Abogados
                         {
                             pBaseObjfactura = pFacturaBase;
                             // get customer data.
-                            pCliente = clientes.getCustomerObject(pFacturaBase.Cliente_ID);
+                            pCliente = clientes.getCustomerObject(pFacturaBase.Cliente_ID, "");
                             // get service data.
                             pService = servicios.getServiceInfo(pFacturaBase.Service_ID);
                             txtNombre.Text = pCliente.Nombre;
@@ -442,7 +442,7 @@ namespace Sistema_Abogados
                         {
                             pBaseObjfactura = pFacturacionObj;
                             // load customer data.
-                            pCliente = clientes.getCustomerObject(pFacturacionObj.Cliente_ID);
+                            pCliente = clientes.getCustomerObject(pFacturacionObj.Cliente_ID, "");
                             // load service data.
                             pService = servicios.getServiceInfo(pFacturacionObj.Service_ID);
                             txtCedula.Text = pCliente.Cedula;
@@ -474,7 +474,7 @@ namespace Sistema_Abogados
                         {
                             pBaseObjfactura = pfacturacion;
                             // load customer data.
-                            pCliente = clientes.getCustomerObject(pfacturacion.Cliente_ID);
+                            pCliente = clientes.getCustomerObject(pfacturacion.Cliente_ID, "");
                             // load service info.
                             pService = servicios.getServiceInfo(pfacturacion.Service_ID);
                             txtCedula.Text = pCliente.Cedula;

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.gbDemandante = new System.Windows.Forms.GroupBox();
+            this.rbPasaporteE = new System.Windows.Forms.RadioButton();
+            this.rbCedulaE = new System.Windows.Forms.RadioButton();
             this.pbDemandante = new System.Windows.Forms.PictureBox();
             this.lblSearchDemandante = new System.Windows.Forms.LinkLabel();
             this.btnSearchDemandante = new System.Windows.Forms.Button();
@@ -37,7 +39,6 @@
             this.lblCellphoneDemandante = new System.Windows.Forms.Label();
             this.txtPhoneDemandante = new System.Windows.Forms.TextBox();
             this.lblTelefonoDemandante = new System.Windows.Forms.Label();
-            this.txtCedulaDemandante = new System.Windows.Forms.TextBox();
             this.lblCedula = new System.Windows.Forms.Label();
             this.txtLastNameDemandante = new System.Windows.Forms.TextBox();
             this.lblLastNameDemandante = new System.Windows.Forms.Label();
@@ -46,6 +47,8 @@
             this.txtIDDemandante = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
             this.gbInfoDemandado = new System.Windows.Forms.GroupBox();
+            this.rbPasaporteO = new System.Windows.Forms.RadioButton();
+            this.rbCedulaO = new System.Windows.Forms.RadioButton();
             this.pbDemandado = new System.Windows.Forms.PictureBox();
             this.lblSearchDemandado = new System.Windows.Forms.LinkLabel();
             this.btnSearchDemandado = new System.Windows.Forms.Button();
@@ -54,7 +57,6 @@
             this.lblCellphoneDemandado = new System.Windows.Forms.Label();
             this.txtPhoneDemandado = new System.Windows.Forms.TextBox();
             this.lblPhoneDemandado = new System.Windows.Forms.Label();
-            this.txtCedulaDemandado = new System.Windows.Forms.TextBox();
             this.lblCedulaDemandado = new System.Windows.Forms.Label();
             this.txtLastNameDemandado = new System.Windows.Forms.TextBox();
             this.lblLastNameDemandado = new System.Windows.Forms.Label();
@@ -63,6 +65,9 @@
             this.txtIDDemandado = new System.Windows.Forms.TextBox();
             this.lblIDDemandado = new System.Windows.Forms.Label();
             this.gbInfomacionPagos = new System.Windows.Forms.GroupBox();
+            this.btnCalcular = new System.Windows.Forms.Button();
+            this.lblTotalPagar = new System.Windows.Forms.Label();
+            this.txtTotalPagar = new System.Windows.Forms.TextBox();
             this.btnModificar = new System.Windows.Forms.Button();
             this.lblAbono = new System.Windows.Forms.Label();
             this.txtAbono = new System.Windows.Forms.TextBox();
@@ -73,9 +78,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnClearAll = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
-            this.lblTotalPagar = new System.Windows.Forms.Label();
-            this.txtTotalPagar = new System.Windows.Forms.TextBox();
-            this.btnCalcular = new System.Windows.Forms.Button();
+            this.txtCedulaDemandante = new System.Windows.Forms.MaskedTextBox();
+            this.txtCedulaDemandado = new System.Windows.Forms.MaskedTextBox();
             this.gbDemandante.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbDemandante)).BeginInit();
             this.gbInfoDemandado.SuspendLayout();
@@ -85,6 +89,9 @@
             // 
             // gbDemandante
             // 
+            this.gbDemandante.Controls.Add(this.txtCedulaDemandante);
+            this.gbDemandante.Controls.Add(this.rbPasaporteE);
+            this.gbDemandante.Controls.Add(this.rbCedulaE);
             this.gbDemandante.Controls.Add(this.pbDemandante);
             this.gbDemandante.Controls.Add(this.lblSearchDemandante);
             this.gbDemandante.Controls.Add(this.btnSearchDemandante);
@@ -93,7 +100,6 @@
             this.gbDemandante.Controls.Add(this.lblCellphoneDemandante);
             this.gbDemandante.Controls.Add(this.txtPhoneDemandante);
             this.gbDemandante.Controls.Add(this.lblTelefonoDemandante);
-            this.gbDemandante.Controls.Add(this.txtCedulaDemandante);
             this.gbDemandante.Controls.Add(this.lblCedula);
             this.gbDemandante.Controls.Add(this.txtLastNameDemandante);
             this.gbDemandante.Controls.Add(this.lblLastNameDemandante);
@@ -107,6 +113,30 @@
             this.gbDemandante.TabIndex = 0;
             this.gbDemandante.TabStop = false;
             this.gbDemandante.Text = "Infomacion Demandante";
+            // 
+            // rbPasaporteE
+            // 
+            this.rbPasaporteE.AutoSize = true;
+            this.rbPasaporteE.Location = new System.Drawing.Point(267, 53);
+            this.rbPasaporteE.Name = "rbPasaporteE";
+            this.rbPasaporteE.Size = new System.Drawing.Size(73, 17);
+            this.rbPasaporteE.TabIndex = 18;
+            this.rbPasaporteE.TabStop = true;
+            this.rbPasaporteE.Text = "Pasaporte";
+            this.rbPasaporteE.UseVisualStyleBackColor = true;
+            this.rbPasaporteE.CheckedChanged += new System.EventHandler(this.rbPasaporteE_CheckedChanged);
+            // 
+            // rbCedulaE
+            // 
+            this.rbCedulaE.AutoSize = true;
+            this.rbCedulaE.Location = new System.Drawing.Point(176, 53);
+            this.rbCedulaE.Name = "rbCedulaE";
+            this.rbCedulaE.Size = new System.Drawing.Size(58, 17);
+            this.rbCedulaE.TabIndex = 17;
+            this.rbCedulaE.TabStop = true;
+            this.rbCedulaE.Text = "Cedula";
+            this.rbCedulaE.UseVisualStyleBackColor = true;
+            this.rbCedulaE.CheckedChanged += new System.EventHandler(this.rbCedulaE_CheckedChanged);
             // 
             // pbDemandante
             // 
@@ -180,13 +210,6 @@
             this.lblTelefonoDemandante.TabIndex = 8;
             this.lblTelefonoDemandante.Text = "Telefono:";
             // 
-            // txtCedulaDemandante
-            // 
-            this.txtCedulaDemandante.Location = new System.Drawing.Point(207, 32);
-            this.txtCedulaDemandante.Name = "txtCedulaDemandante";
-            this.txtCedulaDemandante.Size = new System.Drawing.Size(133, 20);
-            this.txtCedulaDemandante.TabIndex = 7;
-            // 
             // lblCedula
             // 
             this.lblCedula.AutoSize = true;
@@ -246,6 +269,9 @@
             // 
             // gbInfoDemandado
             // 
+            this.gbInfoDemandado.Controls.Add(this.txtCedulaDemandado);
+            this.gbInfoDemandado.Controls.Add(this.rbPasaporteO);
+            this.gbInfoDemandado.Controls.Add(this.rbCedulaO);
             this.gbInfoDemandado.Controls.Add(this.pbDemandado);
             this.gbInfoDemandado.Controls.Add(this.lblSearchDemandado);
             this.gbInfoDemandado.Controls.Add(this.btnSearchDemandado);
@@ -254,7 +280,6 @@
             this.gbInfoDemandado.Controls.Add(this.lblCellphoneDemandado);
             this.gbInfoDemandado.Controls.Add(this.txtPhoneDemandado);
             this.gbInfoDemandado.Controls.Add(this.lblPhoneDemandado);
-            this.gbInfoDemandado.Controls.Add(this.txtCedulaDemandado);
             this.gbInfoDemandado.Controls.Add(this.lblCedulaDemandado);
             this.gbInfoDemandado.Controls.Add(this.txtLastNameDemandado);
             this.gbInfoDemandado.Controls.Add(this.lblLastNameDemandado);
@@ -268,6 +293,30 @@
             this.gbInfoDemandado.TabIndex = 1;
             this.gbInfoDemandado.TabStop = false;
             this.gbInfoDemandado.Text = "Infomacion Demandado";
+            // 
+            // rbPasaporteO
+            // 
+            this.rbPasaporteO.AutoSize = true;
+            this.rbPasaporteO.Location = new System.Drawing.Point(267, 53);
+            this.rbPasaporteO.Name = "rbPasaporteO";
+            this.rbPasaporteO.Size = new System.Drawing.Size(73, 17);
+            this.rbPasaporteO.TabIndex = 20;
+            this.rbPasaporteO.TabStop = true;
+            this.rbPasaporteO.Text = "Pasaporte";
+            this.rbPasaporteO.UseVisualStyleBackColor = true;
+            this.rbPasaporteO.CheckedChanged += new System.EventHandler(this.rbPasaporteO_CheckedChanged);
+            // 
+            // rbCedulaO
+            // 
+            this.rbCedulaO.AutoSize = true;
+            this.rbCedulaO.Location = new System.Drawing.Point(176, 53);
+            this.rbCedulaO.Name = "rbCedulaO";
+            this.rbCedulaO.Size = new System.Drawing.Size(58, 17);
+            this.rbCedulaO.TabIndex = 19;
+            this.rbCedulaO.TabStop = true;
+            this.rbCedulaO.Text = "Cedula";
+            this.rbCedulaO.UseVisualStyleBackColor = true;
+            this.rbCedulaO.CheckedChanged += new System.EventHandler(this.rbCedulaO_CheckedChanged);
             // 
             // pbDemandado
             // 
@@ -340,13 +389,6 @@
             this.lblPhoneDemandado.Size = new System.Drawing.Size(52, 13);
             this.lblPhoneDemandado.TabIndex = 8;
             this.lblPhoneDemandado.Text = "Telefono:";
-            // 
-            // txtCedulaDemandado
-            // 
-            this.txtCedulaDemandado.Location = new System.Drawing.Point(207, 32);
-            this.txtCedulaDemandado.Name = "txtCedulaDemandado";
-            this.txtCedulaDemandado.Size = new System.Drawing.Size(133, 20);
-            this.txtCedulaDemandado.TabIndex = 7;
             // 
             // lblCedulaDemandado
             // 
@@ -424,6 +466,32 @@
             this.gbInfomacionPagos.TabStop = false;
             this.gbInfomacionPagos.Text = "Pagos";
             this.gbInfomacionPagos.Enter += new System.EventHandler(this.gbInfomacionPagos_Enter);
+            // 
+            // btnCalcular
+            // 
+            this.btnCalcular.Location = new System.Drawing.Point(724, 23);
+            this.btnCalcular.Name = "btnCalcular";
+            this.btnCalcular.Size = new System.Drawing.Size(75, 23);
+            this.btnCalcular.TabIndex = 10;
+            this.btnCalcular.Text = "Calcular";
+            this.btnCalcular.UseVisualStyleBackColor = true;
+            this.btnCalcular.Click += new System.EventHandler(this.btnCalcular_Click);
+            // 
+            // lblTotalPagar
+            // 
+            this.lblTotalPagar.AutoSize = true;
+            this.lblTotalPagar.Location = new System.Drawing.Point(468, 28);
+            this.lblTotalPagar.Name = "lblTotalPagar";
+            this.lblTotalPagar.Size = new System.Drawing.Size(74, 13);
+            this.lblTotalPagar.TabIndex = 9;
+            this.lblTotalPagar.Text = "Total a Pagar:";
+            // 
+            // txtTotalPagar
+            // 
+            this.txtTotalPagar.Location = new System.Drawing.Point(545, 25);
+            this.txtTotalPagar.Name = "txtTotalPagar";
+            this.txtTotalPagar.Size = new System.Drawing.Size(78, 20);
+            this.txtTotalPagar.TabIndex = 8;
             // 
             // btnModificar
             // 
@@ -513,31 +581,19 @@
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
-            // lblTotalPagar
+            // txtCedulaDemandante
             // 
-            this.lblTotalPagar.AutoSize = true;
-            this.lblTotalPagar.Location = new System.Drawing.Point(468, 28);
-            this.lblTotalPagar.Name = "lblTotalPagar";
-            this.lblTotalPagar.Size = new System.Drawing.Size(74, 13);
-            this.lblTotalPagar.TabIndex = 9;
-            this.lblTotalPagar.Text = "Total a Pagar:";
+            this.txtCedulaDemandante.Location = new System.Drawing.Point(210, 32);
+            this.txtCedulaDemandante.Name = "txtCedulaDemandante";
+            this.txtCedulaDemandante.Size = new System.Drawing.Size(150, 20);
+            this.txtCedulaDemandante.TabIndex = 19;
             // 
-            // txtTotalPagar
+            // txtCedulaDemandado
             // 
-            this.txtTotalPagar.Location = new System.Drawing.Point(545, 25);
-            this.txtTotalPagar.Name = "txtTotalPagar";
-            this.txtTotalPagar.Size = new System.Drawing.Size(78, 20);
-            this.txtTotalPagar.TabIndex = 8;
-            // 
-            // btnCalcular
-            // 
-            this.btnCalcular.Location = new System.Drawing.Point(724, 23);
-            this.btnCalcular.Name = "btnCalcular";
-            this.btnCalcular.Size = new System.Drawing.Size(75, 23);
-            this.btnCalcular.TabIndex = 10;
-            this.btnCalcular.Text = "Calcular";
-            this.btnCalcular.UseVisualStyleBackColor = true;
-            this.btnCalcular.Click += new System.EventHandler(this.btnCalcular_Click);
+            this.txtCedulaDemandado.Location = new System.Drawing.Point(203, 32);
+            this.txtCedulaDemandado.Name = "txtCedulaDemandado";
+            this.txtCedulaDemandado.Size = new System.Drawing.Size(150, 20);
+            this.txtCedulaDemandado.TabIndex = 21;
             // 
             // frmDivorcios
             // 
@@ -577,7 +633,6 @@
         private System.Windows.Forms.Label lblCellphoneDemandante;
         private System.Windows.Forms.TextBox txtPhoneDemandante;
         private System.Windows.Forms.Label lblTelefonoDemandante;
-        private System.Windows.Forms.TextBox txtCedulaDemandante;
         private System.Windows.Forms.Label lblCedula;
         private System.Windows.Forms.TextBox txtLastNameDemandante;
         private System.Windows.Forms.Label lblLastNameDemandante;
@@ -592,7 +647,6 @@
         private System.Windows.Forms.Label lblCellphoneDemandado;
         private System.Windows.Forms.TextBox txtPhoneDemandado;
         private System.Windows.Forms.Label lblPhoneDemandado;
-        private System.Windows.Forms.TextBox txtCedulaDemandado;
         private System.Windows.Forms.Label lblCedulaDemandado;
         private System.Windows.Forms.TextBox txtLastNameDemandado;
         private System.Windows.Forms.Label lblLastNameDemandado;
@@ -618,5 +672,11 @@
         private System.Windows.Forms.Button btnCalcular;
         private System.Windows.Forms.Label lblTotalPagar;
         private System.Windows.Forms.TextBox txtTotalPagar;
+        private System.Windows.Forms.RadioButton rbPasaporteE;
+        private System.Windows.Forms.RadioButton rbCedulaE;
+        private System.Windows.Forms.RadioButton rbPasaporteO;
+        private System.Windows.Forms.RadioButton rbCedulaO;
+        private System.Windows.Forms.MaskedTextBox txtCedulaDemandante;
+        private System.Windows.Forms.MaskedTextBox txtCedulaDemandado;
     }
 }

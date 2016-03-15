@@ -41,7 +41,6 @@
             this.lblLastNameSeller = new System.Windows.Forms.Label();
             this.txtNameSeller = new System.Windows.Forms.TextBox();
             this.lblNameSeller = new System.Windows.Forms.Label();
-            this.txtCedulaSeller = new System.Windows.Forms.TextBox();
             this.lblCedulaSeller = new System.Windows.Forms.Label();
             this.txtIDSeller = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
@@ -58,7 +57,6 @@
             this.lblLastNameBuy = new System.Windows.Forms.Label();
             this.txtNameBuy = new System.Windows.Forms.TextBox();
             this.lblNameBuy = new System.Windows.Forms.Label();
-            this.txtCedulaBuy = new System.Windows.Forms.TextBox();
             this.lblCedulaBuy = new System.Windows.Forms.Label();
             this.txtIDBuy = new System.Windows.Forms.TextBox();
             this.lblIDBuy = new System.Windows.Forms.Label();
@@ -81,6 +79,12 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnClearAll = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.txtCedulaSeller = new System.Windows.Forms.MaskedTextBox();
+            this.txtCedulaBuy = new System.Windows.Forms.MaskedTextBox();
+            this.rbCedulaVe = new System.Windows.Forms.RadioButton();
+            this.rbPasaporteVe = new System.Windows.Forms.RadioButton();
+            this.rbPasaporteCo = new System.Windows.Forms.RadioButton();
+            this.rbCedulaCo = new System.Windows.Forms.RadioButton();
             this.gbVendedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbVendedor)).BeginInit();
             this.gbComprador.SuspendLayout();
@@ -90,6 +94,9 @@
             // 
             // gbVendedor
             // 
+            this.gbVendedor.Controls.Add(this.rbPasaporteVe);
+            this.gbVendedor.Controls.Add(this.rbCedulaVe);
+            this.gbVendedor.Controls.Add(this.txtCedulaSeller);
             this.gbVendedor.Controls.Add(this.pbVendedor);
             this.gbVendedor.Controls.Add(this.lblSearchSeller);
             this.gbVendedor.Controls.Add(this.btnSearchSeller);
@@ -102,7 +109,6 @@
             this.gbVendedor.Controls.Add(this.lblLastNameSeller);
             this.gbVendedor.Controls.Add(this.txtNameSeller);
             this.gbVendedor.Controls.Add(this.lblNameSeller);
-            this.gbVendedor.Controls.Add(this.txtCedulaSeller);
             this.gbVendedor.Controls.Add(this.lblCedulaSeller);
             this.gbVendedor.Controls.Add(this.txtIDSeller);
             this.gbVendedor.Controls.Add(this.lblID);
@@ -217,13 +223,6 @@
             this.lblNameSeller.TabIndex = 4;
             this.lblNameSeller.Text = "Nombre:";
             // 
-            // txtCedulaSeller
-            // 
-            this.txtCedulaSeller.Location = new System.Drawing.Point(250, 34);
-            this.txtCedulaSeller.Name = "txtCedulaSeller";
-            this.txtCedulaSeller.Size = new System.Drawing.Size(118, 20);
-            this.txtCedulaSeller.TabIndex = 3;
-            // 
             // lblCedulaSeller
             // 
             this.lblCedulaSeller.AutoSize = true;
@@ -251,6 +250,9 @@
             // 
             // gbComprador
             // 
+            this.gbComprador.Controls.Add(this.rbPasaporteCo);
+            this.gbComprador.Controls.Add(this.rbCedulaCo);
+            this.gbComprador.Controls.Add(this.txtCedulaBuy);
             this.gbComprador.Controls.Add(this.pbComprador);
             this.gbComprador.Controls.Add(this.lblSearchBuy);
             this.gbComprador.Controls.Add(this.btnSearchBuy);
@@ -263,7 +265,6 @@
             this.gbComprador.Controls.Add(this.lblLastNameBuy);
             this.gbComprador.Controls.Add(this.txtNameBuy);
             this.gbComprador.Controls.Add(this.lblNameBuy);
-            this.gbComprador.Controls.Add(this.txtCedulaBuy);
             this.gbComprador.Controls.Add(this.lblCedulaBuy);
             this.gbComprador.Controls.Add(this.txtIDBuy);
             this.gbComprador.Controls.Add(this.lblIDBuy);
@@ -377,13 +378,6 @@
             this.lblNameBuy.Size = new System.Drawing.Size(47, 13);
             this.lblNameBuy.TabIndex = 4;
             this.lblNameBuy.Text = "Nombre:";
-            // 
-            // txtCedulaBuy
-            // 
-            this.txtCedulaBuy.Location = new System.Drawing.Point(246, 34);
-            this.txtCedulaBuy.Name = "txtCedulaBuy";
-            this.txtCedulaBuy.Size = new System.Drawing.Size(118, 20);
-            this.txtCedulaBuy.TabIndex = 3;
             // 
             // lblCedulaBuy
             // 
@@ -591,6 +585,64 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // txtCedulaSeller
+            // 
+            this.txtCedulaSeller.Location = new System.Drawing.Point(250, 34);
+            this.txtCedulaSeller.Name = "txtCedulaSeller";
+            this.txtCedulaSeller.Size = new System.Drawing.Size(126, 20);
+            this.txtCedulaSeller.TabIndex = 15;
+            // 
+            // txtCedulaBuy
+            // 
+            this.txtCedulaBuy.Location = new System.Drawing.Point(245, 34);
+            this.txtCedulaBuy.Name = "txtCedulaBuy";
+            this.txtCedulaBuy.Size = new System.Drawing.Size(131, 20);
+            this.txtCedulaBuy.TabIndex = 16;
+            // 
+            // rbCedulaVe
+            // 
+            this.rbCedulaVe.AutoSize = true;
+            this.rbCedulaVe.Location = new System.Drawing.Point(205, 55);
+            this.rbCedulaVe.Name = "rbCedulaVe";
+            this.rbCedulaVe.Size = new System.Drawing.Size(58, 17);
+            this.rbCedulaVe.TabIndex = 17;
+            this.rbCedulaVe.TabStop = true;
+            this.rbCedulaVe.Text = "Cedula";
+            this.rbCedulaVe.UseVisualStyleBackColor = true;
+            // 
+            // rbPasaporteVe
+            // 
+            this.rbPasaporteVe.AutoSize = true;
+            this.rbPasaporteVe.Location = new System.Drawing.Point(299, 55);
+            this.rbPasaporteVe.Name = "rbPasaporteVe";
+            this.rbPasaporteVe.Size = new System.Drawing.Size(73, 17);
+            this.rbPasaporteVe.TabIndex = 18;
+            this.rbPasaporteVe.TabStop = true;
+            this.rbPasaporteVe.Text = "Pasaporte";
+            this.rbPasaporteVe.UseVisualStyleBackColor = true;
+            // 
+            // rbPasaporteCo
+            // 
+            this.rbPasaporteCo.AutoSize = true;
+            this.rbPasaporteCo.Location = new System.Drawing.Point(294, 57);
+            this.rbPasaporteCo.Name = "rbPasaporteCo";
+            this.rbPasaporteCo.Size = new System.Drawing.Size(73, 17);
+            this.rbPasaporteCo.TabIndex = 20;
+            this.rbPasaporteCo.TabStop = true;
+            this.rbPasaporteCo.Text = "Pasaporte";
+            this.rbPasaporteCo.UseVisualStyleBackColor = true;
+            // 
+            // rbCedulaCo
+            // 
+            this.rbCedulaCo.AutoSize = true;
+            this.rbCedulaCo.Location = new System.Drawing.Point(200, 57);
+            this.rbCedulaCo.Name = "rbCedulaCo";
+            this.rbCedulaCo.Size = new System.Drawing.Size(58, 17);
+            this.rbCedulaCo.TabIndex = 19;
+            this.rbCedulaCo.TabStop = true;
+            this.rbCedulaCo.Text = "Cedula";
+            this.rbCedulaCo.UseVisualStyleBackColor = true;
+            // 
             // frmVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -635,7 +687,6 @@
         private System.Windows.Forms.Label lblLastNameSeller;
         private System.Windows.Forms.TextBox txtNameSeller;
         private System.Windows.Forms.Label lblNameSeller;
-        private System.Windows.Forms.TextBox txtCedulaSeller;
         private System.Windows.Forms.Label lblCedulaSeller;
         private System.Windows.Forms.GroupBox gbComprador;
         private System.Windows.Forms.Button btnSearchBuy;
@@ -648,7 +699,6 @@
         private System.Windows.Forms.Label lblLastNameBuy;
         private System.Windows.Forms.TextBox txtNameBuy;
         private System.Windows.Forms.Label lblNameBuy;
-        private System.Windows.Forms.TextBox txtCedulaBuy;
         private System.Windows.Forms.Label lblCedulaBuy;
         private System.Windows.Forms.TextBox txtIDBuy;
         private System.Windows.Forms.Label lblIDBuy;
@@ -675,5 +725,11 @@
         private System.Windows.Forms.Button btnCalcular;
         private System.Windows.Forms.TextBox txtTotalPagar;
         private System.Windows.Forms.Label lblTotalPagar;
+        private System.Windows.Forms.RadioButton rbPasaporteVe;
+        private System.Windows.Forms.RadioButton rbCedulaVe;
+        private System.Windows.Forms.MaskedTextBox txtCedulaSeller;
+        private System.Windows.Forms.RadioButton rbPasaporteCo;
+        private System.Windows.Forms.RadioButton rbCedulaCo;
+        private System.Windows.Forms.MaskedTextBox txtCedulaBuy;
     }
 }

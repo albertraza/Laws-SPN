@@ -37,11 +37,11 @@ namespace Sistema_Abogados
                 txtStatus.Enabled = false;
                 try
                 {
-                    if (clientes.getCustomerObject(ID).Image != null)
+                    if (clientes.getCustomerObject(ID, "").Image != null)
                     {
                         // if image exists try to show the image.
                         try {
-                            pbImage.Image = Image.FromFile(clientes.getCustomerObject(ID).Image);
+                            pbImage.Image = Image.FromFile(clientes.getCustomerObject(ID, "").Image);
                         }
                         catch (Exception ex)
                         {
@@ -56,11 +56,11 @@ namespace Sistema_Abogados
                         pbImage.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
                     }
                     // fill all customer data from database.
-                    txtFechaRegistro.Text = Convert.ToDateTime(clientes.getCustomerObject(ID).Fecha_Registro).ToString("dd/MM/yyyy");
-                    txtID.Text = clientes.getCustomerObject(ID).ID;
-                    txtLastName.Text = clientes.getCustomerObject(ID).Apellido;
-                    txtName.Text = clientes.getCustomerObject(ID).Nombre;
-                    txtStatus.Text = clientes.getCustomerObject(ID).Status;
+                    txtFechaRegistro.Text = Convert.ToDateTime(clientes.getCustomerObject(ID, "").Fecha_Registro).ToString("dd/MM/yyyy");
+                    txtID.Text = clientes.getCustomerObject(ID, "").ID;
+                    txtLastName.Text = clientes.getCustomerObject(ID, "").Apellido;
+                    txtName.Text = clientes.getCustomerObject(ID, "").Nombre;
+                    txtStatus.Text = clientes.getCustomerObject(ID, "").Status;
                 }
                 catch (Exception ex)
                 {

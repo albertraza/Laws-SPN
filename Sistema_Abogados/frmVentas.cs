@@ -118,91 +118,109 @@ namespace Sistema_Abogados
         // when buscar label is clicked.
         private void lblSearchSeller_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if(txtIDSeller.Text == string.Empty)
+            string ID, cedula;
+            if (txtIDSeller.Text == string.Empty)
             {
-                MessageBox.Show("No se ha completado el ID del vendedor, Digte uno valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtIDSeller.Focus();
+                ID = "";
             }
             else
             {
-                try
+                ID = txtIDSeller.Text;
+            }
+            if (txtCedulaSeller.MaskCompleted)
+            {
+                cedula = txtCedulaSeller.Text;
+            }
+            else
+            {
+                cedula = "";
+            }
+            try
+            {
+                if (clientes.getCustomerObject(ID, cedula) != null)
                 {
-                    if (clientes.getCustomerObject(txtIDSeller.Text) != null)
+                    clientes pClientes = clientes.getCustomerObject(ID, cedula);
+                    if (pClientes.Status == "Vendedor")
                     {
-                        clientes pClientes = clientes.getCustomerObject(txtIDSeller.Text);
-                        if (pClientes.Status == "Vendedor")
-                        {
-                            vID = pClientes.ID;
-                            pVendedor = pClientes;
-                            pbVendedor.Image = Image.FromFile(pClientes.Image);
-                            txtNameSeller.Text = pClientes.Nombre;
-                            txtLastNameSeller.Text = pClientes.Apellido;
-                            txtCedulaSeller.Text = pClientes.Cedula;
-                            txtCelularSeller.Text = pClientes.Celular;
-                            txtPhoneSeller.Text = pClientes.Telefono;
-                        }
-                        else
-                        {
-                            MessageBox.Show("No se selecciono un vendedor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            btnSearchSeller.Focus();
-                        }
+                        vID = pClientes.ID;
+                        pVendedor = pClientes;
+                        pbVendedor.Image = Image.FromFile(pClientes.Image);
+                        txtNameSeller.Text = pClientes.Nombre;
+                        txtLastNameSeller.Text = pClientes.Apellido;
+                        txtCedulaSeller.Text = pClientes.Cedula;
+                        txtCelularSeller.Text = pClientes.Celular;
+                        txtPhoneSeller.Text = pClientes.Telefono;
                     }
                     else
                     {
-                        MessageBox.Show("No existe el vendedor, digite un ID valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        txtIDSeller.Clear();
-                        txtIDSeller.Focus();
+                        MessageBox.Show("No se selecciono un vendedor", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        btnSearchSeller.Focus();
                     }
                 }
-                catch(Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No existe el vendedor, digite un ID valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtIDSeller.Clear();
+                    txtIDSeller.Focus();
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         // when buscar label is clicked.
         private void lblSearchBuy_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            string ID, cedula;
             if (txtIDBuy.Text == string.Empty)
             {
-                MessageBox.Show("No se ha completado el ID del comprador, Digte uno valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtIDSeller.Focus();
+                ID = "";
             }
             else
             {
-                try
+                ID = txtIDBuy.Text;
+            }
+            if (txtCedulaBuy.MaskCompleted)
+            {
+                cedula = txtCedulaBuy.Text;
+            }
+            else
+            {
+                cedula = "";
+            }
+            try
+            {
+                if (clientes.getCustomerObject(ID, cedula) != null)
                 {
-                    if (clientes.getCustomerObject(txtIDBuy.Text) != null)
+                    clientes pClientes = clientes.getCustomerObject(ID, cedula);
+                    if (pClientes.Status == "Comprador")
                     {
-                        clientes pClientes = clientes.getCustomerObject(txtIDBuy.Text);
-                        if (pClientes.Status == "Comprador")
-                        {
-                            cID = pClientes.ID;
-                            pComprador1 = pClientes;
-                            pbComprador.Image = Image.FromFile(pClientes.Image);
-                            txtNameBuy.Text = pClientes.Nombre;
-                            txtLastNameBuy.Text = pClientes.Apellido;
-                            txtCedulaBuy.Text = pClientes.Cedula;
-                            txtCelularBuy.Text = pClientes.Celular;
-                            txtPhoneBuy.Text = pClientes.Telefono;
-                        }
-                        else
-                        {
-                            MessageBox.Show("No se ha seleccionado un Comprador", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            btnSearchBuy.Focus();
-                        }
+                        cID = pClientes.ID;
+                        pComprador1 = pClientes;
+                        pbComprador.Image = Image.FromFile(pClientes.Image);
+                        txtNameBuy.Text = pClientes.Nombre;
+                        txtLastNameBuy.Text = pClientes.Apellido;
+                        txtCedulaBuy.Text = pClientes.Cedula;
+                        txtCelularBuy.Text = pClientes.Celular;
+                        txtPhoneBuy.Text = pClientes.Telefono;
                     }
                     else
                     {
-                        MessageBox.Show("No existe el comprador, digite un ID valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        txtIDBuy.Clear();
-                        txtIDBuy.Focus();
+                        MessageBox.Show("No se ha seleccionado un Comprador", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        btnSearchBuy.Focus();
                     }
                 }
-                catch(Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No existe el comprador, digite un ID valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtIDBuy.Clear();
+                    txtIDBuy.Focus();
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         // when buscar button is clicked.
@@ -217,9 +235,9 @@ namespace Sistema_Abogados
             {
                 try
                 {
-                    if (clientes.getCustomerObject(pCustomer.pCustSelectedID) != null)
+                    if (clientes.getCustomerObject(pCustomer.pCustSelectedID, "") != null)
                     {
-                        clientes pClientes = clientes.getCustomerObject(pCustomer.pCustSelectedID);
+                        clientes pClientes = clientes.getCustomerObject(pCustomer.pCustSelectedID, "");
                         if (pClientes.Status == "Vendedor")
                         {
                             pVendedor = pClientes;
@@ -454,9 +472,9 @@ namespace Sistema_Abogados
             {
                 try
                 {
-                    if (clientes.getCustomerObject(pComprador.pCustSelectedID) != null)
+                    if (clientes.getCustomerObject(pComprador.pCustSelectedID, "") != null)
                     {
-                        clientes pClientes = clientes.getCustomerObject(pComprador.pCustSelectedID);
+                        clientes pClientes = clientes.getCustomerObject(pComprador.pCustSelectedID, "");
                         if (pClientes.Status == "Comprador")
                         {
                             cID = pClientes.ID;

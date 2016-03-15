@@ -89,91 +89,111 @@ namespace Sistema_Abogados
         // when label buscar is clicked on Demandado.
         private void lblSearchDemandante_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            string ID, cedula;
             // verify if the id is empty.
-            if(txtIDDemandante.Text == string.Empty)
+            if (txtIDDemandante.Text == string.Empty)
             {
-                MessageBox.Show("El ID del demandante esta vacio, Digite uno valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtIDDemandante.Focus();
+                ID = "";
             }
             else
             {
-                try {
-                    if (clientes.getCustomerObject(txtIDDemandante.Text) != null)
+                ID = txtIDDemandante.Text;
+            }
+            if (txtCedulaDemandante.MaskCompleted)
+            {
+                cedula = txtCedulaDemandante.Text;
+            }
+            else
+            {
+                cedula = "";
+            }
+            try
+            {
+                if (clientes.getCustomerObject(ID, cedula) != null)
+                {
+                    clientes pClientes = clientes.getCustomerObject(ID, cedula);
+                    if (pClientes.Status == "Demandante")
                     {
-                        clientes pClientes = clientes.getCustomerObject(txtIDDemandante.Text);
-                        if (pClientes.Status == "Demandante")
-                        {
-                            cID1 = pClientes.ID;
-                            pDemandante = pClientes;
-                            pbDemandante.Image = Image.FromFile(pClientes.Image);
-                            txtNameDemandante.Text = pClientes.Nombre;
-                            txtLastNameDemandante.Text = pClientes.Apellido;
-                            txtPhoneDemandante.Text = pClientes.Telefono;
-                            txtCellphoneDemandante.Text = pClientes.Celular;
-                            txtCedulaDemandante.Text = pClientes.Cedula;
-                        }
-                        else
-                        {
-                            MessageBox.Show("El cliente no se ha seleccionado como un demandante, seleccione uno valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            btnSearchDemandante.Focus();
-                        }
+                        cID1 = pClientes.ID;
+                        pDemandante = pClientes;
+                        pbDemandante.Image = Image.FromFile(pClientes.Image);
+                        txtNameDemandante.Text = pClientes.Nombre;
+                        txtLastNameDemandante.Text = pClientes.Apellido;
+                        txtPhoneDemandante.Text = pClientes.Telefono;
+                        txtCellphoneDemandante.Text = pClientes.Celular;
+                        txtCedulaDemandante.Text = pClientes.Cedula;
                     }
                     else
                     {
-                        MessageBox.Show("El cliente no existe, digite un id valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        txtIDDemandante.Clear();
-                        txtIDDemandante.Focus();
+                        MessageBox.Show("El cliente no se ha seleccionado como un demandante, seleccione uno valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        btnSearchDemandante.Focus();
                     }
                 }
-                catch(Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("El cliente no existe, digite un id valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtIDDemandante.Clear();
+                    txtIDDemandante.Focus();
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         // when buscar label is clicked on demandado.
         private void lblSearchDemandado_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            string ID, cedula;
             // valdate if texbox is empty.
-            if(txtIDDemandado.Text == string.Empty)
+            if (txtIDDemandado.Text == string.Empty)
             {
-                MessageBox.Show("El ID esta vacio, digite uno valido", "Mendaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtIDDemandado.Focus();
+                ID = "";
             }
             else
             {
-                try {
-                    if (clientes.getCustomerObject(txtIDDemandado.Text) != null)
+                ID = txtIDDemandado.Text;
+            }
+            if (txtCedulaDemandado.MaskCompleted)
+            {
+                cedula = txtCedulaDemandado.Text;
+            }
+            else
+            {
+                cedula = "";
+            }
+            try
+            {
+                if (clientes.getCustomerObject(ID, cedula) != null)
+                {
+                    clientes pClientes = clientes.getCustomerObject(ID, cedula);
+                    if (pClientes.Status == "Demandado")
                     {
-                        clientes pClientes = clientes.getCustomerObject(txtIDDemandado.Text);
-                        if (pClientes.Status == "Demandado")
-                        {
-                            pDemandado = pClientes;
-                            cID2 = pClientes.ID;
-                            pbDemandado.Image = Image.FromFile(pClientes.Image);
-                            txtNameDemandado.Text = pClientes.Nombre;
-                            txtLastNameDemandado.Text = pClientes.Apellido;
-                            txtPhoneDemandado.Text = pClientes.Telefono;
-                            txtCellphoneDemandado.Text = pClientes.Celular;
-                            txtCedulaDemandado.Text = pClientes.Cedula;
-                        }
-                        else
-                        {
-                            MessageBox.Show("No se ha seleccionado un demandado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            btnSearchDemandado.Focus();
-                        }
+                        pDemandado = pClientes;
+                        cID2 = pClientes.ID;
+                        pbDemandado.Image = Image.FromFile(pClientes.Image);
+                        txtNameDemandado.Text = pClientes.Nombre;
+                        txtLastNameDemandado.Text = pClientes.Apellido;
+                        txtPhoneDemandado.Text = pClientes.Telefono;
+                        txtCellphoneDemandado.Text = pClientes.Celular;
+                        txtCedulaDemandado.Text = pClientes.Cedula;
                     }
                     else
                     {
-                        MessageBox.Show("No existe el cliente, digite un id valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        txtIDDemandado.Clear();
-                        txtIDDemandado.Focus();
+                        MessageBox.Show("No se ha seleccionado un demandado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        btnSearchDemandado.Focus();
                     }
                 }
-                catch(Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No existe el cliente, digite un id valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtIDDemandado.Clear();
+                    txtIDDemandado.Focus();
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         // when Limpiar button is clicked on Demandante
@@ -214,9 +234,9 @@ namespace Sistema_Abogados
             {
                 try
                 {
-                    if (clientes.getCustomerObject(pCustomer.pCustSelectedID) != null)
+                    if (clientes.getCustomerObject(pCustomer.pCustSelectedID, "") != null)
                     {
-                        clientes pClientes = clientes.getCustomerObject(pCustomer.pCustSelectedID);
+                        clientes pClientes = clientes.getCustomerObject(pCustomer.pCustSelectedID, "");
                         if (pClientes.Status == "Demandante")
                         {
                             pDemandante = pClientes;
@@ -264,9 +284,9 @@ namespace Sistema_Abogados
             {
                 try
                 {
-                    if (clientes.getCustomerObject(pCustomer.pCustSelectedID) != null)
+                    if (clientes.getCustomerObject(pCustomer.pCustSelectedID, "") != null)
                     {
-                        clientes pClientes = clientes.getCustomerObject(pCustomer.pCustSelectedID);
+                        clientes pClientes = clientes.getCustomerObject(pCustomer.pCustSelectedID, "");
                         if (pClientes.Status == "Demandado")
                         {
                             pDemandado = pClientes;
@@ -352,6 +372,62 @@ namespace Sistema_Abogados
                 {
                     txtTotalPagar.Text = (Convert.ToDouble(txtPrecio.Text) + Convert.ToDouble(txtHonorarios.Text)).ToString("f2");
                 }
+            }
+        }
+
+        private void rbCedulaE_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rbCedulaE.Checked == true)
+            {
+                lblCedula.Text = "Cedula:";
+                txtCedulaDemandante.Mask = "000-0000000-0";
+            }
+            else
+            {
+                lblCedula.Text = "Pasaporte:";
+                txtCedulaDemandante.Mask = "SE-000-0000";
+            }
+        }
+
+        private void rbPasaporteE_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCedulaE.Checked == true)
+            {
+                lblCedula.Text = "Cedula:";
+                txtCedulaDemandante.Mask = "000-0000000-0";
+            }
+            else
+            {
+                lblCedula.Text = "Pasaporte:";
+                txtCedulaDemandante.Mask = "SE-000-0000";
+            }
+        }
+
+        private void rbCedulaO_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rbCedulaO.Checked == true)
+            {
+                txtCedulaDemandado.Mask = "000-0000000-0";
+                lblCedulaDemandado.Text = "Cedula:";
+            }
+            else
+            {
+                txtCedulaDemandado.Mask = "SE-000-0000";
+                lblCedulaDemandado.Text = "Pasaporte:";
+            }
+        }
+
+        private void rbPasaporteO_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCedulaO.Checked == true)
+            {
+                txtCedulaDemandado.Mask = "000-0000000-0";
+                lblCedulaDemandado.Text = "Cedula:";
+            }
+            else
+            {
+                txtCedulaDemandado.Mask = "SE-000-0000";
+                lblCedulaDemandado.Text = "Pasaporte:";
             }
         }
 

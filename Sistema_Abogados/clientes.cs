@@ -138,12 +138,12 @@ namespace Sistema_Abogados
             return list;
         }
         // method for getting customers data.
-        public static clientes getCustomerObject(string ID)
+        public static clientes getCustomerObject(string ID, string idCard)
         {
             clientes pClientes = new clientes();
             using(SqlConnection con  = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("SELECT * FROM customers INNER JOIN Cities ON customers.CityID = Cities.ID INNER JOIN CustomerStatus ON CustomerStatus.ID = customers.StatusId WHERE customers.ID = '{0}'", ID), con);
+                SqlCommand comand = new SqlCommand(string.Format("SELECT * FROM customers INNER JOIN Cities ON customers.CityID = Cities.ID INNER JOIN CustomerStatus ON CustomerStatus.ID = customers.StatusId WHERE customers.ID = '{0}' OR customers.idcard = '{1}'", ID, idCard), con);
                 SqlDataReader re = comand.ExecuteReader();
                 if (re.HasRows)
                 {
