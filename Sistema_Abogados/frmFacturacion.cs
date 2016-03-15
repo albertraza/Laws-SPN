@@ -735,5 +735,10 @@ namespace Sistema_Abogados
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        // when buscar factura is clicked.
+        private void btnBuscarFactura_Click(object sender, EventArgs e)
+        {
+            new frmSearchFacturas().Show();
+        }
     }
 }

@@ -65,6 +65,7 @@
             this.btnCobrar = new System.Windows.Forms.Button();
             this.pbCedula = new System.Windows.Forms.PictureBox();
             this.btnCleanAll = new System.Windows.Forms.Button();
+            this.btnBuscarFactura = new System.Windows.Forms.Button();
             this.gbParametrosBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturacion)).BeginInit();
             this.gbInformacionCliente.SuspendLayout();
@@ -451,12 +452,27 @@
             this.btnCleanAll.UseVisualStyleBackColor = true;
             this.btnCleanAll.Click += new System.EventHandler(this.btnCleanAll_Click);
             // 
+            // btnBuscarFactura
+            // 
+            this.btnBuscarFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarFactura.Image = global::Sistema_Abogados.Properties.Resources.search;
+            this.btnBuscarFactura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarFactura.Location = new System.Drawing.Point(716, 309);
+            this.btnBuscarFactura.Name = "btnBuscarFactura";
+            this.btnBuscarFactura.Size = new System.Drawing.Size(235, 57);
+            this.btnBuscarFactura.TabIndex = 32;
+            this.btnBuscarFactura.Text = "Buscar Factura";
+            this.btnBuscarFactura.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarFactura.UseVisualStyleBackColor = true;
+            this.btnBuscarFactura.Click += new System.EventHandler(this.btnBuscarFactura_Click);
+            // 
             // frmFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkKhaki;
             this.ClientSize = new System.Drawing.Size(991, 533);
+            this.Controls.Add(this.btnBuscarFactura);
             this.Controls.Add(this.btnCleanAll);
             this.Controls.Add(this.gbInformacionCaso);
             this.Controls.Add(this.gbInformacionCliente);
@@ -522,5 +538,6 @@
         private System.Windows.Forms.Button btnCleanCustoInfo;
         private System.Windows.Forms.Button btnCleanCaseInfo;
         private System.Windows.Forms.Button btnCleanAll;
+        private System.Windows.Forms.Button btnBuscarFactura;
     }
 }

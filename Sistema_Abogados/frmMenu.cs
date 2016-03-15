@@ -113,5 +113,10 @@ namespace Sistema_Abogados
             this.Hide();
             new frmFacturacion().Show();
         }
+
+        private void facturasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmSearchFacturas().Show();
+        }
     }
 }
