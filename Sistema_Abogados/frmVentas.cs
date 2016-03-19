@@ -151,6 +151,14 @@ namespace Sistema_Abogados
                         pbVendedor.Image = Image.FromFile(pClientes.Image);
                         txtNameSeller.Text = pClientes.Nombre;
                         txtLastNameSeller.Text = pClientes.Apellido;
+                        if(Convert.ToInt32(clientes.verifyDocument(ID, cedula)) <= 0)
+                        {
+                            rbCedulaVe.Checked = true;
+                        }
+                        else
+                        {
+                            rbPasaporteVe.Checked = true;
+                        }
                         txtCedulaSeller.Text = pClientes.Cedula;
                         txtCelularSeller.Text = pClientes.Celular;
                         txtPhoneSeller.Text = pClientes.Telefono;
@@ -205,6 +213,14 @@ namespace Sistema_Abogados
                         pbComprador.Image = Image.FromFile(pClientes.Image);
                         txtNameBuy.Text = pClientes.Nombre;
                         txtLastNameBuy.Text = pClientes.Apellido;
+                        if(Convert.ToInt32(clientes.verifyDocument(ID, cedula)) <= 0)
+                        {
+                            rbCedulaCo.Checked = true;
+                        }
+                        else
+                        {
+                            rbPasaporteCo.Checked = true;
+                        }
                         txtCedulaBuy.Text = pClientes.Cedula;
                         txtCelularBuy.Text = pClientes.Celular;
                         txtPhoneBuy.Text = pClientes.Telefono;
@@ -250,6 +266,14 @@ namespace Sistema_Abogados
                             pbVendedor.Image = Image.FromFile(pClientes.Image);
                             txtNameSeller.Text = pClientes.Nombre;
                             txtLastNameSeller.Text = pClientes.Apellido;
+                            if(Convert.ToInt32(clientes.verifyDocument(pCustomer.pCustSelectedID, "")) <= 0)
+                            {
+                                rbCedulaVe.Checked = true;
+                            }
+                            else
+                            {
+                                rbPasaporteVe.Checked = true;
+                            }
                             txtCedulaSeller.Text = pClientes.Cedula;
                             txtCelularSeller.Text = pClientes.Celular;
                             txtPhoneSeller.Text = pClientes.Telefono;
@@ -360,6 +384,53 @@ namespace Sistema_Abogados
                     txtTotalPagar.Text = (Convert.ToDouble(txtTotalPagar.Text) - Convert.ToDouble(txtAbono.Text)).ToString("f2");
                 }
             }
+        }
+
+        private void rbPasaporteVe_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rbCedulaVe.Checked == true)
+            {
+                txtCedulaSeller.Mask = "000-0000000-0";
+                lblCedulaSeller.Text = "Cedula:";
+            }
+            else
+            {
+                txtCedulaSeller.Mask = "SE-000-0000";
+                lblCedulaSeller.Text = "Pasaporte:";
+            }
+        }
+
+        private void rbCedulaVe_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCedulaVe.Checked == true)
+            {
+                txtCedulaSeller.Mask = "000-0000000-0";
+                lblCedulaSeller.Text = "Cedula:";
+            }
+            else
+            {
+                txtCedulaSeller.Mask = "SE-000-0000";
+                lblCedulaSeller.Text = "Pasaporte:";
+            }
+        }
+
+        private void rbCedulaCo_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rbCedulaCo.Checked == true)
+            {
+                txtCedulaBuy.Mask = "000-0000000-0";
+                lblCedulaBuy.Text = "Cedula:";
+            }
+            else
+            {
+                txtCedulaBuy.Mask = "000-0000000-0";
+                lblCedulaBuy.Text = "Cedula:";
+            }
+        }
+
+        private void rbPasaporteCo_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
 
         // when guardar button is clicked.
@@ -491,6 +562,14 @@ namespace Sistema_Abogados
                             txtIDBuy.Text = pClientes.ID;
                             txtNameBuy.Text = pClientes.Nombre;
                             txtLastNameBuy.Text = pClientes.Apellido;
+                            if(Convert.ToInt32(clientes.verifyDocument(pComprador.pCustSelectedID, "")) <= 0)
+                            {
+                                rbCedulaCo.Checked = true;
+                            }
+                            else
+                            {
+                                rbPasaporteCo.Checked = true;
+                            }
                             txtCedulaBuy.Text = pClientes.Cedula;
                             txtCelularBuy.Text = pClientes.Celular;
                             txtPhoneBuy.Text = pClientes.Telefono;

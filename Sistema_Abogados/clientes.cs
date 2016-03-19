@@ -38,13 +38,13 @@ namespace Sistema_Abogados
         }
         // end of building constructs ///
         // method for registering customers.
-        public static int customerRegistration(clientes pClientes, string image)
+        public static int customerRegistration(clientes pClientes, string image, string pasaporte)
         {
             int r = -1;
             using(SqlConnection con  = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("INSERT INTO customers (name, lastname, idcard, StatusId, picture, registerdate, cAddress, CityID, Phone, Cellphone, email, ocupation) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}')",
-                    pClientes.Nombre, pClientes.Apellido, pClientes.Cedula, pClientes.Status, image, pClientes.Fecha_Registro, pClientes.Direccion, pClientes.Sector, pClientes.Telefono, pClientes.Celular, pClientes.E_Mail, pClientes.Ocupacion), con);
+                SqlCommand comand = new SqlCommand(string.Format("INSERT INTO customers (name, lastname, idcard, StatusId, picture, registerdate, cAddress, CityID, Phone, Cellphone, email, ocupation, pasaporte) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}', '{12}')",
+                    pClientes.Nombre, pClientes.Apellido, pClientes.Cedula, pClientes.Status, image, pClientes.Fecha_Registro, pClientes.Direccion, pClientes.Sector, pClientes.Telefono, pClientes.Celular, pClientes.E_Mail, pClientes.Ocupacion, pasaporte), con);
                 r = comand.ExecuteNonQuery();
                 con.Close();
             }
@@ -219,7 +219,7 @@ namespace Sistema_Abogados
             int r;
             using(SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("Select * from customers where ID = '{0}' or idcard = '{1}'", ID, cedula), con);
+                SqlCommand comand = new SqlCommand(string.Format("Select pasaporte from customers where ID = '{0}' or idcard = '{1}'", ID, cedula), con);
                 r = Convert.ToInt32(comand.ExecuteScalar());
                 con.Close();
             }

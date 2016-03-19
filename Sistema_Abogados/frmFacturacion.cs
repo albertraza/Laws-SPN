@@ -35,6 +35,7 @@ namespace Sistema_Abogados
             txtTotalaPagar.Clear();
             dbMensualidad.Checked = false;
             dbContrato.Checked = false;
+            gbParametrosBusqueda.Enabled = true;
             if (rbAlquiler.Checked == true)
             {
                 dgvFacturacion.DataSource = facturacion.listAllRent();
@@ -322,10 +323,18 @@ namespace Sistema_Abogados
                     {
                         apellido = txtApellido.Text;
                     }
+                     
+                    // make some list objects based on facturacion objects properties.
+
                     List<facturacion> list = new List<facturacion>();
-                    list.AddRange(facturacion.searchVentas(cedula, nombre, apellido));
-                    list.AddRange(facturacion.searchDivorciosAccidentes(cedula, nombre, apellido));
-                    list.AddRange(facturacion.searchRent(cedula, nombre, apellido));
+                    List<facturacion> list0 = (facturacion.searchVentas(cedula, nombre, apellido));
+                    List<facturacion> list1 = (facturacion.searchDivorciosAccidentes(cedula, nombre, apellido));
+                    List<facturacion> list2 = (facturacion.searchRent(cedula, nombre, apellido));
+                    // join then if their values is different from null.
+                    if (list0 != null) list.AddRange(list0);
+                    if (list1 != null) list.AddRange(list1);
+                    if (list2 != null) list.AddRange(list2);
+                    // load the list into the data grid.
                     dgvFacturacion.DataSource = list;
                 }
             }
@@ -337,10 +346,11 @@ namespace Sistema_Abogados
         // when seleccionar button is clicked.
         private void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            string ID = "";
+            string ID = "", Servicio = "";
             if (dgvFacturacion.SelectedRows.Count == 1)
             {
                 ID = dgvFacturacion.CurrentRow.Cells[0].Value.ToString();
+                Servicio = dgvFacturacion.CurrentRow.Cells[1].Value.ToString();
                 try {
                     if (rbAlquiler.Checked == true)
                     {
@@ -364,10 +374,12 @@ namespace Sistema_Abogados
                         {
                             txtUltimoPago.Text = Convert.ToDateTime(pBaseObjfactura.fechaUltimoPago).ToLongDateString();
                         }
+                        gbParametrosBusqueda.Enabled = false;
                     }
                     else if (rbVentas.Checked == true)
                     {
                         // ventas
+                        cleanInputs();
                         pBaseObjfactura = facturacion.getVentasStatus(ID);
                         pCliente = clientes.getCustomerObject(pBaseObjfactura.Cliente_ID, "");
                         pService = servicios.getServiceInfo(pBaseObjfactura.Service_ID);
@@ -388,10 +400,12 @@ namespace Sistema_Abogados
                         {
                             txtUltimoPago.Text = Convert.ToDateTime(pBaseObjfactura.fechaUltimoPago).ToLongDateString();
                         }
+                        gbParametrosBusqueda.Enabled = false;
                     }
                     else if (rbDivorcioAccidente.Checked == true)
                     {
                         // divorcios accidente
+                        cleanInputs();
                         pBaseObjfactura = facturacion.getDivorciosAccidentesStatus(ID);
                         pCliente = clientes.getCustomerObject(pBaseObjfactura.Cliente_ID, "");
                         pService = servicios.getServiceInfo(pBaseObjfactura.Service_ID);
@@ -411,6 +425,91 @@ namespace Sistema_Abogados
                         else
                         {
                             txtUltimoPago.Text = Convert.ToDateTime(pBaseObjfactura.fechaUltimoPago).ToLongDateString();
+                        }
+                        gbParametrosBusqueda.Enabled = false;
+                    }
+                    else
+                    {
+                        // general is selected.
+                        if(Servicio == "Alquiler")
+                        {
+                            // alquiler
+                            cleanInputs();
+                            pBaseObjfactura = facturacion.getRentStatus(ID);
+                            pCliente = clientes.getCustomerObject(pBaseObjfactura.Cliente_ID, "");
+                            pService = servicios.getServiceInfo(pBaseObjfactura.Service_ID);
+                            txtApellido.Text = pCliente.Apellido;
+                            dbMensualidad.Checked = true;
+                            gbPagoRealizar.Visible = true;
+                            txtCedula.Text = pCliente.Cedula;
+                            txtNombre.Text = pCliente.Nombre;
+                            txtNumeroCaso.Text = pBaseObjfactura.Case_ID;
+                            txtServicio.Text = pService.Servicio;
+                            pbCedula.Image = Image.FromFile(pCliente.Image);
+                            if (pBaseObjfactura.fechaUltimoPago == string.Empty || pBaseObjfactura.fechaUltimoPago == null)
+                            {
+                                txtUltimoPago.Text = "No se ha hecho un pago aun";
+                            }
+                            else
+                            {
+                                txtUltimoPago.Text = Convert.ToDateTime(pBaseObjfactura.fechaUltimoPago).ToLongDateString();
+                            }
+                            rbAlquiler.Checked = true;
+                            gbParametrosBusqueda.Enabled = false;
+                        }
+                        else if(Servicio == "Divorcio o Accidente")
+                        {
+                            // Divorcio accidente.
+                            cleanInputs();
+                            pBaseObjfactura = facturacion.getDivorciosAccidentesStatus(ID);
+                            pCliente = clientes.getCustomerObject(pBaseObjfactura.Cliente_ID, "");
+                            pService = servicios.getServiceInfo(pBaseObjfactura.Service_ID);
+                            txtApellido.Text = pCliente.Apellido;
+                            txtBalanceTotal.Text = pBaseObjfactura.TotalPago_Mensualidad;
+                            txtCedula.Text = pCliente.Cedula;
+                            txtImpSobreRenta.Text = "Incluido";
+                            txtITEBIS.Text = "Incluido";
+                            txtNombre.Text = pCliente.Nombre;
+                            txtNumeroCaso.Text = pBaseObjfactura.Case_ID;
+                            txtServicio.Text = pService.Servicio;
+                            txtTotalaPagar.Text = pBaseObjfactura.TotalPago_Mensualidad;
+                            if (pBaseObjfactura.fechaUltimoPago == string.Empty || pBaseObjfactura.fechaUltimoPago == null)
+                            {
+                                txtUltimoPago.Text = "No se ha hecho un pago aun";
+                            }
+                            else
+                            {
+                                txtUltimoPago.Text = Convert.ToDateTime(pBaseObjfactura.fechaUltimoPago).ToLongDateString();
+                            }
+                            rbDivorcioAccidente.Checked = true;
+                            gbParametrosBusqueda.Enabled = false;
+                        }
+                        else if (Servicio == "Ventas de Inmuebles")
+                        {
+                            // venta
+                            cleanInputs();
+                            pBaseObjfactura = facturacion.getVentasStatus(ID);
+                            pCliente = clientes.getCustomerObject(pBaseObjfactura.Cliente_ID, "");
+                            pService = servicios.getServiceInfo(pBaseObjfactura.Service_ID);
+                            txtApellido.Text = pCliente.Apellido;
+                            txtBalanceTotal.Text = pBaseObjfactura.TotalPago_Mensualidad;
+                            txtCedula.Text = pCliente.Cedula;
+                            txtImpSobreRenta.Text = "Incluido";
+                            txtITEBIS.Text = "Incluido";
+                            txtNombre.Text = pCliente.Nombre;
+                            txtNumeroCaso.Text = pBaseObjfactura.Case_ID;
+                            txtServicio.Text = pService.Servicio;
+                            txtTotalaPagar.Text = pBaseObjfactura.TotalPago_Mensualidad;
+                            if (pBaseObjfactura.fechaUltimoPago == string.Empty || pBaseObjfactura.fechaUltimoPago == null)
+                            {
+                                txtUltimoPago.Text = "No se ha hecho un pago aun";
+                            }
+                            else
+                            {
+                                txtUltimoPago.Text = Convert.ToDateTime(pBaseObjfactura.fechaUltimoPago).ToLongDateString();
+                            }
+                            rbVentas.Checked = true;
+                            gbParametrosBusqueda.Enabled = false;
                         }
                     }
                 }
@@ -451,7 +550,16 @@ namespace Sistema_Abogados
                 }
                 else
                 {
-                    txtCantDevolver.Text = (Convert.ToDouble(txtMoneda.Text) - Convert.ToDouble(txtCantPagar.Text)).ToString("f2");
+                    if ((Convert.ToDouble(txtMoneda.Text) - Convert.ToDouble(txtCantPagar.Text)) < 0)
+                    {
+                        MessageBox.Show("La moneda con que se pagara es menor a la cantidad que se pagara", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtMoneda.Clear();
+                        txtMoneda.Focus();
+                    }
+                    else
+                    {
+                        txtCantDevolver.Text = (Convert.ToDouble(txtMoneda.Text) - Convert.ToDouble(txtCantPagar.Text)).ToString("f2");
+                    }
                 }
             }
         }
@@ -659,6 +767,7 @@ namespace Sistema_Abogados
             txtCedula.Clear();
             txtNombre.Clear();
             txtApellido.Clear();
+            gbParametrosBusqueda.Enabled = true;
             try {
                 pbCedula.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
             }
@@ -695,7 +804,7 @@ namespace Sistema_Abogados
         {
             new frmSearchFacturas().Show();
         }
-        // when clicked
+        // when cb mensualidad changes.
         private void dbMensualidad_CheckedChanged(object sender, EventArgs e)
         {
             if (servicios.getServiceInfo(pBaseObjfactura.Service_ID).Servicio == "Alquiler")
@@ -728,7 +837,7 @@ namespace Sistema_Abogados
                 }
             }
         }
-
+        // when cb contrato changes.
         private void dbContrato_CheckedChanged(object sender, EventArgs e)
         {
             if (servicios.getServiceInfo(pBaseObjfactura.Service_ID).Servicio == "Alquiler")
@@ -765,19 +874,46 @@ namespace Sistema_Abogados
                 }
             }
         }
-
-        private void rbAbono_CheckedChanged(object sender, EventArgs e)
-        {
-        }
-
+        // none
         private void lblTotalaPagar_Click(object sender, EventArgs e)
         {
 
         }
-
+        // none
         private void txtTotalaPagar_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void rbGeneral_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rbAlquiler.Checked == true)
+                {
+                    dgvFacturacion.DataSource = facturacion.listAllRent();
+                }
+                else if (rbDivorcioAccidente.Checked == true)
+                {
+                    dgvFacturacion.DataSource = facturacion.listAllDivorciosAccidentes();
+                }
+                else if (rbVentas.Checked == true)
+                {
+                    dgvFacturacion.DataSource = facturacion.listAllVentas();
+                }
+                else
+                {
+                    List<facturacion> list = new List<facturacion>();
+                    list.AddRange(facturacion.listAllRent());
+                    list.AddRange(facturacion.listAllDivorciosAccidentes());
+                    list.AddRange(facturacion.listAllVentas());
+                    dgvFacturacion.DataSource = list;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

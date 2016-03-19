@@ -67,6 +67,10 @@
             this.txtIDBuy = new System.Windows.Forms.TextBox();
             this.lblIDBuy = new System.Windows.Forms.Label();
             this.gbInfoPagos = new System.Windows.Forms.GroupBox();
+            this.txtISR = new System.Windows.Forms.TextBox();
+            this.lblISR = new System.Windows.Forms.Label();
+            this.txtITEBIS = new System.Windows.Forms.TextBox();
+            this.lblITEBIS = new System.Windows.Forms.Label();
             this.btnCalcular = new System.Windows.Forms.Button();
             this.txtTotalPagar = new System.Windows.Forms.TextBox();
             this.lblTotalPagar = new System.Windows.Forms.Label();
@@ -85,10 +89,6 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnClearAll = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtITEBIS = new System.Windows.Forms.TextBox();
-            this.lblITEBIS = new System.Windows.Forms.Label();
-            this.txtISR = new System.Windows.Forms.TextBox();
-            this.lblISR = new System.Windows.Forms.Label();
             this.gbVendedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbVendedor)).BeginInit();
             this.gbComprador.SuspendLayout();
@@ -133,6 +133,7 @@
             this.rbPasaporteVe.TabStop = true;
             this.rbPasaporteVe.Text = "Pasaporte";
             this.rbPasaporteVe.UseVisualStyleBackColor = true;
+            this.rbPasaporteVe.CheckedChanged += new System.EventHandler(this.rbPasaporteVe_CheckedChanged);
             // 
             // rbCedulaVe
             // 
@@ -144,6 +145,7 @@
             this.rbCedulaVe.TabStop = true;
             this.rbCedulaVe.Text = "Cedula";
             this.rbCedulaVe.UseVisualStyleBackColor = true;
+            this.rbCedulaVe.CheckedChanged += new System.EventHandler(this.rbCedulaVe_CheckedChanged);
             // 
             // txtCedulaSeller
             // 
@@ -318,6 +320,7 @@
             this.rbPasaporteCo.TabStop = true;
             this.rbPasaporteCo.Text = "Pasaporte";
             this.rbPasaporteCo.UseVisualStyleBackColor = true;
+            this.rbPasaporteCo.CheckedChanged += new System.EventHandler(this.rbPasaporteCo_CheckedChanged);
             // 
             // rbCedulaCo
             // 
@@ -329,6 +332,7 @@
             this.rbCedulaCo.TabStop = true;
             this.rbCedulaCo.Text = "Cedula";
             this.rbCedulaCo.UseVisualStyleBackColor = true;
+            this.rbCedulaCo.CheckedChanged += new System.EventHandler(this.rbCedulaCo_CheckedChanged);
             // 
             // txtCedulaBuy
             // 
@@ -494,6 +498,38 @@
             this.gbInfoPagos.TabStop = false;
             this.gbInfoPagos.Text = "Informacion Venta";
             // 
+            // txtISR
+            // 
+            this.txtISR.Location = new System.Drawing.Point(389, 109);
+            this.txtISR.Name = "txtISR";
+            this.txtISR.Size = new System.Drawing.Size(100, 20);
+            this.txtISR.TabIndex = 18;
+            // 
+            // lblISR
+            // 
+            this.lblISR.AutoSize = true;
+            this.lblISR.Location = new System.Drawing.Point(355, 112);
+            this.lblISR.Name = "lblISR";
+            this.lblISR.Size = new System.Drawing.Size(28, 13);
+            this.lblISR.TabIndex = 17;
+            this.lblISR.Text = "ISR:";
+            // 
+            // txtITEBIS
+            // 
+            this.txtITEBIS.Location = new System.Drawing.Point(235, 109);
+            this.txtITEBIS.Name = "txtITEBIS";
+            this.txtITEBIS.Size = new System.Drawing.Size(100, 20);
+            this.txtITEBIS.TabIndex = 16;
+            // 
+            // lblITEBIS
+            // 
+            this.lblITEBIS.AutoSize = true;
+            this.lblITEBIS.Location = new System.Drawing.Point(185, 112);
+            this.lblITEBIS.Name = "lblITEBIS";
+            this.lblITEBIS.Size = new System.Drawing.Size(44, 13);
+            this.lblITEBIS.TabIndex = 15;
+            this.lblITEBIS.Text = "ITEBIS:";
+            // 
             // btnCalcular
             // 
             this.btnCalcular.Location = new System.Drawing.Point(701, 106);
@@ -650,38 +686,6 @@
             this.btnSave.Text = "Guardar Datos";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // txtITEBIS
-            // 
-            this.txtITEBIS.Location = new System.Drawing.Point(235, 109);
-            this.txtITEBIS.Name = "txtITEBIS";
-            this.txtITEBIS.Size = new System.Drawing.Size(100, 20);
-            this.txtITEBIS.TabIndex = 16;
-            // 
-            // lblITEBIS
-            // 
-            this.lblITEBIS.AutoSize = true;
-            this.lblITEBIS.Location = new System.Drawing.Point(185, 112);
-            this.lblITEBIS.Name = "lblITEBIS";
-            this.lblITEBIS.Size = new System.Drawing.Size(44, 13);
-            this.lblITEBIS.TabIndex = 15;
-            this.lblITEBIS.Text = "ITEBIS:";
-            // 
-            // txtISR
-            // 
-            this.txtISR.Location = new System.Drawing.Point(389, 109);
-            this.txtISR.Name = "txtISR";
-            this.txtISR.Size = new System.Drawing.Size(100, 20);
-            this.txtISR.TabIndex = 18;
-            // 
-            // lblISR
-            // 
-            this.lblISR.AutoSize = true;
-            this.lblISR.Location = new System.Drawing.Point(355, 112);
-            this.lblISR.Name = "lblISR";
-            this.lblISR.Size = new System.Drawing.Size(28, 13);
-            this.lblISR.TabIndex = 17;
-            this.lblISR.Text = "ISR:";
             // 
             // frmVentas
             // 

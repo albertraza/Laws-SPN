@@ -204,8 +204,17 @@ namespace Sistema_Abogados
                         // verify if customer is already registered.
                         if ((clientes.verify(txtID.Text) && txtID.MaskCompleted) || (clientes.verify(txtPassport.Text) && txtPassport.MaskCompleted))
                         {
+                            int pasaporte;
+                            if(rbCedula.Checked == true)
+                            {
+                                pasaporte = 0;
+                            }
+                            else
+                            {
+                                pasaporte = 1;
+                            }
                             // execute method for registering users.
-                            if (clientes.customerRegistration(c, To) > 0)
+                            if (clientes.customerRegistration(c, To, pasaporte.ToString()) > 0)
                             {
                                 MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 File.Copy(From, To, true);

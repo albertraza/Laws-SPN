@@ -123,6 +123,14 @@ namespace Sistema_Abogados
                         txtLastNameDemandante.Text = pClientes.Apellido;
                         txtPhoneDemandante.Text = pClientes.Telefono;
                         txtCellphoneDemandante.Text = pClientes.Celular;
+                        if(Convert.ToInt32(clientes.verifyDocument(ID, cedula)) <= 0)
+                        {
+                            rbCedulaE.Checked = true;
+                        }
+                        else
+                        {
+                            rbPasaporteE.Checked = true;
+                        }
                         txtCedulaDemandante.Text = pClientes.Cedula;
                     }
                     else
@@ -178,6 +186,14 @@ namespace Sistema_Abogados
                         txtLastNameDemandado.Text = pClientes.Apellido;
                         txtPhoneDemandado.Text = pClientes.Telefono;
                         txtCellphoneDemandado.Text = pClientes.Celular;
+                        if(Convert.ToInt32(clientes.verifyDocument(ID, cedula)) <= 0)
+                        {
+                            rbCedulaO.Checked = true;
+                        }
+                        else
+                        {
+                            rbPasaporteO.Checked = true;
+                        }
                         txtCedulaDemandado.Text = pClientes.Cedula;
                     }
                     else
@@ -249,6 +265,14 @@ namespace Sistema_Abogados
                             txtLastNameDemandante.Text = pClientes.Apellido;
                             txtPhoneDemandante.Text = pClientes.Telefono;
                             txtCellphoneDemandante.Text = pClientes.Celular;
+                            if(Convert.ToInt32(clientes.verifyDocument(pCustomer.pCustSelectedID, "")) <= 0)
+                            {
+                                rbCedulaE.Checked = true;
+                            }
+                            else
+                            {
+                                rbPasaporteE.Checked = true;
+                            }
                             txtCedulaDemandante.Text = pClientes.Cedula;
                         }
                         else
@@ -299,6 +323,14 @@ namespace Sistema_Abogados
                             txtLastNameDemandado.Text = pClientes.Apellido;
                             txtPhoneDemandado.Text = pClientes.Telefono;
                             txtCellphoneDemandado.Text = pClientes.Celular;
+                            if(Convert.ToInt32(clientes.verifyDocument(pCustomer.pCustSelectedID, "")) <= 0)
+                            {
+                                rbCedulaO.Checked = true;
+                            }
+                            else
+                            {
+                                rbPasaporteO.Checked = true;
+                            }
                             txtCedulaDemandado.Text = pClientes.Cedula;
                         }
                         else

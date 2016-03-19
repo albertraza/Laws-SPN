@@ -108,5 +108,17 @@ namespace Sistema_Abogados
             }
             return pServicios;
         }
+        // method for getting service ID.
+        public static string getServiceID(string Servicio)
+        {
+            string r = null;
+            using(SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("SELECT ID FROM services WHERE cService = '{0}'", Servicio), con);
+                r = comand.ExecuteScalar().ToString();
+                con.Close();
+            }
+            return r;
+        }
     }
 }
