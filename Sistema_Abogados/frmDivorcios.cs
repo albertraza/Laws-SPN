@@ -33,6 +33,8 @@ namespace Sistema_Abogados
             txtIDDemandante.Focus();
             txtPrecio.Enabled = false;
             txtTotalPagar.Enabled = false;
+            txtITEBIS.Enabled = false;
+            txtISR.Enabled = false;
         }
         // method for cleaning evrything.
         private void clearInputs()
@@ -363,14 +365,13 @@ namespace Sistema_Abogados
                     MessageBox.Show("Los honorarios no deben ser igual a 0 o menor de 0", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtHonorarios.Focus();
                 }
-                else if (Convert.ToDouble(txtAbono.Text) <= 0)
-                {
-                    MessageBox.Show("El abono no debe ser igual o menor de 0", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtAbono.Focus();
-                }
                 else
                 {
                     txtTotalPagar.Text = (Convert.ToDouble(txtPrecio.Text) + Convert.ToDouble(txtHonorarios.Text)).ToString("f2");
+                    txtITEBIS.Text = (Convert.ToDouble(txtTotalPagar.Text) * 0.18).ToString("f2");
+                    txtISR.Text = (Convert.ToDouble(txtTotalPagar.Text) * 0.10).ToString("f2");
+                    txtTotalPagar.Text = (Convert.ToDouble(txtTotalPagar.Text) + Convert.ToDouble(txtITEBIS.Text) + Convert.ToDouble(txtISR.Text)).ToString("f2");
+                    txtTotalPagar.Text = (Convert.ToDouble(txtTotalPagar.Text) - Convert.ToDouble(txtAbono.Text)).ToString("f2");
                 }
             }
         }

@@ -21,10 +21,12 @@ namespace Sistema_Abogados
         public string TotalPago_Mensualidad { get; set; }
         public string Abono_Deposito { get; set; }
         public string fechaUltimoPago { get; set; }
+        public string ContratoTotal { get; set; }
+        public string fechaProximoPago { get; set; }
         //end object properties //
 
         public facturacionBaseObj() { }
-        public facturacionBaseObj(string pID, string pCID, string CaID, string tp, string ad, string sID, string fePa)
+        public facturacionBaseObj(string pID, string pCID, string CaID, string tp, string ad, string sID, string fePa, string contratototal, string pPago)
         {
             ID = pID;
             Cliente_ID = pCID;
@@ -33,6 +35,8 @@ namespace Sistema_Abogados
             TotalPago_Mensualidad = tp;
             Abono_Deposito = ad;
             fechaUltimoPago = fePa;
+            ContratoTotal = contratototal;
+            fechaProximoPago = pPago;
         }
     }
 }

@@ -46,23 +46,23 @@ namespace Sistema_Abogados
             }
             return r;
         }
-        public static int registerFacturaDivorciosAccidente(string clienteID, string servicioID, string casoID, string TotalBalance, string pago, string nuevoBalance)
+        public static int registerFacturaDivorciosAccidente(string clienteID, string servicioID, string casoID, string TotalBalance, string pago, string nuevoBalance, string fechaPago, string Detalles)
         {
             int r = -1;
             using (SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("INSERT INTO facturasDivorciosAccidente (clienteID, servicioID, casoID, TotalBalance, Pago, NuevoBalance) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')", clienteID, servicioID, casoID, TotalBalance, pago, nuevoBalance), con);
+                SqlCommand comand = new SqlCommand(string.Format("INSERT INTO facturasDivorciosAccidente (clienteID, servicioID, casoID, TotalBalance, Pago, NuevoBalance, FechaPago, Detalles) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')", clienteID, servicioID, casoID, TotalBalance, pago, nuevoBalance, fechaPago, Detalles), con);
                 r = comand.ExecuteNonQuery();
                 con.Close();
             }
             return r;
         }
-        public static int registerFacturaVenta(string clienteID, string servicioID, string casoID, string TotalBalance, string pago, string nuevoBalance)
+        public static int registerFacturaVenta(string clienteID, string servicioID, string casoID, string TotalBalance, string pago, string nuevoBalance, string fechaPago, string Detalles)
         {
             int r = -1;
             using (SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("INSERT INTO facturasVenta (clienteID, servicioID, casoID, TotalBalance, Pago, NuevoBalance) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')", clienteID, servicioID, casoID, TotalBalance, pago, nuevoBalance), con);
+                SqlCommand comand = new SqlCommand(string.Format("INSERT INTO facturasVenta (clienteID, servicioID, casoID, TotalBalance, Pago, NuevoBalance, fechaPago, Detalles) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')", clienteID, servicioID, casoID, TotalBalance, pago, nuevoBalance, fechaPago, Detalles), con);
                 r = comand.ExecuteNonQuery();
                 con.Close();
             }

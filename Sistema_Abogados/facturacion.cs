@@ -22,12 +22,12 @@ namespace Sistema_Abogados
         // end of properties building
         
         // methods for registering facturaciones
-        public static int registerRent(string clienteID, string serviceID, string casoID, string mensualidad, string deposito)
+        public static int registerRent(string clienteID, string serviceID, string casoID, string mensualidad, string deposito, string TotalContrato)
         {
             int r = -1;
             using(SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("INSERT INTO rentFacturacion (clienteID, serviceID, caseID, Mensualidad, Deposito) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}')", clienteID, serviceID, casoID, mensualidad, deposito), con);
+                SqlCommand comand = new SqlCommand(string.Format("INSERT INTO rentFacturacion (clienteID, serviceID, caseID, Mensualidad, Deposito, ContratoCant) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')", clienteID, serviceID, casoID, mensualidad, deposito, TotalContrato), con);
                 r = comand.ExecuteNonQuery();
                 con.Close();
             }
@@ -61,7 +61,7 @@ namespace Sistema_Abogados
             List<facturacion> list = new List<facturacion>();
             using(SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("SELECT rentFacturacion.ID, services.cService, Rent.ID AS CasoID, customers.name, customers.lastname, customers.ID, customers.idcard, rentFacturacion.Mensualidad, rentFacturacion.Deposito FROM rentFacturacion INNER JOIN customers ON customers.ID = rentFacturacion.clienteID INNER JOIN Rent ON Rent.ID = rentFacturacion.caseID INNER JOIN services ON services.ID = rentFacturacion.serviceID"), con);
+                SqlCommand comand = new SqlCommand(string.Format("SELECT rentFacturacion.ID, services.cService, Rent.ID AS CasoID, customers.name, customers.lastname, customers.ID, customers.idcard, rentFacturacion.Mensualidad, rentFacturacion.Deposito, rentFacturacion.contratoCant FROM rentFacturacion INNER JOIN customers ON customers.ID = rentFacturacion.clienteID INNER JOIN Rent ON Rent.ID = rentFacturacion.caseID INNER JOIN services ON services.ID = rentFacturacion.serviceID"), con);
                 SqlDataReader re = comand.ExecuteReader();
                 while (re.Read())
                 {
@@ -75,7 +75,7 @@ namespace Sistema_Abogados
                     pFactura.Nombre_Cliente = re["name"].ToString();
                     pFactura.Pago_Total = Convert.ToDouble(re["Mensualidad"]).ToString("f2");
                     pFactura.Servicio = re["cService"].ToString();
-                    pFactura.Deposito = Convert.ToDouble(re["Deposito"]).ToString("f2");
+                    pFactura.Deposito = Convert.ToDouble(re["ContratoCant"]).ToString("f2");
 
                     list.Add(pFactura);
                 }
@@ -148,7 +148,19 @@ namespace Sistema_Abogados
                 SqlDataReader re = comand.ExecuteReader();
                 while (re.Read())
                 {
+                    facturacion pFactura = new facturacion();
 
+                    pFactura.ID = re["ID"].ToString();
+                    pFactura.Abono = "No hay abono registrado";
+                    pFactura.CasoNO = re["CasoID"].ToString();
+                    pFactura.Apellido_Cliente = re["lastname"].ToString();
+                    pFactura.Cedula = re["idcard"].ToString();
+                    pFactura.Nombre_Cliente = re["name"].ToString();
+                    pFactura.Pago_Total = Convert.ToDouble(re["Mensualidad"]).ToString("f2");
+                    pFactura.Servicio = re["cService"].ToString();
+                    pFactura.Deposito = Convert.ToDouble(re["Deposito"]).ToString("f2");
+
+                    list.Add(pFactura);
                 }
                 con.Close();
             }
@@ -229,6 +241,8 @@ namespace Sistema_Abogados
                         pFactura.TotalPago_Mensualidad = Convert.ToDouble(re["Mensualidad"]).ToString("f2");
                         pFactura.Abono_Deposito = Convert.ToDouble(re["Deposito"]).ToString("f2");
                         pFactura.fechaUltimoPago = re["UltimoPago"].ToString();
+                        pFactura.ContratoTotal = Convert.ToDouble(re["ContratoCant"]).ToString("f2");
+                        pFactura.fechaProximoPago = re["ProximoPago"].ToString();
                     }
                 }
                 else
@@ -256,6 +270,7 @@ namespace Sistema_Abogados
                         pFac.Case_ID = re["caseID"].ToString();
                         pFac.TotalPago_Mensualidad = Convert.ToDouble(re["TotalPago"]).ToString("f2");
                         pFac.Abono_Deposito = Convert.ToDouble(re["Abono"]).ToString("f2");
+                        pFac.fechaUltimoPago = re["ultimoPago"].ToString();
                     }
                 }
                 else
@@ -283,6 +298,7 @@ namespace Sistema_Abogados
                         pfactura.Case_ID = re["caseID"].ToString();
                         pfactura.TotalPago_Mensualidad = Convert.ToDouble(re["TotalPago"]).ToString("f2");
                         pfactura.Abono_Deposito = Convert.ToDouble(re["Abono"]).ToString("f2");
+                        pfactura.fechaUltimoPago = re["ultimoPago"].ToString();
                     }
                 }
                 else
@@ -294,34 +310,34 @@ namespace Sistema_Abogados
             return pfactura;
         }
         // methods for updating payments status
-        public static int updateRentStatus(string ID, string Depositorestante, string fechaPago)
+        public static int updateRentStatus(string ID, string Depositorestante, string fechaPago, string contratoCant, string fechaProximoPago)
         {
             int r = -1;
             using(SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("UPDATE rentFacturacion SET Deposito = '{0}', UltimoPago = '{1}' WHERE ID = '{2}'", Depositorestante, fechaPago, ID), con);
+                SqlCommand comand = new SqlCommand(string.Format("UPDATE rentFacturacion SET Deposito = '{0}', UltimoPago = '{1}', contratoCant = '{2}', ProximoPago = '{3}' WHERE ID = '{4}'", Depositorestante, fechaPago, contratoCant, fechaProximoPago, ID), con);
                 r = comand.ExecuteNonQuery();
                 con.Close();
             }
             return r;
         }
-        public static int updateDivorciosAccidenteStatus(string ID, string pagoRestante, string abonoRestante)
+        public static int updateDivorciosAccidenteStatus(string ID, string pagoRestante, string abonoRestante, string ultimoPago)
         {
             int r = -1;
             using(SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("UPDATE divorciosFacturacion SET TotalPago = '{0}', Abono = '{1}' WHERE ID = '{2}'", pagoRestante, abonoRestante, ID), con);
+                SqlCommand comand = new SqlCommand(string.Format("UPDATE divorciosFacturacion SET TotalPago = '{0}', Abono = '{1}', ultimoPago = '{2}' WHERE ID = '{3}'", pagoRestante, abonoRestante, ultimoPago, ID), con);
                 r = comand.ExecuteNonQuery();
                 con.Close();
             }
             return r;
         }
-        public static int updateVentaStatus(string ID, string pagoRestante, string abonoRestante)
+        public static int updateVentaStatus(string ID, string pagoRestante, string abonoRestante, string ultimoPago)
         {
             int r = -1;
             using(SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("update ventaFacturacion set TotalPago = '{0}', Abono = '{1}' where ID = '{2}'", pagoRestante, abonoRestante, ID), con);
+                SqlCommand comand = new SqlCommand(string.Format("update ventaFacturacion set TotalPago = '{0}', Abono = '{1}', ultimoPago = '{2}' where ID = '{3}'", pagoRestante, abonoRestante, ultimoPago, ID), con);
                 r = comand.ExecuteNonQuery();
                 con.Close();
             }

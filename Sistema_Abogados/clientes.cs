@@ -214,5 +214,16 @@ namespace Sistema_Abogados
             }
             return r;
         }
+        public static int verifyDocument(string ID, string cedula)
+        {
+            int r;
+            using(SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("Select * from customers where ID = '{0}' or idcard = '{1}'", ID, cedula), con);
+                r = Convert.ToInt32(comand.ExecuteScalar());
+                con.Close();
+            }
+            return r;
+        }
     }
 }

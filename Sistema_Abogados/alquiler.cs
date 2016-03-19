@@ -21,6 +21,7 @@ namespace Sistema_Abogados
         public string Apellido_Garante { get; set; }
         public string Mensualidad { get; set; }
         public string Deposito { get; set; }
+        public string TotalContrato { get; set; }
         // **************** end properties ***************** //
         // declaring construct
         public alquiler() { }
@@ -40,13 +41,13 @@ namespace Sistema_Abogados
         }
         // ***************** end cosuntruts ****************** //
         // method for registering the users.
-        public static int register(string ClienteID, string InquilinoID, string GaranteID, string ServicioID, string Mensualidad, string Honorario, string Detalles, string Direccion, string SectorID, string Deposito, string Abono, string alquiler)
+        public static int register(string ClienteID, string InquilinoID, string GaranteID, string ServicioID, string Mensualidad, string Honorario, string Detalles, string Direccion, string SectorID, string Deposito, string Abono, string alquiler, string TotalContrato)
         {
             int r = -1;
             using(SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("insert into Rent (CLienteID, InquilinoID, GaranteID, ServicioID, Mensualidad, Honorario, detalles, direccion, City, Deposito, Abono, Alquiler) values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}' ,'{6}' ,'{7}', '{8}', '{9}', '{10}', '{11}')",
-                    ClienteID, InquilinoID, GaranteID, ServicioID, Mensualidad, Honorario, Detalles, Direccion, SectorID, Deposito, Abono, alquiler), con);
+                SqlCommand comand = new SqlCommand(string.Format("insert into Rent (CLienteID, InquilinoID, GaranteID, ServicioID, Mensualidad, Honorario, detalles, direccion, City, Deposito, Abono, Alquiler, ContratoCant) values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}' ,'{6}' ,'{7}', '{8}', '{9}', '{10}', '{11}', '{12}')",
+                    ClienteID, InquilinoID, GaranteID, ServicioID, Mensualidad, Honorario, Detalles, Direccion, SectorID, Deposito, Abono, alquiler, TotalContrato), con);
                 r = comand.ExecuteNonQuery();
                 con.Close();
             }

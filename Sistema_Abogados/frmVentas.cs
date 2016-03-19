@@ -47,6 +47,8 @@ namespace Sistema_Abogados
             txtPhoneSeller.Enabled = false;
             txtTotalPagar.Enabled = false;
             txtIDSeller.Focus();
+            txtISR.Enabled = false;
+            txtITEBIS.Enabled = false;
         }
         // method for cleaning everything.
         private void cleanEverything()
@@ -68,6 +70,8 @@ namespace Sistema_Abogados
             txtPhoneBuy.Clear();
             txtPhoneSeller.Clear();
             txtPrecioVenta.Clear();
+            txtITEBIS.Clear();
+            txtISR.Clear();
             listThings();
             cID = null;
             vID = null;
@@ -350,6 +354,10 @@ namespace Sistema_Abogados
                 else
                 {
                     txtTotalPagar.Text = (Convert.ToDouble(txtHonorarios.Text) + Convert.ToDouble(txtPrecioVenta.Text)).ToString("f2");
+                    txtISR.Text = (Convert.ToDouble(txtTotalPagar.Text) * 0.10).ToString("f2");
+                    txtITEBIS.Text = (Convert.ToDouble(txtTotalPagar.Text) * 0.18).ToString("f2");
+                    txtTotalPagar.Text = (Convert.ToDouble(txtTotalPagar.Text) + Convert.ToDouble(txtISR.Text) + Convert.ToDouble(txtITEBIS.Text)).ToString("f2");
+                    txtTotalPagar.Text = (Convert.ToDouble(txtTotalPagar.Text) - Convert.ToDouble(txtAbono.Text)).ToString("f2");
                 }
             }
         }

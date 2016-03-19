@@ -32,6 +32,9 @@ namespace Sistema_Abogados
             txtPhoneGaran.Enabled = false;
             txtPhoneInqui.Enabled = false;
             txtMensualidad.Enabled = false;
+            txtTotalPagar.Enabled = false;
+            txtISRContr.Enabled = false;
+            txtITEBISContr.Enabled = false;
         }
         private void clearAll()
         {
@@ -56,6 +59,10 @@ namespace Sistema_Abogados
             txtPhoneGaran.Clear();
             txtPhoneInqui.Clear();
             txtPriceRent.Clear();
+            txtComision.Clear();
+            txtITEBISContr.Clear();
+            txtISRContr.Clear();
+            txtTotalPagar.Clear();
             cID = null;
             iID = null;
             gID = null;
@@ -125,6 +132,7 @@ namespace Sistema_Abogados
                     txtLastNameInqui.Text = pClientes.Apellido;
                     txtPhoneInqui.Text = pClientes.Telefono;
                     txtCellphoneInqui.Text = pClientes.Celular;
+                    txtCedulaIn.Text = pClientes.Cedula;
                 }
                 else
                 {
@@ -203,6 +211,7 @@ namespace Sistema_Abogados
                     txtLastNameInqui.Text = pClientes.Apellido;
                     txtPhoneInqui.Text = pClientes.Telefono;
                     txtCellphoneInqui.Text = pClientes.Celular;
+                    txtCedulaIn.Text = pClientes.Cedula;
                 }
                 else
                 {
@@ -249,6 +258,7 @@ namespace Sistema_Abogados
                     txtLastNameGaran.Text = pClientes.Apellido;
                     txtPhoneGaran.Text = pClientes.Telefono;
                     txtCellphoneGaran.Text = pClientes.Celular;
+                    txtCedulaGa.Text = pClientes.Cedula;
                 }
                 else
                 {
@@ -285,6 +295,7 @@ namespace Sistema_Abogados
                     txtCustLastName.Text = pClientes.Apellido;
                     txtCustPhone.Text = pClientes.Telefono;
                     txtCustCell.Text = pClientes.Celular;
+                    txtCedulaClie.Text = pCliente.Cedula;
                 }
                 else
                 {
@@ -320,6 +331,7 @@ namespace Sistema_Abogados
                     txtLastNameGaran.Text = pClientes.Apellido;
                     txtPhoneGaran.Text = pClientes.Telefono;
                     txtCellphoneGaran.Text = pClientes.Celular;
+                    txtCedulaGa.Text = pClientes.Cedula;
                 }
                 else
                 {
@@ -398,10 +410,15 @@ namespace Sistema_Abogados
                 MessageBox.Show("No se ha calculado la mensualidad", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 btnCalcular.Focus();
             }
-            else if(Convert.ToDouble(txtAbono.Text) == 0)
+            else if(Convert.ToDouble(txtTotalPagar.Text) <= 0)
             {
-                MessageBox.Show("El Abono no puede estar en 0", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("El Total a Pagar no puede estar en 0", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtAbono.Focus();
+            }
+            else if(txtTotalPagar.Text == string.Empty)
+            {
+                MessageBox.Show("No se ha calculado el total a pagar, digite uno valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                btnCalcular.Focus();
             }
             else
             {
@@ -409,10 +426,10 @@ namespace Sistema_Abogados
                 try
                 {
                     // execute method for registering the data on databse
-                    if (alquiler.register(cID, iID, gID, "3", txtMensualidad.Text , txtHonorarios.Text, txtDetails.Text, txtAddress.Text, sectores.getCityID(cbCities.Text), txtDeposito.Text, txtAbono.Text, txtPriceRent.Text) > 0)
+                    if (alquiler.register(cID, iID, gID, "3", txtMensualidad.Text , txtHonorarios.Text, txtDetails.Text, txtAddress.Text, sectores.getCityID(cbCities.Text), txtDeposito.Text, txtAbono.Text, txtPriceRent.Text, txtTotalPagar.Text) > 0)
                     {
                         MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        facturacion.registerRent(cID, "3", alquiler.getID(pInquilino.Nombre, pInquilino.Apellido, pCliente.Nombre, pCliente.Apellido, pGarante.Nombre, pGarante.Apellido, pInquilino.Cedula, pCliente.Cedula, pGarante.Cedula), txtMensualidad.Text, txtDeposito.Text);
+                        facturacion.registerRent(cID, "3", alquiler.getID(pInquilino.Nombre, pInquilino.Apellido, pCliente.Nombre, pCliente.Apellido, pGarante.Nombre, pGarante.Apellido, pInquilino.Cedula, pCliente.Cedula, pGarante.Cedula), txtMensualidad.Text, txtDeposito.Text, txtTotalPagar.Text);
                         clearAll();
                         listCities();
                     }
@@ -464,15 +481,20 @@ namespace Sistema_Abogados
                 MessageBox.Show("El honorario esta vacio", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtHonorarios.Focus();
             }
-            else if(txtAbono.Text == string.Empty)
-            {
-                MessageBox.Show("El Abono esta vacio", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtAbono.Focus();
-            }
             else if (txtDeposito.Text == string.Empty)
             {
                 MessageBox.Show("El deposito esta vacio", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtDeposito.Focus();
+            }
+            else if(txtComision.Text == string.Empty)
+            {
+                MessageBox.Show("La comision por el contrato de Alquiler esta vacia", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtComision.Focus();
+            }
+            else if(txtAbono.Text == string.Empty)
+            {
+                MessageBox.Show("El abono esta vacio", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtAbono.Focus();
             }
             else
             {
@@ -486,19 +508,24 @@ namespace Sistema_Abogados
                     MessageBox.Show("El honorario no puede ser menor o igual a 0", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtHonorarios.Focus();
                 }
-                else if (Convert.ToDouble(txtAbono.Text) <= 0)
-                {
-                    MessageBox.Show("El Abono no debe ser menor o igual a 0", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtAbono.Focus();
-                }
                 else if (Convert.ToDouble(txtDeposito.Text) <= 0)
                 {
                     MessageBox.Show("El deposito debe ser mayor a 0", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     txtDeposito.Focus();
                 }
+                else if(Convert.ToDouble(txtComision.Text) <= 0)
+                {
+                    MessageBox.Show("La comision por contrato de alquiler no debe ser menor o igual a 0", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtComision.Focus();
+                }
                 else
                 {
                     txtMensualidad.Text = (Convert.ToDouble(txtPriceRent.Text) + Convert.ToDouble(txtHonorarios.Text)).ToString("f2");
+                    txtTotalPagar.Text = ((Convert.ToDouble(txtPriceRent.Text) * Convert.ToDouble(txtDeposito.Text)) + (Convert.ToDouble(txtPriceRent.Text) * Convert.ToDouble(txtComision.Text))).ToString("f2");
+                    txtITEBISContr.Text = (Convert.ToDouble(txtTotalPagar.Text) * 0.18).ToString("f2");
+                    txtISRContr.Text = (Convert.ToDouble(txtTotalPagar.Text) * 0.10).ToString("f2");
+                    txtTotalPagar.Text = (Convert.ToDouble(txtTotalPagar.Text) + Convert.ToDouble(txtISRContr.Text) + Convert.ToDouble(txtITEBISContr.Text)).ToString("f2");
+                    txtTotalPagar.Text = (Convert.ToDouble(txtTotalPagar.Text) - Convert.ToDouble(txtAbono.Text)).ToString("f2");
                 }
             }
 
@@ -588,6 +615,11 @@ namespace Sistema_Abogados
             }
         }
 
+        private void lblPrice_Click(object sender, EventArgs e)
+        {
+
+        }
+
         // when Limpiar buttin is clicked on Garante.
         private void btnClearGaran_Click(object sender, EventArgs e)
         {
@@ -647,6 +679,7 @@ namespace Sistema_Abogados
                     txtCustLastName.Text = pClientes.Apellido;
                     txtCustPhone.Text = pClientes.Telefono;
                     txtCustCell.Text = pClientes.Celular;
+                    txtCedulaClie.Text = pClientes.Cedula;
                 }
                 else
                 {

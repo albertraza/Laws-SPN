@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gbDemandante = new System.Windows.Forms.GroupBox();
+            this.txtCedulaDemandante = new System.Windows.Forms.MaskedTextBox();
             this.rbPasaporteE = new System.Windows.Forms.RadioButton();
             this.rbCedulaE = new System.Windows.Forms.RadioButton();
             this.pbDemandante = new System.Windows.Forms.PictureBox();
@@ -47,6 +48,7 @@
             this.txtIDDemandante = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
             this.gbInfoDemandado = new System.Windows.Forms.GroupBox();
+            this.txtCedulaDemandado = new System.Windows.Forms.MaskedTextBox();
             this.rbPasaporteO = new System.Windows.Forms.RadioButton();
             this.rbCedulaO = new System.Windows.Forms.RadioButton();
             this.pbDemandado = new System.Windows.Forms.PictureBox();
@@ -78,8 +80,10 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnClearAll = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
-            this.txtCedulaDemandante = new System.Windows.Forms.MaskedTextBox();
-            this.txtCedulaDemandado = new System.Windows.Forms.MaskedTextBox();
+            this.txtITEBIS = new System.Windows.Forms.TextBox();
+            this.lblITEBIS = new System.Windows.Forms.Label();
+            this.txtISR = new System.Windows.Forms.TextBox();
+            this.lblISR = new System.Windows.Forms.Label();
             this.gbDemandante.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbDemandante)).BeginInit();
             this.gbInfoDemandado.SuspendLayout();
@@ -113,6 +117,13 @@
             this.gbDemandante.TabIndex = 0;
             this.gbDemandante.TabStop = false;
             this.gbDemandante.Text = "Infomacion Demandante";
+            // 
+            // txtCedulaDemandante
+            // 
+            this.txtCedulaDemandante.Location = new System.Drawing.Point(210, 32);
+            this.txtCedulaDemandante.Name = "txtCedulaDemandante";
+            this.txtCedulaDemandante.Size = new System.Drawing.Size(150, 20);
+            this.txtCedulaDemandante.TabIndex = 19;
             // 
             // rbPasaporteE
             // 
@@ -294,6 +305,13 @@
             this.gbInfoDemandado.TabStop = false;
             this.gbInfoDemandado.Text = "Infomacion Demandado";
             // 
+            // txtCedulaDemandado
+            // 
+            this.txtCedulaDemandado.Location = new System.Drawing.Point(203, 32);
+            this.txtCedulaDemandado.Name = "txtCedulaDemandado";
+            this.txtCedulaDemandado.Size = new System.Drawing.Size(150, 20);
+            this.txtCedulaDemandado.TabIndex = 21;
+            // 
             // rbPasaporteO
             // 
             this.rbPasaporteO.AutoSize = true;
@@ -449,6 +467,10 @@
             // 
             // gbInfomacionPagos
             // 
+            this.gbInfomacionPagos.Controls.Add(this.txtISR);
+            this.gbInfomacionPagos.Controls.Add(this.lblISR);
+            this.gbInfomacionPagos.Controls.Add(this.txtITEBIS);
+            this.gbInfomacionPagos.Controls.Add(this.lblITEBIS);
             this.gbInfomacionPagos.Controls.Add(this.btnCalcular);
             this.gbInfomacionPagos.Controls.Add(this.lblTotalPagar);
             this.gbInfomacionPagos.Controls.Add(this.txtTotalPagar);
@@ -461,7 +483,7 @@
             this.gbInfomacionPagos.Controls.Add(this.lblPrice);
             this.gbInfomacionPagos.Location = new System.Drawing.Point(12, 395);
             this.gbInfomacionPagos.Name = "gbInfomacionPagos";
-            this.gbInfomacionPagos.Size = new System.Drawing.Size(808, 67);
+            this.gbInfomacionPagos.Size = new System.Drawing.Size(808, 92);
             this.gbInfomacionPagos.TabIndex = 2;
             this.gbInfomacionPagos.TabStop = false;
             this.gbInfomacionPagos.Text = "Pagos";
@@ -469,7 +491,7 @@
             // 
             // btnCalcular
             // 
-            this.btnCalcular.Location = new System.Drawing.Point(724, 23);
+            this.btnCalcular.Location = new System.Drawing.Point(634, 18);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(75, 23);
             this.btnCalcular.TabIndex = 10;
@@ -480,7 +502,7 @@
             // lblTotalPagar
             // 
             this.lblTotalPagar.AutoSize = true;
-            this.lblTotalPagar.Location = new System.Drawing.Point(468, 28);
+            this.lblTotalPagar.Location = new System.Drawing.Point(410, 66);
             this.lblTotalPagar.Name = "lblTotalPagar";
             this.lblTotalPagar.Size = new System.Drawing.Size(74, 13);
             this.lblTotalPagar.TabIndex = 9;
@@ -488,14 +510,14 @@
             // 
             // txtTotalPagar
             // 
-            this.txtTotalPagar.Location = new System.Drawing.Point(545, 25);
+            this.txtTotalPagar.Location = new System.Drawing.Point(487, 63);
             this.txtTotalPagar.Name = "txtTotalPagar";
             this.txtTotalPagar.Size = new System.Drawing.Size(78, 20);
             this.txtTotalPagar.TabIndex = 8;
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(643, 23);
+            this.btnModificar.Location = new System.Drawing.Point(634, 56);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 7;
@@ -553,7 +575,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(266, 479);
+            this.btnCancelar.Location = new System.Drawing.Point(265, 507);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 3;
@@ -563,7 +585,7 @@
             // 
             // btnClearAll
             // 
-            this.btnClearAll.Location = new System.Drawing.Point(138, 479);
+            this.btnClearAll.Location = new System.Drawing.Point(137, 507);
             this.btnClearAll.Name = "btnClearAll";
             this.btnClearAll.Size = new System.Drawing.Size(90, 23);
             this.btnClearAll.TabIndex = 15;
@@ -573,7 +595,7 @@
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(15, 479);
+            this.btnRegister.Location = new System.Drawing.Point(14, 507);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(75, 23);
             this.btnRegister.TabIndex = 16;
@@ -581,26 +603,44 @@
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
-            // txtCedulaDemandante
+            // txtITEBIS
             // 
-            this.txtCedulaDemandante.Location = new System.Drawing.Point(210, 32);
-            this.txtCedulaDemandante.Name = "txtCedulaDemandante";
-            this.txtCedulaDemandante.Size = new System.Drawing.Size(150, 20);
-            this.txtCedulaDemandante.TabIndex = 19;
+            this.txtITEBIS.Location = new System.Drawing.Point(80, 66);
+            this.txtITEBIS.Name = "txtITEBIS";
+            this.txtITEBIS.Size = new System.Drawing.Size(91, 20);
+            this.txtITEBIS.TabIndex = 12;
             // 
-            // txtCedulaDemandado
+            // lblITEBIS
             // 
-            this.txtCedulaDemandado.Location = new System.Drawing.Point(203, 32);
-            this.txtCedulaDemandado.Name = "txtCedulaDemandado";
-            this.txtCedulaDemandado.Size = new System.Drawing.Size(150, 20);
-            this.txtCedulaDemandado.TabIndex = 21;
+            this.lblITEBIS.AutoSize = true;
+            this.lblITEBIS.Location = new System.Drawing.Point(34, 69);
+            this.lblITEBIS.Name = "lblITEBIS";
+            this.lblITEBIS.Size = new System.Drawing.Size(44, 13);
+            this.lblITEBIS.TabIndex = 11;
+            this.lblITEBIS.Text = "ITEBIS:";
+            // 
+            // txtISR
+            // 
+            this.txtISR.Location = new System.Drawing.Point(262, 66);
+            this.txtISR.Name = "txtISR";
+            this.txtISR.Size = new System.Drawing.Size(91, 20);
+            this.txtISR.TabIndex = 14;
+            // 
+            // lblISR
+            // 
+            this.lblISR.AutoSize = true;
+            this.lblISR.Location = new System.Drawing.Point(228, 69);
+            this.lblISR.Name = "lblISR";
+            this.lblISR.Size = new System.Drawing.Size(28, 13);
+            this.lblISR.TabIndex = 13;
+            this.lblISR.Text = "ISR:";
             // 
             // frmDivorcios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkKhaki;
-            this.ClientSize = new System.Drawing.Size(832, 514);
+            this.ClientSize = new System.Drawing.Size(832, 542);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnClearAll);
             this.Controls.Add(this.btnCancelar);
@@ -678,5 +718,9 @@
         private System.Windows.Forms.RadioButton rbCedulaO;
         private System.Windows.Forms.MaskedTextBox txtCedulaDemandante;
         private System.Windows.Forms.MaskedTextBox txtCedulaDemandado;
+        private System.Windows.Forms.TextBox txtISR;
+        private System.Windows.Forms.Label lblISR;
+        private System.Windows.Forms.TextBox txtITEBIS;
+        private System.Windows.Forms.Label lblITEBIS;
     }
 }

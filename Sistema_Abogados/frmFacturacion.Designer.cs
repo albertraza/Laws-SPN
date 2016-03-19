@@ -39,7 +39,7 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.lblApellido = new System.Windows.Forms.Label();
-            this.txtTotalaPagar = new System.Windows.Forms.TextBox();
+            this.txtBalanceTotal = new System.Windows.Forms.TextBox();
             this.lblTotalaPagar = new System.Windows.Forms.Label();
             this.txtMoneda = new System.Windows.Forms.TextBox();
             this.lblMoneda = new System.Windows.Forms.Label();
@@ -65,11 +65,21 @@
             this.pbCedula = new System.Windows.Forms.PictureBox();
             this.btnCleanAll = new System.Windows.Forms.Button();
             this.btnBuscarFactura = new System.Windows.Forms.Button();
+            this.gbPagoRealizar = new System.Windows.Forms.GroupBox();
+            this.dbContrato = new System.Windows.Forms.CheckBox();
+            this.dbMensualidad = new System.Windows.Forms.CheckBox();
+            this.lblITEBIS = new System.Windows.Forms.Label();
+            this.txtITEBIS = new System.Windows.Forms.TextBox();
+            this.lblImpRenta = new System.Windows.Forms.Label();
+            this.txtImpSobreRenta = new System.Windows.Forms.TextBox();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.txtTotalaPagar = new System.Windows.Forms.TextBox();
             this.gbParametrosBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturacion)).BeginInit();
             this.gbInformacionCliente.SuspendLayout();
             this.gbInformacionCaso.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCedula)).BeginInit();
+            this.gbPagoRealizar.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbParametrosBusqueda
@@ -77,9 +87,9 @@
             this.gbParametrosBusqueda.Controls.Add(this.rbAlquiler);
             this.gbParametrosBusqueda.Controls.Add(this.rbVentas);
             this.gbParametrosBusqueda.Controls.Add(this.rbDivorcioAccidente);
-            this.gbParametrosBusqueda.Location = new System.Drawing.Point(12, 272);
+            this.gbParametrosBusqueda.Location = new System.Drawing.Point(8, 12);
             this.gbParametrosBusqueda.Name = "gbParametrosBusqueda";
-            this.gbParametrosBusqueda.Size = new System.Drawing.Size(479, 51);
+            this.gbParametrosBusqueda.Size = new System.Drawing.Size(419, 51);
             this.gbParametrosBusqueda.TabIndex = 0;
             this.gbParametrosBusqueda.TabStop = false;
             this.gbParametrosBusqueda.Text = "Servicios";
@@ -87,7 +97,7 @@
             // rbAlquiler
             // 
             this.rbAlquiler.AutoSize = true;
-            this.rbAlquiler.Location = new System.Drawing.Point(330, 19);
+            this.rbAlquiler.Location = new System.Drawing.Point(280, 19);
             this.rbAlquiler.Name = "rbAlquiler";
             this.rbAlquiler.Size = new System.Drawing.Size(59, 17);
             this.rbAlquiler.TabIndex = 2;
@@ -99,7 +109,7 @@
             // rbVentas
             // 
             this.rbVentas.AutoSize = true;
-            this.rbVentas.Location = new System.Drawing.Point(220, 19);
+            this.rbVentas.Location = new System.Drawing.Point(180, 19);
             this.rbVentas.Name = "rbVentas";
             this.rbVentas.Size = new System.Drawing.Size(58, 17);
             this.rbVentas.TabIndex = 1;
@@ -111,7 +121,7 @@
             // rbDivorcioAccidente
             // 
             this.rbDivorcioAccidente.AutoSize = true;
-            this.rbDivorcioAccidente.Location = new System.Drawing.Point(57, 19);
+            this.rbDivorcioAccidente.Location = new System.Drawing.Point(16, 19);
             this.rbDivorcioAccidente.Name = "rbDivorcioAccidente";
             this.rbDivorcioAccidente.Size = new System.Drawing.Size(129, 17);
             this.rbDivorcioAccidente.TabIndex = 0;
@@ -123,7 +133,7 @@
             // dgvFacturacion
             // 
             this.dgvFacturacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFacturacion.Location = new System.Drawing.Point(9, 329);
+            this.dgvFacturacion.Location = new System.Drawing.Point(8, 330);
             this.dgvFacturacion.Name = "dgvFacturacion";
             this.dgvFacturacion.Size = new System.Drawing.Size(673, 195);
             this.dgvFacturacion.TabIndex = 3;
@@ -177,25 +187,27 @@
             this.lblApellido.TabIndex = 8;
             this.lblApellido.Text = "Apellido:";
             // 
-            // txtTotalaPagar
+            // txtBalanceTotal
             // 
-            this.txtTotalaPagar.Location = new System.Drawing.Point(115, 74);
-            this.txtTotalaPagar.Name = "txtTotalaPagar";
-            this.txtTotalaPagar.Size = new System.Drawing.Size(82, 20);
-            this.txtTotalaPagar.TabIndex = 11;
+            this.txtBalanceTotal.Location = new System.Drawing.Point(115, 71);
+            this.txtBalanceTotal.Name = "txtBalanceTotal";
+            this.txtBalanceTotal.Size = new System.Drawing.Size(82, 20);
+            this.txtBalanceTotal.TabIndex = 11;
+            this.txtBalanceTotal.TextChanged += new System.EventHandler(this.txtTotalaPagar_TextChanged);
             // 
             // lblTotalaPagar
             // 
             this.lblTotalaPagar.AutoSize = true;
-            this.lblTotalaPagar.Location = new System.Drawing.Point(21, 77);
+            this.lblTotalaPagar.Location = new System.Drawing.Point(21, 74);
             this.lblTotalaPagar.Name = "lblTotalaPagar";
-            this.lblTotalaPagar.Size = new System.Drawing.Size(74, 13);
+            this.lblTotalaPagar.Size = new System.Drawing.Size(76, 13);
             this.lblTotalaPagar.TabIndex = 10;
-            this.lblTotalaPagar.Text = "Total a Pagar:";
+            this.lblTotalaPagar.Text = "Balance Total:";
+            this.lblTotalaPagar.Click += new System.EventHandler(this.lblTotalaPagar_Click);
             // 
             // txtMoneda
             // 
-            this.txtMoneda.Location = new System.Drawing.Point(256, 74);
+            this.txtMoneda.Location = new System.Drawing.Point(443, 71);
             this.txtMoneda.Name = "txtMoneda";
             this.txtMoneda.Size = new System.Drawing.Size(69, 20);
             this.txtMoneda.TabIndex = 13;
@@ -203,7 +215,7 @@
             // lblMoneda
             // 
             this.lblMoneda.AutoSize = true;
-            this.lblMoneda.Location = new System.Drawing.Point(203, 77);
+            this.lblMoneda.Location = new System.Drawing.Point(390, 74);
             this.lblMoneda.Name = "lblMoneda";
             this.lblMoneda.Size = new System.Drawing.Size(49, 13);
             this.lblMoneda.TabIndex = 12;
@@ -213,7 +225,7 @@
             // 
             this.txtNumeroCaso.Location = new System.Drawing.Point(86, 29);
             this.txtNumeroCaso.Name = "txtNumeroCaso";
-            this.txtNumeroCaso.Size = new System.Drawing.Size(100, 20);
+            this.txtNumeroCaso.Size = new System.Drawing.Size(59, 20);
             this.txtNumeroCaso.TabIndex = 15;
             // 
             // lblNumeroCaso
@@ -227,7 +239,7 @@
             // 
             // txtServicio
             // 
-            this.txtServicio.Location = new System.Drawing.Point(266, 29);
+            this.txtServicio.Location = new System.Drawing.Point(202, 29);
             this.txtServicio.Name = "txtServicio";
             this.txtServicio.Size = new System.Drawing.Size(100, 20);
             this.txtServicio.TabIndex = 17;
@@ -235,7 +247,7 @@
             // lblServicio
             // 
             this.lblServicio.AutoSize = true;
-            this.lblServicio.Location = new System.Drawing.Point(213, 32);
+            this.lblServicio.Location = new System.Drawing.Point(149, 32);
             this.lblServicio.Name = "lblServicio";
             this.lblServicio.Size = new System.Drawing.Size(48, 13);
             this.lblServicio.TabIndex = 16;
@@ -243,7 +255,7 @@
             // 
             // txtCantPagar
             // 
-            this.txtCantPagar.Location = new System.Drawing.Point(428, 74);
+            this.txtCantPagar.Location = new System.Drawing.Point(298, 71);
             this.txtCantPagar.Name = "txtCantPagar";
             this.txtCantPagar.Size = new System.Drawing.Size(68, 20);
             this.txtCantPagar.TabIndex = 19;
@@ -251,7 +263,7 @@
             // lblCantidadaPagar
             // 
             this.lblCantidadaPagar.AutoSize = true;
-            this.lblCantidadaPagar.Location = new System.Drawing.Point(333, 77);
+            this.lblCantidadaPagar.Location = new System.Drawing.Point(203, 74);
             this.lblCantidadaPagar.Name = "lblCantidadaPagar";
             this.lblCantidadaPagar.Size = new System.Drawing.Size(92, 13);
             this.lblCantidadaPagar.TabIndex = 18;
@@ -259,7 +271,7 @@
             // 
             // btnSeleccionar
             // 
-            this.btnSeleccionar.Location = new System.Drawing.Point(554, 300);
+            this.btnSeleccionar.Location = new System.Drawing.Point(536, 304);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(128, 23);
             this.btnSeleccionar.TabIndex = 20;
@@ -270,22 +282,22 @@
             // lblDevuelta
             // 
             this.lblDevuelta.AutoSize = true;
-            this.lblDevuelta.Location = new System.Drawing.Point(31, 116);
+            this.lblDevuelta.Location = new System.Drawing.Point(518, 74);
             this.lblDevuelta.Name = "lblDevuelta";
-            this.lblDevuelta.Size = new System.Drawing.Size(107, 13);
+            this.lblDevuelta.Size = new System.Drawing.Size(53, 13);
             this.lblDevuelta.TabIndex = 22;
-            this.lblDevuelta.Text = "Cantidad a Devolver:";
+            this.lblDevuelta.Text = "Devuelta:";
             // 
             // txtCantDevolver
             // 
-            this.txtCantDevolver.Location = new System.Drawing.Point(138, 113);
+            this.txtCantDevolver.Location = new System.Drawing.Point(577, 71);
             this.txtCantDevolver.Name = "txtCantDevolver";
-            this.txtCantDevolver.Size = new System.Drawing.Size(85, 20);
+            this.txtCantDevolver.Size = new System.Drawing.Size(73, 20);
             this.txtCantDevolver.TabIndex = 23;
             // 
             // btnCalcular
             // 
-            this.btnCalcular.Location = new System.Drawing.Point(530, 115);
+            this.btnCalcular.Location = new System.Drawing.Point(425, 304);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(95, 23);
             this.btnCalcular.TabIndex = 24;
@@ -296,7 +308,7 @@
             // lblFechaUltimoPago
             // 
             this.lblFechaUltimoPago.AutoSize = true;
-            this.lblFechaUltimoPago.Location = new System.Drawing.Point(229, 120);
+            this.lblFechaUltimoPago.Location = new System.Drawing.Point(308, 32);
             this.lblFechaUltimoPago.Name = "lblFechaUltimoPago";
             this.lblFechaUltimoPago.Size = new System.Drawing.Size(67, 13);
             this.lblFechaUltimoPago.TabIndex = 28;
@@ -304,7 +316,7 @@
             // 
             // txtUltimoPago
             // 
-            this.txtUltimoPago.Location = new System.Drawing.Point(302, 117);
+            this.txtUltimoPago.Location = new System.Drawing.Point(381, 29);
             this.txtUltimoPago.Name = "txtUltimoPago";
             this.txtUltimoPago.Size = new System.Drawing.Size(152, 20);
             this.txtUltimoPago.TabIndex = 29;
@@ -318,10 +330,9 @@
             this.gbInformacionCliente.Controls.Add(this.txtNombre);
             this.gbInformacionCliente.Controls.Add(this.lblApellido);
             this.gbInformacionCliente.Controls.Add(this.txtApellido);
-            this.gbInformacionCliente.Controls.Add(this.btnBuscar);
-            this.gbInformacionCliente.Location = new System.Drawing.Point(12, 12);
+            this.gbInformacionCliente.Location = new System.Drawing.Point(8, 69);
             this.gbInformacionCliente.Name = "gbInformacionCliente";
-            this.gbInformacionCliente.Size = new System.Drawing.Size(659, 79);
+            this.gbInformacionCliente.Size = new System.Drawing.Size(656, 64);
             this.gbInformacionCliente.TabIndex = 30;
             this.gbInformacionCliente.TabStop = false;
             this.gbInformacionCliente.Text = "Informacion Cliente";
@@ -330,7 +341,7 @@
             // 
             this.btnCleanCustoInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCleanCustoInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCleanCustoInfo.Location = new System.Drawing.Point(542, 52);
+            this.btnCleanCustoInfo.Location = new System.Drawing.Point(544, 23);
             this.btnCleanCustoInfo.Name = "btnCleanCustoInfo";
             this.btnCleanCustoInfo.Size = new System.Drawing.Size(112, 27);
             this.btnCleanCustoInfo.TabIndex = 22;
@@ -343,9 +354,9 @@
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.Image = global::Sistema_Abogados.Properties.Resources.search;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(542, 10);
+            this.btnBuscar.Location = new System.Drawing.Point(462, 12);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(112, 33);
+            this.btnBuscar.Size = new System.Drawing.Size(141, 57);
             this.btnBuscar.TabIndex = 21;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -354,32 +365,38 @@
             // 
             // gbInformacionCaso
             // 
+            this.gbInformacionCaso.Controls.Add(this.lblTotal);
+            this.gbInformacionCaso.Controls.Add(this.txtTotalaPagar);
+            this.gbInformacionCaso.Controls.Add(this.lblImpRenta);
             this.gbInformacionCaso.Controls.Add(this.btnCleanCaseInfo);
+            this.gbInformacionCaso.Controls.Add(this.txtImpSobreRenta);
+            this.gbInformacionCaso.Controls.Add(this.lblITEBIS);
+            this.gbInformacionCaso.Controls.Add(this.txtITEBIS);
+            this.gbInformacionCaso.Controls.Add(this.gbPagoRealizar);
             this.gbInformacionCaso.Controls.Add(this.txtNumeroCaso);
             this.gbInformacionCaso.Controls.Add(this.lblTotalaPagar);
             this.gbInformacionCaso.Controls.Add(this.txtUltimoPago);
-            this.gbInformacionCaso.Controls.Add(this.txtTotalaPagar);
+            this.gbInformacionCaso.Controls.Add(this.txtBalanceTotal);
             this.gbInformacionCaso.Controls.Add(this.lblFechaUltimoPago);
             this.gbInformacionCaso.Controls.Add(this.lblMoneda);
             this.gbInformacionCaso.Controls.Add(this.txtMoneda);
             this.gbInformacionCaso.Controls.Add(this.lblNumeroCaso);
             this.gbInformacionCaso.Controls.Add(this.lblServicio);
-            this.gbInformacionCaso.Controls.Add(this.btnCalcular);
+            this.gbInformacionCaso.Controls.Add(this.lblCantidadaPagar);
+            this.gbInformacionCaso.Controls.Add(this.txtCantPagar);
             this.gbInformacionCaso.Controls.Add(this.txtServicio);
             this.gbInformacionCaso.Controls.Add(this.txtCantDevolver);
-            this.gbInformacionCaso.Controls.Add(this.lblCantidadaPagar);
             this.gbInformacionCaso.Controls.Add(this.lblDevuelta);
-            this.gbInformacionCaso.Controls.Add(this.txtCantPagar);
-            this.gbInformacionCaso.Location = new System.Drawing.Point(12, 97);
+            this.gbInformacionCaso.Location = new System.Drawing.Point(8, 139);
             this.gbInformacionCaso.Name = "gbInformacionCaso";
-            this.gbInformacionCaso.Size = new System.Drawing.Size(656, 169);
+            this.gbInformacionCaso.Size = new System.Drawing.Size(656, 159);
             this.gbInformacionCaso.TabIndex = 31;
             this.gbInformacionCaso.TabStop = false;
             this.gbInformacionCaso.Text = "Informacion del Caso";
             // 
             // btnCleanCaseInfo
             // 
-            this.btnCleanCaseInfo.Location = new System.Drawing.Point(530, 32);
+            this.btnCleanCaseInfo.Location = new System.Drawing.Point(555, 27);
             this.btnCleanCaseInfo.Name = "btnCleanCaseInfo";
             this.btnCleanCaseInfo.Size = new System.Drawing.Size(95, 23);
             this.btnCleanCaseInfo.TabIndex = 30;
@@ -392,7 +409,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::Sistema_Abogados.Properties.Resources.exit;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(851, 458);
+            this.btnCancelar.Location = new System.Drawing.Point(863, 453);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(128, 66);
             this.btnCancelar.TabIndex = 27;
@@ -406,7 +423,7 @@
             this.btnCobrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCobrar.Image = global::Sistema_Abogados.Properties.Resources.checkout;
             this.btnCobrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCobrar.Location = new System.Drawing.Point(687, 458);
+            this.btnCobrar.Location = new System.Drawing.Point(699, 453);
             this.btnCobrar.Name = "btnCobrar";
             this.btnCobrar.Size = new System.Drawing.Size(158, 66);
             this.btnCobrar.TabIndex = 26;
@@ -417,7 +434,7 @@
             // 
             // pbCedula
             // 
-            this.pbCedula.Location = new System.Drawing.Point(677, 18);
+            this.pbCedula.Location = new System.Drawing.Point(677, 12);
             this.pbCedula.Name = "pbCedula";
             this.pbCedula.Size = new System.Drawing.Size(302, 248);
             this.pbCedula.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -429,7 +446,7 @@
             this.btnCleanAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCleanAll.Image = global::Sistema_Abogados.Properties.Resources._1361350698_edit_clear;
             this.btnCleanAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCleanAll.Location = new System.Drawing.Point(716, 395);
+            this.btnCleanAll.Location = new System.Drawing.Point(728, 390);
             this.btnCleanAll.Name = "btnCleanAll";
             this.btnCleanAll.Size = new System.Drawing.Size(235, 57);
             this.btnCleanAll.TabIndex = 31;
@@ -443,7 +460,7 @@
             this.btnBuscarFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarFactura.Image = global::Sistema_Abogados.Properties.Resources.search;
             this.btnBuscarFactura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarFactura.Location = new System.Drawing.Point(716, 309);
+            this.btnBuscarFactura.Location = new System.Drawing.Point(728, 304);
             this.btnBuscarFactura.Name = "btnBuscarFactura";
             this.btnBuscarFactura.Size = new System.Drawing.Size(235, 57);
             this.btnBuscarFactura.TabIndex = 32;
@@ -451,6 +468,87 @@
             this.btnBuscarFactura.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscarFactura.UseVisualStyleBackColor = true;
             this.btnBuscarFactura.Click += new System.EventHandler(this.btnBuscarFactura_Click);
+            // 
+            // gbPagoRealizar
+            // 
+            this.gbPagoRealizar.Controls.Add(this.dbMensualidad);
+            this.gbPagoRealizar.Controls.Add(this.dbContrato);
+            this.gbPagoRealizar.Location = new System.Drawing.Point(16, 106);
+            this.gbPagoRealizar.Name = "gbPagoRealizar";
+            this.gbPagoRealizar.Size = new System.Drawing.Size(183, 47);
+            this.gbPagoRealizar.TabIndex = 31;
+            this.gbPagoRealizar.TabStop = false;
+            this.gbPagoRealizar.Text = "Pago a realizar";
+            // 
+            // dbContrato
+            // 
+            this.dbContrato.AutoSize = true;
+            this.dbContrato.Location = new System.Drawing.Point(106, 18);
+            this.dbContrato.Name = "dbContrato";
+            this.dbContrato.Size = new System.Drawing.Size(66, 17);
+            this.dbContrato.TabIndex = 0;
+            this.dbContrato.Text = "Contrato";
+            this.dbContrato.UseVisualStyleBackColor = true;
+            this.dbContrato.CheckedChanged += new System.EventHandler(this.dbContrato_CheckedChanged);
+            // 
+            // dbMensualidad
+            // 
+            this.dbMensualidad.AutoSize = true;
+            this.dbMensualidad.Location = new System.Drawing.Point(14, 18);
+            this.dbMensualidad.Name = "dbMensualidad";
+            this.dbMensualidad.Size = new System.Drawing.Size(86, 17);
+            this.dbMensualidad.TabIndex = 1;
+            this.dbMensualidad.Text = "Mensualidad";
+            this.dbMensualidad.UseVisualStyleBackColor = true;
+            this.dbMensualidad.CheckedChanged += new System.EventHandler(this.dbMensualidad_CheckedChanged);
+            // 
+            // lblITEBIS
+            // 
+            this.lblITEBIS.AutoSize = true;
+            this.lblITEBIS.Location = new System.Drawing.Point(206, 119);
+            this.lblITEBIS.Name = "lblITEBIS";
+            this.lblITEBIS.Size = new System.Drawing.Size(44, 13);
+            this.lblITEBIS.TabIndex = 32;
+            this.lblITEBIS.Text = "ITEBIS:";
+            // 
+            // txtITEBIS
+            // 
+            this.txtITEBIS.Location = new System.Drawing.Point(256, 116);
+            this.txtITEBIS.Name = "txtITEBIS";
+            this.txtITEBIS.Size = new System.Drawing.Size(69, 20);
+            this.txtITEBIS.TabIndex = 33;
+            // 
+            // lblImpRenta
+            // 
+            this.lblImpRenta.AutoSize = true;
+            this.lblImpRenta.Location = new System.Drawing.Point(335, 119);
+            this.lblImpRenta.Name = "lblImpRenta";
+            this.lblImpRenta.Size = new System.Drawing.Size(28, 13);
+            this.lblImpRenta.TabIndex = 34;
+            this.lblImpRenta.Text = "ISR:";
+            // 
+            // txtImpSobreRenta
+            // 
+            this.txtImpSobreRenta.Location = new System.Drawing.Point(369, 116);
+            this.txtImpSobreRenta.Name = "txtImpSobreRenta";
+            this.txtImpSobreRenta.Size = new System.Drawing.Size(69, 20);
+            this.txtImpSobreRenta.TabIndex = 35;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(454, 119);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(34, 13);
+            this.lblTotal.TabIndex = 36;
+            this.lblTotal.Text = "Total:";
+            // 
+            // txtTotalaPagar
+            // 
+            this.txtTotalaPagar.Location = new System.Drawing.Point(494, 116);
+            this.txtTotalaPagar.Name = "txtTotalaPagar";
+            this.txtTotalaPagar.Size = new System.Drawing.Size(86, 20);
+            this.txtTotalaPagar.TabIndex = 37;
             // 
             // frmFacturacion
             // 
@@ -465,9 +563,11 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnCobrar);
             this.Controls.Add(this.pbCedula);
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnSeleccionar);
             this.Controls.Add(this.dgvFacturacion);
             this.Controls.Add(this.gbParametrosBusqueda);
+            this.Controls.Add(this.btnCalcular);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmFacturacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -481,6 +581,8 @@
             this.gbInformacionCaso.ResumeLayout(false);
             this.gbInformacionCaso.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCedula)).EndInit();
+            this.gbPagoRealizar.ResumeLayout(false);
+            this.gbPagoRealizar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -498,7 +600,7 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label lblApellido;
-        private System.Windows.Forms.TextBox txtTotalaPagar;
+        private System.Windows.Forms.TextBox txtBalanceTotal;
         private System.Windows.Forms.Label lblTotalaPagar;
         private System.Windows.Forms.TextBox txtMoneda;
         private System.Windows.Forms.Label lblMoneda;
@@ -524,5 +626,14 @@
         private System.Windows.Forms.Button btnCleanCaseInfo;
         private System.Windows.Forms.Button btnCleanAll;
         private System.Windows.Forms.Button btnBuscarFactura;
+        private System.Windows.Forms.GroupBox gbPagoRealizar;
+        private System.Windows.Forms.CheckBox dbMensualidad;
+        private System.Windows.Forms.CheckBox dbContrato;
+        private System.Windows.Forms.Label lblImpRenta;
+        private System.Windows.Forms.TextBox txtImpSobreRenta;
+        private System.Windows.Forms.Label lblITEBIS;
+        private System.Windows.Forms.TextBox txtITEBIS;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.TextBox txtTotalaPagar;
     }
 }
