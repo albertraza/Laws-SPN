@@ -138,13 +138,13 @@ namespace Sistema_Abogados
             return list;
         }
         // methods for searching all.
-        public static List<facturacion> searchRent(string cedulaCli, string nombreCli, string apellidoCli)
+        public static List<facturacion> searchRent(string cedulaCli, string cedulaIn, string cedulaGa)
         {
             List<facturacion> list = new List<facturacion>();
             using(SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("SELECT rentFacturacion.ID, services.cService, Rent.ID AS CasoID, customers.name, customers.lastname, customers.ID, customers.idcard, rentFacturacion.Mensualidad, rentFacturacion.Deposito FROM rentFacturacion INNER JOIN customers ON customers.ID = rentFacturacion.clienteID INNER JOIN Rent ON Rent.ID = rentFacturacion.caseID INNER JOIN services ON services.ID = rentFacturacion.serviceID " + 
-                    " WHERE customers.idcard LIKE '{0}%' AND customers.name LIKE '{1}%' AND customers.lastname LIKE '{2}%'", cedulaCli, nombreCli, apellidoCli), con);
+                SqlCommand comand = new SqlCommand(string.Format("SELECT rentFacturacion.ID, services.cService, Rent.ID AS CasoID, CLENTE.name, CLENTE.lastname, CLENTE.ID, CLENTE.idcard, rentFacturacion.Mensualidad, rentFacturacion.Deposito FROM Rent INNER JOIN customers AS CLENTE ON CLENTE.ID = Rent.CLienteID INNER JOIN rentFacturacion ON Rent.ID = rentFacturacion.caseID INNER JOIN services ON services.ID = rentFacturacion.serviceID INNER JOIN customers AS INQUILINO ON INQUILINO.ID = Rent.InquilinoID INNER JOIN customers AS GARANTE ON GARANTE.ID = Rent.GaranteID " +
+                    " WHERE CLENTE.idcard LIKE '{0}%' AND INQUILINO.idcard LIKE '{1}%' AND GARANTE.idcard LIKE '{2}%'", cedulaCli, cedulaIn, cedulaGa), con);
                 SqlDataReader re = comand.ExecuteReader();
                 while (re.Read())
                 {
@@ -166,13 +166,13 @@ namespace Sistema_Abogados
             }
             return list;
         }
-        public static List<facturacion> searchDivorciosAccidentes(string cedulaCli, string nombreCli, string apellidoCli)
+        public static List<facturacion> searchDivorciosAccidentes(string cedulaE, string cedulaO)
         {
             List<facturacion> list = new List<facturacion>();
             using(SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("SELECT divorciosFacturacion.ID, services.cService, divorcios.ID AS CasoID, customers.name, customers.lastname, customers.idcard, divorciosFacturacion.TotalPago, divorciosFacturacion.Abono FROM divorciosFacturacion INNER JOIN divorcios ON divorcios.ID = divorciosFacturacion.CaseID INNER JOIN customers ON customers.ID = divorciosFacturacion.clienteID INNER JOIN services ON services.ID = divorciosFacturacion.serviceID " + 
-                    " WHERE customers.idcard LIKE '{0}%' AND customers.name LIKE '{1}%' AND customers.lastname LIKE '{2}%' ", cedulaCli, nombreCli, apellidoCli), con);
+                SqlCommand comand = new SqlCommand(string.Format("SELECT divorciosFacturacion.ID, services.cService, divorcios.ID AS CasoID, DEMANDANTE.name, DEMANDANTE.lastname, DEMANDANTE.idcard, divorciosFacturacion.TotalPago, divorciosFacturacion.Abono FROM divorcios INNER JOIN divorciosFacturacion ON divorcios.ID = divorciosFacturacion.CaseID INNER JOIN customers AS DEMANDANTE ON DEMANDANTE.ID = divorcios.DemandanteID INNER JOIN services ON services.ID = divorciosFacturacion.serviceID INNER JOIN customers AS DEMANDADO ON divorcios.DemandadoID = DEMANDADO.ID " +
+                    " WHERE DEMANDANTE.idcard LIKE '{0}%' AND DEMANDADO.idcard LIKE '{1}%'", cedulaE, cedulaO), con);
                 SqlDataReader reader = comand.ExecuteReader();
                 while (reader.Read())
                 {
@@ -194,13 +194,13 @@ namespace Sistema_Abogados
             }
             return list;
         }
-        public static List<facturacion> searchVentas(string cedulaCli, string nombreCli, string apellidoCli)
+        public static List<facturacion> searchVentas(string cedulaVe, string cedulaC)
         {
             List<facturacion> list = new List<facturacion>();
             using (SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("SELECT ventaFacturacion.ID, services.cService, Venta.ID AS CasoID, customers.name, customers.lastname, customers.idcard, ventaFacturacion.TotalPago, ventaFacturacion.Abono FROM ventaFacturacion INNER JOIN Venta ON Venta.ID = ventaFacturacion.caseID INNER JOIN customers ON customers.ID = ventaFacturacion.clienteID INNER JOIN services ON services.ID = ventaFacturacion.serviceID " + 
-                    " WHERE customers.idcard LIKE '{0}%' AND customers.name LIKE '{1}%' AND customers.lastname LIKE '{2}%'", cedulaCli, nombreCli, apellidoCli), con);
+                SqlCommand comand = new SqlCommand(string.Format("SELECT ventaFacturacion.ID, services.cService, Venta.ID AS CasoID, VENDEDOR.name, VENDEDOR.lastname, VENDEDOR.idcard, ventaFacturacion.TotalPago, ventaFacturacion.Abono FROM Venta INNER JOIN ventaFacturacion ON Venta.ID = ventaFacturacion.caseID INNER JOIN customers AS VENDEDOR ON VENDEDOR.ID = Venta.VendedorID INNER JOIN services ON services.ID = ventaFacturacion.serviceID INNER JOIN customers AS COMPRADOR ON COMPRADOR.ID = Venta.CompradorID " +
+                    " WHERE VENDEDOR.idcard LIKE '{0}%' AND COMPRADOR.idcard LIKE '{1}%'", cedulaVe, cedulaC), con);
                 SqlDataReader reader = comand.ExecuteReader();
                 while (reader.Read())
                 {

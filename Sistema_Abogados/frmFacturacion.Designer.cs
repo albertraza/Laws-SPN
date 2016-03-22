@@ -29,16 +29,13 @@
         private void InitializeComponent()
         {
             this.gbParametrosBusqueda = new System.Windows.Forms.GroupBox();
+            this.rbGeneral = new System.Windows.Forms.RadioButton();
             this.rbAlquiler = new System.Windows.Forms.RadioButton();
             this.rbVentas = new System.Windows.Forms.RadioButton();
             this.rbDivorcioAccidente = new System.Windows.Forms.RadioButton();
             this.dgvFacturacion = new System.Windows.Forms.DataGridView();
             this.lblCedula = new System.Windows.Forms.Label();
             this.txtCedula = new System.Windows.Forms.MaskedTextBox();
-            this.lblNombreCli = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtApellido = new System.Windows.Forms.TextBox();
-            this.lblApellido = new System.Windows.Forms.Label();
             this.txtBalanceTotal = new System.Windows.Forms.TextBox();
             this.lblTotalaPagar = new System.Windows.Forms.Label();
             this.txtMoneda = new System.Windows.Forms.TextBox();
@@ -56,7 +53,6 @@
             this.lblFechaUltimoPago = new System.Windows.Forms.Label();
             this.txtUltimoPago = new System.Windows.Forms.TextBox();
             this.gbInformacionCliente = new System.Windows.Forms.GroupBox();
-            this.btnCleanCustoInfo = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.gbInformacionCaso = new System.Windows.Forms.GroupBox();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -74,13 +70,26 @@
             this.pbCedula = new System.Windows.Forms.PictureBox();
             this.btnCleanAll = new System.Windows.Forms.Button();
             this.btnBuscarFactura = new System.Windows.Forms.Button();
-            this.rbGeneral = new System.Windows.Forms.RadioButton();
+            this.gbInfomacionInquilino = new System.Windows.Forms.GroupBox();
+            this.lblCedulaDe = new System.Windows.Forms.Label();
+            this.txtCedulaDe = new System.Windows.Forms.MaskedTextBox();
+            this.gbInformacionGarante = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtCedulaGa = new System.Windows.Forms.MaskedTextBox();
+            this.rbCedula = new System.Windows.Forms.RadioButton();
+            this.rbPasaporte = new System.Windows.Forms.RadioButton();
+            this.rbPasaporteDE = new System.Windows.Forms.RadioButton();
+            this.rbCedulaDE = new System.Windows.Forms.RadioButton();
+            this.rbPasaporteGa = new System.Windows.Forms.RadioButton();
+            this.rbCedulaGa = new System.Windows.Forms.RadioButton();
             this.gbParametrosBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturacion)).BeginInit();
             this.gbInformacionCliente.SuspendLayout();
             this.gbInformacionCaso.SuspendLayout();
             this.gbPagoRealizar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCedula)).BeginInit();
+            this.gbInfomacionInquilino.SuspendLayout();
+            this.gbInformacionGarante.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbParametrosBusqueda
@@ -95,6 +104,18 @@
             this.gbParametrosBusqueda.TabIndex = 0;
             this.gbParametrosBusqueda.TabStop = false;
             this.gbParametrosBusqueda.Text = "Servicios";
+            // 
+            // rbGeneral
+            // 
+            this.rbGeneral.AutoSize = true;
+            this.rbGeneral.Location = new System.Drawing.Point(393, 20);
+            this.rbGeneral.Name = "rbGeneral";
+            this.rbGeneral.Size = new System.Drawing.Size(62, 17);
+            this.rbGeneral.TabIndex = 3;
+            this.rbGeneral.TabStop = true;
+            this.rbGeneral.Text = "General";
+            this.rbGeneral.UseVisualStyleBackColor = true;
+            this.rbGeneral.CheckedChanged += new System.EventHandler(this.rbGeneral_CheckedChanged);
             // 
             // rbAlquiler
             // 
@@ -134,8 +155,9 @@
             // 
             // dgvFacturacion
             // 
+            this.dgvFacturacion.BackgroundColor = System.Drawing.Color.DarkKhaki;
             this.dgvFacturacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFacturacion.Location = new System.Drawing.Point(8, 330);
+            this.dgvFacturacion.Location = new System.Drawing.Point(8, 351);
             this.dgvFacturacion.Name = "dgvFacturacion";
             this.dgvFacturacion.Size = new System.Drawing.Size(673, 195);
             this.dgvFacturacion.TabIndex = 3;
@@ -156,38 +178,6 @@
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(100, 20);
             this.txtCedula.TabIndex = 5;
-            // 
-            // lblNombreCli
-            // 
-            this.lblNombreCli.AutoSize = true;
-            this.lblNombreCli.Location = new System.Drawing.Point(203, 30);
-            this.lblNombreCli.Name = "lblNombreCli";
-            this.lblNombreCli.Size = new System.Drawing.Size(47, 13);
-            this.lblNombreCli.TabIndex = 6;
-            this.lblNombreCli.Text = "Nombre:";
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(256, 27);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 20);
-            this.txtNombre.TabIndex = 7;
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Location = new System.Drawing.Point(425, 27);
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(100, 20);
-            this.txtApellido.TabIndex = 9;
-            // 
-            // lblApellido
-            // 
-            this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(372, 30);
-            this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(47, 13);
-            this.lblApellido.TabIndex = 8;
-            this.lblApellido.Text = "Apellido:";
             // 
             // txtBalanceTotal
             // 
@@ -273,7 +263,7 @@
             // 
             // btnSeleccionar
             // 
-            this.btnSeleccionar.Location = new System.Drawing.Point(536, 304);
+            this.btnSeleccionar.Location = new System.Drawing.Point(536, 322);
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Size = new System.Drawing.Size(128, 23);
             this.btnSeleccionar.TabIndex = 20;
@@ -299,7 +289,7 @@
             // 
             // btnCalcular
             // 
-            this.btnCalcular.Location = new System.Drawing.Point(425, 304);
+            this.btnCalcular.Location = new System.Drawing.Point(425, 322);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(95, 23);
             this.btnCalcular.TabIndex = 24;
@@ -325,31 +315,16 @@
             // 
             // gbInformacionCliente
             // 
-            this.gbInformacionCliente.Controls.Add(this.btnCleanCustoInfo);
+            this.gbInformacionCliente.Controls.Add(this.rbPasaporte);
+            this.gbInformacionCliente.Controls.Add(this.rbCedula);
             this.gbInformacionCliente.Controls.Add(this.lblCedula);
             this.gbInformacionCliente.Controls.Add(this.txtCedula);
-            this.gbInformacionCliente.Controls.Add(this.lblNombreCli);
-            this.gbInformacionCliente.Controls.Add(this.txtNombre);
-            this.gbInformacionCliente.Controls.Add(this.lblApellido);
-            this.gbInformacionCliente.Controls.Add(this.txtApellido);
             this.gbInformacionCliente.Location = new System.Drawing.Point(8, 69);
             this.gbInformacionCliente.Name = "gbInformacionCliente";
-            this.gbInformacionCliente.Size = new System.Drawing.Size(656, 64);
+            this.gbInformacionCliente.Size = new System.Drawing.Size(213, 82);
             this.gbInformacionCliente.TabIndex = 30;
             this.gbInformacionCliente.TabStop = false;
             this.gbInformacionCliente.Text = "Informacion Cliente";
-            // 
-            // btnCleanCustoInfo
-            // 
-            this.btnCleanCustoInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCleanCustoInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCleanCustoInfo.Location = new System.Drawing.Point(544, 23);
-            this.btnCleanCustoInfo.Name = "btnCleanCustoInfo";
-            this.btnCleanCustoInfo.Size = new System.Drawing.Size(112, 27);
-            this.btnCleanCustoInfo.TabIndex = 22;
-            this.btnCleanCustoInfo.Text = "Limpiar";
-            this.btnCleanCustoInfo.UseVisualStyleBackColor = true;
-            this.btnCleanCustoInfo.Click += new System.EventHandler(this.btnCleanCustoInfo_Click);
             // 
             // btnBuscar
             // 
@@ -389,7 +364,7 @@
             this.gbInformacionCaso.Controls.Add(this.txtServicio);
             this.gbInformacionCaso.Controls.Add(this.txtCantDevolver);
             this.gbInformacionCaso.Controls.Add(this.lblDevuelta);
-            this.gbInformacionCaso.Location = new System.Drawing.Point(8, 139);
+            this.gbInformacionCaso.Location = new System.Drawing.Point(8, 157);
             this.gbInformacionCaso.Name = "gbInformacionCaso";
             this.gbInformacionCaso.Size = new System.Drawing.Size(656, 159);
             this.gbInformacionCaso.TabIndex = 31;
@@ -552,24 +527,146 @@
             this.btnBuscarFactura.UseVisualStyleBackColor = true;
             this.btnBuscarFactura.Click += new System.EventHandler(this.btnBuscarFactura_Click);
             // 
-            // rbGeneral
+            // gbInfomacionInquilino
             // 
-            this.rbGeneral.AutoSize = true;
-            this.rbGeneral.Location = new System.Drawing.Point(393, 20);
-            this.rbGeneral.Name = "rbGeneral";
-            this.rbGeneral.Size = new System.Drawing.Size(62, 17);
-            this.rbGeneral.TabIndex = 3;
-            this.rbGeneral.TabStop = true;
-            this.rbGeneral.Text = "General";
-            this.rbGeneral.UseVisualStyleBackColor = true;
-            this.rbGeneral.CheckedChanged += new System.EventHandler(this.rbGeneral_CheckedChanged);
+            this.gbInfomacionInquilino.Controls.Add(this.rbPasaporteDE);
+            this.gbInfomacionInquilino.Controls.Add(this.rbCedulaDE);
+            this.gbInfomacionInquilino.Controls.Add(this.lblCedulaDe);
+            this.gbInfomacionInquilino.Controls.Add(this.txtCedulaDe);
+            this.gbInfomacionInquilino.Location = new System.Drawing.Point(234, 69);
+            this.gbInfomacionInquilino.Name = "gbInfomacionInquilino";
+            this.gbInfomacionInquilino.Size = new System.Drawing.Size(213, 82);
+            this.gbInfomacionInquilino.TabIndex = 33;
+            this.gbInfomacionInquilino.TabStop = false;
+            this.gbInfomacionInquilino.Text = "Informacion Inquilino";
+            // 
+            // lblCedulaDe
+            // 
+            this.lblCedulaDe.AutoSize = true;
+            this.lblCedulaDe.Location = new System.Drawing.Point(21, 30);
+            this.lblCedulaDe.Name = "lblCedulaDe";
+            this.lblCedulaDe.Size = new System.Drawing.Size(43, 13);
+            this.lblCedulaDe.TabIndex = 4;
+            this.lblCedulaDe.Text = "Cedula:";
+            // 
+            // txtCedulaDe
+            // 
+            this.txtCedulaDe.Location = new System.Drawing.Point(70, 27);
+            this.txtCedulaDe.Mask = "000-0000000-0";
+            this.txtCedulaDe.Name = "txtCedulaDe";
+            this.txtCedulaDe.Size = new System.Drawing.Size(100, 20);
+            this.txtCedulaDe.TabIndex = 5;
+            // 
+            // gbInformacionGarante
+            // 
+            this.gbInformacionGarante.Controls.Add(this.rbPasaporteGa);
+            this.gbInformacionGarante.Controls.Add(this.rbCedulaGa);
+            this.gbInformacionGarante.Controls.Add(this.label2);
+            this.gbInformacionGarante.Controls.Add(this.txtCedulaGa);
+            this.gbInformacionGarante.Location = new System.Drawing.Point(458, 69);
+            this.gbInformacionGarante.Name = "gbInformacionGarante";
+            this.gbInformacionGarante.Size = new System.Drawing.Size(213, 82);
+            this.gbInformacionGarante.TabIndex = 34;
+            this.gbInformacionGarante.TabStop = false;
+            this.gbInformacionGarante.Text = "Informacion Garante";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(21, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Cedula:";
+            // 
+            // txtCedulaGa
+            // 
+            this.txtCedulaGa.Location = new System.Drawing.Point(70, 27);
+            this.txtCedulaGa.Mask = "000-0000000-0";
+            this.txtCedulaGa.Name = "txtCedulaGa";
+            this.txtCedulaGa.Size = new System.Drawing.Size(100, 20);
+            this.txtCedulaGa.TabIndex = 5;
+            // 
+            // rbCedula
+            // 
+            this.rbCedula.AutoSize = true;
+            this.rbCedula.Location = new System.Drawing.Point(24, 53);
+            this.rbCedula.Name = "rbCedula";
+            this.rbCedula.Size = new System.Drawing.Size(58, 17);
+            this.rbCedula.TabIndex = 6;
+            this.rbCedula.TabStop = true;
+            this.rbCedula.Text = "Cedula";
+            this.rbCedula.UseVisualStyleBackColor = true;
+            this.rbCedula.CheckedChanged += new System.EventHandler(this.rbCedula_CheckedChanged);
+            // 
+            // rbPasaporte
+            // 
+            this.rbPasaporte.AutoSize = true;
+            this.rbPasaporte.Location = new System.Drawing.Point(105, 53);
+            this.rbPasaporte.Name = "rbPasaporte";
+            this.rbPasaporte.Size = new System.Drawing.Size(73, 17);
+            this.rbPasaporte.TabIndex = 7;
+            this.rbPasaporte.TabStop = true;
+            this.rbPasaporte.Text = "Pasaporte";
+            this.rbPasaporte.UseVisualStyleBackColor = true;
+            this.rbPasaporte.CheckedChanged += new System.EventHandler(this.rbPasaporte_CheckedChanged);
+            // 
+            // rbPasaporteDE
+            // 
+            this.rbPasaporteDE.AutoSize = true;
+            this.rbPasaporteDE.Location = new System.Drawing.Point(105, 53);
+            this.rbPasaporteDE.Name = "rbPasaporteDE";
+            this.rbPasaporteDE.Size = new System.Drawing.Size(73, 17);
+            this.rbPasaporteDE.TabIndex = 9;
+            this.rbPasaporteDE.TabStop = true;
+            this.rbPasaporteDE.Text = "Pasaporte";
+            this.rbPasaporteDE.UseVisualStyleBackColor = true;
+            this.rbPasaporteDE.CheckedChanged += new System.EventHandler(this.rbPasaporteDE_CheckedChanged);
+            // 
+            // rbCedulaDE
+            // 
+            this.rbCedulaDE.AutoSize = true;
+            this.rbCedulaDE.Location = new System.Drawing.Point(24, 53);
+            this.rbCedulaDE.Name = "rbCedulaDE";
+            this.rbCedulaDE.Size = new System.Drawing.Size(58, 17);
+            this.rbCedulaDE.TabIndex = 8;
+            this.rbCedulaDE.TabStop = true;
+            this.rbCedulaDE.Text = "Cedula";
+            this.rbCedulaDE.UseVisualStyleBackColor = true;
+            this.rbCedulaDE.CheckedChanged += new System.EventHandler(this.rbCedulaDE_CheckedChanged);
+            // 
+            // rbPasaporteGa
+            // 
+            this.rbPasaporteGa.AutoSize = true;
+            this.rbPasaporteGa.Location = new System.Drawing.Point(105, 53);
+            this.rbPasaporteGa.Name = "rbPasaporteGa";
+            this.rbPasaporteGa.Size = new System.Drawing.Size(73, 17);
+            this.rbPasaporteGa.TabIndex = 9;
+            this.rbPasaporteGa.TabStop = true;
+            this.rbPasaporteGa.Text = "Pasaporte";
+            this.rbPasaporteGa.UseVisualStyleBackColor = true;
+            this.rbPasaporteGa.CheckedChanged += new System.EventHandler(this.rbPasaporteGa_CheckedChanged);
+            // 
+            // rbCedulaGa
+            // 
+            this.rbCedulaGa.AutoSize = true;
+            this.rbCedulaGa.Location = new System.Drawing.Point(24, 53);
+            this.rbCedulaGa.Name = "rbCedulaGa";
+            this.rbCedulaGa.Size = new System.Drawing.Size(58, 17);
+            this.rbCedulaGa.TabIndex = 8;
+            this.rbCedulaGa.TabStop = true;
+            this.rbCedulaGa.Text = "Cedula";
+            this.rbCedulaGa.UseVisualStyleBackColor = true;
+            this.rbCedulaGa.CheckedChanged += new System.EventHandler(this.rbCedulaGa_CheckedChanged);
             // 
             // frmFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkKhaki;
-            this.ClientSize = new System.Drawing.Size(991, 533);
+            this.ClientSize = new System.Drawing.Size(991, 558);
+            this.Controls.Add(this.gbInformacionGarante);
+            this.Controls.Add(this.gbInfomacionInquilino);
             this.Controls.Add(this.btnBuscarFactura);
             this.Controls.Add(this.btnCleanAll);
             this.Controls.Add(this.gbInformacionCaso);
@@ -597,6 +694,10 @@
             this.gbPagoRealizar.ResumeLayout(false);
             this.gbPagoRealizar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCedula)).EndInit();
+            this.gbInfomacionInquilino.ResumeLayout(false);
+            this.gbInfomacionInquilino.PerformLayout();
+            this.gbInformacionGarante.ResumeLayout(false);
+            this.gbInformacionGarante.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -610,10 +711,6 @@
         private System.Windows.Forms.DataGridView dgvFacturacion;
         private System.Windows.Forms.Label lblCedula;
         private System.Windows.Forms.MaskedTextBox txtCedula;
-        private System.Windows.Forms.Label lblNombreCli;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtApellido;
-        private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.TextBox txtBalanceTotal;
         private System.Windows.Forms.Label lblTotalaPagar;
         private System.Windows.Forms.TextBox txtMoneda;
@@ -636,7 +733,6 @@
         private System.Windows.Forms.TextBox txtUltimoPago;
         private System.Windows.Forms.GroupBox gbInformacionCliente;
         private System.Windows.Forms.GroupBox gbInformacionCaso;
-        private System.Windows.Forms.Button btnCleanCustoInfo;
         private System.Windows.Forms.Button btnCleanCaseInfo;
         private System.Windows.Forms.Button btnCleanAll;
         private System.Windows.Forms.Button btnBuscarFactura;
@@ -650,5 +746,17 @@
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.TextBox txtTotalaPagar;
         private System.Windows.Forms.RadioButton rbGeneral;
+        private System.Windows.Forms.RadioButton rbPasaporte;
+        private System.Windows.Forms.RadioButton rbCedula;
+        private System.Windows.Forms.GroupBox gbInfomacionInquilino;
+        private System.Windows.Forms.RadioButton rbPasaporteDE;
+        private System.Windows.Forms.RadioButton rbCedulaDE;
+        private System.Windows.Forms.Label lblCedulaDe;
+        private System.Windows.Forms.MaskedTextBox txtCedulaDe;
+        private System.Windows.Forms.GroupBox gbInformacionGarante;
+        private System.Windows.Forms.RadioButton rbPasaporteGa;
+        private System.Windows.Forms.RadioButton rbCedulaGa;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.MaskedTextBox txtCedulaGa;
     }
 }

@@ -20,12 +20,10 @@ namespace Sistema_Abogados
         {
             pbCedula.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
             txtCedula.Clear();
-            txtApellido.Clear();
             txtCantDevolver.Clear();
             txtCantPagar.Clear();
             txtCedula.Clear();
             txtMoneda.Clear();
-            txtNombre.Clear();
             txtNumeroCaso.Clear();
             txtServicio.Clear();
             txtBalanceTotal.Clear();
@@ -119,14 +117,26 @@ namespace Sistema_Abogados
                 if (rbAlquiler.Checked == true)
                 {
                     dgvFacturacion.DataSource = facturacion.listAllRent();
+                    gbInfomacionInquilino.Text = "Informacion Inquilino";
+                    gbInformacionCliente.Text = "Informacion Cliente";
+                    gbInformacionGarante.Text = "Informacion Garante";
+                    gbInformacionGarante.Enabled = true;
                 }
                 else if (rbDivorcioAccidente.Checked == true)
                 {
                     dgvFacturacion.DataSource = facturacion.listAllDivorciosAccidentes();
+                    gbInfomacionInquilino.Text = "Informacion Demandado";
+                    gbInformacionCliente.Text = "Informacion Demandante";
+                    gbInformacionGarante.Text = "Informacion Garante";
+                    gbInformacionGarante.Enabled = false;
                 }
                 else if (rbVentas.Checked == true)
                 {
                     dgvFacturacion.DataSource = facturacion.listAllVentas();
+                    gbInfomacionInquilino.Text = "Informacion Comprador";
+                    gbInformacionCliente.Text = "Informacion Vendedor";
+                    gbInformacionGarante.Text = "Informacion Garante";
+                    gbInformacionGarante.Enabled = false;
                 }
                 else
                 {
@@ -135,6 +145,10 @@ namespace Sistema_Abogados
                     list.AddRange(facturacion.listAllDivorciosAccidentes());
                     list.AddRange(facturacion.listAllVentas());
                     dgvFacturacion.DataSource = list;
+                    gbInfomacionInquilino.Text = "Informacion Inquilino o Comprador";
+                    gbInformacionCliente.Text = "Informacion Cliente o Vendedor";
+                    gbInformacionGarante.Text = "Informacion Garante";
+                    gbInformacionGarante.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -150,14 +164,26 @@ namespace Sistema_Abogados
                 if (rbAlquiler.Checked == true)
                 {
                     dgvFacturacion.DataSource = facturacion.listAllRent();
+                    gbInfomacionInquilino.Text = "Informacion Inquilino";
+                    gbInformacionCliente.Text = "Informacion Cliente";
+                    gbInformacionGarante.Text = "Informacion Garante";
+                    gbInformacionGarante.Enabled = true;
                 }
                 else if (rbDivorcioAccidente.Checked == true)
                 {
                     dgvFacturacion.DataSource = facturacion.listAllDivorciosAccidentes();
+                    gbInfomacionInquilino.Text = "Informacion Demandado";
+                    gbInformacionCliente.Text = "Informacion Demandante";
+                    gbInformacionGarante.Text = "Informacion Garante";
+                    gbInformacionGarante.Enabled = false;
                 }
                 else if (rbVentas.Checked == true)
                 {
                     dgvFacturacion.DataSource = facturacion.listAllVentas();
+                    gbInfomacionInquilino.Text = "Informacion Comprador";
+                    gbInformacionCliente.Text = "Informacion Vendedor";
+                    gbInformacionGarante.Text = "Informacion Garante";
+                    gbInformacionGarante.Enabled = false;
                 }
                 else
                 {
@@ -166,6 +192,10 @@ namespace Sistema_Abogados
                     list.AddRange(facturacion.listAllDivorciosAccidentes());
                     list.AddRange(facturacion.listAllVentas());
                     dgvFacturacion.DataSource = list;
+                    gbInfomacionInquilino.Text = "Informacion Inquilino o Comprador";
+                    gbInformacionCliente.Text = "Informacion Cliente o Vendedor";
+                    gbInformacionGarante.Text = "Informacion Garante";
+                    gbInformacionGarante.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -181,14 +211,26 @@ namespace Sistema_Abogados
                 if (rbAlquiler.Checked == true)
                 {
                     dgvFacturacion.DataSource = facturacion.listAllRent();
+                    gbInfomacionInquilino.Text = "Informacion Inquilino";
+                    gbInformacionCliente.Text = "Informacion Cliente";
+                    gbInformacionGarante.Text = "Informacion Garante";
+                    gbInformacionGarante.Enabled = true;
                 }
                 else if (rbDivorcioAccidente.Checked == true)
                 {
                     dgvFacturacion.DataSource = facturacion.listAllDivorciosAccidentes();
+                    gbInfomacionInquilino.Text = "Informacion Demandado";
+                    gbInformacionCliente.Text = "Informacion Demandante";
+                    gbInformacionGarante.Text = "Informacion Garante";
+                    gbInformacionGarante.Enabled = false;
                 }
                 else if (rbVentas.Checked == true)
                 {
                     dgvFacturacion.DataSource = facturacion.listAllVentas();
+                    gbInfomacionInquilino.Text = "Informacion Comprador";
+                    gbInformacionCliente.Text = "Informacion Vendedor";
+                    gbInformacionGarante.Text = "Informacion Garante";
+                    gbInformacionGarante.Enabled = false;
                 }
                 else
                 {
@@ -197,6 +239,10 @@ namespace Sistema_Abogados
                     list.AddRange(facturacion.listAllDivorciosAccidentes());
                     list.AddRange(facturacion.listAllVentas());
                     dgvFacturacion.DataSource = list;
+                    gbInfomacionInquilino.Text = "Informacion Inquilino o Comprador";
+                    gbInformacionCliente.Text = "Informacion Cliente o Vendedor";
+                    gbInformacionGarante.Text = "Informacion Garante";
+                    gbInformacionGarante.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -211,125 +257,109 @@ namespace Sistema_Abogados
             {
                 if (rbAlquiler.Checked == true)
                 {
-                    string cedula, nombre, apellido;
+                    string cedulaCli, cedulaIn, cedulaGa;
                     if (txtCedula.MaskCompleted)
                     {
-                        cedula = txtCedula.Text;
+                        cedulaCli = txtCedula.Text;
                     }
                     else
                     {
-                        cedula = "";
+                        cedulaCli = "";
                     }
-                    if (txtNombre.Text == string.Empty)
+                    if (txtCedulaDe.MaskCompleted)
                     {
-                        nombre = "";
+                        cedulaIn = txtCedulaDe.Text;
                     }
                     else
                     {
-                        nombre = txtNombre.Text;
+                        cedulaIn = "";
                     }
-                    if (txtApellido.Text == string.Empty)
+                    if (txtCedulaGa.MaskCompleted)
                     {
-                        apellido = "";
+                        cedulaGa = txtCedulaGa.Text;
                     }
                     else
                     {
-                        apellido = txtApellido.Text;
+                        cedulaGa = "";
                     }
-                    dgvFacturacion.DataSource = facturacion.searchRent(cedula, nombre, apellido);
+                    dgvFacturacion.DataSource = facturacion.searchRent(cedulaCli, cedulaIn, cedulaGa);
                 }
                 else if (rbDivorcioAccidente.Checked == true)
                 {
-                    string cedula, nombre, apellido;
+                    string cedulaE, cedulaO;
                     if (txtCedula.MaskCompleted)
                     {
-                        cedula = txtCedula.Text;
+                        cedulaE = txtCedula.Text;
                     }
                     else
                     {
-                        cedula = "";
+                        cedulaE = "";
                     }
-                    if (txtNombre.Text == string.Empty)
+                    if (txtCedulaDe.MaskCompleted)
                     {
-                        nombre = "";
+                        cedulaO = txtCedulaDe.Text;
                     }
                     else
                     {
-                        nombre = txtNombre.Text;
+                        cedulaO = "";
                     }
-                    if (txtApellido.Text == string.Empty)
-                    {
-                        apellido = "";
-                    }
-                    else
-                    {
-                        apellido = txtApellido.Text;
-                    }
-                    dgvFacturacion.DataSource = facturacion.searchDivorciosAccidentes(cedula, nombre, apellido);
+                    dgvFacturacion.DataSource = facturacion.searchDivorciosAccidentes(cedulaE, cedulaO);
                 }
                 else if (rbVentas.Checked == true)
                 {
-                    string cedula, nombre, apellido;
+                    string cedulaVE, cedulaCO;
                     if (txtCedula.MaskCompleted)
                     {
-                        cedula = txtCedula.Text;
+                        cedulaVE = txtCedula.Text;
                     }
                     else
                     {
-                        cedula = "";
+                        cedulaVE = "";
                     }
-                    if (txtNombre.Text == string.Empty)
+                    if (txtCedulaDe.MaskCompleted)
                     {
-                        nombre = "";
+                        cedulaCO = txtCedulaDe.Text;
                     }
                     else
                     {
-                        nombre = txtNombre.Text;
+                        cedulaCO = "";
                     }
-                    if (txtApellido.Text == string.Empty)
-                    {
-                        apellido = "";
-                    }
-                    else
-                    {
-                        apellido = txtApellido.Text;
-                    }
-                    dgvFacturacion.DataSource = facturacion.searchVentas(cedula, nombre, apellido);
+                    dgvFacturacion.DataSource = facturacion.searchVentas(cedulaVE, cedulaCO);
                 }
                 else
                 {
-                    string cedula, nombre, apellido;
+                    string cedulaCliVE, cedulaOCO, cedulaGa;
                     if (txtCedula.MaskCompleted)
                     {
-                        cedula = txtCedula.Text;
+                        cedulaCliVE = txtCedula.Text;
                     }
                     else
                     {
-                        cedula = "";
+                        cedulaCliVE = "";
                     }
-                    if (txtNombre.Text == string.Empty)
+                    if (txtCedulaDe.MaskCompleted)
                     {
-                        nombre = "";
+                        cedulaOCO = txtCedulaDe.Text;
                     }
                     else
                     {
-                        nombre = txtNombre.Text;
+                        cedulaOCO = "";
                     }
-                    if (txtApellido.Text == string.Empty)
+                    if (txtCedulaGa.MaskCompleted)
                     {
-                        apellido = "";
+                        cedulaGa = txtCedulaGa.Text;
                     }
                     else
                     {
-                        apellido = txtApellido.Text;
+                        cedulaGa = "";
                     }
-                     
+
                     // make some list objects based on facturacion objects properties.
 
                     List<facturacion> list = new List<facturacion>();
-                    List<facturacion> list0 = (facturacion.searchVentas(cedula, nombre, apellido));
-                    List<facturacion> list1 = (facturacion.searchDivorciosAccidentes(cedula, nombre, apellido));
-                    List<facturacion> list2 = (facturacion.searchRent(cedula, nombre, apellido));
+                    List<facturacion> list0 = (facturacion.searchVentas(cedulaCliVE, cedulaOCO));
+                    List<facturacion> list1 = (facturacion.searchDivorciosAccidentes(cedulaCliVE, cedulaOCO));
+                    List<facturacion> list2 = (facturacion.searchRent(cedulaCliVE, cedulaOCO, cedulaGa));
                     // join then if their values is different from null.
                     if (list0 != null) list.AddRange(list0);
                     if (list1 != null) list.AddRange(list1);
@@ -358,11 +388,9 @@ namespace Sistema_Abogados
                         pBaseObjfactura = facturacion.getRentStatus(ID);
                         pCliente = clientes.getCustomerObject(pBaseObjfactura.Cliente_ID, "");
                         pService = servicios.getServiceInfo(pBaseObjfactura.Service_ID);
-                        txtApellido.Text = pCliente.Apellido;
                         dbMensualidad.Checked = true;
                         gbPagoRealizar.Visible = true;
                         txtCedula.Text = pCliente.Cedula;
-                        txtNombre.Text = pCliente.Nombre;
                         txtNumeroCaso.Text = pBaseObjfactura.Case_ID;
                         txtServicio.Text = pService.Servicio;
                         pbCedula.Image = Image.FromFile(pCliente.Image);
@@ -383,12 +411,10 @@ namespace Sistema_Abogados
                         pBaseObjfactura = facturacion.getVentasStatus(ID);
                         pCliente = clientes.getCustomerObject(pBaseObjfactura.Cliente_ID, "");
                         pService = servicios.getServiceInfo(pBaseObjfactura.Service_ID);
-                        txtApellido.Text = pCliente.Apellido;
                         txtBalanceTotal.Text = pBaseObjfactura.TotalPago_Mensualidad;
                         txtCedula.Text = pCliente.Cedula;
                         txtImpSobreRenta.Text = "Incluido";
                         txtITEBIS.Text = "Incluido";
-                        txtNombre.Text = pCliente.Nombre;
                         txtNumeroCaso.Text = pBaseObjfactura.Case_ID;
                         txtServicio.Text = pService.Servicio;
                         txtTotalaPagar.Text = pBaseObjfactura.TotalPago_Mensualidad;
@@ -409,12 +435,10 @@ namespace Sistema_Abogados
                         pBaseObjfactura = facturacion.getDivorciosAccidentesStatus(ID);
                         pCliente = clientes.getCustomerObject(pBaseObjfactura.Cliente_ID, "");
                         pService = servicios.getServiceInfo(pBaseObjfactura.Service_ID);
-                        txtApellido.Text = pCliente.Apellido;
                         txtBalanceTotal.Text = pBaseObjfactura.TotalPago_Mensualidad;
                         txtCedula.Text = pCliente.Cedula;
                         txtImpSobreRenta.Text = "Incluido";
                         txtITEBIS.Text = "Incluido";
-                        txtNombre.Text = pCliente.Nombre;
                         txtNumeroCaso.Text = pBaseObjfactura.Case_ID;
                         txtServicio.Text = pService.Servicio;
                         txtTotalaPagar.Text = pBaseObjfactura.TotalPago_Mensualidad;
@@ -438,11 +462,9 @@ namespace Sistema_Abogados
                             pBaseObjfactura = facturacion.getRentStatus(ID);
                             pCliente = clientes.getCustomerObject(pBaseObjfactura.Cliente_ID, "");
                             pService = servicios.getServiceInfo(pBaseObjfactura.Service_ID);
-                            txtApellido.Text = pCliente.Apellido;
                             dbMensualidad.Checked = true;
                             gbPagoRealizar.Visible = true;
                             txtCedula.Text = pCliente.Cedula;
-                            txtNombre.Text = pCliente.Nombre;
                             txtNumeroCaso.Text = pBaseObjfactura.Case_ID;
                             txtServicio.Text = pService.Servicio;
                             pbCedula.Image = Image.FromFile(pCliente.Image);
@@ -464,12 +486,10 @@ namespace Sistema_Abogados
                             pBaseObjfactura = facturacion.getDivorciosAccidentesStatus(ID);
                             pCliente = clientes.getCustomerObject(pBaseObjfactura.Cliente_ID, "");
                             pService = servicios.getServiceInfo(pBaseObjfactura.Service_ID);
-                            txtApellido.Text = pCliente.Apellido;
                             txtBalanceTotal.Text = pBaseObjfactura.TotalPago_Mensualidad;
                             txtCedula.Text = pCliente.Cedula;
                             txtImpSobreRenta.Text = "Incluido";
                             txtITEBIS.Text = "Incluido";
-                            txtNombre.Text = pCliente.Nombre;
                             txtNumeroCaso.Text = pBaseObjfactura.Case_ID;
                             txtServicio.Text = pService.Servicio;
                             txtTotalaPagar.Text = pBaseObjfactura.TotalPago_Mensualidad;
@@ -491,12 +511,10 @@ namespace Sistema_Abogados
                             pBaseObjfactura = facturacion.getVentasStatus(ID);
                             pCliente = clientes.getCustomerObject(pBaseObjfactura.Cliente_ID, "");
                             pService = servicios.getServiceInfo(pBaseObjfactura.Service_ID);
-                            txtApellido.Text = pCliente.Apellido;
                             txtBalanceTotal.Text = pBaseObjfactura.TotalPago_Mensualidad;
                             txtCedula.Text = pCliente.Cedula;
                             txtImpSobreRenta.Text = "Incluido";
                             txtITEBIS.Text = "Incluido";
-                            txtNombre.Text = pCliente.Nombre;
                             txtNumeroCaso.Text = pBaseObjfactura.Case_ID;
                             txtServicio.Text = pService.Servicio;
                             txtTotalaPagar.Text = pBaseObjfactura.TotalPago_Mensualidad;
@@ -765,8 +783,6 @@ namespace Sistema_Abogados
         private void btnCleanCustoInfo_Click(object sender, EventArgs e)
         {
             txtCedula.Clear();
-            txtNombre.Clear();
-            txtApellido.Clear();
             gbParametrosBusqueda.Enabled = true;
             try {
                 pbCedula.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
@@ -884,7 +900,7 @@ namespace Sistema_Abogados
         {
 
         }
-
+        // when radio button general is clicked.
         private void rbGeneral_CheckedChanged(object sender, EventArgs e)
         {
             try
@@ -892,14 +908,26 @@ namespace Sistema_Abogados
                 if (rbAlquiler.Checked == true)
                 {
                     dgvFacturacion.DataSource = facturacion.listAllRent();
+                    gbInfomacionInquilino.Text = "Informacion Inquilino";
+                    gbInformacionCliente.Text = "Informacion Cliente";
+                    gbInformacionGarante.Text = "Informacion Garante";
+                    gbInformacionGarante.Enabled = true;
                 }
                 else if (rbDivorcioAccidente.Checked == true)
                 {
                     dgvFacturacion.DataSource = facturacion.listAllDivorciosAccidentes();
+                    gbInfomacionInquilino.Text = "Informacion Demandado";
+                    gbInformacionCliente.Text = "Informacion Demandante";
+                    gbInformacionGarante.Text = "Informacion Garante";
+                    gbInformacionGarante.Enabled = false;
                 }
                 else if (rbVentas.Checked == true)
                 {
                     dgvFacturacion.DataSource = facturacion.listAllVentas();
+                    gbInfomacionInquilino.Text = "Informacion Comprador";
+                    gbInformacionCliente.Text = "Informacion Vendedor";
+                    gbInformacionGarante.Text = "Informacion Garante";
+                    gbInformacionGarante.Enabled = false;
                 }
                 else
                 {
@@ -908,11 +936,99 @@ namespace Sistema_Abogados
                     list.AddRange(facturacion.listAllDivorciosAccidentes());
                     list.AddRange(facturacion.listAllVentas());
                     dgvFacturacion.DataSource = list;
+                    gbInfomacionInquilino.Text = "Informacion Inquilino o Comprador";
+                    gbInformacionCliente.Text = "Informacion Cliente o Vendedor";
+                    gbInformacionGarante.Text = "Informacion Garante";
+                    gbInformacionGarante.Enabled = true;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        // when radio button cedula is clicked.
+        private void rbCedula_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCedula.Checked)
+            {
+                txtCedula.Clear();
+                txtCedula.Mask = "000-0000000-0";
+            }
+            else
+            {
+                txtCedula.Clear();
+                txtCedula.Mask = "SE-000-0000";
+            }
+        }
+        // when radio button pasaporte is clicked.
+        private void rbPasaporte_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCedula.Checked)
+            {
+                txtCedula.Clear();
+                txtCedula.Mask = "000-0000000-0";
+            }
+            else
+            {
+                txtCedula.Clear();
+                txtCedula.Mask = "SE-000-0000";
+            }
+        }
+        // when radio button cedula is clicked.
+        private void rbCedulaDE_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCedulaDE.Checked)
+            {
+                txtCedulaDe.Clear();
+                txtCedulaDe.Mask = "000-0000000-0";
+            }
+            else
+            {
+                txtCedulaDe.Clear();
+                txtCedulaDe.Mask = "SE-000-0000";
+            }
+        }
+        // when redio button pasaporte is clicked.
+        private void rbPasaporteDE_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCedulaDE.Checked)
+            {
+                txtCedulaDe.Clear();
+                txtCedulaDe.Mask = "000-0000000-0";
+            }
+            else
+            {
+                txtCedulaDe.Clear();
+                txtCedulaDe.Mask = "SE-000-0000";
+            }
+        }
+        // when redio button cedula is clicked.
+        private void rbCedulaGa_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCedulaGa.Checked)
+            {
+                txtCedulaGa.Clear();
+                txtCedulaGa.Mask = "000-0000000-0";
+            }
+            else
+            {
+                txtCedulaGa.Clear();
+                txtCedulaGa.Mask = "SE-000-0000";
+            }
+        }
+        // when redio button pasaporte is clicked.
+        private void rbPasaporteGa_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCedulaGa.Checked)
+            {
+                txtCedulaGa.Clear();
+                txtCedulaGa.Mask = "000-0000000-0";
+            }
+            else
+            {
+                txtCedulaGa.Clear();
+                txtCedulaGa.Mask = "SE-000-0000";
             }
         }
     }
