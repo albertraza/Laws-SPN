@@ -124,5 +124,27 @@ namespace Sistema_Abogados
             }
             return r;
         }
+        // method for getting divorcios.
+        public static pBaseDivorcioAccidenteFacturacion getDivorciosAccidente(string ID)
+        {
+            pBaseDivorcioAccidenteFacturacion pBase = new pBaseDivorcioAccidenteFacturacion();
+            using(SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("SELECT * FROM divorcios WHERE ID = '{0}'", ID), con);
+                SqlDataReader re = comand.ExecuteReader();
+                while (re.Read())
+                {
+                    pBase.ID = re["ID"].ToString();
+                    pBase.DemandanteID = re["DemandanteID"].ToString();
+                    pBase.DemandadoID = re["DemandadoID"].ToString();
+                    pBase.serviceID = re["serviceID"].ToString();
+                    pBase.Pagos = Convert.ToDouble(re["Pagos"]).ToString("f2");
+                    pBase.Honorarios = Convert.ToDouble(re["Honorarios"]).ToString("f2");
+                    pBase.Abono = Convert.ToDouble(re["Abono"]).ToString("f2");
+                }
+                con.Close();
+            }
+            return pBase;
+        }
     }
 }

@@ -113,6 +113,7 @@ namespace Sistema_Abogados
             }
             return list;
         }
+        // method for getting ID.
         public static string getID(string NombreIn, string ApellidoIn, string Nombrecl, string Apellidocl, string Nombrega, string Apellidoga, string cedulaIn, string cedulaCli, string cedulaGa)
         {
             string r = null;
@@ -134,6 +135,34 @@ namespace Sistema_Abogados
                 con.Close();
             }
             return r;
+        }
+        // method for getting alquiler.
+        public static pBaseAlquilerFacturacion getAlquiler(string ID)
+        {
+            pBaseAlquilerFacturacion pBase = new pBaseAlquilerFacturacion();
+            using(SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("SELECT * FROM Rent WHERE ID = '{0}'", ID), con);
+                SqlDataReader re = comand.ExecuteReader();
+                while (re.Read())
+                {
+                    pBase.ID = re["ID"].ToString();
+                    pBase.ClienteID = re["ClienteID"].ToString();
+                    pBase.InquilinoID = re["InquilinoID"].ToString();
+                    pBase.GaranteID = re["GaranteID"].ToString();
+                    pBase.servicioID = re["ServicioID"].ToString();
+                    pBase.Mensualidad = Convert.ToDouble(re["Mensualidad"]).ToString("f2");
+                    pBase.Detalles = re["Detalles"].ToString();
+                    pBase.Direccion = re["Direccion"].ToString();
+                    pBase.City = re["City"].ToString();
+                    pBase.Deposito = Convert.ToDouble(re["Deposito"]).ToString("f2");
+                    pBase.Abono = Convert.ToDouble(re["Abono"]).ToString("f2");
+                    pBase.Alquiler = Convert.ToDouble(re["Alquiler"]).ToString("f2");
+                    pBase.ContratoTotal = Convert.ToDouble(re["ContratoCant"]).ToString("f2");
+                }
+                con.Close();
+            }
+            return pBase;
         }
     }
 }

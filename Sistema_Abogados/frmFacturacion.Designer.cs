@@ -467,7 +467,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::Sistema_Abogados.Properties.Resources.exit;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(863, 453);
+            this.btnCancelar.Location = new System.Drawing.Point(865, 471);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(128, 66);
             this.btnCancelar.TabIndex = 27;
@@ -481,7 +481,7 @@
             this.btnCobrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCobrar.Image = global::Sistema_Abogados.Properties.Resources.checkout;
             this.btnCobrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCobrar.Location = new System.Drawing.Point(699, 453);
+            this.btnCobrar.Location = new System.Drawing.Point(701, 471);
             this.btnCobrar.Name = "btnCobrar";
             this.btnCobrar.Size = new System.Drawing.Size(158, 66);
             this.btnCobrar.TabIndex = 26;
@@ -504,7 +504,7 @@
             this.btnCleanAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCleanAll.Image = global::Sistema_Abogados.Properties.Resources._1361350698_edit_clear;
             this.btnCleanAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCleanAll.Location = new System.Drawing.Point(728, 390);
+            this.btnCleanAll.Location = new System.Drawing.Point(730, 408);
             this.btnCleanAll.Name = "btnCleanAll";
             this.btnCleanAll.Size = new System.Drawing.Size(235, 57);
             this.btnCleanAll.TabIndex = 31;
@@ -518,7 +518,7 @@
             this.btnBuscarFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarFactura.Image = global::Sistema_Abogados.Properties.Resources.search;
             this.btnBuscarFactura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarFactura.Location = new System.Drawing.Point(728, 304);
+            this.btnBuscarFactura.Location = new System.Drawing.Point(730, 322);
             this.btnBuscarFactura.Name = "btnBuscarFactura";
             this.btnBuscarFactura.Size = new System.Drawing.Size(235, 57);
             this.btnBuscarFactura.TabIndex = 32;

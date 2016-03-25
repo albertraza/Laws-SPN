@@ -53,6 +53,7 @@
       <DependentUpon>AbogadosDBDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="alquiler.cs" />
+    <Compile Include="clasesForBaseFacturas.cs" />
     <Compile Include="clientes.cs" />
     <Compile Include="DBcomun.cs" />
     <Compile Include="divorcios.cs" />

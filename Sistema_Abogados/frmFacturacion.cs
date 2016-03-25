@@ -617,14 +617,16 @@ namespace Sistema_Abogados
                             pagocontrato = Convert.ToDouble(pBaseObjfactura.ContratoTotal);
                             DateTime today = DateTime.Now.Date;
                             DateTime nextPayment;
-                            if (pBaseObjfactura.fechaUltimoPago == string.Empty || pBaseObjfactura.fechaUltimoPago == null)
+                            if(pBaseObjfactura.fechaProximoPago == string.Empty || pBaseObjfactura.fechaProximoPago == null)
                             {
-                                nextPayment = today.AddMonths(1);
+                                nextPayment = today;
                             }
                             else
                             {
-                                nextPayment = Convert.ToDateTime(pBaseObjfactura.fechaUltimoPago).AddMonths(1);
+                                nextPayment = Convert.ToDateTime(pBaseObjfactura.fechaProximoPago);
+                                nextPayment = nextPayment.AddMonths(1);
                             }
+
                             if (totalpagar >= pagorealizado)
                             {
                                 try
@@ -645,6 +647,14 @@ namespace Sistema_Abogados
                                                 // update the payment status
                                                 facturacion.updateRentStatus(pBaseObjfactura.ID, "0", DateTime.Today.Date.ToString("yyyy-MM-dd"), parestante.ToString("f2"), nextPayment.ToString("yyyy-MM-dd"));
                                                 MessageBox.Show("Factura registrada Exitosamente Proximo Pago: " + nextPayment.ToLongDateString(), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                if(MessageBox.Show("Desea Imprimir la factura?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                                {
+                                                    frmFacturaAlquiler pfactura = new frmFacturaAlquiler();
+                                                    pfactura.getID = Convert.ToInt32(factura.getFacturaIDRent(pBaseObjfactura.Case_ID, "Pago mensualidad y Abono al contrato de alquiler", pBaseObjfactura.Cliente_ID));
+                                                    pfactura.ShowDialog();
+                                                }
+                                                pBaseObjfactura = null;
+                                                cleanInputs();
                                             }
                                         }
                                         else if (parestante == 0)
@@ -653,7 +663,14 @@ namespace Sistema_Abogados
                                             {
                                                 facturacion.updateRentStatus(pBaseObjfactura.ID, "0", DateTime.Today.Date.ToString("yyyy-MM-dd"), parestante.ToString("f2"), nextPayment.ToString("yyyy-MM-dd"));
                                                 MessageBox.Show("Factura registrada Exitosamente Proximo Pago: " + nextPayment.ToLongDateString(), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                if (MessageBox.Show("Desea Imprimir la factura?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                                {
+                                                    frmFacturaAlquiler pfactura = new frmFacturaAlquiler();
+                                                    pfactura.getID = Convert.ToInt32(factura.getFacturaIDRent(pBaseObjfactura.Case_ID, "Pago mensualidad y Pago contrato de alquiler", pBaseObjfactura.Cliente_ID));
+                                                    pfactura.ShowDialog();
+                                                }
                                                 pBaseObjfactura = null;
+                                                cleanInputs();
                                             }
                                         }
                                         else
@@ -670,7 +687,15 @@ namespace Sistema_Abogados
                                             {
                                                 facturacion.updateRentStatus(pBaseObjfactura.ID, "0", DateTime.Today.Date.ToString("yyyy-MM-dd"), parestante.ToString("f2"), pBaseObjfactura.fechaProximoPago);
                                                 MessageBox.Show("Factura registrada Exitosamente /n Proximo Pago: " + nextPayment.ToLongDateString(), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                if (MessageBox.Show("Desea Imprimir la factura?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                                {
+                                                    frmFacturaAlquiler pfactura = new frmFacturaAlquiler();
+                                                    pfactura.getID = Convert.ToInt32(factura.getFacturaIDRent(pBaseObjfactura.Case_ID, "Abono al contrato de alquiler", pBaseObjfactura.Cliente_ID));
+                                                    pfactura.ShowDialog();
+                                                }
                                                 pBaseObjfactura = null;
+                                                cleanInputs();
+
                                             }
                                         }
                                         else if (parestante == 0)
@@ -679,7 +704,14 @@ namespace Sistema_Abogados
                                             {
                                                 facturacion.updateRentStatus(pBaseObjfactura.ID, "0", DateTime.Today.Date.ToString("yyyy-MM-dd"), parestante.ToString("f2"), pBaseObjfactura.fechaProximoPago);
                                                 MessageBox.Show("Factura registrada Exitosamente Proximo Pago: " + nextPayment.ToLongDateString(), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                if (MessageBox.Show("Desea Imprimir la factura?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                                {
+                                                    frmFacturaAlquiler pfactura = new frmFacturaAlquiler();
+                                                    pfactura.getID = Convert.ToInt32(factura.getFacturaIDRent(pBaseObjfactura.Case_ID, "Pago total del contrato de alquiler", pBaseObjfactura.Cliente_ID));
+                                                    pfactura.ShowDialog();
+                                                }
                                                 pBaseObjfactura = null;
+                                                cleanInputs();
                                             }
                                         }
                                     }
@@ -696,7 +728,14 @@ namespace Sistema_Abogados
                                             {
                                                 facturacion.updateRentStatus(pBaseObjfactura.ID, "0", DateTime.Today.Date.ToString("yyyy-MM-dd"), pBaseObjfactura.ContratoTotal, nextPayment.ToString("yyyy-MM-dd"));
                                                 MessageBox.Show("Factura registrada Exitosamente Proximo Pago: " + nextPayment.ToLongDateString(), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                if (MessageBox.Show("Desea Imprimir la factura?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                                {
+                                                    frmFacturaAlquiler pfactura = new frmFacturaAlquiler();
+                                                    pfactura.getID = Convert.ToInt32(factura.getFacturaIDRent(pBaseObjfactura.Case_ID, "Pago total de la mensualidad", pBaseObjfactura.Cliente_ID));
+                                                    pfactura.ShowDialog();
+                                                }
                                                 pBaseObjfactura = null;
+                                                cleanInputs();
                                             }
                                         }
                                         else
@@ -730,6 +769,14 @@ namespace Sistema_Abogados
                             {
                                 MessageBox.Show("Factura registrada exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 facturacion.updateVentaStatus(pBaseObjfactura.ID, parestante.ToString("f2"), pagorealizado.ToString("f2"), DateTime.Today.ToString("yyyy-MM-dd"));
+                                if(MessageBox.Show("Desea Imprimir la factura?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                {
+                                    frmFacturaVenta pFactura = new frmFacturaVenta();
+                                    pFactura.getID = Convert.ToInt32(factura.getFacturaIDVenta(DateTime.Today.Date.ToString("yyyy-MM-dd"), pBaseObjfactura.Case_ID, "Abono contrato de venta", pBaseObjfactura.Cliente_ID));
+                                    pFactura.ShowDialog();
+                                }
+                                pBaseObjfactura = null;
+                                cleanInputs();
                             }
                         }
                         else if (parestante == 0)
@@ -738,6 +785,14 @@ namespace Sistema_Abogados
                             {
                                 MessageBox.Show("Factura registrada exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 facturacion.updateVentaStatus(pBaseObjfactura.ID, parestante.ToString("f2"), pagorealizado.ToString("f2"), DateTime.Today.ToString("yyyy-MM-dd"));
+                                if (MessageBox.Show("Desea Imprimir la factura?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                {
+                                    frmFacturaVenta pFactura = new frmFacturaVenta();
+                                    pFactura.getID = Convert.ToInt32(factura.getFacturaIDVenta(DateTime.Today.Date.ToString("yyyy-MM-dd"), pBaseObjfactura.Case_ID, "Pago total del contrato de venta", pBaseObjfactura.Cliente_ID));
+                                    pFactura.ShowDialog();
+                                }
+                                pBaseObjfactura = null;
+                                cleanInputs();
                             }
                         }
                         else
@@ -757,6 +812,14 @@ namespace Sistema_Abogados
                             {
                                 MessageBox.Show("Factura registrada exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 facturacion.updateDivorciosAccidenteStatus(pBaseObjfactura.ID, parestante.ToString("f2"), pagorealizado.ToString("f2"), DateTime.Today.Date.ToString("yyyy-MM-dd"));
+                                if(MessageBox.Show("Desea Imprimir la factura?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                {
+                                    frmFacturaDivorciosAccidente pFactura = new frmFacturaDivorciosAccidente();
+                                    pFactura.getID = Convert.ToInt32(factura.getFacturaIDDivorciosAccidente(DateTime.Today.Date.ToString("yyyy-MM-dd"), pBaseObjfactura.Case_ID, "Abono a cuenta", pBaseObjfactura.Cliente_ID));
+                                    pFactura.ShowDialog();
+                                }
+                                pBaseObjfactura = null;
+                                cleanInputs();
                             }
                         }
                         else if (parestante == 0)
@@ -765,6 +828,14 @@ namespace Sistema_Abogados
                             {
                                 MessageBox.Show("Factura registrada exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 facturacion.updateDivorciosAccidenteStatus(pBaseObjfactura.ID, parestante.ToString("f2"), pagorealizado.ToString("f2"), DateTime.Today.ToString("yyyy-MM-dd"));
+                                if (MessageBox.Show("Desea Imprimir la factura?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                {
+                                    frmFacturaDivorciosAccidente pFactura = new frmFacturaDivorciosAccidente();
+                                    pFactura.getID = Convert.ToInt32(factura.getFacturaIDDivorciosAccidente(DateTime.Today.Date.ToString("yyyy-MM-dd"), pBaseObjfactura.Case_ID, "Pago total", pBaseObjfactura.Cliente_ID));
+                                    pFactura.ShowDialog();
+                                }
+                                pBaseObjfactura = null;
+                                cleanInputs();
                             }
                         }
                         else
@@ -823,43 +894,11 @@ namespace Sistema_Abogados
         // when cb mensualidad changes.
         private void dbMensualidad_CheckedChanged(object sender, EventArgs e)
         {
-            if (servicios.getServiceInfo(pBaseObjfactura.Service_ID).Servicio == "Alquiler")
-            {
-                if (dbContrato.Checked == true && dbMensualidad.Checked == true)
-                {
-                    txtBalanceTotal.Text = (Convert.ToDouble(pBaseObjfactura.TotalPago_Mensualidad) + Convert.ToDouble(pBaseObjfactura.ContratoTotal)).ToString("f2");
-                    txtITEBIS.Text = (Convert.ToDouble(pBaseObjfactura.TotalPago_Mensualidad) * 0.18).ToString("f2");
-                    txtImpSobreRenta.Text = (Convert.ToDouble(pBaseObjfactura.TotalPago_Mensualidad) * 0.10).ToString("f2");
-                    txtTotalaPagar.Text = (Convert.ToDouble(txtBalanceTotal.Text) + Convert.ToDouble(txtImpSobreRenta.Text) + Convert.ToDouble(txtITEBIS.Text)).ToString("f2");
-                }
-                else if (dbContrato.Checked == true)
-                {
-                    txtBalanceTotal.Text = Convert.ToDouble(pBaseObjfactura.ContratoTotal).ToString("f2");
-                    txtITEBIS.Text = "Incluido";
-                    txtImpSobreRenta.Text = "Incluido";
-                    txtTotalaPagar.Text = Convert.ToDouble(pBaseObjfactura.ContratoTotal).ToString("f2");
-                }
-                else if (dbMensualidad.Checked == true)
-                {
-                    txtBalanceTotal.Text = (Convert.ToDouble(pBaseObjfactura.TotalPago_Mensualidad)).ToString("f2");
-                    txtITEBIS.Text = (Convert.ToDouble(pBaseObjfactura.TotalPago_Mensualidad) * 0.18).ToString("f2");
-                    txtImpSobreRenta.Text = (Convert.ToDouble(pBaseObjfactura.TotalPago_Mensualidad) * 0.10).ToString("f2");
-                    txtTotalaPagar.Text = (Convert.ToDouble(txtBalanceTotal.Text) + Convert.ToDouble(txtImpSobreRenta.Text) + Convert.ToDouble(txtITEBIS.Text)).ToString("f2");
-                }
-                else
-                {
-                    txtBalanceTotal.Text = "0.00";
-                    gbPagoRealizar.Focus();
-                }
-            }
-        }
-        // when cb contrato changes.
-        private void dbContrato_CheckedChanged(object sender, EventArgs e)
-        {
-            if (servicios.getServiceInfo(pBaseObjfactura.Service_ID).Servicio == "Alquiler")
-            {
+            try {
                 if (servicios.getServiceInfo(pBaseObjfactura.Service_ID).Servicio == "Alquiler")
                 {
+                    if (Convert.ToDouble(pBaseObjfactura.ContratoTotal) == 0) dbContrato.Enabled = false;
+
                     if (dbContrato.Checked == true && dbMensualidad.Checked == true)
                     {
                         txtBalanceTotal.Text = (Convert.ToDouble(pBaseObjfactura.TotalPago_Mensualidad) + Convert.ToDouble(pBaseObjfactura.ContratoTotal)).ToString("f2");
@@ -884,10 +923,54 @@ namespace Sistema_Abogados
                     else
                     {
                         txtBalanceTotal.Text = "0.00";
-                        MessageBox.Show("Debe seleccionar el pago que se realizara", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         gbPagoRealizar.Focus();
                     }
                 }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        // when cb contrato changes.
+        private void dbContrato_CheckedChanged(object sender, EventArgs e)
+        {
+            try {
+                if (servicios.getServiceInfo(pBaseObjfactura.Service_ID).Servicio == "Alquiler")
+                {
+                    if (Convert.ToDouble(pBaseObjfactura.ContratoTotal) == 0) dbContrato.Enabled = false;
+
+                    if (dbContrato.Checked == true && dbMensualidad.Checked == true)
+                    {
+                        txtBalanceTotal.Text = (Convert.ToDouble(pBaseObjfactura.TotalPago_Mensualidad) + Convert.ToDouble(pBaseObjfactura.ContratoTotal)).ToString("f2");
+                        txtITEBIS.Text = (Convert.ToDouble(pBaseObjfactura.TotalPago_Mensualidad) * 0.18).ToString("f2");
+                        txtImpSobreRenta.Text = (Convert.ToDouble(pBaseObjfactura.TotalPago_Mensualidad) * 0.10).ToString("f2");
+                        txtTotalaPagar.Text = (Convert.ToDouble(txtBalanceTotal.Text) + Convert.ToDouble(txtImpSobreRenta.Text) + Convert.ToDouble(txtITEBIS.Text)).ToString("f2");
+                    }
+                    else if (dbContrato.Checked == true)
+                    {
+                        txtBalanceTotal.Text = Convert.ToDouble(pBaseObjfactura.ContratoTotal).ToString("f2");
+                        txtITEBIS.Text = "Incluido";
+                        txtImpSobreRenta.Text = "Incluido";
+                        txtTotalaPagar.Text = Convert.ToDouble(pBaseObjfactura.ContratoTotal).ToString("f2");
+                    }
+                    else if (dbMensualidad.Checked == true)
+                    {
+                        txtBalanceTotal.Text = (Convert.ToDouble(pBaseObjfactura.TotalPago_Mensualidad)).ToString("f2");
+                        txtITEBIS.Text = (Convert.ToDouble(pBaseObjfactura.TotalPago_Mensualidad) * 0.18).ToString("f2");
+                        txtImpSobreRenta.Text = (Convert.ToDouble(pBaseObjfactura.TotalPago_Mensualidad) * 0.10).ToString("f2");
+                        txtTotalaPagar.Text = (Convert.ToDouble(txtBalanceTotal.Text) + Convert.ToDouble(txtImpSobreRenta.Text) + Convert.ToDouble(txtITEBIS.Text)).ToString("f2");
+                    }
+                    else
+                    {
+                        txtBalanceTotal.Text = "0.00";
+                        gbPagoRealizar.Focus();
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         // none

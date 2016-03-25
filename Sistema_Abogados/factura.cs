@@ -226,5 +226,39 @@ namespace Sistema_Abogados
             }
             return list;
         }
+        // methods for getting the ID for the bill.
+        public static string getFacturaIDRent(string casoID, string Detalles, string clienteID)
+        {
+            string r = null;
+            using(SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("SELECT ID FROM facturasAlquiler WHERE casoID = '{0}' AND Detalles = '{1}' AND clienteID = '{2}'", casoID, Detalles, clienteID), con);
+                r = comand.ExecuteScalar().ToString();
+                con.Close();
+            }
+            return r;
+        }
+        public static string getFacturaIDDivorciosAccidente(string Date, string casoID, string Detalles, string clienteID)
+        {
+            string r = null;
+            using(SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("SELECT ID FROM  facturasDivorciosAccidente WHERE FechaPago = '{0}' AND casoID = '{1}' AND Detalles = '{2}' AND clienteID = '{3}'", Date, casoID, Detalles, clienteID), con);
+                r = comand.ExecuteScalar().ToString();
+                con.Close();
+            }
+            return r;
+        }
+        public static string getFacturaIDVenta(string Date, string casoID, string Detalles, string clienteID)
+        {
+            string r = null;
+            using (SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("SELECT ID FROM  facturasVenta WHERE FechaPago = '{0}' AND casoID = '{1}' AND Detalles = '{2}' AND clienteID = '{3}'", Date, casoID, Detalles, clienteID), con);
+                r = comand.ExecuteScalar().ToString();
+                con.Close();
+            }
+            return r;
+        }
     }
 }

@@ -24,9 +24,9 @@ namespace Sistema_Abogados
         public static int register(string SellerID, string BuyID, string Description, string SellingPrice, string Honorarios, string Abono, string ServiceID)
         {
             int r = -1;
-            using(SqlConnection con = DBcomun.getConnection())
+            using (SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("INSERT INTO Venta (VendedorID, CompradorID, Descripcion, MontoVenta, Honorarios, Abono, ServiceID) VALUES ('{0}', '{1}', '{2}', '{3}' ,'{4}' ,'{5}', '{6}')", 
+                SqlCommand comand = new SqlCommand(string.Format("INSERT INTO Venta (VendedorID, CompradorID, Descripcion, MontoVenta, Honorarios, Abono, ServiceID) VALUES ('{0}', '{1}', '{2}', '{3}' ,'{4}' ,'{5}', '{6}')",
                     SellerID, BuyID, Description, SellingPrice, Honorarios, Abono, ServiceID), con);
                 r = comand.ExecuteNonQuery();
                 con.Close();
@@ -37,7 +37,7 @@ namespace Sistema_Abogados
         public static List<ventas> listAll()
         {
             List<ventas> list = new List<ventas>();
-            using(SqlConnection con = DBcomun.getConnection())
+            using (SqlConnection con = DBcomun.getConnection())
             {
                 SqlCommand comand = new SqlCommand("SELECT Venta.ID, SERVICIO.cService AS Servicio, VENDEDOR.name AS NombreVe, VENDEDOR.lastname AS ApellidoVe, COMPRADOR.name AS NombreCo, COMPRADOR.lastname AS ApellidoCo, Venta.Descripcion, Venta.Abono, Venta.Honorarios, Venta.MontoVenta FROM Venta INNER JOIN customers as VENDEDOR ON VENDEDOR.ID = Venta.VendedorID INNER JOIN customers AS COMPRADOR ON COMPRADOR.ID = Venta.CompradorID INNER JOIN services AS SERVICIO ON SERVICIO.ID = Venta.ServiceID", con);
                 SqlDataReader re = comand.ExecuteReader();
@@ -64,7 +64,7 @@ namespace Sistema_Abogados
         public static List<ventas> search(string NombreV, string ApellidoV, string NombreC, string ApellidoC, string ID)
         {
             List<ventas> list = new List<ventas>();
-            using(SqlConnection con = DBcomun.getConnection())
+            using (SqlConnection con = DBcomun.getConnection())
             {
                 SqlCommand comand = new SqlCommand(string.Format("SELECT Venta.ID, SERVICIO.cService AS Servicio, VENDEDOR.name AS NombreVe, VENDEDOR.lastname AS ApellidoVe, COMPRADOR.name AS NombreCo, COMPRADOR.lastname AS ApellidoCo, Venta.Descripcion, Venta.Abono, Venta.Honorarios, Venta.MontoVenta FROM Venta INNER JOIN customers as VENDEDOR ON VENDEDOR.ID = Venta.VendedorID INNER JOIN customers AS COMPRADOR ON COMPRADOR.ID = Venta.CompradorID INNER JOIN services AS SERVICIO ON SERVICIO.ID = Venta.ServiceID" +
                     " WHERE VENDEDOR.name LIKE '{0}%' AND VENDEDOR.lastname LIKE '{1}%' AND COMPRADOR.name LIKE '{2}%' AND COMPRADOR.lastname LIKE '{3}%' AND Venta.ID LIKE '{4}%'",
@@ -93,9 +93,9 @@ namespace Sistema_Abogados
         public static string getID(string NombreV, string ApellidoV, string NombreC, string ApellidoC, string cedulaV, string cedulaC)
         {
             string r = null;
-            using(SqlConnection con = DBcomun.getConnection())
+            using (SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("SELECT Venta.ID FROM Venta INNER JOIN customers as VENDEDOR ON VENDEDOR.ID = Venta.VendedorID INNER JOIN customers AS COMPRADOR ON COMPRADOR.ID = Venta.CompradorID INNER JOIN services AS SERVICIO ON SERVICIO.ID = Venta.ServiceID " + 
+                SqlCommand comand = new SqlCommand(string.Format("SELECT Venta.ID FROM Venta INNER JOIN customers as VENDEDOR ON VENDEDOR.ID = Venta.VendedorID INNER JOIN customers AS COMPRADOR ON COMPRADOR.ID = Venta.CompradorID INNER JOIN services AS SERVICIO ON SERVICIO.ID = Venta.ServiceID " +
                     " WHERE VENDEDOR.name = '{0}' AND VENDEDOR.lastname = '{1}' AND VENDEDOR.idcard = '{2}' AND COMPRADOR.name = '{3}' AND COMPRADOR.lastname = '{4}' AND COMPRADOR.idcard = '{5}'",
                     NombreV, ApellidoV, cedulaV, NombreC, ApellidoC, cedulaC), con);
                 SqlDataReader re = comand.ExecuteReader();
@@ -111,6 +111,29 @@ namespace Sistema_Abogados
                 con.Close();
             }
             return r;
+        }
+        // method for getting venta
+        public static pBaseVentaFacturacion getVenta(string ID)
+        {
+            pBaseVentaFacturacion pBase = new pBaseVentaFacturacion();
+            using(SqlConnection con = DBcomun.getConnection())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("SELECT * FROM Venta WHERE ID = '{0}'", ID), con);
+                SqlDataReader re = comand.ExecuteReader();
+                while (re.Read())
+                {
+                    pBase.ID = re["ID"].ToString();
+                    pBase.vendedorID = re["VendedorID"].ToString();
+                    pBase.compradorID = re["CompradorID"].ToString();
+                    pBase.Descripcion = re["Descripcion"].ToString();
+                    pBase.MontoVenta = Convert.ToDouble(re["MontoVenta"]).ToString("f2");
+                    pBase.Honorarios = Convert.ToDouble(re["Honorarios"]).ToString("f2");
+                    pBase.Abono = Convert.ToDouble(re["Abono"]).ToString("f2");
+                    pBase.servicioID = re["serviceID"].ToString();
+                }
+                con.Close();
+            }
+            return pBase;
         }
     }
 }
