@@ -33,7 +33,6 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.lblLastName = new System.Windows.Forms.Label();
-            this.txtCedula = new System.Windows.Forms.TextBox();
             this.lblIDcard = new System.Windows.Forms.Label();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.lblStatus = new System.Windows.Forms.Label();
@@ -45,6 +44,9 @@
             this.txtUserID = new System.Windows.Forms.TextBox();
             this.lblId = new System.Windows.Forms.Label();
             this.btnSelect = new System.Windows.Forms.Button();
+            this.txtCedula = new System.Windows.Forms.MaskedTextBox();
+            this.rbCedula = new System.Windows.Forms.RadioButton();
+            this.rbPasaporte = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,13 +89,6 @@
             this.lblLastName.Size = new System.Drawing.Size(47, 13);
             this.lblLastName.TabIndex = 3;
             this.lblLastName.Text = "Apellido:";
-            // 
-            // txtCedula
-            // 
-            this.txtCedula.Location = new System.Drawing.Point(300, 34);
-            this.txtCedula.Name = "txtCedula";
-            this.txtCedula.Size = new System.Drawing.Size(100, 20);
-            this.txtCedula.TabIndex = 6;
             // 
             // lblIDcard
             // 
@@ -197,12 +192,46 @@
             this.btnSelect.UseVisualStyleBackColor = true;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
+            // txtCedula
+            // 
+            this.txtCedula.Location = new System.Drawing.Point(300, 34);
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.Size = new System.Drawing.Size(100, 20);
+            this.txtCedula.TabIndex = 17;
+            // 
+            // rbCedula
+            // 
+            this.rbCedula.AutoSize = true;
+            this.rbCedula.Location = new System.Drawing.Point(254, 56);
+            this.rbCedula.Name = "rbCedula";
+            this.rbCedula.Size = new System.Drawing.Size(58, 17);
+            this.rbCedula.TabIndex = 18;
+            this.rbCedula.TabStop = true;
+            this.rbCedula.Text = "Cedula";
+            this.rbCedula.UseVisualStyleBackColor = true;
+            this.rbCedula.CheckedChanged += new System.EventHandler(this.rbCedula_CheckedChanged);
+            // 
+            // rbPasaporte
+            // 
+            this.rbPasaporte.AutoSize = true;
+            this.rbPasaporte.Location = new System.Drawing.Point(357, 56);
+            this.rbPasaporte.Name = "rbPasaporte";
+            this.rbPasaporte.Size = new System.Drawing.Size(73, 17);
+            this.rbPasaporte.TabIndex = 19;
+            this.rbPasaporte.TabStop = true;
+            this.rbPasaporte.Text = "Pasaporte";
+            this.rbPasaporte.UseVisualStyleBackColor = true;
+            this.rbPasaporte.CheckedChanged += new System.EventHandler(this.rbPasaporte_CheckedChanged);
+            // 
             // frmCustomerSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkKhaki;
             this.ClientSize = new System.Drawing.Size(756, 440);
+            this.Controls.Add(this.rbPasaporte);
+            this.Controls.Add(this.rbCedula);
+            this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.txtUserID);
             this.Controls.Add(this.lblId);
@@ -213,7 +242,6 @@
             this.Controls.Add(this.lblRegisterDate);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.cbStatus);
-            this.Controls.Add(this.txtCedula);
             this.Controls.Add(this.lblIDcard);
             this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.lblLastName);
@@ -238,7 +266,6 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label lblLastName;
-        private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.Label lblIDcard;
         private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.Label lblStatus;
@@ -250,5 +277,8 @@
         private System.Windows.Forms.TextBox txtUserID;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.MaskedTextBox txtCedula;
+        private System.Windows.Forms.RadioButton rbCedula;
+        private System.Windows.Forms.RadioButton rbPasaporte;
     }
 }

@@ -79,6 +79,9 @@
             <TablixColumn>
               <Width>1.45833in</Width>
             </TablixColumn>
+            <TablixColumn>
+              <Width>2.48958in</Width>
+            </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
@@ -191,6 +194,36 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox17</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox3">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Detalles Pago</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox3</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -348,12 +381,45 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="DetallesPago">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!DetallesPago.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>DetallesPago</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
           </TablixRows>
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
+            <TablixMember />
             <TablixMember />
             <TablixMember />
             <TablixMember />
@@ -374,7 +440,7 @@
         <Top>3.05083in</Top>
         <Left>0.45708in</Left>
         <Height>0.5in</Height>
-        <Width>4.53125in</Width>
+        <Width>7.02083in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -386,12 +452,12 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.10417in</Width>
+              <Width>3.30209in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>1.15625in</Height>
+              <Height>1.1632in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -577,8 +643,8 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>1.22097in</Top>
         <Left>0.45708in</Left>
-        <Height>1.15625in</Height>
-        <Width>3.10417in</Width>
+        <Height>1.1632in</Height>
+        <Width>3.30209in</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -590,7 +656,7 @@
     <Height>4.5in</Height>
     <Style />
   </Body>
-  <Width>7.20708in</Width>
+  <Width>8.05083in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>

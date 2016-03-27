@@ -58,6 +58,7 @@ namespace Sistema_Abogados
         // when form is loaded.
         private void frmCustomerSearch_Load(object sender, EventArgs e)
         {
+            rbCedula.Checked = true;
             // make a try catch.
             try
             {
@@ -187,6 +188,38 @@ namespace Sistema_Abogados
             else
             {
                 MessageBox.Show("Seleccione un cliente de la tabla", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void rbCedula_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCedula.Checked)
+            {
+                txtCedula.Mask = "000-0000000-0";
+                txtCedula.Focus();
+                txtCedula.Clear();
+            }
+            else
+            {
+                txtCedula.Mask = "SE-000-0000";
+                txtCedula.Focus();
+                txtCedula.Clear();
+            }
+        }
+
+        private void rbPasaporte_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbCedula.Checked)
+            {
+                txtCedula.Mask = "000-0000000-0";
+                txtCedula.Focus();
+                txtCedula.Clear();
+            }
+            else
+            {
+                txtCedula.Mask = "SE-000-0000";
+                txtCedula.Focus();
+                txtCedula.Clear();
             }
         }
     }
