@@ -390,6 +390,14 @@ namespace Sistema_Abogados
                         pService = servicios.getServiceInfo(pBaseObjfactura.Service_ID);
                         dbMensualidad.Checked = true;
                         gbPagoRealizar.Visible = true;
+                        if(Convert.ToInt32(clientes.verifyDocument(pCliente.ID, "")) > 0)
+                        {
+                            rbPasaporte.Checked = true;
+                        }
+                        else
+                        {
+                            rbCedula.Checked = true;
+                        }
                         txtCedula.Text = pCliente.Cedula;
                         txtNumeroCaso.Text = pBaseObjfactura.Case_ID;
                         txtServicio.Text = pService.Servicio;
@@ -412,6 +420,14 @@ namespace Sistema_Abogados
                         pCliente = clientes.getCustomerObject(pBaseObjfactura.Cliente_ID, "");
                         pService = servicios.getServiceInfo(pBaseObjfactura.Service_ID);
                         txtBalanceTotal.Text = pBaseObjfactura.TotalPago_Mensualidad;
+                        if (Convert.ToInt32(clientes.verifyDocument(pCliente.ID, "")) > 0)
+                        {
+                            rbPasaporte.Checked = true;
+                        }
+                        else
+                        {
+                            rbCedula.Checked = true;
+                        }
                         txtCedula.Text = pCliente.Cedula;
                         txtImpSobreRenta.Text = "Incluido";
                         txtITEBIS.Text = "Incluido";
@@ -436,6 +452,14 @@ namespace Sistema_Abogados
                         pCliente = clientes.getCustomerObject(pBaseObjfactura.Cliente_ID, "");
                         pService = servicios.getServiceInfo(pBaseObjfactura.Service_ID);
                         txtBalanceTotal.Text = pBaseObjfactura.TotalPago_Mensualidad;
+                        if (Convert.ToInt32(clientes.verifyDocument(pCliente.ID, "")) > 0)
+                        {
+                            rbPasaporte.Checked = true;
+                        }
+                        else
+                        {
+                            rbCedula.Checked = true;
+                        }
                         txtCedula.Text = pCliente.Cedula;
                         txtImpSobreRenta.Text = "Incluido";
                         txtITEBIS.Text = "Incluido";
@@ -464,6 +488,14 @@ namespace Sistema_Abogados
                             pService = servicios.getServiceInfo(pBaseObjfactura.Service_ID);
                             dbMensualidad.Checked = true;
                             gbPagoRealizar.Visible = true;
+                            if (Convert.ToInt32(clientes.verifyDocument(pCliente.ID, "")) > 0)
+                            {
+                                rbPasaporte.Checked = true;
+                            }
+                            else
+                            {
+                                rbCedula.Checked = true;
+                            }
                             txtCedula.Text = pCliente.Cedula;
                             txtNumeroCaso.Text = pBaseObjfactura.Case_ID;
                             txtServicio.Text = pService.Servicio;
@@ -487,6 +519,14 @@ namespace Sistema_Abogados
                             pCliente = clientes.getCustomerObject(pBaseObjfactura.Cliente_ID, "");
                             pService = servicios.getServiceInfo(pBaseObjfactura.Service_ID);
                             txtBalanceTotal.Text = pBaseObjfactura.TotalPago_Mensualidad;
+                            if (Convert.ToInt32(clientes.verifyDocument(pCliente.ID, "")) > 0)
+                            {
+                                rbPasaporte.Checked = true;
+                            }
+                            else
+                            {
+                                rbCedula.Checked = true;
+                            }
                             txtCedula.Text = pCliente.Cedula;
                             txtImpSobreRenta.Text = "Incluido";
                             txtITEBIS.Text = "Incluido";
@@ -512,6 +552,14 @@ namespace Sistema_Abogados
                             pCliente = clientes.getCustomerObject(pBaseObjfactura.Cliente_ID, "");
                             pService = servicios.getServiceInfo(pBaseObjfactura.Service_ID);
                             txtBalanceTotal.Text = pBaseObjfactura.TotalPago_Mensualidad;
+                            if (Convert.ToInt32(clientes.verifyDocument(pCliente.ID, "")) > 0)
+                            {
+                                rbPasaporte.Checked = true;
+                            }
+                            else
+                            {
+                                rbCedula.Checked = true;
+                            }
                             txtCedula.Text = pCliente.Cedula;
                             txtImpSobreRenta.Text = "Incluido";
                             txtITEBIS.Text = "Incluido";

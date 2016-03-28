@@ -53,6 +53,8 @@
             this.lblFechaUltimoPago = new System.Windows.Forms.Label();
             this.txtUltimoPago = new System.Windows.Forms.TextBox();
             this.gbInformacionCliente = new System.Windows.Forms.GroupBox();
+            this.rbPasaporte = new System.Windows.Forms.RadioButton();
+            this.rbCedula = new System.Windows.Forms.RadioButton();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.gbInformacionCaso = new System.Windows.Forms.GroupBox();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -71,17 +73,15 @@
             this.btnCleanAll = new System.Windows.Forms.Button();
             this.btnBuscarFactura = new System.Windows.Forms.Button();
             this.gbInfomacionInquilino = new System.Windows.Forms.GroupBox();
+            this.rbPasaporteDE = new System.Windows.Forms.RadioButton();
+            this.rbCedulaDE = new System.Windows.Forms.RadioButton();
             this.lblCedulaDe = new System.Windows.Forms.Label();
             this.txtCedulaDe = new System.Windows.Forms.MaskedTextBox();
             this.gbInformacionGarante = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtCedulaGa = new System.Windows.Forms.MaskedTextBox();
-            this.rbCedula = new System.Windows.Forms.RadioButton();
-            this.rbPasaporte = new System.Windows.Forms.RadioButton();
-            this.rbPasaporteDE = new System.Windows.Forms.RadioButton();
-            this.rbCedulaDE = new System.Windows.Forms.RadioButton();
             this.rbPasaporteGa = new System.Windows.Forms.RadioButton();
             this.rbCedulaGa = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtCedulaGa = new System.Windows.Forms.MaskedTextBox();
             this.gbParametrosBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacturacion)).BeginInit();
             this.gbInformacionCliente.SuspendLayout();
@@ -326,14 +326,38 @@
             this.gbInformacionCliente.TabStop = false;
             this.gbInformacionCliente.Text = "Informacion Cliente";
             // 
+            // rbPasaporte
+            // 
+            this.rbPasaporte.AutoSize = true;
+            this.rbPasaporte.Location = new System.Drawing.Point(105, 53);
+            this.rbPasaporte.Name = "rbPasaporte";
+            this.rbPasaporte.Size = new System.Drawing.Size(73, 17);
+            this.rbPasaporte.TabIndex = 7;
+            this.rbPasaporte.TabStop = true;
+            this.rbPasaporte.Text = "Pasaporte";
+            this.rbPasaporte.UseVisualStyleBackColor = true;
+            this.rbPasaporte.CheckedChanged += new System.EventHandler(this.rbPasaporte_CheckedChanged);
+            // 
+            // rbCedula
+            // 
+            this.rbCedula.AutoSize = true;
+            this.rbCedula.Location = new System.Drawing.Point(24, 53);
+            this.rbCedula.Name = "rbCedula";
+            this.rbCedula.Size = new System.Drawing.Size(58, 17);
+            this.rbCedula.TabIndex = 6;
+            this.rbCedula.TabStop = true;
+            this.rbCedula.Text = "Cedula";
+            this.rbCedula.UseVisualStyleBackColor = true;
+            this.rbCedula.CheckedChanged += new System.EventHandler(this.rbCedula_CheckedChanged);
+            // 
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.Image = global::Sistema_Abogados.Properties.Resources.search;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(523, 12);
+            this.btnBuscar.Location = new System.Drawing.Point(530, 12);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(141, 57);
+            this.btnBuscar.Size = new System.Drawing.Size(141, 51);
             this.btnBuscar.TabIndex = 21;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -540,6 +564,30 @@
             this.gbInfomacionInquilino.TabStop = false;
             this.gbInfomacionInquilino.Text = "Informacion Inquilino";
             // 
+            // rbPasaporteDE
+            // 
+            this.rbPasaporteDE.AutoSize = true;
+            this.rbPasaporteDE.Location = new System.Drawing.Point(105, 53);
+            this.rbPasaporteDE.Name = "rbPasaporteDE";
+            this.rbPasaporteDE.Size = new System.Drawing.Size(73, 17);
+            this.rbPasaporteDE.TabIndex = 9;
+            this.rbPasaporteDE.TabStop = true;
+            this.rbPasaporteDE.Text = "Pasaporte";
+            this.rbPasaporteDE.UseVisualStyleBackColor = true;
+            this.rbPasaporteDE.CheckedChanged += new System.EventHandler(this.rbPasaporteDE_CheckedChanged);
+            // 
+            // rbCedulaDE
+            // 
+            this.rbCedulaDE.AutoSize = true;
+            this.rbCedulaDE.Location = new System.Drawing.Point(24, 53);
+            this.rbCedulaDE.Name = "rbCedulaDE";
+            this.rbCedulaDE.Size = new System.Drawing.Size(58, 17);
+            this.rbCedulaDE.TabIndex = 8;
+            this.rbCedulaDE.TabStop = true;
+            this.rbCedulaDE.Text = "Cedula";
+            this.rbCedulaDE.UseVisualStyleBackColor = true;
+            this.rbCedulaDE.CheckedChanged += new System.EventHandler(this.rbCedulaDE_CheckedChanged);
+            // 
             // lblCedulaDe
             // 
             this.lblCedulaDe.AutoSize = true;
@@ -570,71 +618,6 @@
             this.gbInformacionGarante.TabStop = false;
             this.gbInformacionGarante.Text = "Informacion Garante";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Cedula:";
-            // 
-            // txtCedulaGa
-            // 
-            this.txtCedulaGa.Location = new System.Drawing.Point(70, 27);
-            this.txtCedulaGa.Mask = "000-0000000-0";
-            this.txtCedulaGa.Name = "txtCedulaGa";
-            this.txtCedulaGa.Size = new System.Drawing.Size(100, 20);
-            this.txtCedulaGa.TabIndex = 5;
-            // 
-            // rbCedula
-            // 
-            this.rbCedula.AutoSize = true;
-            this.rbCedula.Location = new System.Drawing.Point(24, 53);
-            this.rbCedula.Name = "rbCedula";
-            this.rbCedula.Size = new System.Drawing.Size(58, 17);
-            this.rbCedula.TabIndex = 6;
-            this.rbCedula.TabStop = true;
-            this.rbCedula.Text = "Cedula";
-            this.rbCedula.UseVisualStyleBackColor = true;
-            this.rbCedula.CheckedChanged += new System.EventHandler(this.rbCedula_CheckedChanged);
-            // 
-            // rbPasaporte
-            // 
-            this.rbPasaporte.AutoSize = true;
-            this.rbPasaporte.Location = new System.Drawing.Point(105, 53);
-            this.rbPasaporte.Name = "rbPasaporte";
-            this.rbPasaporte.Size = new System.Drawing.Size(73, 17);
-            this.rbPasaporte.TabIndex = 7;
-            this.rbPasaporte.TabStop = true;
-            this.rbPasaporte.Text = "Pasaporte";
-            this.rbPasaporte.UseVisualStyleBackColor = true;
-            this.rbPasaporte.CheckedChanged += new System.EventHandler(this.rbPasaporte_CheckedChanged);
-            // 
-            // rbPasaporteDE
-            // 
-            this.rbPasaporteDE.AutoSize = true;
-            this.rbPasaporteDE.Location = new System.Drawing.Point(105, 53);
-            this.rbPasaporteDE.Name = "rbPasaporteDE";
-            this.rbPasaporteDE.Size = new System.Drawing.Size(73, 17);
-            this.rbPasaporteDE.TabIndex = 9;
-            this.rbPasaporteDE.TabStop = true;
-            this.rbPasaporteDE.Text = "Pasaporte";
-            this.rbPasaporteDE.UseVisualStyleBackColor = true;
-            this.rbPasaporteDE.CheckedChanged += new System.EventHandler(this.rbPasaporteDE_CheckedChanged);
-            // 
-            // rbCedulaDE
-            // 
-            this.rbCedulaDE.AutoSize = true;
-            this.rbCedulaDE.Location = new System.Drawing.Point(24, 53);
-            this.rbCedulaDE.Name = "rbCedulaDE";
-            this.rbCedulaDE.Size = new System.Drawing.Size(58, 17);
-            this.rbCedulaDE.TabIndex = 8;
-            this.rbCedulaDE.TabStop = true;
-            this.rbCedulaDE.Text = "Cedula";
-            this.rbCedulaDE.UseVisualStyleBackColor = true;
-            this.rbCedulaDE.CheckedChanged += new System.EventHandler(this.rbCedulaDE_CheckedChanged);
-            // 
             // rbPasaporteGa
             // 
             this.rbPasaporteGa.AutoSize = true;
@@ -658,6 +641,23 @@
             this.rbCedulaGa.Text = "Cedula";
             this.rbCedulaGa.UseVisualStyleBackColor = true;
             this.rbCedulaGa.CheckedChanged += new System.EventHandler(this.rbCedulaGa_CheckedChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(21, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Cedula:";
+            // 
+            // txtCedulaGa
+            // 
+            this.txtCedulaGa.Location = new System.Drawing.Point(70, 27);
+            this.txtCedulaGa.Mask = "000-0000000-0";
+            this.txtCedulaGa.Name = "txtCedulaGa";
+            this.txtCedulaGa.Size = new System.Drawing.Size(100, 20);
+            this.txtCedulaGa.TabIndex = 5;
             // 
             // frmFacturacion
             // 
