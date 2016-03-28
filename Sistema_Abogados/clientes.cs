@@ -214,6 +214,7 @@ namespace Sistema_Abogados
             }
             return r;
         }
+        // method for verifying the default document.
         public static int verifyDocument(string ID, string cedula)
         {
             int r;
