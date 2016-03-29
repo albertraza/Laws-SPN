@@ -159,7 +159,7 @@
             this.dgvFacturacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFacturacion.Location = new System.Drawing.Point(8, 351);
             this.dgvFacturacion.Name = "dgvFacturacion";
-            this.dgvFacturacion.Size = new System.Drawing.Size(673, 195);
+            this.dgvFacturacion.Size = new System.Drawing.Size(717, 195);
             this.dgvFacturacion.TabIndex = 3;
             // 
             // lblCedula
@@ -390,7 +390,7 @@
             this.gbInformacionCaso.Controls.Add(this.lblDevuelta);
             this.gbInformacionCaso.Location = new System.Drawing.Point(8, 157);
             this.gbInformacionCaso.Name = "gbInformacionCaso";
-            this.gbInformacionCaso.Size = new System.Drawing.Size(656, 159);
+            this.gbInformacionCaso.Size = new System.Drawing.Size(670, 159);
             this.gbInformacionCaso.TabIndex = 31;
             this.gbInformacionCaso.TabStop = false;
             this.gbInformacionCaso.Text = "Informacion del Caso";
@@ -491,7 +491,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = global::Sistema_Abogados.Properties.Resources.exit;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(865, 471);
+            this.btnCancelar.Location = new System.Drawing.Point(883, 471);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(128, 66);
             this.btnCancelar.TabIndex = 27;
@@ -505,9 +505,9 @@
             this.btnCobrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCobrar.Image = global::Sistema_Abogados.Properties.Resources.checkout;
             this.btnCobrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCobrar.Location = new System.Drawing.Point(701, 471);
+            this.btnCobrar.Location = new System.Drawing.Point(731, 471);
             this.btnCobrar.Name = "btnCobrar";
-            this.btnCobrar.Size = new System.Drawing.Size(158, 66);
+            this.btnCobrar.Size = new System.Drawing.Size(146, 66);
             this.btnCobrar.TabIndex = 26;
             this.btnCobrar.Text = "Aceptar";
             this.btnCobrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -516,9 +516,9 @@
             // 
             // pbCedula
             // 
-            this.pbCedula.Location = new System.Drawing.Point(677, 12);
+            this.pbCedula.Location = new System.Drawing.Point(731, 45);
             this.pbCedula.Name = "pbCedula";
-            this.pbCedula.Size = new System.Drawing.Size(302, 248);
+            this.pbCedula.Size = new System.Drawing.Size(272, 248);
             this.pbCedula.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbCedula.TabIndex = 25;
             this.pbCedula.TabStop = false;
@@ -528,9 +528,9 @@
             this.btnCleanAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCleanAll.Image = global::Sistema_Abogados.Properties.Resources._1361350698_edit_clear;
             this.btnCleanAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCleanAll.Location = new System.Drawing.Point(730, 408);
+            this.btnCleanAll.Location = new System.Drawing.Point(764, 397);
             this.btnCleanAll.Name = "btnCleanAll";
-            this.btnCleanAll.Size = new System.Drawing.Size(235, 57);
+            this.btnCleanAll.Size = new System.Drawing.Size(217, 57);
             this.btnCleanAll.TabIndex = 31;
             this.btnCleanAll.Text = "Limpiar Todo";
             this.btnCleanAll.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -542,9 +542,9 @@
             this.btnBuscarFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarFactura.Image = global::Sistema_Abogados.Properties.Resources.search;
             this.btnBuscarFactura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarFactura.Location = new System.Drawing.Point(730, 322);
+            this.btnBuscarFactura.Location = new System.Drawing.Point(779, 322);
             this.btnBuscarFactura.Name = "btnBuscarFactura";
-            this.btnBuscarFactura.Size = new System.Drawing.Size(235, 57);
+            this.btnBuscarFactura.Size = new System.Drawing.Size(202, 57);
             this.btnBuscarFactura.TabIndex = 32;
             this.btnBuscarFactura.Text = "Buscar Factura";
             this.btnBuscarFactura.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -559,7 +559,7 @@
             this.gbInfomacionInquilino.Controls.Add(this.txtCedulaDe);
             this.gbInfomacionInquilino.Location = new System.Drawing.Point(234, 69);
             this.gbInfomacionInquilino.Name = "gbInfomacionInquilino";
-            this.gbInfomacionInquilino.Size = new System.Drawing.Size(213, 82);
+            this.gbInfomacionInquilino.Size = new System.Drawing.Size(252, 82);
             this.gbInfomacionInquilino.TabIndex = 33;
             this.gbInfomacionInquilino.TabStop = false;
             this.gbInfomacionInquilino.Text = "Informacion Inquilino";
@@ -567,7 +567,7 @@
             // rbPasaporteDE
             // 
             this.rbPasaporteDE.AutoSize = true;
-            this.rbPasaporteDE.Location = new System.Drawing.Point(105, 53);
+            this.rbPasaporteDE.Location = new System.Drawing.Point(117, 53);
             this.rbPasaporteDE.Name = "rbPasaporteDE";
             this.rbPasaporteDE.Size = new System.Drawing.Size(73, 17);
             this.rbPasaporteDE.TabIndex = 9;
@@ -579,7 +579,7 @@
             // rbCedulaDE
             // 
             this.rbCedulaDE.AutoSize = true;
-            this.rbCedulaDE.Location = new System.Drawing.Point(24, 53);
+            this.rbCedulaDE.Location = new System.Drawing.Point(36, 53);
             this.rbCedulaDE.Name = "rbCedulaDE";
             this.rbCedulaDE.Size = new System.Drawing.Size(58, 17);
             this.rbCedulaDE.TabIndex = 8;
@@ -591,7 +591,7 @@
             // lblCedulaDe
             // 
             this.lblCedulaDe.AutoSize = true;
-            this.lblCedulaDe.Location = new System.Drawing.Point(21, 30);
+            this.lblCedulaDe.Location = new System.Drawing.Point(33, 30);
             this.lblCedulaDe.Name = "lblCedulaDe";
             this.lblCedulaDe.Size = new System.Drawing.Size(43, 13);
             this.lblCedulaDe.TabIndex = 4;
@@ -599,7 +599,7 @@
             // 
             // txtCedulaDe
             // 
-            this.txtCedulaDe.Location = new System.Drawing.Point(70, 27);
+            this.txtCedulaDe.Location = new System.Drawing.Point(82, 27);
             this.txtCedulaDe.Mask = "000-0000000-0";
             this.txtCedulaDe.Name = "txtCedulaDe";
             this.txtCedulaDe.Size = new System.Drawing.Size(100, 20);
@@ -611,7 +611,7 @@
             this.gbInformacionGarante.Controls.Add(this.rbCedulaGa);
             this.gbInformacionGarante.Controls.Add(this.label2);
             this.gbInformacionGarante.Controls.Add(this.txtCedulaGa);
-            this.gbInformacionGarante.Location = new System.Drawing.Point(458, 69);
+            this.gbInformacionGarante.Location = new System.Drawing.Point(502, 69);
             this.gbInformacionGarante.Name = "gbInformacionGarante";
             this.gbInformacionGarante.Size = new System.Drawing.Size(213, 82);
             this.gbInformacionGarante.TabIndex = 34;
@@ -664,7 +664,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkKhaki;
-            this.ClientSize = new System.Drawing.Size(991, 558);
+            this.ClientSize = new System.Drawing.Size(1023, 558);
             this.Controls.Add(this.gbInformacionGarante);
             this.Controls.Add(this.gbInfomacionInquilino);
             this.Controls.Add(this.btnBuscarFactura);

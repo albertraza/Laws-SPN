@@ -34,6 +34,8 @@ namespace Sistema_Abogados
             dbMensualidad.Checked = false;
             dbContrato.Checked = false;
             gbParametrosBusqueda.Enabled = true;
+            txtCedulaDe.Clear();
+            txtCedulaGa.Clear();
             if (rbAlquiler.Checked == true)
             {
                 dgvFacturacion.DataSource = facturacion.listAllRent();
@@ -68,6 +70,7 @@ namespace Sistema_Abogados
             txtBalanceTotal.Enabled = false;
             txtITEBIS.Enabled = false;
             txtImpSobreRenta.Enabled = false;
+            txtTotalaPagar.ForeColor = Color.Red;
         }
         // ***************** //
 
@@ -1058,8 +1061,8 @@ namespace Sistema_Abogados
                     list.AddRange(facturacion.listAllDivorciosAccidentes());
                     list.AddRange(facturacion.listAllVentas());
                     dgvFacturacion.DataSource = list;
-                    gbInfomacionInquilino.Text = "Informacion Inquilino o Comprador";
-                    gbInformacionCliente.Text = "Informacion Cliente o Vendedor";
+                    gbInfomacionInquilino.Text = "Informacion Inquilino, Comprador o Demdo.";
+                    gbInformacionCliente.Text = "Informacion Cliente, Vendedor o Demte.";
                     gbInformacionGarante.Text = "Informacion Garante";
                     gbInformacionGarante.Enabled = true;
                 }
