@@ -27,7 +27,7 @@ namespace Sistema_Abogados
         private void frmFacturaDivorciosAccidente_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'AbogadosDBDataSet.FacturaDivorciosAccidentes' table. You can move, or remove it, as needed.
-            this.FacturaDivorciosAccidentesTableAdapter.Fill(this.AbogadosDBDataSet.FacturaDivorciosAccidentes, ID);
+            this.FacturaDivorciosAccidentes1TableAdapter.Fill(this.AbogadosDBDataSet.FacturaDivorciosAccidentes1, ID);
 
             this.reportViewer1.RefreshReport();
         }

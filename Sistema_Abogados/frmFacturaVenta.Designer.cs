@@ -30,19 +30,32 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.AbogadosDBDataSet = new Sistema_Abogados.AbogadosDBDataSet();
             this.FacturaVentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.AbogadosDBDataSet = new Sistema_Abogados.AbogadosDBDataSet();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.FacturaVentaTableAdapter = new Sistema_Abogados.AbogadosDBDataSetTableAdapters.FacturaVentaTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.AbogadosDBDataSet)).BeginInit();
+            this.FacturaVenta1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.FacturaVenta1TableAdapter = new Sistema_Abogados.AbogadosDBDataSetTableAdapters.FacturaVenta1TableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.FacturaVentaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AbogadosDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FacturaVenta1BindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // FacturaVentaBindingSource
+            // 
+            this.FacturaVentaBindingSource.DataMember = "FacturaVenta";
+            this.FacturaVentaBindingSource.DataSource = this.AbogadosDBDataSet;
+            // 
+            // AbogadosDBDataSet
+            // 
+            this.AbogadosDBDataSet.DataSetName = "AbogadosDBDataSet";
+            this.AbogadosDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.FacturaVentaBindingSource;
+            reportDataSource1.Value = this.FacturaVenta1BindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Sistema_Abogados.FacturaVenta.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
@@ -50,19 +63,18 @@
             this.reportViewer1.Size = new System.Drawing.Size(902, 548);
             this.reportViewer1.TabIndex = 0;
             // 
-            // AbogadosDBDataSet
-            // 
-            this.AbogadosDBDataSet.DataSetName = "AbogadosDBDataSet";
-            this.AbogadosDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // FacturaVentaBindingSource
-            // 
-            this.FacturaVentaBindingSource.DataMember = "FacturaVenta";
-            this.FacturaVentaBindingSource.DataSource = this.AbogadosDBDataSet;
-            // 
             // FacturaVentaTableAdapter
             // 
             this.FacturaVentaTableAdapter.ClearBeforeFill = true;
+            // 
+            // FacturaVenta1BindingSource
+            // 
+            this.FacturaVenta1BindingSource.DataMember = "FacturaVenta1";
+            this.FacturaVenta1BindingSource.DataSource = this.AbogadosDBDataSet;
+            // 
+            // FacturaVenta1TableAdapter
+            // 
+            this.FacturaVenta1TableAdapter.ClearBeforeFill = true;
             // 
             // frmFacturaVenta
             // 
@@ -75,8 +87,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Factura Ventas";
             this.Load += new System.EventHandler(this.frmFacturaVenta_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.AbogadosDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacturaVentaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AbogadosDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FacturaVenta1BindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -87,5 +100,7 @@
         private System.Windows.Forms.BindingSource FacturaVentaBindingSource;
         private AbogadosDBDataSet AbogadosDBDataSet;
         private AbogadosDBDataSetTableAdapters.FacturaVentaTableAdapter FacturaVentaTableAdapter;
+        private System.Windows.Forms.BindingSource FacturaVenta1BindingSource;
+        private AbogadosDBDataSetTableAdapters.FacturaVenta1TableAdapter FacturaVenta1TableAdapter;
     }
 }

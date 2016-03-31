@@ -211,7 +211,7 @@
     <Compile Include="usuarios.cs" />
     <Compile Include="ventas.cs" />
     <EmbeddedResource Include="FacturaAlquiler.rdlc" />
-    <EmbeddedResource Include="FacturaDivorciosAccidentes.rdlc" />
+    <EmbeddedResource Include="FacturaDivorciosAccidente.rdlc" />
     <EmbeddedResource Include="FacturaVenta.rdlc" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

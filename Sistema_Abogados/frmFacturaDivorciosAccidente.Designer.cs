@@ -30,39 +30,51 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.AbogadosDBDataSet = new Sistema_Abogados.AbogadosDBDataSet();
             this.FacturaDivorciosAccidentesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.AbogadosDBDataSet = new Sistema_Abogados.AbogadosDBDataSet();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.FacturaDivorciosAccidentesTableAdapter = new Sistema_Abogados.AbogadosDBDataSetTableAdapters.FacturaDivorciosAccidentesTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.AbogadosDBDataSet)).BeginInit();
+            this.FacturaDivorciosAccidentes1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.FacturaDivorciosAccidentes1TableAdapter = new Sistema_Abogados.AbogadosDBDataSetTableAdapters.FacturaDivorciosAccidentes1TableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.FacturaDivorciosAccidentesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AbogadosDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FacturaDivorciosAccidentes1BindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.FacturaDivorciosAccidentesBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Sistema_Abogados.FacturaDivorciosAccidentes.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(898, 540);
-            this.reportViewer1.TabIndex = 0;
-            // 
-            // AbogadosDBDataSet
-            // 
-            this.AbogadosDBDataSet.DataSetName = "AbogadosDBDataSet";
-            this.AbogadosDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // FacturaDivorciosAccidentesBindingSource
             // 
             this.FacturaDivorciosAccidentesBindingSource.DataMember = "FacturaDivorciosAccidentes";
             this.FacturaDivorciosAccidentesBindingSource.DataSource = this.AbogadosDBDataSet;
             // 
+            // AbogadosDBDataSet
+            // 
+            this.AbogadosDBDataSet.DataSetName = "AbogadosDBDataSet";
+            this.AbogadosDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.FacturaDivorciosAccidentes1BindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Sistema_Abogados.FacturaDivorciosAccidente.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.Size = new System.Drawing.Size(898, 540);
+            this.reportViewer1.TabIndex = 0;
+            // 
             // FacturaDivorciosAccidentesTableAdapter
             // 
             this.FacturaDivorciosAccidentesTableAdapter.ClearBeforeFill = true;
+            // 
+            // FacturaDivorciosAccidentes1BindingSource
+            // 
+            this.FacturaDivorciosAccidentes1BindingSource.DataMember = "FacturaDivorciosAccidentes1";
+            this.FacturaDivorciosAccidentes1BindingSource.DataSource = this.AbogadosDBDataSet;
+            // 
+            // FacturaDivorciosAccidentes1TableAdapter
+            // 
+            this.FacturaDivorciosAccidentes1TableAdapter.ClearBeforeFill = true;
             // 
             // frmFacturaDivorciosAccidente
             // 
@@ -75,8 +87,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Factura Divorcio Accidente";
             this.Load += new System.EventHandler(this.frmFacturaDivorciosAccidente_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.AbogadosDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacturaDivorciosAccidentesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AbogadosDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FacturaDivorciosAccidentes1BindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -87,5 +100,7 @@
         private System.Windows.Forms.BindingSource FacturaDivorciosAccidentesBindingSource;
         private AbogadosDBDataSet AbogadosDBDataSet;
         private AbogadosDBDataSetTableAdapters.FacturaDivorciosAccidentesTableAdapter FacturaDivorciosAccidentesTableAdapter;
+        private System.Windows.Forms.BindingSource FacturaDivorciosAccidentes1BindingSource;
+        private AbogadosDBDataSetTableAdapters.FacturaDivorciosAccidentes1TableAdapter FacturaDivorciosAccidentes1TableAdapter;
     }
 }

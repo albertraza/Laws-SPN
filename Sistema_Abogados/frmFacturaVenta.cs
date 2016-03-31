@@ -28,7 +28,7 @@ namespace Sistema_Abogados
         private void frmFacturaVenta_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'AbogadosDBDataSet.FacturaVenta' table. You can move, or remove it, as needed.
-            this.FacturaVentaTableAdapter.Fill(this.AbogadosDBDataSet.FacturaVenta, ID);
+            this.FacturaVenta1TableAdapter.Fill(this.AbogadosDBDataSet.FacturaVenta1, ID);
 
             this.reportViewer1.RefreshReport();
         }
