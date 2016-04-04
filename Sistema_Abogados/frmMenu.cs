@@ -123,5 +123,10 @@ namespace Sistema_Abogados
         {
             new frmDivorciosAccidenteReportGenerator().Show();
         }
+
+        private void actoDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmReporteVentasGenerator().Show();
+        }
     }
 }

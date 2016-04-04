@@ -37,5 +37,18 @@ namespace Sistema_Abogados
             }
             return dt;
         }
+        // method for ventas abonos
+        public static DataTable ReporteAbonoContrVenta(string fechaDesde, string fechaHasta)
+        {
+            DataTable dt = new DataTable();
+            using(SqlConnection con = DBcomun.getConnection())
+            {
+                SqlDataAdapter da = new SqlDataAdapter(string.Format("Select Venta.ID as NumeroCaso, facturasVenta.ID as CodigoFactura, facturasVenta.Detalles, facturasVenta.TotalBalance as BalanceTotal, facturasVenta.Pago, facturasVenta.NuevoBalance, facturasVenta.FechaPago, VENDEDOR.ID as CodigoVendedor, VENDEDOR.name as NombreVendedor, VENDEDOR.lastname as ApellidoVendedor, VENDEDOR.Phone as TelefonoVendedor, VENDEDOR.Cellphone as CelularVendedor, VENDEDOR.idcard AS CedulaPasaporteVendedor, COMPRADOR.ID as CodigoComprador, COMPRADOR.name as NombreComprador, COMPRADOR.lastname as ApellidoComprador, COMPRADOR.Phone as TelefonoComprador, COMPRADOR.Cellphone as CelularComprador, COMPRADOR.idcard as CedulaPasaporteComprador From Venta INNER JOIN facturasVenta ON facturasVenta.casoID = Venta.ID " +
+                    "INNER JOIN customers AS VENDEDOR ON VENDEDOR.ID = Venta.VendedorID INNER JOIN customers AS COMPRADOR on COMPRADOR.ID = Venta.CompradorID INNER JOIN ventaFacturacion On ventaFacturacion.caseID = Venta.ID WHERE ventaFacturacion.TotalPago > 0 and Detalles = 'Abono contrato de venta' and facturasVenta.FechaPago between '{0}' and '{1}'", fechaDesde, fechaHasta), con);
+                da.Fill(dt);
+                con.Close();
+            }
+            return dt;
+        }
     }
 }
