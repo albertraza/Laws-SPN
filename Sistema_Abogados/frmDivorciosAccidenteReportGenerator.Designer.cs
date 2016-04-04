@@ -300,6 +300,7 @@
             this.btnBuscarCaso.TabIndex = 10;
             this.btnBuscarCaso.Text = "Buscar";
             this.btnBuscarCaso.UseVisualStyleBackColor = true;
+            this.btnBuscarCaso.Click += new System.EventHandler(this.btnBuscarCaso_Click);
             // 
             // btnLimpiar
             // 
@@ -309,6 +310,7 @@
             this.btnLimpiar.TabIndex = 11;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnGenerarReporteCaso
             // 
@@ -318,6 +320,7 @@
             this.btnGenerarReporteCaso.TabIndex = 12;
             this.btnGenerarReporteCaso.Text = "Generar Reporte";
             this.btnGenerarReporteCaso.UseVisualStyleBackColor = true;
+            this.btnGenerarReporteCaso.Click += new System.EventHandler(this.btnGenerarReporteCaso_Click);
             // 
             // btnImprimir
             // 
@@ -327,6 +330,7 @@
             this.btnImprimir.TabIndex = 11;
             this.btnImprimir.Text = "Imprimir Reporte";
             this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // btnGenerarReporteAbono
             // 
@@ -336,6 +340,7 @@
             this.btnGenerarReporteAbono.TabIndex = 11;
             this.btnGenerarReporteAbono.Text = "Generar Reporte";
             this.btnGenerarReporteAbono.UseVisualStyleBackColor = true;
+            this.btnGenerarReporteAbono.Click += new System.EventHandler(this.btnGenerarReporteAbono_Click);
             // 
             // frmDivorciosAccidenteReportGenerator
             // 

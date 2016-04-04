@@ -49,6 +49,7 @@
             this.alquilerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.divorciosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.facturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,7 +59,11 @@
             this.dgvLessThan5 = new System.Windows.Forms.DataGridView();
             this.gbLastCases = new System.Windows.Forms.GroupBox();
             this.dgvLastOpened = new System.Windows.Forms.DataGridView();
-            this.facturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alquilerYContratoDeAlquilerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alquilerMensualidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.divorciosToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.actoDeVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cotizacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.gbLessFive.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLessThan5)).BeginInit();
@@ -239,8 +244,21 @@
             this.ventasToolStripMenuItem.Text = "Ventas";
             this.ventasToolStripMenuItem.Click += new System.EventHandler(this.ventasToolStripMenuItem_Click);
             // 
+            // facturasToolStripMenuItem
+            // 
+            this.facturasToolStripMenuItem.Name = "facturasToolStripMenuItem";
+            this.facturasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.facturasToolStripMenuItem.Text = "Facturas";
+            this.facturasToolStripMenuItem.Click += new System.EventHandler(this.facturasToolStripMenuItem_Click);
+            // 
             // reportesToolStripMenuItem
             // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.alquilerYContratoDeAlquilerToolStripMenuItem,
+            this.alquilerMensualidadToolStripMenuItem,
+            this.divorciosToolStripMenuItem2,
+            this.actoDeVentasToolStripMenuItem,
+            this.cotizacionesToolStripMenuItem});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.reportesToolStripMenuItem.Text = "Reportes";
@@ -256,7 +274,7 @@
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.acercaDeToolStripMenuItem.Text = "Acerca de";
             this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
             // 
@@ -313,12 +331,36 @@
             this.dgvLastOpened.Size = new System.Drawing.Size(363, 204);
             this.dgvLastOpened.TabIndex = 1;
             // 
-            // facturasToolStripMenuItem
+            // alquilerYContratoDeAlquilerToolStripMenuItem
             // 
-            this.facturasToolStripMenuItem.Name = "facturasToolStripMenuItem";
-            this.facturasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.facturasToolStripMenuItem.Text = "Facturas";
-            this.facturasToolStripMenuItem.Click += new System.EventHandler(this.facturasToolStripMenuItem_Click);
+            this.alquilerYContratoDeAlquilerToolStripMenuItem.Name = "alquilerYContratoDeAlquilerToolStripMenuItem";
+            this.alquilerYContratoDeAlquilerToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.alquilerYContratoDeAlquilerToolStripMenuItem.Text = "Alquiler y Contrato de alquiler";
+            // 
+            // alquilerMensualidadToolStripMenuItem
+            // 
+            this.alquilerMensualidadToolStripMenuItem.Name = "alquilerMensualidadToolStripMenuItem";
+            this.alquilerMensualidadToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.alquilerMensualidadToolStripMenuItem.Text = "Alquiler Mensualidad";
+            // 
+            // divorciosToolStripMenuItem2
+            // 
+            this.divorciosToolStripMenuItem2.Name = "divorciosToolStripMenuItem2";
+            this.divorciosToolStripMenuItem2.Size = new System.Drawing.Size(232, 22);
+            this.divorciosToolStripMenuItem2.Text = "Divorcios o Accidente";
+            this.divorciosToolStripMenuItem2.Click += new System.EventHandler(this.divorciosToolStripMenuItem2_Click);
+            // 
+            // actoDeVentasToolStripMenuItem
+            // 
+            this.actoDeVentasToolStripMenuItem.Name = "actoDeVentasToolStripMenuItem";
+            this.actoDeVentasToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.actoDeVentasToolStripMenuItem.Text = "Acto de ventas";
+            // 
+            // cotizacionesToolStripMenuItem
+            // 
+            this.cotizacionesToolStripMenuItem.Name = "cotizacionesToolStripMenuItem";
+            this.cotizacionesToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.cotizacionesToolStripMenuItem.Text = "Cotizaciones";
             // 
             // frmMenu
             // 
@@ -379,5 +421,10 @@
         private System.Windows.Forms.ToolStripMenuItem ventasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cobrosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem facturasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem alquilerYContratoDeAlquilerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem alquilerMensualidadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem divorciosToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem actoDeVentasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cotizacionesToolStripMenuItem;
     }
 }

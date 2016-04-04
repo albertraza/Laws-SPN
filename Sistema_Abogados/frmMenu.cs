@@ -118,5 +118,10 @@ namespace Sistema_Abogados
         {
             new frmSearchFacturas().Show();
         }
+
+        private void divorciosToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            new frmDivorciosAccidenteReportGenerator().Show();
+        }
     }
 }

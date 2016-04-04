@@ -12,6 +12,8 @@ namespace Sistema_Abogados
 {
     public partial class frmDivorciosAccidenteReportGenerator : Form
     {
+        private DateTime fechaDesde, fechaHasta;
+        private int ID;
         public frmDivorciosAccidenteReportGenerator()
         {
             InitializeComponent();
@@ -77,6 +79,14 @@ namespace Sistema_Abogados
         {
             rbCedulaE.Checked = true;
             rbCedulaO.Checked = true;
+            try
+            {
+                dgvCasos.DataSource = facturacion.listAllDivorciosAccidentes();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void rbAbono_CheckedChanged(object sender, EventArgs e)
@@ -90,6 +100,92 @@ namespace Sistema_Abogados
             {
                 gbFechas.Enabled = false;
                 gbInformacion.Enabled = true;
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtCedulaE.Clear();
+            txtCedulaO.Clear();
+        }
+        // when button buscar caso is clicked.
+        private void btnBuscarCaso_Click(object sender, EventArgs e)
+        {
+            string cedulaE, cedulaO;
+            if (txtCedulaE.MaskCompleted)
+            {
+                cedulaE = txtCedulaE.Text;
+            }
+            else
+            {
+                cedulaE = "";
+            }
+            if (txtCedulaO.MaskCompleted)
+            {
+                cedulaO = txtCedulaO.Text;
+            }
+            else
+            {
+                cedulaO = "";
+            }
+            try {
+                dgvCasos.DataSource = facturacion.searchDivorciosAccidentes(cedulaE, cedulaO);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        // when generar reporte button is clicked on informacion casos.
+        private void btnGenerarReporteCaso_Click(object sender, EventArgs e)
+        {
+            try {
+                if (dgvCasos.SelectedRows.Count == 1)
+                {
+                    dgvPreviewReporte.DataSource = reportes.ReporteJustOneDivorcioAccidente(dgvCasos.CurrentRow.Cells[2].Value.ToString());
+                    ID = Convert.ToInt32(dgvCasos.CurrentRow.Cells[2].Value.ToString());
+                }
+                else
+                {
+                    MessageBox.Show("Selecciona un caso de la tabla", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        // when btn generar reporte is clicked on fechas.
+        private void btnGenerarReporteAbono_Click(object sender, EventArgs e)
+        {
+            try {
+                string Desde, hasta;
+                Desde = dtpDesde.Value.Date.ToString("yyyy-MM-dd");
+                hasta = dtpHasta.Value.Date.ToString("yyyy-MM-dd");
+                dgvPreviewReporte.DataSource = reportes.ReporteAbonoDates(Desde, hasta);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        // when btn Imprimir is clicked.
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            if(rbAbono.Checked == true)
+            {
+                fechaDesde = dtpDesde.Value.Date;
+                fechaHasta = dtpHasta.Value.Date;
+                frmReporteAbonoDivorciosAccidente pReporte = new frmReporteAbonoDivorciosAccidente();
+                pReporte.fechaDesde = fechaDesde;
+                pReporte.fechaHasta = fechaHasta;
+                pReporte.ShowDialog();
+            }
+            else
+            {
+                frmReporteDivorcioAccidenteJustOne pReporte = new frmReporteDivorcioAccidenteJustOne();
+                pReporte.ID = ID;
+                pReporte.ShowDialog();
             }
         }
     }
