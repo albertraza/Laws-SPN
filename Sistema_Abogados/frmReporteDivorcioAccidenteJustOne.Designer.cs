@@ -29,13 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.ReporteDivorcioAccidenteJustOne1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.AbogadosDBDataSet = new Sistema_Abogados.AbogadosDBDataSet();
             this.ReporteDivorcioAccidenteJustOneBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.ReporteDivorcioAccidenteJustOneTableAdapter = new Sistema_Abogados.AbogadosDBDataSetTableAdapters.ReporteDivorcioAccidenteJustOneTableAdapter();
             this.ReporteDivorcioAccidenteJustOne1TableAdapter = new Sistema_Abogados.AbogadosDBDataSetTableAdapters.ReporteDivorcioAccidenteJustOne1TableAdapter();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.ReporteDivorcioAccidenteJustOne1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AbogadosDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ReporteDivorcioAccidenteJustOneBindingSource)).BeginInit();
@@ -56,18 +55,6 @@
             this.ReporteDivorcioAccidenteJustOneBindingSource.DataMember = "ReporteDivorcioAccidenteJustOne";
             this.ReporteDivorcioAccidenteJustOneBindingSource.DataSource = this.AbogadosDBDataSet;
             // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.ReporteDivorcioAccidenteJustOne1BindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Sistema_Abogados.ReporteDivorciosAccidenteJustOne.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(937, 517);
-            this.reportViewer1.TabIndex = 0;
-            // 
             // ReporteDivorcioAccidenteJustOneTableAdapter
             // 
             this.ReporteDivorcioAccidenteJustOneTableAdapter.ClearBeforeFill = true;
@@ -75,6 +62,14 @@
             // ReporteDivorcioAccidenteJustOne1TableAdapter
             // 
             this.ReporteDivorcioAccidenteJustOne1TableAdapter.ClearBeforeFill = true;
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.Size = new System.Drawing.Size(937, 517);
+            this.reportViewer1.TabIndex = 0;
             // 
             // frmReporteDivorcioAccidenteJustOne
             // 
@@ -95,12 +90,11 @@
         }
 
         #endregion
-
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource ReporteDivorcioAccidenteJustOneBindingSource;
         private AbogadosDBDataSet AbogadosDBDataSet;
         private AbogadosDBDataSetTableAdapters.ReporteDivorcioAccidenteJustOneTableAdapter ReporteDivorcioAccidenteJustOneTableAdapter;
         private System.Windows.Forms.BindingSource ReporteDivorcioAccidenteJustOne1BindingSource;
         private AbogadosDBDataSetTableAdapters.ReporteDivorcioAccidenteJustOne1TableAdapter ReporteDivorcioAccidenteJustOne1TableAdapter;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

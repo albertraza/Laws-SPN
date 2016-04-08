@@ -16,7 +16,7 @@ namespace Sistema_Abogados
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmDivorciosAccidenteReportGenerator());
+            Application.Run(new frmSplash());
         }
     }
 }

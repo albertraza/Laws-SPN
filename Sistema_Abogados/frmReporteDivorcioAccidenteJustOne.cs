@@ -18,20 +18,29 @@ namespace Sistema_Abogados
             InitializeComponent();
         }
 
-        public int ID { get; set; }
+        public string ID { get; set; }
 
         private void frmReporteDivorcioAccidenteJustOne_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'AbogadosDBDataSet.ReporteDivorcioAccidenteJustOne1' table. You can move, or remove it, as needed.
-            this.ReporteDivorcioAccidenteJustOne1TableAdapter.Fill(this.AbogadosDBDataSet.ReporteDivorcioAccidenteJustOne1, ID);
-
-            this.reportViewer1.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(SubreportProcessingEventHandler);
-
-            this.reportViewer1.RefreshReport();
+            ShowReport();
+            reportViewer1.RefreshReport();
         }
-        void SubreportProcessingEventHandler(object sender, SubreportProcessingEventArgs e)
-        { 
-            e.DataSources.Add(new ReportDataSource("DataSet1",(object) AbogadosDBDataSet.ReporteDivorcioAccidenteJustOne2));
+        private void ShowReport()
+        {
+            DataTable dtCasoDivorcio = reportes.reporteCasoDivorcio(ID);
+            reportViewer1.Reset();
+            reportViewer1.LocalReport.ReportPath = "ReporteCasoDivorcio.rdlc";
+            ReportDataSource ds = new ReportDataSource("CasoDivorcio", dtCasoDivorcio);
+            reportViewer1.LocalReport.DataSources.Add(ds);
+            reportViewer1.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(FacturasSubreport);
+            reportViewer1.Refresh();
+        }
+        private void FacturasSubreport (object sender, SubreportProcessingEventArgs e)
+        {
+            int NumeroCaso = Convert.ToInt32(e.Parameters["NumeroCaso"].Values[0].ToString());
+            DataTable dtFacturasDivorcio = reportes.reporteFacturasDivorcio(NumeroCaso.ToString());
+            ReportDataSource ds = new ReportDataSource("FacturasDivorcios", dtFacturasDivorcio);
+            e.DataSources.Add(ds);
         }
     }
 }

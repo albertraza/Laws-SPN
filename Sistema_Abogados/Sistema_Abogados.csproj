@@ -249,10 +249,17 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="reportes.cs" />
+    <Compile Include="ReportingDataSetxsd.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportingDataSetxsd.xsd</DependentUpon>
+    </Compile>
     <Compile Include="sectores.cs" />
     <Compile Include="servicios.cs" />
     <Compile Include="usuarios.cs" />
     <Compile Include="ventas.cs" />
+    <EmbeddedResource Include="bin\Debug\ReporteCasoDivorcio.rdlc" />
+    <EmbeddedResource Include="bin\Debug\ReporteFacturasDivorcios.rdlc" />
     <EmbeddedResource Include="FacturaAlquiler.rdlc" />
     <EmbeddedResource Include="FacturaDivorciosAccidente.rdlc" />
     <EmbeddedResource Include="FacturaVenta.rdlc" />
@@ -384,6 +391,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ReportingDataSetxsd.xsc">
+      <DependentUpon>ReportingDataSetxsd.xsd</DependentUpon>
+    </None>
+    <None Include="ReportingDataSetxsd.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ReportingDataSetxsd.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ReportingDataSetxsd.xss">
+      <DependentUpon>ReportingDataSetxsd.xsd</DependentUpon>
+    </None>
     <None Include="Resources\latest.png" />
   </ItemGroup>
   <ItemGroup>

@@ -142,7 +142,7 @@ namespace Sistema_Abogados
             try {
                 if (dgvCasos.SelectedRows.Count == 1)
                 {
-                    dgvPreviewReporte.DataSource = reportes.ReporteJustOneDivorcioAccidente(dgvCasos.CurrentRow.Cells[2].Value.ToString());
+                    dgvPreviewReporte.DataSource = reportes.reporteCasoDivorcio(dgvCasos.CurrentRow.Cells[2].Value.ToString());
                     ID = Convert.ToInt32(dgvCasos.CurrentRow.Cells[2].Value.ToString());
                 }
                 else
@@ -162,7 +162,6 @@ namespace Sistema_Abogados
                 string Desde, hasta;
                 Desde = dtpDesde.Value.Date.ToString("yyyy-MM-dd");
                 hasta = dtpHasta.Value.Date.ToString("yyyy-MM-dd");
-                dgvPreviewReporte.DataSource = reportes.ReporteAbonoDates(Desde, hasta);
             }
             catch(Exception ex)
             {
@@ -184,7 +183,7 @@ namespace Sistema_Abogados
             else
             {
                 frmReporteDivorcioAccidenteJustOne pReporte = new frmReporteDivorcioAccidenteJustOne();
-                pReporte.ID = ID;
+                pReporte.ID = ID.ToString();
                 pReporte.ShowDialog();
             }
         }

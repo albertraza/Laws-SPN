@@ -10,34 +10,28 @@ namespace Sistema_Abogados
 {
     public class reportes
     {
-        // method for preview the report information
-        public static DataTable ReporteJustOneDivorcioAccidente(String codigoCaso)
-        {
-            DataTable dt = new DataTable();
-            using(SqlConnection con = DBcomun.getConnection())
-            {
-                SqlDataAdapter da = new SqlDataAdapter(string.Format("SELECT divorcios.Pagos AS TotalPorServicio, divorciosFacturacion.TotalPago as BalanceActual, divorciosFacturacion.ultimoPago as FechaUltimoPago, DEMANDANTE.name AS NombreDemandante, DEMANDANTE.lastname as ApellidoDemandante, DEMANDANTE.Phone as TelefonoDemandante, DEMANDANTE.Cellphone as CellE, DEMANDANTE.idcard as CedulaPAsaporteE, DEMANDADO.name AS NombreDemandado, DEMANDADO.lastname AS ApellidoDemandado, DEMANDADO.Phone as TelefonoO, DEMANDADO.Cellphone as CellDemandado, DEMANDADO.idcard as CedulaPasaporteO " +
-                    "FROM divorcios INNER JOIN divorciosFacturacion ON divorcios.ID = divorciosFacturacion.caseID INNER JOIN customers AS DEMANDANTE ON DEMANDANTE.ID = divorcios.DemandanteID INNER JOIN customers AS DEMANDADO ON DEMANDADO.ID = divorcios.DemandadoID WHERE divorciosFacturacion.TotalPago = 0 and divorcios.ID = '{0}'", codigoCaso), con);
-                da.Fill(dt);
-                con.Close();
-            }
-            return dt;
-        }
-        // methods for preview the report infomarion
-        public static DataTable ReporteAbonoDates(String FechaDesde, String FechaHasta)
+        public static DataTable reporteCasoDivorcio(string ID)
         {
             DataTable dt = new DataTable();
             using (SqlConnection con = DBcomun.getConnection())
             {
-                SqlDataAdapter da = new SqlDataAdapter(string.Format("SELECT divorcios.ID as NumeroCaso, services.cService as Servicio, DEMANDANTE.name as NombreDemandante, DEMANDANTE.lastname as ApellidoDemandante, DEMANDANTE.Cellphone as CellDemandante, DEMANDANTE.Phone as PhoDemandante, DEMANDANTE.idcard as CedulaPasaporte, DEMANDADO.name as NombreDemandado, DEMANDADO.lastname as ApellidoDemandado, DEMANDADO.Cellphone as CellDemandado, DEMANDADO.Phone as PhoDemandado, DEMANDADO.idcard as CedulaPasaporte, divorciosFacturacion.TotalPago AS BalanceActual, divorciosFacturacion.ultimoPago as FechaUltimoPago, " +
-                    " facturasDivorciosAccidente.ID as CodigoFactura, facturasDivorciosAccidente.FechaPago, facturasDivorciosAccidente.TotalBalance, facturasDivorciosAccidente.Pago, facturasDivorciosAccidente.NuevoBalance, facturasDivorciosAccidente.Detalles FROM divorcios INNER JOIN customers AS DEMANDADO ON DEMANDADO.ID = divorcios.DemandadoID INNER JOIN customers AS DEMANDANTE ON DEMANDANTE.ID = divorcios.DemandanteID " +
-                    " INNER JOIN services ON services.ID = divorcios.ServiceID INNER JOIN facturasDivorciosAccidente ON facturasDivorciosAccidente.casoID = divorcios.ID INNER JOIN divorciosFacturacion ON divorciosFacturacion.caseID = divorcios.ID Where facturasDivorciosAccidente.FechaPago between '{0}' and '{1}' And divorciosFacturacion.TotalPago > 0 AND Detalles = 'Abono a cuenta'", FechaDesde, FechaHasta), con);
+                SqlDataAdapter da = new SqlDataAdapter(string.Format("SELECT divorcios.ID as NumeroCaso, divorcios.Pagos as TotalPagar, divorcios.DemandadoID as IdDemandado, divorcios.DemandanteID as IdDemanante, services.cService as Servicio, DEMANDANTE.name as NombreDemandante, DEMANDANTE.lastname as ApellidoDemandante, DEMANDANTE.Phone as TelefonoE, DEMANDANTE.Cellphone as CelularE, DEMANDANTE.idcard as CedulaPasaporteE, DEMANDADO.name as NombreO, DEMANDADO.lastname as ApellidoO, DEMANDADO.Phone as TelefonoO, DEMANDADO.Cellphone as CelularO, DEMANDADO.idcard as CedulaPasaporteO, divorciosFacturacion.TotalPago as BalanceTotalStatus FROM divorcios INNER JOIN services ON services.ID = divorcios.ServiceID INNER JOIN customers as DEMANDANTE ON divorcios.DemandanteID = DEMANDANTE.ID INNER JOIN customers as DEMANDADO on divorcios.DemandadoID = DEMANDADO.ID INNER JOIN divorciosFacturacion ON divorcios.ID = divorciosFacturacion.caseID where divorcios.ID = '{0}'", ID), con);
                 da.Fill(dt);
                 con.Close();
             }
             return dt;
         }
-        // method for ventas abonos
+        public static DataTable reporteFacturasDivorcio(string ID)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection con = DBcomun.getConnection())
+            {
+                SqlDataAdapter da = new SqlDataAdapter(string.Format("SELECT divorcios.ID as NumeroCaso, services.cService as Servicio, DEMANDANTE.name as NombreDemandante, DEMANDANTE.lastname as ApellidoDemandante, DEMANDANTE.Cellphone as CellDemandante, DEMANDANTE.Phone as PhoDemandante, DEMANDADO.name as NombreDemandado, DEMANDADO.lastname as ApellidoDemandado, DEMANDADO.Cellphone as CellDemandado, DEMANDADO.Phone as PhoDemandado, divorciosFacturacion.TotalPago AS BalanceActual, divorciosFacturacion.ultimoPago as FechaUltimoPago, facturasDivorciosAccidente.ID as CodigoFactura, facturasDivorciosAccidente.FechaPago, facturasDivorciosAccidente.TotalBalance, facturasDivorciosAccidente.Pago, facturasDivorciosAccidente.NuevoBalance, facturasDivorciosAccidente.Detalles FROM divorcios INNER JOIN customers AS DEMANDADO ON DEMANDADO.ID = divorcios.DemandadoID INNER JOIN customers AS DEMANDANTE ON DEMANDANTE.ID = divorcios.DemandanteID INNER JOIN services ON services.ID = divorcios.ServiceID INNER JOIN facturasDivorciosAccidente ON facturasDivorciosAccidente.casoID = divorcios.ID INNER JOIN divorciosFacturacion ON divorciosFacturacion.caseID = divorcios.ID where divorcios.ID = '{0}'", ID), con);
+                da.Fill(dt);
+                con.Close();
+            }
+            return dt;
+        }
         public static DataTable ReporteAbonoContrVenta(string fechaDesde, string fechaHasta)
         {
             DataTable dt = new DataTable();
