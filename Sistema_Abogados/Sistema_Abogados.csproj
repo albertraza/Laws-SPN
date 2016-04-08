@@ -186,6 +186,12 @@
     <Compile Include="frmReporteVentasGenerator.Designer.cs">
       <DependentUpon>frmReporteVentasGenerator.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReporteVentasJustOne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteVentasJustOne.Designer.cs">
+      <DependentUpon>frmReporteVentasJustOne.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSearchFacturas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,7 +265,9 @@
     <Compile Include="usuarios.cs" />
     <Compile Include="ventas.cs" />
     <EmbeddedResource Include="bin\Debug\ReporteCasoDivorcio.rdlc" />
+    <EmbeddedResource Include="bin\Debug\ReporteCasoVenta.rdlc" />
     <EmbeddedResource Include="bin\Debug\ReporteFacturasDivorcios.rdlc" />
+    <EmbeddedResource Include="bin\Debug\ReporteFacturasVenta.rdlc" />
     <EmbeddedResource Include="FacturaAlquiler.rdlc" />
     <EmbeddedResource Include="FacturaDivorciosAccidente.rdlc" />
     <EmbeddedResource Include="FacturaVenta.rdlc" />
@@ -325,6 +333,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteVentasGenerator.resx">
       <DependentUpon>frmReporteVentasGenerator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteVentasJustOne.resx">
+      <DependentUpon>frmReporteVentasJustOne.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSearchFacturas.resx">
       <DependentUpon>frmSearchFacturas.cs</DependentUpon>

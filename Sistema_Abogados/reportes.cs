@@ -10,6 +10,7 @@ namespace Sistema_Abogados
 {
     public class reportes
     {
+        // method for getting divorcios reports.
         public static DataTable reporteCasoDivorcio(string ID)
         {
             DataTable dt = new DataTable();
@@ -32,6 +33,33 @@ namespace Sistema_Abogados
             }
             return dt;
         }
+        // ****** end ****** //
+
+        // methos for getting ventas report
+        public static DataTable reporteCasoVenta(string ID)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection con = DBcomun.getConnection())
+            {
+                SqlDataAdapter da = new SqlDataAdapter(string.Format("Select Venta.ID as NumeroCaso, VENDEDOR.name as NombreVendedor, VENDEDOR.lastname as ApellidoVendedor, COMPRADOR.name as NombreComprador, COMPRADOR.lastname as ApellidoComprador, Venta.MontoVenta as TotalVenta, ventaFacturacion.TotalPago as BalanceActual, Venta.Descripcion as Detalles from Venta INNER join customers as VENDEDOR on VENDEDOR.ID = Venta.VendedorID inner join customers as COMPRADOR on COMPRADOR.ID = Venta.CompradorID inner join ventaFacturacion on ventaFacturacion.caseID = Venta.ID where Venta.ID = '{0}'", ID), con);
+                da.Fill(dt);
+                con.Close();
+            }
+            return dt;
+        }
+        public static DataTable reporteFacturasVenta(string ID)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection con = DBcomun.getConnection())
+            {
+                SqlDataAdapter da = new SqlDataAdapter(string.Format("Select Venta.ID as NumeroCaso, VENDEDOR.name as NombreVendedor, VENDEDOR.lastname as ApellidoVendedor, facturasVenta.ID as CodigoFactura, facturasVenta.FechaPago, facturasVenta.TotalBalance as BalanceTotal, facturasVenta.Pago, facturasVenta.NuevoBalance, facturasVenta.Detalles from Venta INNER join customers as VENDEDOR on VENDEDOR.ID = Venta.VendedorID inner join customers as COMPRADOR on COMPRADOR.ID = Venta.CompradorID inner join ventaFacturacion on ventaFacturacion.caseID = Venta.ID inner join facturasVenta on facturasVenta.casoID = Venta.ID where Venta.ID = '{0}'", ID), con);
+                da.Fill(dt);
+                con.Close();
+            }
+            return dt;
+        }
+        // ****** end ****** //
+
         public static DataTable ReporteAbonoContrVenta(string fechaDesde, string fechaHasta)
         {
             DataTable dt = new DataTable();

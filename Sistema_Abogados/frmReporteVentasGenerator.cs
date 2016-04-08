@@ -12,7 +12,7 @@ namespace Sistema_Abogados
 {
     public partial class frmReporteVentasGenerator : Form
     {
-        string fechaDesde, fechaHasta;
+        string fechaDesde, fechaHasta, ID;
         public frmReporteVentasGenerator()
         {
             InitializeComponent();
@@ -20,10 +20,103 @@ namespace Sistema_Abogados
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            frmReporteAbonoContrVenta pReporte = new frmReporteAbonoContrVenta();
-            pReporte.fechaDesde = Convert.ToDateTime(fechaDesde);
-            pReporte.fechaHasta = Convert.ToDateTime(fechaHasta);
-            pReporte.ShowDialog();
+            if (rbAbono.Checked)
+            {
+                frmReporteAbonoContrVenta pReporte = new frmReporteAbonoContrVenta();
+                pReporte.fechaDesde = Convert.ToDateTime(fechaDesde);
+                pReporte.fechaHasta = Convert.ToDateTime(fechaHasta);
+                pReporte.ShowDialog();
+            }
+            else
+            {
+                frmReporteVentasJustOne pReporte = new frmReporteVentasJustOne();
+                pReporte.ID = ID;
+                pReporte.ShowDialog();
+            }
+        }
+
+        private void rbAbono_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbAbono.Checked)
+            {
+                gbFechas.Enabled = true;
+                gbCasos.Enabled = false;
+            }
+            else
+            {
+                gbFechas.Enabled = false;
+                gbCasos.Enabled = true;
+            }
+        }
+
+        private void rbCaso_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbAbono.Checked)
+            {
+                gbFechas.Enabled = true;
+                gbCasos.Enabled = false;
+            }
+            else
+            {
+                gbFechas.Enabled = false;
+                gbCasos.Enabled = true;
+            }
+        }
+
+        private void frmReporteVentasGenerator_Load(object sender, EventArgs e)
+        {
+            try {
+                dgvCasos.DataSource = facturacion.listAllVentas();
+                rbCedulaVe.Checked = true;
+                rbCedulaCo.Checked = true;
+                rbAbono.Checked = true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            string cedulaVe, cedulaCo;
+            if (txtCedulaCo.MaskCompleted)
+            {
+                cedulaCo = txtCedulaCo.Text;
+            }
+            else
+            {
+                cedulaCo = "";
+            }
+            if (txtCedulaVe.MaskCompleted)
+            {
+                cedulaVe = txtCedulaVe.Text;
+            }
+            else
+            {
+                cedulaVe = "";
+            }
+            try
+            {
+                dgvCasos.DataSource = facturacion.searchVentas(cedulaVe, cedulaCo);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnGenerar_Click(object sender, EventArgs e)
+        {
+            if (dgvCasos.SelectedRows.Count == 1)
+            {
+                ID = dgvCasos.CurrentRow.Cells[2].Value.ToString();
+                dgvReporte.DataSource = reportes.reporteCasoVenta(ID);
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un caso de la tabla", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnCrearReporte_Click(object sender, EventArgs e)
