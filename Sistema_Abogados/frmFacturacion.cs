@@ -939,7 +939,14 @@ namespace Sistema_Abogados
             try {
                 if (servicios.getServiceInfo(pBaseObjfactura.Service_ID).Servicio == "Alquiler")
                 {
-                    if (Convert.ToDouble(pBaseObjfactura.ContratoTotal) == 0) dbContrato.Enabled = false;
+                    if (Convert.ToDouble(pBaseObjfactura.ContratoTotal) == 0)
+                    {
+                        dbContrato.Enabled = false;
+                    }
+                    else
+                    {
+                        dbContrato.Enabled = true;
+                    }
 
                     if (dbContrato.Checked == true && dbMensualidad.Checked == true)
                     {

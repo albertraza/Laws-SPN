@@ -50,5 +50,19 @@ namespace Sistema_Abogados
             }
             return dt;
         }
+        // method for generating the report
+        public static DataTable ReporteAbonoContrAlquiler(string fechaDesde, string fechaHasta)
+        {
+            DataTable dt = new DataTable();
+            using(SqlConnection con = DBcomun.getConnection())
+            {
+                SqlDataAdapter da = new SqlDataAdapter(string.Format("Select Rent.ID as CodigoCaso, CLIENTE.name as NombreCliente, CLIENTE.lastname as ApellidoCliente, CLIENTE.Phone as TelefonoCliente, CLIENTE.Cellphone as CelularCliente, CLIENTE.idcard as CedulaPasaporteCliente, INQUILINO.name as NombreInquilino, INQUILINO.lastname as ApellidoInquilino, INQUILINO.Phone as TelefonoInquilino, INQUILINO.Cellphone as CelularInquilino, INQUILINO.idcard as CedulaPasaporteInquilino, GARANTE.name AS NombreGarante, GARANTE.lastname AS ApellidoGarante, GARANTE.Phone as TelefonoGarante, GARANTE.Cellphone as CelularGarante, GARANTE.idcard as CedulaPasaporteGarante, facturasAlquiler.ID as CodigoFactura, facturasAlquiler.TotalBalance as BalanceTotal, facturasAlquiler.Pago, facturasAlquiler.NuevoBalance, facturasAlquiler.Detalles, rentFacturacion.UltimoPago as FechaPago From Rent" +
+                    " INNER JOIN rentFacturacion on rentFacturacion.caseID = Rent.ID inner join customers as INQUILINO on INQUILINO.ID = Rent.InquilinoID inner join customers as CLIENTE on CLIENTE.ID = Rent.CLienteID inner join customers as GARANTE on GARANTE.ID = Rent.GaranteID inner join facturasAlquiler on facturasAlquiler.casoID = Rent.ID" +
+                    " WHERE facturasAlquiler.Detalles = 'Pago mensualidad y Abono al contrato de alquiler' or facturasAlquiler.Detalles = 'Abono al contrato de alquiler' and rentFacturacion.ContratoCant > 0 and rentFacturacion.UltimoPago between '{0}' and '{1}'", fechaDesde, fechaHasta), con);
+                da.Fill(dt);
+                con.Close();
+            }
+            return dt;
+        }
     }
 }

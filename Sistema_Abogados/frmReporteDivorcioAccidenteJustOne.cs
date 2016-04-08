@@ -30,7 +30,7 @@ namespace Sistema_Abogados
             this.reportViewer1.RefreshReport();
         }
         void SubreportProcessingEventHandler(object sender, SubreportProcessingEventArgs e)
-        {
+        { 
             e.DataSources.Add(new ReportDataSource("DataSet1",(object) AbogadosDBDataSet.ReporteDivorcioAccidenteJustOne2));
         }
     }

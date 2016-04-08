@@ -150,6 +150,12 @@
     <Compile Include="frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReporteAbonoContrAlquiler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteAbonoContrAlquiler.Designer.cs">
+      <DependentUpon>frmReporteAbonoContrAlquiler.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReporteAbonoContrVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +167,12 @@
     </Compile>
     <Compile Include="frmReporteAbonoDivorciosAccidente.Designer.cs">
       <DependentUpon>frmReporteAbonoDivorciosAccidente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteAlquilerGenerator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteAlquilerGenerator.Designer.cs">
+      <DependentUpon>frmReporteAlquilerGenerator.cs</DependentUpon>
     </Compile>
     <Compile Include="frmReporteDivorcioAccidenteJustOne.cs">
       <SubType>Form</SubType>
@@ -289,11 +301,17 @@
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteAbonoContrAlquiler.resx">
+      <DependentUpon>frmReporteAbonoContrAlquiler.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmReporteAbonoContrVenta.resx">
       <DependentUpon>frmReporteAbonoContrVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteAbonoDivorciosAccidente.resx">
       <DependentUpon>frmReporteAbonoDivorciosAccidente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteAlquilerGenerator.resx">
+      <DependentUpon>frmReporteAlquilerGenerator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteDivorcioAccidenteJustOne.resx">
       <DependentUpon>frmReporteDivorcioAccidenteJustOne.cs</DependentUpon>
@@ -341,10 +359,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ReporteAbonoContrVentas.rdlc" />
-    <EmbeddedResource Include="ReporteAbonoDivorciosAccidente.rdlc" />
-    <EmbeddedResource Include="ReporteDivorciosAccidenteJustOne.rdlc" />
-    <EmbeddedResource Include="ReporteDivorciosAccidenteJustOne2.rdlc" />
     <None Include="AbogadosDBDataSet.xsc">
       <DependentUpon>AbogadosDBDataSet.xsd</DependentUpon>
     </None>
