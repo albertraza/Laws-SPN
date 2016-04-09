@@ -29,40 +29,35 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.AbogadosDBDataSet = new Sistema_Abogados.AbogadosDBDataSet();
             this.AbonoContratoAlquilerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.AbogadosDBDataSet = new Sistema_Abogados.AbogadosDBDataSet();
             this.AbonoContratoAlquilerTableAdapter = new Sistema_Abogados.AbogadosDBDataSetTableAdapters.AbonoContratoAlquilerTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.AbogadosDBDataSet)).BeginInit();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.AbonoContratoAlquilerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AbogadosDBDataSet)).BeginInit();
             this.SuspendLayout();
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.AbonoContratoAlquilerBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Sistema_Abogados.ReporteAbonoContrAlquiler.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(906, 511);
-            this.reportViewer1.TabIndex = 0;
-            // 
-            // AbogadosDBDataSet
-            // 
-            this.AbogadosDBDataSet.DataSetName = "AbogadosDBDataSet";
-            this.AbogadosDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // AbonoContratoAlquilerBindingSource
             // 
             this.AbonoContratoAlquilerBindingSource.DataMember = "AbonoContratoAlquiler";
             this.AbonoContratoAlquilerBindingSource.DataSource = this.AbogadosDBDataSet;
             // 
+            // AbogadosDBDataSet
+            // 
+            this.AbogadosDBDataSet.DataSetName = "AbogadosDBDataSet";
+            this.AbogadosDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // AbonoContratoAlquilerTableAdapter
             // 
             this.AbonoContratoAlquilerTableAdapter.ClearBeforeFill = true;
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.Size = new System.Drawing.Size(906, 511);
+            this.reportViewer1.TabIndex = 0;
             // 
             // frmReporteAbonoContrAlquiler
             // 
@@ -70,20 +65,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(906, 511);
             this.Controls.Add(this.reportViewer1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmReporteAbonoContrAlquiler";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reporte";
             this.Load += new System.EventHandler(this.frmReporteAbonoContrAlquiler_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.AbogadosDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AbonoContratoAlquilerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AbogadosDBDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource AbonoContratoAlquilerBindingSource;
         private AbogadosDBDataSet AbogadosDBDataSet;
         private AbogadosDBDataSetTableAdapters.AbonoContratoAlquilerTableAdapter AbonoContratoAlquilerTableAdapter;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

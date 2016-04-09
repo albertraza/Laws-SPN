@@ -128,5 +128,15 @@ namespace Sistema_Abogados
         {
             new frmReporteVentasGenerator().Show();
         }
+
+        private void alquilerMensualidadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmReporteAlquilerGenerator().Show();
+        }
+
+        private void alquilerYContratoDeAlquilerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmReporteAlquilerGenerator().Show();
+        }
     }
 }

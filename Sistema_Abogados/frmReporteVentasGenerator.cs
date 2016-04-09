@@ -106,6 +106,12 @@ namespace Sistema_Abogados
             }
         }
 
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtCedulaCo.Clear();
+            txtCedulaVe.Clear();
+        }
+
         private void btnGenerar_Click(object sender, EventArgs e)
         {
             if (dgvCasos.SelectedRows.Count == 1)
@@ -125,7 +131,6 @@ namespace Sistema_Abogados
             {
                 fechaDesde = dtpDesde.Value.Date.ToString("yyyy-MM-dd");
                 fechaHasta = dtpHasta.Value.Date.ToString("yyyy-MM-dd");
-                dgvReporte.DataSource = reportes.ReporteAbonoContrVenta(fechaDesde, fechaHasta);
             }
             catch(Exception ex)
             {

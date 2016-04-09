@@ -268,12 +268,14 @@
             this.alquilerYContratoDeAlquilerToolStripMenuItem.Name = "alquilerYContratoDeAlquilerToolStripMenuItem";
             this.alquilerYContratoDeAlquilerToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
             this.alquilerYContratoDeAlquilerToolStripMenuItem.Text = "Alquiler y Contrato de alquiler";
+            this.alquilerYContratoDeAlquilerToolStripMenuItem.Click += new System.EventHandler(this.alquilerYContratoDeAlquilerToolStripMenuItem_Click);
             // 
             // alquilerMensualidadToolStripMenuItem
             // 
             this.alquilerMensualidadToolStripMenuItem.Name = "alquilerMensualidadToolStripMenuItem";
             this.alquilerMensualidadToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
             this.alquilerMensualidadToolStripMenuItem.Text = "Alquiler Mensualidad";
+            this.alquilerMensualidadToolStripMenuItem.Click += new System.EventHandler(this.alquilerMensualidadToolStripMenuItem_Click);
             // 
             // divorciosToolStripMenuItem2
             // 

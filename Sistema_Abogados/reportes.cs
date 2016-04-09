@@ -33,7 +33,7 @@ namespace Sistema_Abogados
             }
             return dt;
         }
-        // ****** end ****** //
+        // ******* end ******* //
 
         // methos for getting ventas report
         public static DataTable reporteCasoVenta(string ID)
@@ -58,33 +58,31 @@ namespace Sistema_Abogados
             }
             return dt;
         }
-        // ****** end ****** //
+        // ******* end ******* //
 
-        public static DataTable ReporteAbonoContrVenta(string fechaDesde, string fechaHasta)
+        // methods for generating reportes for Alquiler
+        public static DataTable reporteCasoAlquiler(string ID)
         {
             DataTable dt = new DataTable();
-            using(SqlConnection con = DBcomun.getConnection())
+            using (SqlConnection con = DBcomun.getConnection())
             {
-                SqlDataAdapter da = new SqlDataAdapter(string.Format("Select Venta.ID as NumeroCaso, facturasVenta.ID as CodigoFactura, facturasVenta.Detalles, facturasVenta.TotalBalance as BalanceTotal, facturasVenta.Pago, facturasVenta.NuevoBalance, facturasVenta.FechaPago, VENDEDOR.ID as CodigoVendedor, VENDEDOR.name as NombreVendedor, VENDEDOR.lastname as ApellidoVendedor, VENDEDOR.Phone as TelefonoVendedor, VENDEDOR.Cellphone as CelularVendedor, VENDEDOR.idcard AS CedulaPasaporteVendedor, COMPRADOR.ID as CodigoComprador, COMPRADOR.name as NombreComprador, COMPRADOR.lastname as ApellidoComprador, COMPRADOR.Phone as TelefonoComprador, COMPRADOR.Cellphone as CelularComprador, COMPRADOR.idcard as CedulaPasaporteComprador From Venta INNER JOIN facturasVenta ON facturasVenta.casoID = Venta.ID " +
-                    "INNER JOIN customers AS VENDEDOR ON VENDEDOR.ID = Venta.VendedorID INNER JOIN customers AS COMPRADOR on COMPRADOR.ID = Venta.CompradorID INNER JOIN ventaFacturacion On ventaFacturacion.caseID = Venta.ID WHERE ventaFacturacion.TotalPago > 0 and Detalles = 'Abono contrato de venta' and facturasVenta.FechaPago between '{0}' and '{1}'", fechaDesde, fechaHasta), con);
+                SqlDataAdapter da = new SqlDataAdapter(string.Format("Select Rent.ID as NumeroCaso, CLIENTE.name as NombreCliente, CLIENTE.lastname as ApellidoCliente, INQUILINO.name as NombreInquilino, INQUILINO.lastname as ApellidoInquilino, GARANTE.name as NombreGarante, GARANTE.lastname as ApellidoGarante, Rent.detalles, Rent.direccion, Rent.ContratoCant as TotalContrato, Rent.Mensualidad, rentFacturacion.ContratoCant as BalanceActualContr from Rent INNER join customers as CLIENTE on CLIENTE.ID = Rent.CLienteID inner join customers AS INQUILINO on INQUILINO.ID = Rent.InquilinoID inner join customers as GARANTE on GARANTE.ID = Rent.GaranteID INNER join rentFacturacion on rentFacturacion.caseID = Rent.ID where Rent.ID = '{0}'", ID), con);
                 da.Fill(dt);
                 con.Close();
             }
             return dt;
         }
-        // method for generating the report
-        public static DataTable ReporteAbonoContrAlquiler(string fechaDesde, string fechaHasta)
+        public static DataTable reporteFacturasCasoAlquiler(string ID)
         {
             DataTable dt = new DataTable();
-            using(SqlConnection con = DBcomun.getConnection())
+            using (SqlConnection con = DBcomun.getConnection())
             {
-                SqlDataAdapter da = new SqlDataAdapter(string.Format("Select Rent.ID as CodigoCaso, CLIENTE.name as NombreCliente, CLIENTE.lastname as ApellidoCliente, CLIENTE.Phone as TelefonoCliente, CLIENTE.Cellphone as CelularCliente, CLIENTE.idcard as CedulaPasaporteCliente, INQUILINO.name as NombreInquilino, INQUILINO.lastname as ApellidoInquilino, INQUILINO.Phone as TelefonoInquilino, INQUILINO.Cellphone as CelularInquilino, INQUILINO.idcard as CedulaPasaporteInquilino, GARANTE.name AS NombreGarante, GARANTE.lastname AS ApellidoGarante, GARANTE.Phone as TelefonoGarante, GARANTE.Cellphone as CelularGarante, GARANTE.idcard as CedulaPasaporteGarante, facturasAlquiler.ID as CodigoFactura, facturasAlquiler.TotalBalance as BalanceTotal, facturasAlquiler.Pago, facturasAlquiler.NuevoBalance, facturasAlquiler.Detalles, rentFacturacion.UltimoPago as FechaPago From Rent" +
-                    " INNER JOIN rentFacturacion on rentFacturacion.caseID = Rent.ID inner join customers as INQUILINO on INQUILINO.ID = Rent.InquilinoID inner join customers as CLIENTE on CLIENTE.ID = Rent.CLienteID inner join customers as GARANTE on GARANTE.ID = Rent.GaranteID inner join facturasAlquiler on facturasAlquiler.casoID = Rent.ID" +
-                    " WHERE facturasAlquiler.Detalles = 'Pago mensualidad y Abono al contrato de alquiler' or facturasAlquiler.Detalles = 'Abono al contrato de alquiler' and rentFacturacion.ContratoCant > 0 and rentFacturacion.UltimoPago between '{0}' and '{1}'", fechaDesde, fechaHasta), con);
+                SqlDataAdapter da = new SqlDataAdapter(string.Format("Select Rent.ID as NumeroCaso, CLIENTE.name as NombreCliente, CLIENTE.lastname as ApellidoCliente, facturasAlquiler.ID as CodigoFactura, facturasAlquiler.Detalles, facturasAlquiler.TotalBalance as BalanceTotal, facturasAlquiler.Pago, facturasAlquiler.NuevoBalance, rentFacturacion.UltimoPago from Rent INNER join customers as CLIENTE on CLIENTE.ID = Rent.CLienteID INNER join rentFacturacion on rentFacturacion.caseID = Rent.ID inner join facturasAlquiler on facturasAlquiler.casoID = Rent.ID where Rent.ID = '{0}'", ID), con);
                 da.Fill(dt);
                 con.Close();
             }
             return dt;
         }
+        // ******* end ******* //
     }
 }

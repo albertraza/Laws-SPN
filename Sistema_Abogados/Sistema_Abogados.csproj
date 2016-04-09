@@ -255,6 +255,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="reportes.cs" />
+    <Compile Include="ReportingDataSetxsd.cs">
+      <DependentUpon>ReportingDataSetxsd.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ReportingDataSetxsd.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -264,8 +267,10 @@
     <Compile Include="servicios.cs" />
     <Compile Include="usuarios.cs" />
     <Compile Include="ventas.cs" />
+    <EmbeddedResource Include="bin\Debug\ReporteCasoAlquiler.rdlc" />
     <EmbeddedResource Include="bin\Debug\ReporteCasoDivorcio.rdlc" />
     <EmbeddedResource Include="bin\Debug\ReporteCasoVenta.rdlc" />
+    <EmbeddedResource Include="bin\Debug\ReporteFacturasAlquiler.rdlc" />
     <EmbeddedResource Include="bin\Debug\ReporteFacturasDivorcios.rdlc" />
     <EmbeddedResource Include="bin\Debug\ReporteFacturasVenta.rdlc" />
     <EmbeddedResource Include="FacturaAlquiler.rdlc" />
