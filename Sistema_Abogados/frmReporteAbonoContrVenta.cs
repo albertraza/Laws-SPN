@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Reporting.WinForms;
 
 namespace Sistema_Abogados
 {
@@ -22,10 +23,18 @@ namespace Sistema_Abogados
 
         private void frmReporteAbonoContrVenta_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'AbogadosDBDataSet.AbonosContrVenta' table. You can move, or remove it, as needed.
-            this.AbonosContrVentaTableAdapter.Fill(this.AbogadosDBDataSet.AbonosContrVenta, fechaDesde, fechaHasta);
+            ShowReport();
 
             this.reportViewer1.RefreshReport();
+        }
+        private void ShowReport()
+        {
+            DataTable dtAbonoVenta = reportes.reporteAbonoVenta(fechaDesde.ToString("yyyy-MM-dd"), fechaHasta.ToString("yyyy-MM-dd"));
+            reportViewer1.Reset();
+            reportViewer1.LocalReport.ReportPath = "ReporteAbonoVenta.rdlc";
+            ReportDataSource ds = new ReportDataSource("Abono", dtAbonoVenta);
+            reportViewer1.LocalReport.DataSources.Add(ds);
+            reportViewer1.Refresh();
         }
     }
 }

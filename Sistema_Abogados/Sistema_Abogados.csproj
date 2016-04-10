@@ -267,6 +267,9 @@
     <Compile Include="servicios.cs" />
     <Compile Include="usuarios.cs" />
     <Compile Include="ventas.cs" />
+    <EmbeddedResource Include="bin\Debug\ReporteAbonoContrAlquiler.rdlc" />
+    <EmbeddedResource Include="bin\Debug\ReporteAbonoDivorcios.rdlc" />
+    <EmbeddedResource Include="bin\Debug\ReporteAbonoVenta.rdlc" />
     <EmbeddedResource Include="bin\Debug\ReporteCasoAlquiler.rdlc" />
     <EmbeddedResource Include="bin\Debug\ReporteCasoDivorcio.rdlc" />
     <EmbeddedResource Include="bin\Debug\ReporteCasoVenta.rdlc" />

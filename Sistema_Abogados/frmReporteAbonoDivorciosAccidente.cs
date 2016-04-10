@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Reporting.WinForms;
 
 namespace Sistema_Abogados
 {
@@ -17,15 +18,22 @@ namespace Sistema_Abogados
             InitializeComponent();
         }
 
-        public DateTime fechaDesde { get; set; }
-        public DateTime fechaHasta { get; set; }
+        public string fechaDesde { get; set; }
+        public string fechaHasta { get; set; }
 
         private void frmReporteAbonoDivorciosAccidente_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'AbogadosDBDataSet.ReporteDivorcioAccidenteDates' table. You can move, or remove it, as needed.
-            this.ReporteDivorcioAccidenteDatesTableAdapter.Fill(this.AbogadosDBDataSet.ReporteDivorcioAccidenteDates, fechaDesde, fechaHasta);
-
+            ShowReport();
             this.reportViewer1.RefreshReport();
+        }
+        private void ShowReport()
+        {
+            DataTable dtAbonoDivorcios = reportes.reporteAbonoCasoDivorcio(fechaDesde, fechaHasta);
+            reportViewer1.Reset();
+            reportViewer1.LocalReport.ReportPath = "ReporteAbonoDivorcios.rdlc";
+            ReportDataSource ds = new ReportDataSource("Abono", dtAbonoDivorcios);
+            reportViewer1.LocalReport.DataSources.Add(ds);
+            reportViewer1.Refresh();
         }
     }
 }

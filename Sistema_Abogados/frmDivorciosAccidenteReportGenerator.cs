@@ -162,6 +162,7 @@ namespace Sistema_Abogados
                 string Desde, hasta;
                 Desde = dtpDesde.Value.Date.ToString("yyyy-MM-dd");
                 hasta = dtpHasta.Value.Date.ToString("yyyy-MM-dd");
+                dgvPreviewReporte.DataSource = reportes.reporteAbonoCasoDivorcio(fechaDesde.ToString("yyyy-MM-dd"), fechaHasta.ToString("yyyy-MM-dd"));
             }
             catch(Exception ex)
             {
@@ -176,8 +177,8 @@ namespace Sistema_Abogados
                 fechaDesde = dtpDesde.Value.Date;
                 fechaHasta = dtpHasta.Value.Date;
                 frmReporteAbonoDivorciosAccidente pReporte = new frmReporteAbonoDivorciosAccidente();
-                pReporte.fechaDesde = fechaDesde;
-                pReporte.fechaHasta = fechaHasta;
+                pReporte.fechaDesde = fechaDesde.ToString("yyyy-MM-dd");
+                pReporte.fechaHasta = fechaHasta.ToString("yyyy-MM-dd");
                 pReporte.ShowDialog();
             }
             else

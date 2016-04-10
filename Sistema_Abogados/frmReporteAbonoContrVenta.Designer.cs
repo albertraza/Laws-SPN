@@ -29,40 +29,35 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.AbogadosDBDataSet = new Sistema_Abogados.AbogadosDBDataSet();
             this.AbonosContrVentaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.AbogadosDBDataSet = new Sistema_Abogados.AbogadosDBDataSet();
             this.AbonosContrVentaTableAdapter = new Sistema_Abogados.AbogadosDBDataSetTableAdapters.AbonosContrVentaTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.AbogadosDBDataSet)).BeginInit();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.AbonosContrVentaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AbogadosDBDataSet)).BeginInit();
             this.SuspendLayout();
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.AbonosContrVentaBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "Sistema_Abogados.ReporteAbonoContrVentas.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(886, 538);
-            this.reportViewer1.TabIndex = 0;
-            // 
-            // AbogadosDBDataSet
-            // 
-            this.AbogadosDBDataSet.DataSetName = "AbogadosDBDataSet";
-            this.AbogadosDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // AbonosContrVentaBindingSource
             // 
             this.AbonosContrVentaBindingSource.DataMember = "AbonosContrVenta";
             this.AbonosContrVentaBindingSource.DataSource = this.AbogadosDBDataSet;
             // 
+            // AbogadosDBDataSet
+            // 
+            this.AbogadosDBDataSet.DataSetName = "AbogadosDBDataSet";
+            this.AbogadosDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // AbonosContrVentaTableAdapter
             // 
             this.AbonosContrVentaTableAdapter.ClearBeforeFill = true;
+            // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.Size = new System.Drawing.Size(886, 538);
+            this.reportViewer1.TabIndex = 0;
             // 
             // frmReporteAbonoContrVenta
             // 
@@ -75,17 +70,16 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reporte";
             this.Load += new System.EventHandler(this.frmReporteAbonoContrVenta_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.AbogadosDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AbonosContrVentaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AbogadosDBDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource AbonosContrVentaBindingSource;
         private AbogadosDBDataSet AbogadosDBDataSet;
         private AbogadosDBDataSetTableAdapters.AbonosContrVentaTableAdapter AbonosContrVentaTableAdapter;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
     }
 }

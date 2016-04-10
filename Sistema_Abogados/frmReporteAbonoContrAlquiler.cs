@@ -19,13 +19,33 @@ namespace Sistema_Abogados
         }
 
         public string ID { get; set; }
+        public string fechaDesde { get; set; }
+        public string fechaHasta { get; set; }
+        public string report { get; set; }
 
         private void frmReporteAbonoContrAlquiler_Load(object sender, EventArgs e)
         {
-            ShowReport();
-            this.reportViewer1.RefreshReport();
+            if (report == null) report = "";
+
+            switch (report) {
+
+                case "Caso":
+                    ShowReportCase();
+                    this.reportViewer1.RefreshReport();
+                    break;
+
+                case "Abono":
+                    ShowReportAbono();
+                    this.reportViewer1.RefreshReport();
+                    break;
+
+                default:
+                    MessageBox.Show("No se reconoce el servicio de reporte a utilizar, la aplicacion de cerrara", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    this.Close();
+                    break;
+            }
         }
-        private void ShowReport()
+        private void ShowReportCase()
         {
             DataTable dtCasoAlquiler = reportes.reporteCasoAlquiler(ID);
             reportViewer1.Reset();
@@ -41,6 +61,15 @@ namespace Sistema_Abogados
             DataTable dtFacturas = reportes.reporteFacturasCasoAlquiler(ID);
             ReportDataSource ds = new ReportDataSource("FacturasAlquiler", dtFacturas);
             e.DataSources.Add(ds);
+        }
+        private void ShowReportAbono()
+        {
+            DataTable dtAbonoAlquiler = reportes.reporteAbonoContrAlquiler(fechaDesde, fechaHasta);
+            reportViewer1.Reset();
+            reportViewer1.LocalReport.ReportPath = "ReporteAbonoContrAlquiler.rdlc";
+            ReportDataSource ds = new ReportDataSource("Abono", dtAbonoAlquiler);
+            reportViewer1.LocalReport.DataSources.Add(ds);
+            reportViewer1.Refresh();
         }
     }
 }

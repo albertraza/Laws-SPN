@@ -23,7 +23,9 @@ namespace Sistema_Abogados
         private void btnGeneral_Click(object sender, EventArgs e)
         {
             try {
-                
+                fechaDes = dtpDesde.Value.ToString("yyyy-MM-dd");
+                fechaHas = dtpHasta.Value.ToString("yyyy-MM-dd");
+                dgvReporte.DataSource = reportes.reporteAbonoContrAlquiler(fechaDes, fechaHas);
             }
             catch(Exception ex)
             {
@@ -151,11 +153,16 @@ namespace Sistema_Abogados
         {
             if (rbAbono.Checked)
             {
-
+                frmReporteAbonoContrAlquiler pReporte = new frmReporteAbonoContrAlquiler();
+                pReporte.report = "Abono";
+                pReporte.fechaDesde = fechaDes;
+                pReporte.fechaHasta = fechaHas;
+                pReporte.ShowDialog();
             }
             else
             {
                 frmReporteAbonoContrAlquiler pReporte = new frmReporteAbonoContrAlquiler();
+                pReporte.report = "Caso";
                 pReporte.ID = ID;
                 pReporte.ShowDialog();
             }

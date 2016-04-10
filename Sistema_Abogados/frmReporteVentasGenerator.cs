@@ -131,6 +131,7 @@ namespace Sistema_Abogados
             {
                 fechaDesde = dtpDesde.Value.Date.ToString("yyyy-MM-dd");
                 fechaHasta = dtpHasta.Value.Date.ToString("yyyy-MM-dd");
+                dgvReporte.DataSource = reportes.reporteAbonoVenta(fechaDesde, fechaHasta);
             }
             catch(Exception ex)
             {
