@@ -34,13 +34,13 @@ namespace Sistema_Abogados
             Fecha_Proximo_Pago = fecha;
         }
         // methods for registering new facturas.
-        public static int registerFacturaRent(string clienteID, string servicioID, string casoID, string pago, string pagoRestante, string TotalPagar, string proximoPago, string nuevoBalance, string Detalles)
+        public static int registerFacturaRent(string clienteID, string servicioID, string casoID, string pago, string pagoRestante, string TotalPagar, string proximoPago, string nuevoBalance, string Detalles, string FechaPago)
         {
             int r = -1;
             using (SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("INSERT INTO facturasAlquiler (clienteID, servicioID, casoID, TotalBalance, Pago, NuevoBalance, ProximoPago, Detalles) values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}')",
-                    clienteID, servicioID, casoID, TotalPagar, pago, nuevoBalance, proximoPago, Detalles), con);
+                SqlCommand comand = new SqlCommand(string.Format("INSERT INTO facturasAlquiler (clienteID, servicioID, casoID, TotalBalance, Pago, NuevoBalance, ProximoPago, Detalles, FechaPago) values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')",
+                    clienteID, servicioID, casoID, TotalPagar, pago, nuevoBalance, proximoPago, Detalles, FechaPago), con);
                 r = comand.ExecuteNonQuery();
                 con.Close();
             }
@@ -227,12 +227,12 @@ namespace Sistema_Abogados
             return list;
         }
         // methods for getting the ID for the bill.
-        public static string getFacturaIDRent(string casoID, string Detalles, string clienteID)
+        public static string getFacturaIDRent(string casoID, string Detalles, string clienteID, string FechaPago)
         {
             string r = null;
             using(SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("SELECT ID FROM facturasAlquiler WHERE casoID = '{0}' AND Detalles = '{1}' AND clienteID = '{2}'", casoID, Detalles, clienteID), con);
+                SqlCommand comand = new SqlCommand(string.Format("SELECT ID FROM facturasAlquiler WHERE casoID = '{0}' AND Detalles = '{1}' AND clienteID = '{2}' AND FechaPago = '{3}'", casoID, Detalles, clienteID, FechaPago), con);
                 r = comand.ExecuteScalar().ToString();
                 con.Close();
             }

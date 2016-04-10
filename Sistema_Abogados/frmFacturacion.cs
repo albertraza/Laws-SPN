@@ -693,7 +693,7 @@ namespace Sistema_Abogados
                                         // validate if monthly payment was achieved.
                                         if (parestante > 0)
                                         {
-                                            if (factura.registerFacturaRent(pBaseObjfactura.Cliente_ID, pBaseObjfactura.Service_ID, pBaseObjfactura.Case_ID, txtCantPagar.Text, parestante.ToString("f2"), txtTotalaPagar.Text, nextPayment.ToString("yyyy-MM-dd"), parestante.ToString("f2"), "Pago mensualidad y Abono al contrato de alquiler") > 0)
+                                            if (factura.registerFacturaRent(pBaseObjfactura.Cliente_ID, pBaseObjfactura.Service_ID, pBaseObjfactura.Case_ID, txtCantPagar.Text, parestante.ToString("f2"), txtTotalaPagar.Text, nextPayment.ToString("yyyy-MM-dd"), parestante.ToString("f2"), "Pago mensualidad y Abono al contrato de alquiler", DateTime.Today.Date.ToString("yyyy-MM-dd")) > 0)
                                             {
                                                 // update the payment status
                                                 facturacion.updateRentStatus(pBaseObjfactura.ID, "0", DateTime.Today.Date.ToString("yyyy-MM-dd"), parestante.ToString("f2"), nextPayment.ToString("yyyy-MM-dd"));
@@ -701,7 +701,7 @@ namespace Sistema_Abogados
                                                 if(MessageBox.Show("Desea Imprimir la factura?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                                 {
                                                     frmFacturaAlquiler pfactura = new frmFacturaAlquiler();
-                                                    pfactura.getID = Convert.ToInt32(factura.getFacturaIDRent(pBaseObjfactura.Case_ID, "Pago mensualidad y Abono al contrato de alquiler", pBaseObjfactura.Cliente_ID));
+                                                    pfactura.getID = Convert.ToInt32(factura.getFacturaIDRent(pBaseObjfactura.Case_ID, "Pago mensualidad y Abono al contrato de alquiler", pBaseObjfactura.Cliente_ID, DateTime.Today.Date.ToString("yyyy-MM-dd")));
                                                     pfactura.ShowDialog();
                                                 }
                                                 cleanInputs();
@@ -709,14 +709,14 @@ namespace Sistema_Abogados
                                         }
                                         else if (parestante == 0)
                                         {
-                                            if (factura.registerFacturaRent(pBaseObjfactura.Cliente_ID, pBaseObjfactura.Service_ID, pBaseObjfactura.Case_ID, txtCantPagar.Text, parestante.ToString("f2"), txtTotalaPagar.Text, nextPayment.ToString("yyyy-MM-dd"), parestante.ToString("f2"), "Pago mensualidad y Pago contrato de alquiler") > 0)
+                                            if (factura.registerFacturaRent(pBaseObjfactura.Cliente_ID, pBaseObjfactura.Service_ID, pBaseObjfactura.Case_ID, txtCantPagar.Text, parestante.ToString("f2"), txtTotalaPagar.Text, nextPayment.ToString("yyyy-MM-dd"), parestante.ToString("f2"), "Pago mensualidad y Pago contrato de alquiler", DateTime.Today.Date.ToString("yyyy-MM-dd")) > 0)
                                             {
                                                 facturacion.updateRentStatus(pBaseObjfactura.ID, "0", DateTime.Today.Date.ToString("yyyy-MM-dd"), parestante.ToString("f2"), nextPayment.ToString("yyyy-MM-dd"));
                                                 MessageBox.Show("Factura registrada Exitosamente. \nProximo Pago: " + nextPayment.ToLongDateString(), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                 if (MessageBox.Show("Desea Imprimir la factura?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                                 {
                                                     frmFacturaAlquiler pfactura = new frmFacturaAlquiler();
-                                                    pfactura.getID = Convert.ToInt32(factura.getFacturaIDRent(pBaseObjfactura.Case_ID, "Pago mensualidad y Pago contrato de alquiler", pBaseObjfactura.Cliente_ID));
+                                                    pfactura.getID = Convert.ToInt32(factura.getFacturaIDRent(pBaseObjfactura.Case_ID, "Pago mensualidad y Pago contrato de alquiler", pBaseObjfactura.Cliente_ID, DateTime.Today.Date.ToString("yyyy-MM-dd")));
                                                     pfactura.ShowDialog();
                                                 }
                                                 cleanInputs();
@@ -732,14 +732,14 @@ namespace Sistema_Abogados
                                         parestante = totalpagar - pagorealizado;
                                         if (parestante > 0)
                                         {
-                                            if (factura.registerFacturaRent(pBaseObjfactura.Cliente_ID, pBaseObjfactura.Service_ID, pBaseObjfactura.Case_ID, txtCantPagar.Text, parestante.ToString("f2"), txtTotalaPagar.Text, pBaseObjfactura.fechaProximoPago, parestante.ToString("f2"), "Abono al contrato de alquiler") > 0)
+                                            if (factura.registerFacturaRent(pBaseObjfactura.Cliente_ID, pBaseObjfactura.Service_ID, pBaseObjfactura.Case_ID, txtCantPagar.Text, parestante.ToString("f2"), txtTotalaPagar.Text, pBaseObjfactura.fechaProximoPago, parestante.ToString("f2"), "Abono al contrato de alquiler", DateTime.Today.Date.ToString("yyyy-MM-dd")) > 0)
                                             {
                                                 facturacion.updateRentStatus(pBaseObjfactura.ID, "0", DateTime.Today.Date.ToString("yyyy-MM-dd"), parestante.ToString("f2"), pBaseObjfactura.fechaProximoPago);
                                                 MessageBox.Show("Factura registrada Exitosamente. \nProximo Pago: " + nextPayment.ToLongDateString(), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                 if (MessageBox.Show("Desea Imprimir la factura?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                                 {
                                                     frmFacturaAlquiler pfactura = new frmFacturaAlquiler();
-                                                    pfactura.getID = Convert.ToInt32(factura.getFacturaIDRent(pBaseObjfactura.Case_ID, "Abono al contrato de alquiler", pBaseObjfactura.Cliente_ID));
+                                                    pfactura.getID = Convert.ToInt32(factura.getFacturaIDRent(pBaseObjfactura.Case_ID, "Abono al contrato de alquiler", pBaseObjfactura.Cliente_ID, DateTime.Today.Date.ToString("yyyy-MM-dd")));
                                                     pfactura.ShowDialog();
                                                 }
                                                 cleanInputs();
@@ -748,14 +748,14 @@ namespace Sistema_Abogados
                                         }
                                         else if (parestante == 0)
                                         {
-                                            if (factura.registerFacturaRent(pBaseObjfactura.Cliente_ID, pBaseObjfactura.Service_ID, pBaseObjfactura.Case_ID, txtCantPagar.Text, parestante.ToString("f2"), txtTotalaPagar.Text, pBaseObjfactura.fechaProximoPago, parestante.ToString("f2"), "Pago total del contrato de alquiler") > 0)
+                                            if (factura.registerFacturaRent(pBaseObjfactura.Cliente_ID, pBaseObjfactura.Service_ID, pBaseObjfactura.Case_ID, txtCantPagar.Text, parestante.ToString("f2"), txtTotalaPagar.Text, pBaseObjfactura.fechaProximoPago, parestante.ToString("f2"), "Pago total del contrato de alquiler", DateTime.Today.Date.ToString("yyyy-MM-dd")) > 0)
                                             {
                                                 facturacion.updateRentStatus(pBaseObjfactura.ID, "0", DateTime.Today.Date.ToString("yyyy-MM-dd"), parestante.ToString("f2"), pBaseObjfactura.fechaProximoPago);
                                                 MessageBox.Show("Factura registrada Exitosamente. \nProximo Pago: " + nextPayment.ToLongDateString(), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                 if (MessageBox.Show("Desea Imprimir la factura?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                                 {
                                                     frmFacturaAlquiler pfactura = new frmFacturaAlquiler();
-                                                    pfactura.getID = Convert.ToInt32(factura.getFacturaIDRent(pBaseObjfactura.Case_ID, "Pago total del contrato de alquiler", pBaseObjfactura.Cliente_ID));
+                                                    pfactura.getID = Convert.ToInt32(factura.getFacturaIDRent(pBaseObjfactura.Case_ID, "Pago total del contrato de alquiler", pBaseObjfactura.Cliente_ID, DateTime.Today.Date.ToString("yyyy-MM-dd")));
                                                     pfactura.ShowDialog();
                                                 }
                                                 cleanInputs();
@@ -771,14 +771,14 @@ namespace Sistema_Abogados
                                         }
                                         else if (parestante == 0)
                                         {
-                                            if (factura.registerFacturaRent(pBaseObjfactura.Cliente_ID, pBaseObjfactura.Service_ID, pBaseObjfactura.Case_ID, txtCantPagar.Text, parestante.ToString("f2"), txtTotalaPagar.Text, nextPayment.ToString("yyyy-MM-dd"), parestante.ToString("f2"), "Pago total de la mensualidad") > 0)
+                                            if (factura.registerFacturaRent(pBaseObjfactura.Cliente_ID, pBaseObjfactura.Service_ID, pBaseObjfactura.Case_ID, txtCantPagar.Text, parestante.ToString("f2"), txtTotalaPagar.Text, nextPayment.ToString("yyyy-MM-dd"), parestante.ToString("f2"), "Pago total de la mensualidad", DateTime.Today.Date.ToString("yyyy-MM-dd")) > 0)
                                             {
                                                 facturacion.updateRentStatus(pBaseObjfactura.ID, "0", DateTime.Today.Date.ToString("yyyy-MM-dd"), pBaseObjfactura.ContratoTotal, nextPayment.ToString("yyyy-MM-dd"));
                                                 MessageBox.Show("Factura registrada Exitosamente. \nProximo Pago: " + nextPayment.ToLongDateString(), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                 if (MessageBox.Show("Desea Imprimir la factura?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                                                 {
                                                     frmFacturaAlquiler pfactura = new frmFacturaAlquiler();
-                                                    pfactura.getID = Convert.ToInt32(factura.getFacturaIDRent(pBaseObjfactura.Case_ID, "Pago total de la mensualidad", pBaseObjfactura.Cliente_ID));
+                                                    pfactura.getID = Convert.ToInt32(factura.getFacturaIDRent(pBaseObjfactura.Case_ID, "Pago total de la mensualidad", pBaseObjfactura.Cliente_ID, DateTime.Today.Date.ToString("yyyy-MM-dd")));
                                                     pfactura.ShowDialog();
                                                 }
                                                 cleanInputs();

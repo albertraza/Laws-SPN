@@ -1926,7 +1926,7 @@ namespace Sistema_Abogados {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public FacturaAlquilerRow AddFacturaAlquilerRow(int NumeroCaso, decimal BalanceTotal, decimal PagoRealizado, decimal NuevoBalance, System.DateTime FechaProximoPago, string NombreCli, string ApellidCli, string CedulaoPasaporte, string Detalles, System.DateTime UltimoPago, string Servicio, string DetallesPago) {
+            public FacturaAlquilerRow AddFacturaAlquilerRow(int NumeroCaso, decimal BalanceTotal, decimal PagoRealizado, decimal NuevoBalance, string FechaProximoPago, string NombreCli, string ApellidCli, string CedulaoPasaporte, string Detalles, System.DateTime UltimoPago, string Servicio, string DetallesPago) {
                 FacturaAlquilerRow rowFacturaAlquilerRow = ((FacturaAlquilerRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1999,7 +1999,7 @@ namespace Sistema_Abogados {
                 base.Columns.Add(this.columnPagoRealizado);
                 this.columnNuevoBalance = new global::System.Data.DataColumn("NuevoBalance", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNuevoBalance);
-                this.columnFechaProximoPago = new global::System.Data.DataColumn("FechaProximoPago", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnFechaProximoPago = new global::System.Data.DataColumn("FechaProximoPago", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFechaProximoPago);
                 this.columnNombreCli = new global::System.Data.DataColumn("NombreCli", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNombreCli);
@@ -2021,22 +2021,11 @@ namespace Sistema_Abogados {
                 this.columnCodigoFactura.AllowDBNull = false;
                 this.columnCodigoFactura.ReadOnly = true;
                 this.columnCodigoFactura.Unique = true;
-                this.columnNumeroCaso.AllowDBNull = false;
-                this.columnBalanceTotal.AllowDBNull = false;
-                this.columnPagoRealizado.AllowDBNull = false;
-                this.columnNuevoBalance.AllowDBNull = false;
-                this.columnFechaProximoPago.AllowDBNull = false;
-                this.columnNombreCli.AllowDBNull = false;
                 this.columnNombreCli.MaxLength = 50;
-                this.columnApellidCli.AllowDBNull = false;
                 this.columnApellidCli.MaxLength = 50;
-                this.columnCedulaoPasaporte.AllowDBNull = false;
                 this.columnCedulaoPasaporte.MaxLength = 50;
-                this.columnDetalles.AllowDBNull = false;
                 this.columnDetalles.MaxLength = 120;
-                this.columnServicio.AllowDBNull = false;
                 this.columnServicio.MaxLength = 100;
-                this.columnDetallesPago.AllowDBNull = false;
                 this.columnDetallesPago.MaxLength = 120;
             }
             
@@ -6368,7 +6357,12 @@ namespace Sistema_Abogados {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int NumeroCaso {
                 get {
-                    return ((int)(this[this.tableFacturaAlquiler.NumeroCasoColumn]));
+                    try {
+                        return ((int)(this[this.tableFacturaAlquiler.NumeroCasoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NumeroCaso\' in table \'FacturaAlquiler\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableFacturaAlquiler.NumeroCasoColumn] = value;
@@ -6379,7 +6373,12 @@ namespace Sistema_Abogados {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal BalanceTotal {
                 get {
-                    return ((decimal)(this[this.tableFacturaAlquiler.BalanceTotalColumn]));
+                    try {
+                        return ((decimal)(this[this.tableFacturaAlquiler.BalanceTotalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BalanceTotal\' in table \'FacturaAlquiler\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableFacturaAlquiler.BalanceTotalColumn] = value;
@@ -6390,7 +6389,12 @@ namespace Sistema_Abogados {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal PagoRealizado {
                 get {
-                    return ((decimal)(this[this.tableFacturaAlquiler.PagoRealizadoColumn]));
+                    try {
+                        return ((decimal)(this[this.tableFacturaAlquiler.PagoRealizadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PagoRealizado\' in table \'FacturaAlquiler\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableFacturaAlquiler.PagoRealizadoColumn] = value;
@@ -6401,7 +6405,12 @@ namespace Sistema_Abogados {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal NuevoBalance {
                 get {
-                    return ((decimal)(this[this.tableFacturaAlquiler.NuevoBalanceColumn]));
+                    try {
+                        return ((decimal)(this[this.tableFacturaAlquiler.NuevoBalanceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NuevoBalance\' in table \'FacturaAlquiler\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableFacturaAlquiler.NuevoBalanceColumn] = value;
@@ -6410,9 +6419,14 @@ namespace Sistema_Abogados {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime FechaProximoPago {
+            public string FechaProximoPago {
                 get {
-                    return ((global::System.DateTime)(this[this.tableFacturaAlquiler.FechaProximoPagoColumn]));
+                    try {
+                        return ((string)(this[this.tableFacturaAlquiler.FechaProximoPagoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FechaProximoPago\' in table \'FacturaAlquiler\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableFacturaAlquiler.FechaProximoPagoColumn] = value;
@@ -6423,7 +6437,12 @@ namespace Sistema_Abogados {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string NombreCli {
                 get {
-                    return ((string)(this[this.tableFacturaAlquiler.NombreCliColumn]));
+                    try {
+                        return ((string)(this[this.tableFacturaAlquiler.NombreCliColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NombreCli\' in table \'FacturaAlquiler\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableFacturaAlquiler.NombreCliColumn] = value;
@@ -6434,7 +6453,12 @@ namespace Sistema_Abogados {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string ApellidCli {
                 get {
-                    return ((string)(this[this.tableFacturaAlquiler.ApellidCliColumn]));
+                    try {
+                        return ((string)(this[this.tableFacturaAlquiler.ApellidCliColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ApellidCli\' in table \'FacturaAlquiler\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableFacturaAlquiler.ApellidCliColumn] = value;
@@ -6445,7 +6469,12 @@ namespace Sistema_Abogados {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string CedulaoPasaporte {
                 get {
-                    return ((string)(this[this.tableFacturaAlquiler.CedulaoPasaporteColumn]));
+                    try {
+                        return ((string)(this[this.tableFacturaAlquiler.CedulaoPasaporteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CedulaoPasaporte\' in table \'FacturaAlquiler\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableFacturaAlquiler.CedulaoPasaporteColumn] = value;
@@ -6456,7 +6485,12 @@ namespace Sistema_Abogados {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Detalles {
                 get {
-                    return ((string)(this[this.tableFacturaAlquiler.DetallesColumn]));
+                    try {
+                        return ((string)(this[this.tableFacturaAlquiler.DetallesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Detalles\' in table \'FacturaAlquiler\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableFacturaAlquiler.DetallesColumn] = value;
@@ -6483,7 +6517,12 @@ namespace Sistema_Abogados {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Servicio {
                 get {
-                    return ((string)(this[this.tableFacturaAlquiler.ServicioColumn]));
+                    try {
+                        return ((string)(this[this.tableFacturaAlquiler.ServicioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Servicio\' in table \'FacturaAlquiler\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableFacturaAlquiler.ServicioColumn] = value;
@@ -6494,11 +6533,124 @@ namespace Sistema_Abogados {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string DetallesPago {
                 get {
-                    return ((string)(this[this.tableFacturaAlquiler.DetallesPagoColumn]));
+                    try {
+                        return ((string)(this[this.tableFacturaAlquiler.DetallesPagoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DetallesPago\' in table \'FacturaAlquiler\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableFacturaAlquiler.DetallesPagoColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNumeroCasoNull() {
+                return this.IsNull(this.tableFacturaAlquiler.NumeroCasoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNumeroCasoNull() {
+                this[this.tableFacturaAlquiler.NumeroCasoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBalanceTotalNull() {
+                return this.IsNull(this.tableFacturaAlquiler.BalanceTotalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBalanceTotalNull() {
+                this[this.tableFacturaAlquiler.BalanceTotalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPagoRealizadoNull() {
+                return this.IsNull(this.tableFacturaAlquiler.PagoRealizadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPagoRealizadoNull() {
+                this[this.tableFacturaAlquiler.PagoRealizadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNuevoBalanceNull() {
+                return this.IsNull(this.tableFacturaAlquiler.NuevoBalanceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNuevoBalanceNull() {
+                this[this.tableFacturaAlquiler.NuevoBalanceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFechaProximoPagoNull() {
+                return this.IsNull(this.tableFacturaAlquiler.FechaProximoPagoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFechaProximoPagoNull() {
+                this[this.tableFacturaAlquiler.FechaProximoPagoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNombreCliNull() {
+                return this.IsNull(this.tableFacturaAlquiler.NombreCliColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNombreCliNull() {
+                this[this.tableFacturaAlquiler.NombreCliColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsApellidCliNull() {
+                return this.IsNull(this.tableFacturaAlquiler.ApellidCliColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetApellidCliNull() {
+                this[this.tableFacturaAlquiler.ApellidCliColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCedulaoPasaporteNull() {
+                return this.IsNull(this.tableFacturaAlquiler.CedulaoPasaporteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCedulaoPasaporteNull() {
+                this[this.tableFacturaAlquiler.CedulaoPasaporteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDetallesNull() {
+                return this.IsNull(this.tableFacturaAlquiler.DetallesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDetallesNull() {
+                this[this.tableFacturaAlquiler.DetallesColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6511,6 +6663,30 @@ namespace Sistema_Abogados {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetUltimoPagoNull() {
                 this[this.tableFacturaAlquiler.UltimoPagoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsServicioNull() {
+                return this.IsNull(this.tableFacturaAlquiler.ServicioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetServicioNull() {
+                this[this.tableFacturaAlquiler.ServicioColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDetallesPagoNull() {
+                return this.IsNull(this.tableFacturaAlquiler.DetallesPagoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDetallesPagoNull() {
+                this[this.tableFacturaAlquiler.DetallesPagoColumn] = global::System.Convert.DBNull;
             }
         }
         

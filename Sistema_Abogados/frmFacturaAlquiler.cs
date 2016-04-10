@@ -18,17 +18,20 @@ namespace Sistema_Abogados
         }
         // variable for getting Factura ID.
         private int ID;
-        public int getID
-        {
-            get { return ID; }
-            set { ID = value; }
-        }
+        public int getID { get; set; }
         // ******************************************** //
         private void frmFacturaAlquiler_Load(object sender, EventArgs e)
         {
-            this.FacturaAlquilerTableAdapter.Fill(this.AbogadosDBDataSet.FacturaAlquiler, ID);
+            try
+            {
+                this.FacturaAlquilerTableAdapter.Fill(this.AbogadosDBDataSet.FacturaAlquiler, getID);
 
-            this.reportViewer1.RefreshReport();
+                this.reportViewer1.RefreshReport();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
