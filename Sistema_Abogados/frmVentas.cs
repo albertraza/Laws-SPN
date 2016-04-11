@@ -35,8 +35,6 @@ namespace Sistema_Abogados
         // disable all inputs.
         private void disableInputs()
         {
-            txtCedulaBuy.Enabled = false;
-            txtCedulaSeller.Enabled = false;
             txtCelularBuy.Enabled = false;
             txtCelularSeller.Enabled = false;
             txtLastNameBuy.Enabled = false;

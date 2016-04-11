@@ -74,6 +74,9 @@ namespace Sistema_Abogados
             rbCedulaCli.Checked = true;
             rbCedulaGa.Checked = true;
             rbCedulaIn.Checked = true;
+            txtCedulaClie.Clear();
+            txtCedulaGa.Clear();
+            txtCedulaIn.Clear();
         }
         // method for listing all Cities.
         private void listCities()
@@ -160,9 +163,6 @@ namespace Sistema_Abogados
                 clearAll();
                 ControlBox = false;
                 disableControls();
-                servicios pServicios = servicios.getServiceInfo("3");
-                txtPriceRent.Text = Convert.ToDouble(pServicios.Precio).ToString("f2");
-                txtAbono.Text = Convert.ToDouble(pServicios.Abono).ToString("f2");
                 listCities();
             }
             catch(Exception ex)

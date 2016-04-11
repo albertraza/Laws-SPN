@@ -19,8 +19,6 @@ namespace Sistema_Abogados
         // method for disabling all inputs.
         private void disableInputs()
         {
-            txtCedulaDemandado.Enabled = false;
-            txtCedulaDemandante.Enabled = false;
             txtCellphoneDemandado.Enabled = false;
             txtCellphoneDemandante.Enabled = false;
             txtHonorarios.Enabled = false;
@@ -60,6 +58,8 @@ namespace Sistema_Abogados
             pbDemandado.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
             pbDemandante.Image = Image.FromFile(@"C:\FactoriadeProyectos\Sistema-oficina-abogados\Images\n.png");
             txtTotalPagar.Clear();
+            txtITEBIS.Clear();
+            txtISR.Clear();
         }
         public frmDivorcios()
         {
@@ -72,10 +72,6 @@ namespace Sistema_Abogados
                 clearInputs();
                 ControlBox = false;
                 disableInputs();
-                servicios pser = servicios.getServiceInfo("4");
-                txtAbono.Text = Convert.ToDouble(pser.Abono).ToString("f2");
-                txtPrecio.Text = Convert.ToDouble(pser.Precio).ToString("f2");
-                txtHonorarios.Text = Convert.ToDouble(pser.Precio).ToString("f2");
             }
             catch(Exception ex)
             {
