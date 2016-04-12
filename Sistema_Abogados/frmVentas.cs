@@ -495,7 +495,7 @@ namespace Sistema_Abogados
                         {
                             if (txtMatricula.MaskCompleted)
                             {
-                                if (ventas.register(vID, cID, txtDescripcion.Text + " Matricula: " + txtMatricula.Text, txtTotalPagar.Text, txtHonorarios.Text, txtAbono.Text, "5") > 0)
+                                if (ventas.register(vID, cID, txtDescripcion.Text + " Matricula: " + txtMatricula.Text, txtTotalPagar.Text, txtHonorarios.Text, txtAbono.Text, "5", txtITEBIS.Text, txtISR.Text) > 0)
                                 {
                                     MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     facturacion.registerVentas(vID, "5", ventas.getID(pVendedor.Nombre, pVendedor.Apellido, pComprador1.Nombre, pComprador1.Apellido, pVendedor.Cedula, pComprador1.Cedula), txtTotalPagar.Text, txtAbono.Text);
@@ -516,7 +516,7 @@ namespace Sistema_Abogados
                         else
                         {
                             // if it is not focus on vehiculos.
-                            if (ventas.register(vID, cID, txtDescripcion.Text, txtTotalPagar.Text, txtHonorarios.Text, txtAbono.Text, "5") > 0)
+                            if (ventas.register(vID, cID, txtDescripcion.Text, txtTotalPagar.Text, txtHonorarios.Text, txtAbono.Text, "5", txtITEBIS.Text, txtISR.Text) > 0)
                             {
                                 MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 facturacion.registerVentas(vID, "5", ventas.getID(pVendedor.Nombre, pVendedor.Apellido, pComprador1.Nombre, pComprador1.Apellido, pVendedor.Cedula, pComprador1.Cedula), txtTotalPagar.Text, txtAbono.Text);

@@ -35,13 +35,13 @@ namespace Sistema_Abogados
             Abono = abono;
         }
         // method for registering users;
-        public static int register(string ServiceID, string DemandadoID, string DemandanteID, string Pagos, string Honorarios, string Abono)
+        public static int register(string ServiceID, string DemandadoID, string DemandanteID, string Pagos, string Honorarios, string Abono, string ITEBIS, string ISR, string MontoCobrar)
         {
             int r = -1;
             using(SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("INSERT INTO divorcios (ServiceID, DemandadoID, DemandanteID, Pagos, Honorarios, Abono) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')",
-                    ServiceID, DemandadoID, DemandanteID, Pagos, Honorarios, Abono), con);
+                SqlCommand comand = new SqlCommand(string.Format("INSERT INTO divorcios (ServiceID, DemandadoID, DemandanteID, Pagos, Honorarios, Abono, ITEBIS, ISR, TotalVenta) VALUES ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}', '{8}')",
+                    ServiceID, DemandadoID, DemandanteID, Pagos, Honorarios, Abono, ITEBIS, ISR,  MontoCobrar), con);
                 r = comand.ExecuteNonQuery();
                 con.Close();
             }

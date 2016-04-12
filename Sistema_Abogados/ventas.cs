@@ -21,13 +21,13 @@ namespace Sistema_Abogados
         public string Apellido_vendedor { get; set; }
         // End construct building.
         // method for registering sellings.
-        public static int register(string SellerID, string BuyID, string Description, string SellingPrice, string Honorarios, string Abono, string ServiceID)
+        public static int register(string SellerID, string BuyID, string Description, string SellingPrice, string Honorarios, string Abono, string ServiceID, string ITEBIS, string ISR)
         {
             int r = -1;
             using (SqlConnection con = DBcomun.getConnection())
             {
-                SqlCommand comand = new SqlCommand(string.Format("INSERT INTO Venta (VendedorID, CompradorID, Descripcion, MontoVenta, Honorarios, Abono, ServiceID) VALUES ('{0}', '{1}', '{2}', '{3}' ,'{4}' ,'{5}', '{6}')",
-                    SellerID, BuyID, Description, SellingPrice, Honorarios, Abono, ServiceID), con);
+                SqlCommand comand = new SqlCommand(string.Format("INSERT INTO Venta (VendedorID, CompradorID, Descripcion, MontoVenta, Honorarios, Abono, ServiceID, ITEBIS, ISR) VALUES ('{0}', '{1}', '{2}', '{3}' ,'{4}' ,'{5}', '{6}', '{7}', '{8}')",
+                    SellerID, BuyID, Description, SellingPrice, Honorarios, Abono, ServiceID, ITEBIS, ISR), con);
                 r = comand.ExecuteNonQuery();
                 con.Close();
             }

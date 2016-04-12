@@ -466,7 +466,7 @@ namespace Sistema_Abogados
                 try
                 {
                     // execute method for registering the data on databse
-                    if (alquiler.register(cID, iID, gID, "3", txtMensualidad.Text , txtHonorarios.Text, txtDetails.Text, txtAddress.Text, sectores.getCityID(cbCities.Text), txtDeposito.Text, txtAbono.Text, txtPriceRent.Text, txtTotalPagar.Text) > 0)
+                    if (alquiler.register(cID, iID, gID, "3", txtMensualidad.Text , txtHonorarios.Text, txtDetails.Text, txtAddress.Text, sectores.getCityID(cbCities.Text), txtDeposito.Text, txtAbono.Text, txtPriceRent.Text, txtTotalPagar.Text, txtITEBISContr.Text, txtISRContr.Text, (Convert.ToInt32(txtComision.Text) * Convert.ToDouble(txtPriceRent.Text)).ToString("f2"), txtHonorarios.Text) > 0)
                     {
                         MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         facturacion.registerRent(cID, "3", alquiler.getID(pInquilino.Nombre, pInquilino.Apellido, pCliente.Nombre, pCliente.Apellido, pGarante.Nombre, pGarante.Apellido, pInquilino.Cedula, pCliente.Cedula, pGarante.Cedula), txtMensualidad.Text, txtDeposito.Text, txtTotalPagar.Text);

@@ -513,7 +513,7 @@ namespace Sistema_Abogados
             {
                 try
                 {
-                    if(divorcios.register("4", cID2, cID1, txtTotalPagar.Text, txtHonorarios.Text, txtAbono.Text) > 0)
+                    if(divorcios.register("4", cID2, cID1, txtTotalPagar.Text, txtHonorarios.Text, txtAbono.Text, txtITEBIS.Text, txtISR.Text, txtPrecio.Text) > 0)
                     {
                         MessageBox.Show("Registrado Exitosamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         facturacion.registerDivorciosAccidente(cID1, "4", divorcios.getID(txtAbono.Text, pDemandante.Nombre, pDemandante.Apellido, pDemandado.Nombre, pDemandado.Apellido, pDemandante.Cedula, pDemandado.Cedula), txtTotalPagar.Text, txtAbono.Text);
