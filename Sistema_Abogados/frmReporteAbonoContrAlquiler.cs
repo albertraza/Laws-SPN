@@ -38,7 +38,10 @@ namespace Sistema_Abogados
                     ShowReportAbono();
                     this.reportViewer1.RefreshReport();
                     break;
-
+                case "Cotizacion":
+                    ShowCotizacion();
+                    this.reportViewer1.RefreshReport();
+                    break;
                 default:
                     MessageBox.Show("No se reconoce el servicio de reporte a utilizar, la aplicacion de cerrara", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     this.Close();
@@ -68,6 +71,15 @@ namespace Sistema_Abogados
             reportViewer1.Reset();
             reportViewer1.LocalReport.ReportPath = "ReporteAbonoContrAlquiler.rdlc";
             ReportDataSource ds = new ReportDataSource("Abono", dtAbonoAlquiler);
+            reportViewer1.LocalReport.DataSources.Add(ds);
+            reportViewer1.Refresh();
+        }
+        private void ShowCotizacion()
+        {
+            DataTable dtCotizacion = reportes.cotizacionAlquiler(ID);
+            reportViewer1.Reset();
+            reportViewer1.LocalReport.ReportPath = "CotizacionAlquiler.rdlc";
+            ReportDataSource ds = new ReportDataSource("Cotizacion", dtCotizacion);
             reportViewer1.LocalReport.DataSources.Add(ds);
             reportViewer1.Refresh();
         }

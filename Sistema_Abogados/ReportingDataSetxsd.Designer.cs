@@ -36,6 +36,8 @@ namespace Sistema_Abogados {
         
         private ReporteFacturasAlquilerDataTable tableReporteFacturasAlquiler;
         
+        private CotizacionAlquilerDataTable tableCotizacionAlquiler;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -81,6 +83,9 @@ namespace Sistema_Abogados {
                 }
                 if ((ds.Tables["ReporteFacturasAlquiler"] != null)) {
                     base.Tables.Add(new ReporteFacturasAlquilerDataTable(ds.Tables["ReporteFacturasAlquiler"]));
+                }
+                if ((ds.Tables["CotizacionAlquiler"] != null)) {
+                    base.Tables.Add(new CotizacionAlquilerDataTable(ds.Tables["CotizacionAlquiler"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -157,6 +162,16 @@ namespace Sistema_Abogados {
         public ReporteFacturasAlquilerDataTable ReporteFacturasAlquiler {
             get {
                 return this.tableReporteFacturasAlquiler;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public CotizacionAlquilerDataTable CotizacionAlquiler {
+            get {
+                return this.tableCotizacionAlquiler;
             }
         }
         
@@ -245,6 +260,9 @@ namespace Sistema_Abogados {
                 if ((ds.Tables["ReporteFacturasAlquiler"] != null)) {
                     base.Tables.Add(new ReporteFacturasAlquilerDataTable(ds.Tables["ReporteFacturasAlquiler"]));
                 }
+                if ((ds.Tables["CotizacionAlquiler"] != null)) {
+                    base.Tables.Add(new CotizacionAlquilerDataTable(ds.Tables["CotizacionAlquiler"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -314,6 +332,12 @@ namespace Sistema_Abogados {
                     this.tableReporteFacturasAlquiler.InitVars();
                 }
             }
+            this.tableCotizacionAlquiler = ((CotizacionAlquilerDataTable)(base.Tables["CotizacionAlquiler"]));
+            if ((initTable == true)) {
+                if ((this.tableCotizacionAlquiler != null)) {
+                    this.tableCotizacionAlquiler.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -336,6 +360,8 @@ namespace Sistema_Abogados {
             base.Tables.Add(this.tableReporteAlquiler);
             this.tableReporteFacturasAlquiler = new ReporteFacturasAlquilerDataTable();
             base.Tables.Add(this.tableReporteFacturasAlquiler);
+            this.tableCotizacionAlquiler = new CotizacionAlquilerDataTable();
+            base.Tables.Add(this.tableCotizacionAlquiler);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -371,6 +397,12 @@ namespace Sistema_Abogados {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeReporteFacturasAlquiler() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeCotizacionAlquiler() {
             return false;
         }
         
@@ -446,6 +478,9 @@ namespace Sistema_Abogados {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void ReporteFacturasAlquilerRowChangeEventHandler(object sender, ReporteFacturasAlquilerRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void CotizacionAlquilerRowChangeEventHandler(object sender, CotizacionAlquilerRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -2874,6 +2909,479 @@ namespace Sistema_Abogados {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class CotizacionAlquilerDataTable : global::System.Data.TypedTableBase<CotizacionAlquilerRow> {
+            
+            private global::System.Data.DataColumn columnNumeroCaso;
+            
+            private global::System.Data.DataColumn columnNombreCliente;
+            
+            private global::System.Data.DataColumn columnApellidoCliente;
+            
+            private global::System.Data.DataColumn columnNombreInquilino;
+            
+            private global::System.Data.DataColumn columnApellidoInquilino;
+            
+            private global::System.Data.DataColumn columnNombreGarante;
+            
+            private global::System.Data.DataColumn columnApellidoGarante;
+            
+            private global::System.Data.DataColumn columnDetalles;
+            
+            private global::System.Data.DataColumn columnDireccion;
+            
+            private global::System.Data.DataColumn columnMensualidadTo;
+            
+            private global::System.Data.DataColumn columnAlquiler;
+            
+            private global::System.Data.DataColumn columnContrato;
+            
+            private global::System.Data.DataColumn columnITEBIS;
+            
+            private global::System.Data.DataColumn columnISR;
+            
+            private global::System.Data.DataColumn columnComision;
+            
+            private global::System.Data.DataColumn columnHonorarios;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CotizacionAlquilerDataTable() {
+                this.TableName = "CotizacionAlquiler";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal CotizacionAlquilerDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected CotizacionAlquilerDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NumeroCasoColumn {
+                get {
+                    return this.columnNumeroCaso;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NombreClienteColumn {
+                get {
+                    return this.columnNombreCliente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ApellidoClienteColumn {
+                get {
+                    return this.columnApellidoCliente;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NombreInquilinoColumn {
+                get {
+                    return this.columnNombreInquilino;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ApellidoInquilinoColumn {
+                get {
+                    return this.columnApellidoInquilino;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NombreGaranteColumn {
+                get {
+                    return this.columnNombreGarante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ApellidoGaranteColumn {
+                get {
+                    return this.columnApellidoGarante;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DetallesColumn {
+                get {
+                    return this.columnDetalles;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DireccionColumn {
+                get {
+                    return this.columnDireccion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MensualidadToColumn {
+                get {
+                    return this.columnMensualidadTo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AlquilerColumn {
+                get {
+                    return this.columnAlquiler;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ContratoColumn {
+                get {
+                    return this.columnContrato;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ITEBISColumn {
+                get {
+                    return this.columnITEBIS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ISRColumn {
+                get {
+                    return this.columnISR;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ComisionColumn {
+                get {
+                    return this.columnComision;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HonorariosColumn {
+                get {
+                    return this.columnHonorarios;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CotizacionAlquilerRow this[int index] {
+                get {
+                    return ((CotizacionAlquilerRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event CotizacionAlquilerRowChangeEventHandler CotizacionAlquilerRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event CotizacionAlquilerRowChangeEventHandler CotizacionAlquilerRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event CotizacionAlquilerRowChangeEventHandler CotizacionAlquilerRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event CotizacionAlquilerRowChangeEventHandler CotizacionAlquilerRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddCotizacionAlquilerRow(CotizacionAlquilerRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CotizacionAlquilerRow AddCotizacionAlquilerRow(
+                        int NumeroCaso, 
+                        string NombreCliente, 
+                        string ApellidoCliente, 
+                        string NombreInquilino, 
+                        string ApellidoInquilino, 
+                        string NombreGarante, 
+                        string ApellidoGarante, 
+                        string Detalles, 
+                        string Direccion, 
+                        decimal MensualidadTo, 
+                        decimal Alquiler, 
+                        decimal Contrato, 
+                        decimal ITEBIS, 
+                        decimal ISR, 
+                        decimal Comision, 
+                        decimal Honorarios) {
+                CotizacionAlquilerRow rowCotizacionAlquilerRow = ((CotizacionAlquilerRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        NumeroCaso,
+                        NombreCliente,
+                        ApellidoCliente,
+                        NombreInquilino,
+                        ApellidoInquilino,
+                        NombreGarante,
+                        ApellidoGarante,
+                        Detalles,
+                        Direccion,
+                        MensualidadTo,
+                        Alquiler,
+                        Contrato,
+                        ITEBIS,
+                        ISR,
+                        Comision,
+                        Honorarios};
+                rowCotizacionAlquilerRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowCotizacionAlquilerRow);
+                return rowCotizacionAlquilerRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                CotizacionAlquilerDataTable cln = ((CotizacionAlquilerDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new CotizacionAlquilerDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnNumeroCaso = base.Columns["NumeroCaso"];
+                this.columnNombreCliente = base.Columns["NombreCliente"];
+                this.columnApellidoCliente = base.Columns["ApellidoCliente"];
+                this.columnNombreInquilino = base.Columns["NombreInquilino"];
+                this.columnApellidoInquilino = base.Columns["ApellidoInquilino"];
+                this.columnNombreGarante = base.Columns["NombreGarante"];
+                this.columnApellidoGarante = base.Columns["ApellidoGarante"];
+                this.columnDetalles = base.Columns["Detalles"];
+                this.columnDireccion = base.Columns["Direccion"];
+                this.columnMensualidadTo = base.Columns["MensualidadTo"];
+                this.columnAlquiler = base.Columns["Alquiler"];
+                this.columnContrato = base.Columns["Contrato"];
+                this.columnITEBIS = base.Columns["ITEBIS"];
+                this.columnISR = base.Columns["ISR"];
+                this.columnComision = base.Columns["Comision"];
+                this.columnHonorarios = base.Columns["Honorarios"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnNumeroCaso = new global::System.Data.DataColumn("NumeroCaso", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNumeroCaso);
+                this.columnNombreCliente = new global::System.Data.DataColumn("NombreCliente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNombreCliente);
+                this.columnApellidoCliente = new global::System.Data.DataColumn("ApellidoCliente", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnApellidoCliente);
+                this.columnNombreInquilino = new global::System.Data.DataColumn("NombreInquilino", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNombreInquilino);
+                this.columnApellidoInquilino = new global::System.Data.DataColumn("ApellidoInquilino", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnApellidoInquilino);
+                this.columnNombreGarante = new global::System.Data.DataColumn("NombreGarante", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNombreGarante);
+                this.columnApellidoGarante = new global::System.Data.DataColumn("ApellidoGarante", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnApellidoGarante);
+                this.columnDetalles = new global::System.Data.DataColumn("Detalles", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDetalles);
+                this.columnDireccion = new global::System.Data.DataColumn("Direccion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDireccion);
+                this.columnMensualidadTo = new global::System.Data.DataColumn("MensualidadTo", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMensualidadTo);
+                this.columnAlquiler = new global::System.Data.DataColumn("Alquiler", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAlquiler);
+                this.columnContrato = new global::System.Data.DataColumn("Contrato", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnContrato);
+                this.columnITEBIS = new global::System.Data.DataColumn("ITEBIS", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnITEBIS);
+                this.columnISR = new global::System.Data.DataColumn("ISR", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnISR);
+                this.columnComision = new global::System.Data.DataColumn("Comision", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnComision);
+                this.columnHonorarios = new global::System.Data.DataColumn("Honorarios", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHonorarios);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CotizacionAlquilerRow NewCotizacionAlquilerRow() {
+                return ((CotizacionAlquilerRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new CotizacionAlquilerRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(CotizacionAlquilerRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.CotizacionAlquilerRowChanged != null)) {
+                    this.CotizacionAlquilerRowChanged(this, new CotizacionAlquilerRowChangeEvent(((CotizacionAlquilerRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.CotizacionAlquilerRowChanging != null)) {
+                    this.CotizacionAlquilerRowChanging(this, new CotizacionAlquilerRowChangeEvent(((CotizacionAlquilerRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.CotizacionAlquilerRowDeleted != null)) {
+                    this.CotizacionAlquilerRowDeleted(this, new CotizacionAlquilerRowChangeEvent(((CotizacionAlquilerRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.CotizacionAlquilerRowDeleting != null)) {
+                    this.CotizacionAlquilerRowDeleting(this, new CotizacionAlquilerRowChangeEvent(((CotizacionAlquilerRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveCotizacionAlquilerRow(CotizacionAlquilerRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                ReportingDataSetxsd ds = new ReportingDataSetxsd();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "CotizacionAlquilerDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class ReporteFacturasDivorciosRow : global::System.Data.DataRow {
@@ -5004,6 +5512,470 @@ namespace Sistema_Abogados {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class CotizacionAlquilerRow : global::System.Data.DataRow {
+            
+            private CotizacionAlquilerDataTable tableCotizacionAlquiler;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal CotizacionAlquilerRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableCotizacionAlquiler = ((CotizacionAlquilerDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int NumeroCaso {
+                get {
+                    try {
+                        return ((int)(this[this.tableCotizacionAlquiler.NumeroCasoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NumeroCaso\' in table \'CotizacionAlquiler\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCotizacionAlquiler.NumeroCasoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NombreCliente {
+                get {
+                    try {
+                        return ((string)(this[this.tableCotizacionAlquiler.NombreClienteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NombreCliente\' in table \'CotizacionAlquiler\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCotizacionAlquiler.NombreClienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ApellidoCliente {
+                get {
+                    try {
+                        return ((string)(this[this.tableCotizacionAlquiler.ApellidoClienteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ApellidoCliente\' in table \'CotizacionAlquiler\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCotizacionAlquiler.ApellidoClienteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NombreInquilino {
+                get {
+                    try {
+                        return ((string)(this[this.tableCotizacionAlquiler.NombreInquilinoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NombreInquilino\' in table \'CotizacionAlquiler\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCotizacionAlquiler.NombreInquilinoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ApellidoInquilino {
+                get {
+                    try {
+                        return ((string)(this[this.tableCotizacionAlquiler.ApellidoInquilinoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ApellidoInquilino\' in table \'CotizacionAlquiler\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableCotizacionAlquiler.ApellidoInquilinoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string NombreGarante {
+                get {
+                    try {
+                        return ((string)(this[this.tableCotizacionAlquiler.NombreGaranteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NombreGarante\' in table \'CotizacionAlquiler\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCotizacionAlquiler.NombreGaranteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ApellidoGarante {
+                get {
+                    try {
+                        return ((string)(this[this.tableCotizacionAlquiler.ApellidoGaranteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ApellidoGarante\' in table \'CotizacionAlquiler\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCotizacionAlquiler.ApellidoGaranteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Detalles {
+                get {
+                    try {
+                        return ((string)(this[this.tableCotizacionAlquiler.DetallesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Detalles\' in table \'CotizacionAlquiler\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCotizacionAlquiler.DetallesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Direccion {
+                get {
+                    try {
+                        return ((string)(this[this.tableCotizacionAlquiler.DireccionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Direccion\' in table \'CotizacionAlquiler\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCotizacionAlquiler.DireccionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal MensualidadTo {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableCotizacionAlquiler.MensualidadToColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MensualidadTo\' in table \'CotizacionAlquiler\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCotizacionAlquiler.MensualidadToColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Alquiler {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableCotizacionAlquiler.AlquilerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Alquiler\' in table \'CotizacionAlquiler\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCotizacionAlquiler.AlquilerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Contrato {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableCotizacionAlquiler.ContratoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Contrato\' in table \'CotizacionAlquiler\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCotizacionAlquiler.ContratoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal ITEBIS {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableCotizacionAlquiler.ITEBISColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ITEBIS\' in table \'CotizacionAlquiler\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCotizacionAlquiler.ITEBISColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal ISR {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableCotizacionAlquiler.ISRColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ISR\' in table \'CotizacionAlquiler\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCotizacionAlquiler.ISRColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Comision {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableCotizacionAlquiler.ComisionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Comision\' in table \'CotizacionAlquiler\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCotizacionAlquiler.ComisionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Honorarios {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableCotizacionAlquiler.HonorariosColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Honorarios\' in table \'CotizacionAlquiler\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCotizacionAlquiler.HonorariosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNumeroCasoNull() {
+                return this.IsNull(this.tableCotizacionAlquiler.NumeroCasoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNumeroCasoNull() {
+                this[this.tableCotizacionAlquiler.NumeroCasoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNombreClienteNull() {
+                return this.IsNull(this.tableCotizacionAlquiler.NombreClienteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNombreClienteNull() {
+                this[this.tableCotizacionAlquiler.NombreClienteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsApellidoClienteNull() {
+                return this.IsNull(this.tableCotizacionAlquiler.ApellidoClienteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetApellidoClienteNull() {
+                this[this.tableCotizacionAlquiler.ApellidoClienteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNombreInquilinoNull() {
+                return this.IsNull(this.tableCotizacionAlquiler.NombreInquilinoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNombreInquilinoNull() {
+                this[this.tableCotizacionAlquiler.NombreInquilinoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsApellidoInquilinoNull() {
+                return this.IsNull(this.tableCotizacionAlquiler.ApellidoInquilinoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetApellidoInquilinoNull() {
+                this[this.tableCotizacionAlquiler.ApellidoInquilinoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNombreGaranteNull() {
+                return this.IsNull(this.tableCotizacionAlquiler.NombreGaranteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNombreGaranteNull() {
+                this[this.tableCotizacionAlquiler.NombreGaranteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsApellidoGaranteNull() {
+                return this.IsNull(this.tableCotizacionAlquiler.ApellidoGaranteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetApellidoGaranteNull() {
+                this[this.tableCotizacionAlquiler.ApellidoGaranteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDetallesNull() {
+                return this.IsNull(this.tableCotizacionAlquiler.DetallesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDetallesNull() {
+                this[this.tableCotizacionAlquiler.DetallesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDireccionNull() {
+                return this.IsNull(this.tableCotizacionAlquiler.DireccionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDireccionNull() {
+                this[this.tableCotizacionAlquiler.DireccionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMensualidadToNull() {
+                return this.IsNull(this.tableCotizacionAlquiler.MensualidadToColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMensualidadToNull() {
+                this[this.tableCotizacionAlquiler.MensualidadToColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAlquilerNull() {
+                return this.IsNull(this.tableCotizacionAlquiler.AlquilerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAlquilerNull() {
+                this[this.tableCotizacionAlquiler.AlquilerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsContratoNull() {
+                return this.IsNull(this.tableCotizacionAlquiler.ContratoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetContratoNull() {
+                this[this.tableCotizacionAlquiler.ContratoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsITEBISNull() {
+                return this.IsNull(this.tableCotizacionAlquiler.ITEBISColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetITEBISNull() {
+                this[this.tableCotizacionAlquiler.ITEBISColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsISRNull() {
+                return this.IsNull(this.tableCotizacionAlquiler.ISRColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetISRNull() {
+                this[this.tableCotizacionAlquiler.ISRColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsComisionNull() {
+                return this.IsNull(this.tableCotizacionAlquiler.ComisionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetComisionNull() {
+                this[this.tableCotizacionAlquiler.ComisionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHonorariosNull() {
+                return this.IsNull(this.tableCotizacionAlquiler.HonorariosColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHonorariosNull() {
+                this[this.tableCotizacionAlquiler.HonorariosColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -5193,6 +6165,40 @@ namespace Sistema_Abogados {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ReporteFacturasAlquilerRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class CotizacionAlquilerRowChangeEvent : global::System.EventArgs {
+            
+            private CotizacionAlquilerRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CotizacionAlquilerRowChangeEvent(CotizacionAlquilerRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public CotizacionAlquilerRow Row {
                 get {
                     return this.eventRow;
                 }

@@ -659,6 +659,118 @@ namespace Sistema_Abogados
         {
 
         }
+        // when cotizacion button is clicked.
+        private void btnCotizacion_Click(object sender, EventArgs e)
+        {
+            /*
+            This button does as the register button this one registers everything about the case but it gives the option to print
+            the report for the customer.
+            */
+            // validate users input.
+            if (cID == null)
+            {
+                MessageBox.Show("No se ha seleccionado un Cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCustID.Focus();
+            }
+            else if (iID == null)
+            {
+                MessageBox.Show("No se ha seleccionado un Inquilino", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtIDInqui.Focus();
+            }
+            else if (gID == null)
+            {
+                MessageBox.Show("No se ha seleccionado un Garante", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtIDGaran.Focus();
+            }
+            else if (txtDetails.Text == string.Empty)
+            {
+                MessageBox.Show("Complete el detalle del Inmueble a rentar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDetails.Focus();
+            }
+            else if (txtHonorarios.Text == string.Empty)
+            {
+                MessageBox.Show("Digite el Honorario a pagar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtHonorarios.Focus();
+            }
+            else if (txtPriceRent.Text == string.Empty)
+            {
+                MessageBox.Show("Escriba la renta para el inmueble", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPriceRent.Focus();
+            }
+            else if (txtAbono.Text == string.Empty)
+            {
+                MessageBox.Show("Digite el Abono a pagar", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtAbono.Focus();
+            }
+            else if (cbCities.Text == string.Empty)
+            {
+                MessageBox.Show("Seleccione un Sector", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbCities.Focus();
+            }
+            else if (txtDeposito.Text == string.Empty)
+            {
+                MessageBox.Show("El Deposito esta vacio, Digite un deposito valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtDeposito.Focus();
+            }
+            else if (cID == iID && iID == gID && gID == cID)
+            {
+                MessageBox.Show("No se pueden registrar todos los datos iguales", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (cID == iID)
+            {
+                MessageBox.Show("El cliente y el Inquilino son las mismas personas, Seleccione diferentes clientes", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (iID == gID)
+            {
+                MessageBox.Show("El Inquilino Ademas del Garante son los mismos, Seleccione diferentes clientes", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (gID == cID)
+            {
+                MessageBox.Show("El Cliente y el Garante son los mismos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (txtMensualidad.Text == string.Empty)
+            {
+                MessageBox.Show("No se ha calculado la mensualidad", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                btnCalcular.Focus();
+            }
+            else if (Convert.ToDouble(txtTotalPagar.Text) <= 0)
+            {
+                MessageBox.Show("El Total a Pagar no puede estar en 0", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtAbono.Focus();
+            }
+            else if (txtTotalPagar.Text == string.Empty)
+            {
+                MessageBox.Show("No se ha calculado el total a pagar, digite uno valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                btnCalcular.Focus();
+            }
+            else
+            {
+                // if all inputs are filled.
+                try
+                {
+                    // execute method for registering the data on databse
+                    if (alquiler.register(cID, iID, gID, "3", txtMensualidad.Text, txtHonorarios.Text, txtDetails.Text, txtAddress.Text, sectores.getCityID(cbCities.Text), txtDeposito.Text, txtAbono.Text, txtPriceRent.Text, txtTotalPagar.Text, txtITEBISContr.Text, txtISRContr.Text, (Convert.ToInt32(txtComision.Text) * Convert.ToDouble(txtPriceRent.Text)).ToString("f2"), txtHonorarios.Text) > 0)
+                    {
+                        facturacion.registerRent(cID, "3", alquiler.getID(pInquilino.Nombre, pInquilino.Apellido, pCliente.Nombre, pCliente.Apellido, pGarante.Nombre, pGarante.Apellido, pInquilino.Cedula, pCliente.Cedula, pGarante.Cedula), txtMensualidad.Text, txtDeposito.Text, txtTotalPagar.Text);
+                        frmReporteAbonoContrAlquiler pCotizacion = new frmReporteAbonoContrAlquiler();
+                        pCotizacion.report = "Cotizacion";
+                        pCotizacion.ID = alquiler.getID(txtNameInqui.Text, txtLastNameInqui.Text, txtCustName.Text, txtCustLastName.Text, txtNameGaran.Text, txtLastNameGaran.Text, txtCedulaIn.Text, txtCedulaClie.Text, txtCedulaGa.Text);
+                        pCotizacion.ShowDialog();
+                        clearAll();
+                        listCities();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo Generar la cotizacion, Intentelo Nuevamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
 
         // when Limpiar buttin is clicked on Garante.
         private void btnClearGaran_Click(object sender, EventArgs e)

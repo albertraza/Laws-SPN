@@ -86,19 +86,23 @@
             this.txtIDGaran = new System.Windows.Forms.TextBox();
             this.lblIDGaran = new System.Windows.Forms.Label();
             this.gbInfoAlqui = new System.Windows.Forms.GroupBox();
+            this.txtISRContr = new System.Windows.Forms.TextBox();
+            this.lblISRContr = new System.Windows.Forms.Label();
+            this.txtITEBISContr = new System.Windows.Forms.TextBox();
+            this.lblITEBISCOntr = new System.Windows.Forms.Label();
             this.txtTotalPagar = new System.Windows.Forms.TextBox();
             this.lblTotalPagar = new System.Windows.Forms.Label();
             this.txtComision = new System.Windows.Forms.TextBox();
             this.lblComision = new System.Windows.Forms.Label();
+            this.txtDeposito = new System.Windows.Forms.TextBox();
+            this.lblDeposito = new System.Windows.Forms.Label();
+            this.txtAbono = new System.Windows.Forms.TextBox();
+            this.lblAbono = new System.Windows.Forms.Label();
             this.btnCalcular = new System.Windows.Forms.Button();
             this.lblMensualidad = new System.Windows.Forms.Label();
             this.txtMensualidad = new System.Windows.Forms.TextBox();
-            this.txtDeposito = new System.Windows.Forms.TextBox();
-            this.lblDeposito = new System.Windows.Forms.Label();
             this.txtHonorarios = new System.Windows.Forms.TextBox();
             this.lblHonorarios = new System.Windows.Forms.Label();
-            this.txtAbono = new System.Windows.Forms.TextBox();
-            this.lblAbono = new System.Windows.Forms.Label();
             this.txtPriceRent = new System.Windows.Forms.TextBox();
             this.lblPrice = new System.Windows.Forms.Label();
             this.gbInfoInmueble = new System.Windows.Forms.GroupBox();
@@ -112,10 +116,7 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.gbMensualidad = new System.Windows.Forms.GroupBox();
-            this.txtITEBISContr = new System.Windows.Forms.TextBox();
-            this.lblITEBISCOntr = new System.Windows.Forms.Label();
-            this.txtISRContr = new System.Windows.Forms.TextBox();
-            this.lblISRContr = new System.Windows.Forms.Label();
+            this.btnCotizacion = new System.Windows.Forms.Button();
             this.gbInfoCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCliente)).BeginInit();
             this.gbInfoInqui.SuspendLayout();
@@ -713,6 +714,38 @@
             this.gbInfoAlqui.Text = "Contrato de Alquiler";
             this.gbInfoAlqui.Enter += new System.EventHandler(this.gbInfoAlqui_Enter);
             // 
+            // txtISRContr
+            // 
+            this.txtISRContr.Location = new System.Drawing.Point(152, 103);
+            this.txtISRContr.Name = "txtISRContr";
+            this.txtISRContr.Size = new System.Drawing.Size(64, 20);
+            this.txtISRContr.TabIndex = 31;
+            // 
+            // lblISRContr
+            // 
+            this.lblISRContr.AutoSize = true;
+            this.lblISRContr.Location = new System.Drawing.Point(154, 87);
+            this.lblISRContr.Name = "lblISRContr";
+            this.lblISRContr.Size = new System.Drawing.Size(28, 13);
+            this.lblISRContr.TabIndex = 30;
+            this.lblISRContr.Text = "ISR:";
+            // 
+            // txtITEBISContr
+            // 
+            this.txtITEBISContr.Location = new System.Drawing.Point(154, 47);
+            this.txtITEBISContr.Name = "txtITEBISContr";
+            this.txtITEBISContr.Size = new System.Drawing.Size(64, 20);
+            this.txtITEBISContr.TabIndex = 29;
+            // 
+            // lblITEBISCOntr
+            // 
+            this.lblITEBISCOntr.AutoSize = true;
+            this.lblITEBISCOntr.Location = new System.Drawing.Point(159, 31);
+            this.lblITEBISCOntr.Name = "lblITEBISCOntr";
+            this.lblITEBISCOntr.Size = new System.Drawing.Size(44, 13);
+            this.lblITEBISCOntr.TabIndex = 28;
+            this.lblITEBISCOntr.Text = "ITEBIS:";
+            // 
             // txtTotalPagar
             // 
             this.txtTotalPagar.Location = new System.Drawing.Point(107, 146);
@@ -745,6 +778,38 @@
             this.lblComision.TabIndex = 24;
             this.lblComision.Text = "Comision:";
             // 
+            // txtDeposito
+            // 
+            this.txtDeposito.Location = new System.Drawing.Point(63, 68);
+            this.txtDeposito.Name = "txtDeposito";
+            this.txtDeposito.Size = new System.Drawing.Size(67, 20);
+            this.txtDeposito.TabIndex = 22;
+            // 
+            // lblDeposito
+            // 
+            this.lblDeposito.AutoSize = true;
+            this.lblDeposito.Location = new System.Drawing.Point(5, 71);
+            this.lblDeposito.Name = "lblDeposito";
+            this.lblDeposito.Size = new System.Drawing.Size(52, 13);
+            this.lblDeposito.TabIndex = 21;
+            this.lblDeposito.Text = "Deposito:";
+            // 
+            // txtAbono
+            // 
+            this.txtAbono.Location = new System.Drawing.Point(66, 107);
+            this.txtAbono.Name = "txtAbono";
+            this.txtAbono.Size = new System.Drawing.Size(64, 20);
+            this.txtAbono.TabIndex = 18;
+            // 
+            // lblAbono
+            // 
+            this.lblAbono.AutoSize = true;
+            this.lblAbono.Location = new System.Drawing.Point(19, 110);
+            this.lblAbono.Name = "lblAbono";
+            this.lblAbono.Size = new System.Drawing.Size(41, 13);
+            this.lblAbono.TabIndex = 17;
+            this.lblAbono.Text = "Abono:";
+            // 
             // btnCalcular
             // 
             this.btnCalcular.Location = new System.Drawing.Point(282, 472);
@@ -771,22 +836,6 @@
             this.txtMensualidad.Size = new System.Drawing.Size(80, 20);
             this.txtMensualidad.TabIndex = 8;
             // 
-            // txtDeposito
-            // 
-            this.txtDeposito.Location = new System.Drawing.Point(63, 68);
-            this.txtDeposito.Name = "txtDeposito";
-            this.txtDeposito.Size = new System.Drawing.Size(67, 20);
-            this.txtDeposito.TabIndex = 22;
-            // 
-            // lblDeposito
-            // 
-            this.lblDeposito.AutoSize = true;
-            this.lblDeposito.Location = new System.Drawing.Point(5, 71);
-            this.lblDeposito.Name = "lblDeposito";
-            this.lblDeposito.Size = new System.Drawing.Size(52, 13);
-            this.lblDeposito.TabIndex = 21;
-            this.lblDeposito.Text = "Deposito:";
-            // 
             // txtHonorarios
             // 
             this.txtHonorarios.Location = new System.Drawing.Point(89, 62);
@@ -803,22 +852,6 @@
             this.lblHonorarios.Size = new System.Drawing.Size(61, 13);
             this.lblHonorarios.TabIndex = 19;
             this.lblHonorarios.Text = "Honorarios:";
-            // 
-            // txtAbono
-            // 
-            this.txtAbono.Location = new System.Drawing.Point(66, 107);
-            this.txtAbono.Name = "txtAbono";
-            this.txtAbono.Size = new System.Drawing.Size(64, 20);
-            this.txtAbono.TabIndex = 18;
-            // 
-            // lblAbono
-            // 
-            this.lblAbono.AutoSize = true;
-            this.lblAbono.Location = new System.Drawing.Point(19, 110);
-            this.lblAbono.Name = "lblAbono";
-            this.lblAbono.Size = new System.Drawing.Size(41, 13);
-            this.lblAbono.TabIndex = 17;
-            this.lblAbono.Text = "Abono:";
             // 
             // txtPriceRent
             // 
@@ -926,7 +959,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(329, 510);
+            this.btnCancel.Location = new System.Drawing.Point(456, 510);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(96, 23);
             this.btnCancel.TabIndex = 7;
@@ -949,37 +982,15 @@
             this.gbMensualidad.TabStop = false;
             this.gbMensualidad.Text = "Mensualidad";
             // 
-            // txtITEBISContr
+            // btnCotizacion
             // 
-            this.txtITEBISContr.Location = new System.Drawing.Point(154, 47);
-            this.txtITEBISContr.Name = "txtITEBISContr";
-            this.txtITEBISContr.Size = new System.Drawing.Size(64, 20);
-            this.txtITEBISContr.TabIndex = 29;
-            // 
-            // lblITEBISCOntr
-            // 
-            this.lblITEBISCOntr.AutoSize = true;
-            this.lblITEBISCOntr.Location = new System.Drawing.Point(159, 31);
-            this.lblITEBISCOntr.Name = "lblITEBISCOntr";
-            this.lblITEBISCOntr.Size = new System.Drawing.Size(44, 13);
-            this.lblITEBISCOntr.TabIndex = 28;
-            this.lblITEBISCOntr.Text = "ITEBIS:";
-            // 
-            // txtISRContr
-            // 
-            this.txtISRContr.Location = new System.Drawing.Point(152, 103);
-            this.txtISRContr.Name = "txtISRContr";
-            this.txtISRContr.Size = new System.Drawing.Size(64, 20);
-            this.txtISRContr.TabIndex = 31;
-            // 
-            // lblISRContr
-            // 
-            this.lblISRContr.AutoSize = true;
-            this.lblISRContr.Location = new System.Drawing.Point(154, 87);
-            this.lblISRContr.Name = "lblISRContr";
-            this.lblISRContr.Size = new System.Drawing.Size(28, 13);
-            this.lblISRContr.TabIndex = 30;
-            this.lblISRContr.Text = "ISR:";
+            this.btnCotizacion.Location = new System.Drawing.Point(303, 510);
+            this.btnCotizacion.Name = "btnCotizacion";
+            this.btnCotizacion.Size = new System.Drawing.Size(122, 23);
+            this.btnCotizacion.TabIndex = 29;
+            this.btnCotizacion.Text = "Hacer Cotizacion";
+            this.btnCotizacion.UseVisualStyleBackColor = true;
+            this.btnCotizacion.Click += new System.EventHandler(this.btnCotizacion_Click);
             // 
             // frmAlquiler
             // 
@@ -987,6 +998,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkKhaki;
             this.ClientSize = new System.Drawing.Size(964, 545);
+            this.Controls.Add(this.btnCotizacion);
             this.Controls.Add(this.gbMensualidad);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnClear);
@@ -1111,5 +1123,6 @@
         private System.Windows.Forms.TextBox txtITEBISContr;
         private System.Windows.Forms.Label lblITEBISCOntr;
         private System.Windows.Forms.GroupBox gbMensualidad;
+        private System.Windows.Forms.Button btnCotizacion;
     }
 }

@@ -116,6 +116,17 @@ namespace Sistema_Abogados
             }
             return dt;
         }
+        public static DataTable cotizacionAlquiler(string ID)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection con = DBcomun.getConnection())
+            {
+                SqlDataAdapter da = new SqlDataAdapter(string.Format("select Rent.ID as NumeroCaso, CLIENTE.name as NombreCliente, CLIENTE.lastname as ApellidoCliente, INQUILINO.name as NombreInquilino, INQUILINO.lastname as ApellidoInquilino, GARANTE.name as NombreGarante, GARANTE.lastname as ApellidoGarante, Rent.detalles as Detalles, Rent.direccion as Direccion, Rent.Mensualidad as MensualidadTo, Rent.Alquiler, Rent.ContratoCant as Contrato, Rent.ITEBIS, Rent.ISR, Rent.Comision, Rent.Honorarios  from Rent INNER JOIN customers as CLIENTE on CLIENTE.ID = Rent.CLienteID inner join customers as INQUILINO on INQUILINO.ID = Rent.InquilinoID inner join customers as GARANTE on GARANTE.ID = Rent.GaranteID where Rent.ID = '{0}'", ID), con);
+                da.Fill(dt);
+                con.Close();
+            }
+            return dt;
+        }
         // ******* end ******* //
     }
 }
