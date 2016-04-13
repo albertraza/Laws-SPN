@@ -17,7 +17,6 @@ namespace Sistema_Abogados
             InitializeComponent();
         }
         // variable for getting Factura ID.
-        private int ID;
         public int getID { get; set; }
         // ******************************************** //
         private void frmFacturaAlquiler_Load(object sender, EventArgs e)
